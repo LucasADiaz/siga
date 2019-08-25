@@ -1,5 +1,10 @@
     ¡Hola chicos! solo a motivo de repaso, les voy a dejar todos los comandos de git en este archivo! SALUDOS
-    .
+---------------------------------------------------------------------------------
+    Para vincular una carpeta con este repositorio se debe usar el siguiente comando, por supuesto primero hay que aplicar un init en dicha carpeta
+
+git remote add origin https://github.com/LucasADiaz/siga.git
+
+
 
 git help
 
