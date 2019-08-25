@@ -1,4 +1,4 @@
-    Hola chicos! solo a motivo de repaso, les voy a dejar todos los comandos de git en este archivo! SALUDOS
+    ¡Hola chicos! solo a motivo de repaso, les voy a dejar todos los comandos de git en este archivo! SALUDOS
     .
 
 git help
