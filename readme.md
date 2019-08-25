@@ -56,10 +56,21 @@ git push origin NombreDeBranch
 git pull origin NombreDeBranch
 
     Hace una actualización en nuestro branch local, desde un branch remoto que indicamos en el comando.
-
+-----
     Como usar GIT y VISUAL ESTUDIO CODE para realizar todas las operaciones necesarias
 https://lemoncode.net/lemoncode-blog/2017/12/12/git-y-visual-studio-code
     
+
+
+
+
+
+
+
+
+
+
+
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
