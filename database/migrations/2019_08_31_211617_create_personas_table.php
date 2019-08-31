@@ -15,6 +15,7 @@ class CreatePersonasTable extends Migration
     {
         Schema::create('personas', function (Blueprint $table) {
             $table->bigIncrements('id');
+           // $table->
             $table->timestamps();
         });
     }

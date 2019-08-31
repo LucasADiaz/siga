@@ -14,7 +14,13 @@ class CreateMateriasTable extends Migration
     public function up()
     {
         Schema::create('materias', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id_materia');
+            $table->unsignedBigInteger('id_profesor')->nullable();
+            $table->unsignedBigInteger('id_curso')->nullable();
+            $table->unsignedBigInteger('id_turno')->nullable();
+            $table->unsignedBigInteger('id_modulo')->nullable();
+            $table->timestamp('horario_ini')->nullable();
+            $table->timestamp('horario_fin')->nullable();
             $table->timestamps();
         });
     }
