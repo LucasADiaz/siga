@@ -14,8 +14,8 @@ class CreateAlumnosTable extends Migration
     public function up()
     {
         Schema::create('alumnos', function (Blueprint $table) {
-            $table->bigIncrements('id_alumno');
-            //$table->
+            $table->bigIncrements('alumno_id')->comment('representa uniquivocamente a un alumno');
+            $table->timestamp('alumno_fecha_ini')->comment('fecha en que se dio de alta al alumno');
             $table->timestamps();
         });
     }

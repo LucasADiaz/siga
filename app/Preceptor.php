@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Preceptor extends Model
 {
-    //
+    protected $table = 'preceptores';
 }
