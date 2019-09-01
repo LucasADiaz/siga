@@ -14,7 +14,7 @@ class CreateNotasTable extends Migration
     public function up()
     {
         Schema::create('notas', function (Blueprint $table) {
-            $table->bigIncrements('nota_id')->comment('identifica uniquivocamente a una nota');
+            $table->bigIncrements('id')->comment('identifica uniquivocamente a una nota');
             $table->unsignedBigInteger('alumno_id')->nullable()->comment('identificador del alumno');
             $table->unsignedBigInteger('materia_id')->nullable()->comment('indentificador de la materia');
             $table->unsignedBigInteger('semestre_id')->nullable()->comment('identificador del semestre');

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAlumnosTable extends Migration
+class CreateAutoridadesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,23 +13,17 @@ class CreateAlumnosTable extends Migration
      */
     public function up()
     {
-        Schema::create('alumnos', function (Blueprint $table) {
-            $table->bigIncrements('id')
-                    ->comment('representa uniquivocamente a un alumno');
-   
+        Schema::create('autoridades', function (Blueprint $table) {
+            $table->bigIncrements('id');
+
             $table->unsignedBigInteger('persona_id')
                     ->comment('identificador de persona.');
 
             $table->unsignedBigInteger('telefono_id')
-                    ->nullable()
                     ->comment('identificador del telefono.');
 
             $table->string('email')
-                    ->nullable()
-                    ->comment('correo electronico que para el alumno es opcional.');
-
-            $table->date('fecha_ingreso')
-                    ->comment('fecha en que se dio de alta al alumno');
+                    ->comment('correo electronico que para el autoridad.');
 
             $table->timestamps();
         });
@@ -42,6 +36,6 @@ class CreateAlumnosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alumnos');
+        Schema::dropIfExists('autoridades');
     }
 }

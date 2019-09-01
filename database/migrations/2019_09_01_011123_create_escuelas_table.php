@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDirectivosTable extends Migration
+class CreateEscuelasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,15 @@ class CreateDirectivosTable extends Migration
      */
     public function up()
     {
-        Schema::create('directivos', function (Blueprint $table) {
+        Schema::create('escuelas', function (Blueprint $table) {
             $table->bigIncrements('id');
+
+            $table->string('nombre',200)
+                    ->comment('Nombre de la escuela.');
+            
+            $table->unsignedBigInteger('domicilio_id')
+                    ->comment('identificado del domicilio.');
+
             $table->timestamps();
         });
     }
@@ -26,6 +33,6 @@ class CreateDirectivosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('directivos');
+        Schema::dropIfExists('escuelas');
     }
 }

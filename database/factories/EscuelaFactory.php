@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Directivo;
+use App\Escuela;
 use Faker\Generator as Faker;
 
-$factory->define(Directivo::class, function (Faker $faker) {
+$factory->define(Escuela::class, function (Faker $faker) {
     return [
         //
     ];
