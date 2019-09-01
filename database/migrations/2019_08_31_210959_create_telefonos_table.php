@@ -15,6 +15,12 @@ class CreateTelefonosTable extends Migration
     {
         Schema::create('telefonos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('numero')
+                    ->comment('numero de telefono formato: +54 9 383 4578983');
+            $table->unsignedBigInteger('persona_id')
+                    ->comment('Identificador de la persona propietaria del telefono.');
+            $table->unsignedBigInteger('categoria_id')
+                    ->comment('catecoria de telefono. Ej: Casa, Trabajo...');
             $table->timestamps();
         });
     }
