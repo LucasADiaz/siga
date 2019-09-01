@@ -14,8 +14,24 @@ class CreateNotificacionesTable extends Migration
     public function up()
     {
         Schema::create('notificaciones', function (Blueprint $table) {
-            $table->bigIncrements('notificacion_id');
-            $table->text('titulo');
+            $table->bigIncrements('id')
+                    ->comment('identifica uniquivocamente a una notificacion');
+            
+            $table->string('asunto')
+                    ->comment('titulo de la notifación');
+                
+            $table->unsignedBigInteger('de')
+                    ->comment('identificador de la autoridad que genera la notificación ');
+
+            $table->unsignedBigInteger('a')
+                    ->comment('identificador del alumno');
+
+            $table->string('mensaje',400)
+                    ->comment('mensaje enviado');
+
+            $table->unsignedBigInteger('categoria_notificacion_id')
+                    ->comment('se identifica el/los medios de emision del mensaje');
+                    
             $table->timestamps();
         });
     }
