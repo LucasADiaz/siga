@@ -15,7 +15,25 @@ class CreatePersonasTable extends Migration
     {
         Schema::create('personas', function (Blueprint $table) {
             $table->bigIncrements('id');
-           // $table->
+            
+            $table->string('nombre',100)
+                    ->comment('nombre de la persona.');
+
+            $table->string('apellido',100)
+                    ->comment('apellido de la persona.');
+            
+            $table->date('fecha_nacimiento')
+                    ->comment('fecha de nacimiento de la persona.');
+
+            $table->string('sexo_id')
+                    ->comment('sexo de la persona, masculino y femenino. NADA DE HOMOSEXUAL O POKEMON.');
+            
+            $table->unsignedBigInteger('domicilio_id')
+                    ->comment('identificado del domicilio.');
+
+            $table->unsignedBigInteger('grupo_factor_id')
+                    ->comment('Grupo y Factor sanguineo.');
+
             $table->timestamps();
         });
     }
