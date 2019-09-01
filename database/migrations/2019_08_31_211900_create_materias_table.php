@@ -14,6 +14,7 @@ class CreateMateriasTable extends Migration
     public function up()
     {
         Schema::create('materias', function (Blueprint $table) {
+
             
             $table->bigIncrements('id')
                     ->comment('identifica uniquivocamente a una materia');
@@ -30,6 +31,7 @@ class CreateMateriasTable extends Migration
             $table->unsignedBigInteger('modulo_id')
                     ->comment('identifica el modulo');
         
+
             $table->timestamps();
         });
     }

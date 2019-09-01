@@ -14,6 +14,7 @@ class CreateNotasTable extends Migration
     public function up()
     {
         Schema::create('notas', function (Blueprint $table) {
+
             $table->bigIncrements('nota_id')
                 ->comment('identifica uniquivocamente a una nota');
 
@@ -34,6 +35,7 @@ class CreateNotasTable extends Migration
 
             $table->bigInteger('cat_nota_id')
                     ->comment('describe el tipo de nota');
+
 
             $table->timestamps();
         });
