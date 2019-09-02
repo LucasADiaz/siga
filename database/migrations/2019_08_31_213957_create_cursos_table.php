@@ -31,7 +31,7 @@ class CreateCursosTable extends Migration
 
 
             $table->unsignedBigInteger('turno',['mañana','tarde','noche'])
-                    ->
+                    ->comment('identifica el turno al que pertenece el curso');
 
             //agregar turno al que pertenece
 
