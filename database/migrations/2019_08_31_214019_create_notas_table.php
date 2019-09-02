@@ -24,15 +24,14 @@ class CreateNotasTable extends Migration
             $table->unsignedBigInteger('materia_id')
                     ->comment('indentificador de la materia');
 
-            $table->unsignedBigInteger('semestre_id')
-                    ->comment('identificador del semestre');
+            $table->unsignedBigInteger('periodo_id')
+                    ->comment('identificador del Periodo');
 
             $table->enum('nota',[1,2,3,4,5,6,7,8,9,10])
                     ->comment('Nota de la materia obtenida por el alumno en el semestre');
 
-            $table->unsignedBigInteger('cat_nota_id')
+            $table->unsignedBigInteger('categoria_nota_id')
                     ->comment('describe el tipo de nota');
-
 
             $table->timestamps();
         });

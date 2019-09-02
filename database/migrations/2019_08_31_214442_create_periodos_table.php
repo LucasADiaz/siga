@@ -15,6 +15,19 @@ class CreatePeriodosTable extends Migration
     {
         Schema::create('periodos', function (Blueprint $table) {
             $table->bigIncrements('id');
+
+            $table->unsignedBigInteger('escuela_id')
+                    ->comment('Identifica la escuela que pertenece el formato de periodo que establece.');
+                
+            $table->string('nombre')
+                    ->comment('Nombre del Periodo');
+
+            $table->date('fecha_inicio')
+                    ->comment('fecha de inicio del Periodo');
+
+            $table->date('fecha_fin')
+                    ->comment('fecha final del Periodo');
+
             $table->timestamps();
         });
     }

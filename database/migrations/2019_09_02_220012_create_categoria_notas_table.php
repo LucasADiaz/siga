@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateModalidadesTable extends Migration
+class CreateCategoriaNotasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateModalidadesTable extends Migration
      */
     public function up()
     {
-        Schema::create('modalidades', function (Blueprint $table) {
+        Schema::create('categoria_notas', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->unsignedBigInteger('escuela_id')
-                    ->comment('Identifica la escuela que pertenece la modalidad.');
-                
+            $table->unsignedBigInteger('autoridad_id')
+                    ->comment('identificador de el Profesor que crea la categoria de la nota.');
+
             $table->string('nombre')
-                    ->comment('Nombre de la modalidad segun la escuela.');
+                    ->comment('nombre de la categoria de la nota.');
 
             $table->timestamps();
         });
@@ -33,6 +33,6 @@ class CreateModalidadesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modalidades');
+        Schema::dropIfExists('categoria_notas');
     }
 }

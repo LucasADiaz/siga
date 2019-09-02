@@ -15,6 +15,19 @@ class CreateAlumnoEscuelasTable extends Migration
     {
         Schema::create('alumno_escuelas', function (Blueprint $table) {
             $table->bigIncrements('id');
+
+            $table->unsignedBigInteger('escuela_id')
+                    ->comment('identificador de la escuela.');
+
+            $table->unsignedBigInteger('alumno_id')
+                    ->comment('identificador de alumno.');
+
+            $table->date('fecha_ingreso')
+                    ->comment('fecha de ingreso a la escuela');
+
+            $table->date('fecha_salida')
+                    ->comment('fecha de salida o finalizacion de la escuela');
+
             $table->timestamps();
         });
     }
