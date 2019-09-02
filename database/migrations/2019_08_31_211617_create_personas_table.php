@@ -25,7 +25,7 @@ class CreatePersonasTable extends Migration
             $table->date('fecha_nacimiento')
                     ->comment('fecha de nacimiento de la persona.');
 
-            $table->enum('sexo_id',['M','F'])
+            $table->enum('sexo',['M','F'])
                     ->comment('sexo de la persona, masculino y femenino. NADA DE HOMOSEXUAL O POKEMON.');
             
             $table->unsignedBigInteger('domicilio_id')

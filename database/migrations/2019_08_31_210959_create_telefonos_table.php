@@ -22,7 +22,7 @@ class CreateTelefonosTable extends Migration
             $table->unsignedBigInteger('persona_id')
                     ->comment('Identificador de la persona propietaria del telefono.');
             
-             $table->unsignedBigInteger('categoria_id')
+             $table->enum('categoria',['Casa','Trabajo','Movil'])
                     ->comment('categoria de telefono. Ej: Casa, Trabajo...');
 
             $table->timestamps();
