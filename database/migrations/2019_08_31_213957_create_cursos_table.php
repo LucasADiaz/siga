@@ -29,19 +29,12 @@ class CreateCursosTable extends Migration
             $table->enum('seccion',['A','B','C','D'])
                     ->comment('identifica la seccion del curso');
 
-<<<<<<< HEAD
 
             $table->unsignedBigInteger('turno',['mañana','tarde','noche'])
                     ->comment('identifica el turno al que pertenece el curso');
 
             //agregar turno al que pertenece
 
-=======
-            $table->unsignedBigInteger('turno_id')
-                    ->comment('identifica el turno');
-
-            
->>>>>>> 3b2f740ddcebf8e853d7b306c3ba7c7fb4fbe066
             $table->timestamps();
         });
     }
