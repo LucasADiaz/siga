@@ -19,7 +19,7 @@ class CreateTelefonosTable extends Migration
                     ->comment('numero de telefono formato: +54 9 383 4578983');
             $table->unsignedBigInteger('persona_id')
                     ->comment('Identificador de la persona propietaria del telefono.');
-            $table->unsignedBigInteger('categoria_id')
+            $table->unsignedBigInteger('categoria_telefono_id')
                     ->comment('catecoria de telefono. Ej: Casa, Trabajo...');
             $table->timestamps();
         });

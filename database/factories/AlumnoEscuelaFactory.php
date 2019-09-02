@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Turno;
+use App\AlumnoEscuela;
 use Faker\Generator as Faker;
 
-$factory->define(Turno::class, function (Faker $faker) {
+$factory->define(AlumnoEscuela::class, function (Faker $faker) {
     return [
         //
     ];

@@ -28,8 +28,8 @@ class CreateAlumnosTable extends Migration
                     ->nullable()
                     ->comment('correo electronico que para el alumno es opcional.');
 
-            $table->date('fecha_ingreso')
-                    ->comment('fecha en que se dio de alta al alumno');
+            $table->unsignedBigInteger('grupo_factor_id')
+                    ->comment('Grupo y Factor sanguineo.');
 
             $table->timestamps();
         });

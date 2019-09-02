@@ -19,14 +19,17 @@ class CreateCursosTable extends Migration
             $table->unsignedBigInteger('escuela_id')
                     ->comment('identifica a que escuela pertenece el curso');
 
-            $table->enum('nivel_curso',['primaria','secundaria'])
+            $table->enum('nivel',['primaria','secundaria'])
                     ->comment('identifica al nivel del curso, si es primario o secundario');
             
-            $table->enum('anio_curso',[1,2,3,4,5,6,7])
+            $table->enum('anio',[1,2,3,4,5,6,7])
                     ->comment('identifica el año del curso');
 
-            $table->enum('seccion_curso',['A','B','C','D'])
+            $table->enum('seccion',['A','B','C','D'])
                     ->comment('identifica la seccion del curso');
+
+            $table->unsignedBigInteger('turno_id')
+                    ->comment('identifica el turno');
 
             
             $table->timestamps();

@@ -25,9 +25,6 @@ class CreateMateriasTable extends Migration
             $table->unsignedBigInteger('curso_id')
                     ->comment('identifica al curso');
 
-            $table->unsignedBigInteger('turno_id')
-                    ->comment('identifica el turno');
-
             $table->unsignedBigInteger('modulo_id')
                     ->comment('identifica el modulo');
         
