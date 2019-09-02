@@ -14,7 +14,8 @@ class CreateCursosTable extends Migration
     public function up()
     {
         Schema::create('cursos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')
+                    ->comment('identifica uniquivocamente un curso');
             
             $table->unsignedBigInteger('escuela_id')
                     ->comment('identifica a que escuela pertenece el curso');
@@ -28,7 +29,12 @@ class CreateCursosTable extends Migration
             $table->enum('seccion_curso',['A','B','C','D'])
                     ->comment('identifica la seccion del curso');
 
-            
+
+            $table->unsignedBigInteger('turno',['mañana','tarde','noche'])
+                    ->
+
+            //agregar turno al que pertenece
+
             $table->timestamps();
         });
     }

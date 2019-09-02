@@ -25,14 +25,14 @@ class CreatePersonasTable extends Migration
             $table->date('fecha_nacimiento')
                     ->comment('fecha de nacimiento de la persona.');
 
-            $table->string('sexo_id')
+            $table->enum('sexo_id',['M','F'])
                     ->comment('sexo de la persona, masculino y femenino. NADA DE HOMOSEXUAL O POKEMON.');
             
             $table->unsignedBigInteger('domicilio_id')
                     ->comment('identificado del domicilio.');
 
-            $table->unsignedBigInteger('grupo_factor_id')
-                    ->comment('Grupo y Factor sanguineo.');
+            /*$table->unsignedBigInteger('grupo_factor_id')
+                    ->comment('Grupo y Factor sanguineo.');*/
 
             $table->timestamps();
         });

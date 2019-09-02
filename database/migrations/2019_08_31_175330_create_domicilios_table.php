@@ -14,7 +14,9 @@ class CreateDomiciliosTable extends Migration
     public function up()
     {
         Schema::create('domicilios', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')
+                        ->unique()
+                        ->comment('identifica uniquivocamente un domicilio');
 
             $table->string('calle',100)
                     ->comment('nombre de la calle de frente de su casa.');
