@@ -21,10 +21,15 @@ class CreateTelefonosTable extends Migration
             
             $table->unsignedBigInteger('persona_id')
                     ->comment('Identificador de la persona propietaria del telefono.');
+<<<<<<< HEAD
             
              $table->unsignedBigInteger('categoria_id')
                     ->comment('categoria de telefono. Ej: Casa, Trabajo...');
 
+=======
+            $table->unsignedBigInteger('categoria_telefono_id')
+                    ->comment('catecoria de telefono. Ej: Casa, Trabajo...');
+>>>>>>> 3b2f740ddcebf8e853d7b306c3ba7c7fb4fbe066
             $table->timestamps();
         });
     }
