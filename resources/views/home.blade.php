@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Estas logeado!
+                    <a href="{{route('inicio')}}"><input type="button" value="Continuar"></a>
                 </div>
             </div>
         </div>
