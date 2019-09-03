@@ -13,21 +13,14 @@ class CreateAsistenciasTable extends Migration
      */
     public function up()
     {
-        Schema::create('asistencias', function (Blueprint $table) {
+        Schema::create('inasistencias', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->unsignedBigInteger('alumno_id')
                     ->comment('identificador de un alumno');
-            
-            $table->boolean('is_present')
-                    ->comment('indica la presencia del alumno en el dia que se realizo la asistencia');
-            
-            /*$table->unsignedBigInteger('modulo_id')
-                    ->comment('identifica el modulo en el cual se realizo la asistencia');*/
-                    
-
+                  
             $table->date('fecha')
-                    ->comment('fecha de realizacion de la asistenca');
+                    ->comment('fecha que falto el alumno');
 
             $table->timestamps();
         });
@@ -40,6 +33,6 @@ class CreateAsistenciasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('asistencias');
+        Schema::dropIfExists('inasistencias');
     }
 }

@@ -20,10 +20,10 @@ class CreateNotificacionesTable extends Migration
             $table->string('asunto')
                     ->comment('titulo de la notifación');
                 
-            $table->unsignedBigInteger('de')
+            $table->unsignedBigInteger('autoridad_id')
                     ->comment('identificador de la Autoridad que genera la notificación ');
 
-            $table->unsignedBigInteger('a')
+            $table->unsignedBigInteger('alumno_id')
                     ->comment('identificador del Alumno');
 
             $table->string('mensaje',400)
