@@ -28,7 +28,7 @@ class CreateAlumnosTable extends Migration
                     ->nullable()
                     ->comment('correo electronico que para el alumno es opcional.');
 
-            $table->unsignedBigInteger('grupo_factor_id')
+            $table->enum('grupo_factor',['0+','0-'])
                     ->comment('Grupo y Factor sanguineo.');
 
             $table->timestamps();
