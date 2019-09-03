@@ -15,9 +15,11 @@
                     @endif
 
                     You are logged in!
+                    <a href="/inicio"><input type="button" value="Continuar"></a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
