@@ -68,7 +68,7 @@
                                 </div>
                             </li>
                             <li class="nav-item ">
-                                    <a id="navbarDropdown" class="nav-link dropdown-item" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <a id="navbarDropdown" class="nav-link dropdown-item" href="/notificaciones" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         Notificaciones <span class="caret"></span>
                                     </a>
     

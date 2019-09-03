@@ -30,4 +30,8 @@ class HomeController extends Controller
     {
         return view('inicio');
     }
+    public function notificaciones()
+    {
+        return view('notificaciones');
+    }
 }
