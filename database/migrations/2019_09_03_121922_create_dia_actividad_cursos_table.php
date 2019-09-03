@@ -19,7 +19,7 @@ class CreateDiaActividadCursosTable extends Migration
             $table->date('fecha')
                     ->comment('fecha que falto el alumno');
 
-            $table->date('curso_id')
+            $table->unsignedBigInteger('curso_id')
                     ->comment('curso que tuvo actividad en esta fecha');
 
             $table->timestamps();
