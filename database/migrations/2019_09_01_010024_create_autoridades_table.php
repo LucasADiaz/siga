@@ -23,7 +23,7 @@ class CreateAutoridadesTable extends Migration
                     ->comment('identificador del telefono.');
 
             $table->string('email')
-                    ->comment('correo electronico que para el autoridad.');
+                    ->comment('correo electronico para la autoridad.');
 
             $table->timestamps();
         });

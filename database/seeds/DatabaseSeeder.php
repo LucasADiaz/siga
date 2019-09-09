@@ -13,17 +13,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        //debemos llamar todos los seeder que creamos
         $this->call(DomiciliosSeeder::class);
+        $this->call(AlumnosSeeder::class);
+        $this->call(CategoriaSeeder::class);
+        $this->call(MateriasSeeder::class);
+        $this->call(PersonasSeeder::class);
+        $this->call(TelefonosSeeder::class);
+        $this->call(AlumnoEscuelaSeeder::class);
+        // $this->call(DomiciliosSeeder::class);
+        // $this->call(DomiciliosSeeder::class);
     }
 
-    
+
+
+    // Es un metodo que se crea para que limpie las tablas
+    // y tambien desactiva  luego activa las restriccion de la clave foranea
     protected function truncateTable(array $tables)
     {
-        DB::statement('SET FOREING_KEY_CHECKS = 0;');
+        DB::statement('SET FOREING_KEY_CHECKS = 0;');// desactiva las claves foraneas
         foreach ($tables as $table) 
         {
-            DB::table($tables)->truncate();  
+            DB::table($tables)->truncate();  //limpia todas las tablas 
         }
-        DB::statement('SET FOREING_KEY_CHECKS = 1;');
+        DB::statement('SET FOREING_KEY_CHECKS = 1;');//activa clave foranea
     }
 }
