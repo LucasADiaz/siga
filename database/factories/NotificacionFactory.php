@@ -7,6 +7,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Notificacion::class, function (Faker $faker) {
     return [
-        //
+        'asunto'=>$faker->sequence(),
+        'mensaje'=>$faker->text($maxNbChars = 400),
+    
     ];
 });

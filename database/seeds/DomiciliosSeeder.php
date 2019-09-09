@@ -1,5 +1,6 @@
 <?php
 
+use App\Domicilio;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -30,5 +31,7 @@ class DomiciliosSeeder extends Seeder
             'piso'=>'3',
             'departamento'=>'2',
         ]);
+
+        factory(Domicilio::class, 47)->create();
     }
 }

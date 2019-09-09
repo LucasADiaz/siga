@@ -7,6 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(Escuela::class, function (Faker $faker) {
     return [
-        //
+        'nombre'=>$faker->sentence(),
     ];
 });
