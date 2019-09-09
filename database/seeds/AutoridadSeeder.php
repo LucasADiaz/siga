@@ -4,7 +4,7 @@ use App\Autoridad;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class AutoridadeSeeder extends Seeder
+class AutoridadSeeder extends Seeder
 {
     /**
      * Run the database seeds.

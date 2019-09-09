@@ -4,7 +4,7 @@ use App\CategoriaNotificacion;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CategoriaNotificacioneSeeder extends Seeder
+class CategoriaNotificacionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
