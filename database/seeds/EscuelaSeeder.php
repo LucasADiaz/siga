@@ -4,7 +4,7 @@ use App\Escuela;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class EscuelasSeeder extends Seeder
+class EscuelaSeeder extends Seeder
 {
     /**
      * Run the database seeds.

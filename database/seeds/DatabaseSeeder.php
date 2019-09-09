@@ -13,15 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< Updated upstream
-        $this->call(DomiciliosSeeder::class);
-    }
-
-    
-=======
         //debemos llamar todos los seeder que creamos
-        $this->call(LegajosSeeder::class);  
-        $this->call(DomiciliosSeeder::class);          
+        $this->call(LegajoSeeder::class);  
+        $this->call(DomicilioSeeder::class);          
         $this->call(PersonasSeeder::class);
         $this->call(TelefonosSeeder::class);
         $this->call(EscuelasSeeder::class); 
@@ -30,24 +24,24 @@ class DatabaseSeeder extends Seeder
     
 
         
-    //     $this->call(CategoriaNotasSeeder::class);
-    //     $this->call(CategoriaNotificacionesSeeder::class);
+    //     $this->call(CategoriaNotaSeeder::class);
+    //     $this->call(CategoriaNotificacioneSeeder::class);
     //     $this->call(CursosSeeder::class);
-    //     $this->call(AutoridadesSeeder::class);
+    //     $this->call(AutoridadeSeeder::class);
     //     $this->call(DiaActividadSeeder::class);
     //     $this->call(DocumentosSeeder::class);        
     
-    //     $this->call(InasistetenciasSeeder::class);
-    //     $this->call(MateriasSeeder::class);
-    //     $this->call(ModalidadesSeeder::class);
-    //     $this->call(ModulosSeeder::class);
-    //     $this->call(NotasSeeder::class);
-    //     $this->call(NotificacionesSeeder::class);
-    //     $this->call(PeriodosSeeder::class);
+    //     $this->call(InasistetenciaSeeder::class);
+    //     $this->call(MateriaSeeder::class);
+    //     $this->call(ModalidadeSeeder::class);
+    //     $this->call(ModuloSeeder::class);
+    //     $this->call(NotaSeeder::class);
+    //     $this->call(NotificacioneSeeder::class);
+    //     $this->call(PeriodoSeeder::class);
          
         
     //     $this->call(AlumnoEscuelaSeeder::class);
-    //     $this->call(AlumnosSeeder::class);
+    //     $this->call(AlumnoSeeder::class);
     }
 
 
@@ -56,14 +50,13 @@ class DatabaseSeeder extends Seeder
     
     // Es un metodo que se crea para que limpie las tablas
     // y tambien desactiva  luego activa las restriccion de la clave foranea
->>>>>>> Stashed changes
     protected function truncateTable(array $tables)
     {
-        DB::statement('SET FOREING_KEY_CHECKS = 0;');
+        DB::statement('SET FOREING_KEY_CHECKS = 0');
         foreach ($tables as $table) 
         {
-            DB::table($tables)->truncate();  
+            DB::table($table)->truncate();  
         }
-        DB::statement('SET FOREING_KEY_CHECKS = 1;');
+        DB::statement('SET FOREING_KEY_CHECKS = 1');
     }
 }

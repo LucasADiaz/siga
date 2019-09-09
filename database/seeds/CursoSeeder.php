@@ -4,7 +4,7 @@ use App\Curso;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CursosSeeder extends Seeder
+class CursoSeeder extends Seeder
 {
     /**
      * Run the database seeds.

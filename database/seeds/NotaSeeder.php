@@ -1,9 +1,9 @@
 <?php
 
-use App\Modalidad;
+use App\Nota;
 use Illuminate\Database\Seeder;
 
-class ModalidadesSeeder extends Seeder
+class NotaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class ModalidadesSeeder extends Seeder
      */
     public function run()
     {
-        factory(Modalidad::class, 47)->create();
+        factory(Nota::class, 47)->create();
     }
 }

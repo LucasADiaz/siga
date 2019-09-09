@@ -1,9 +1,9 @@
 <?php
 
-use App\Legajo;
+use App\Documento;
 use Illuminate\Database\Seeder;
 
-class LegajosSeeder extends Seeder
+class DocumentoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class LegajosSeeder extends Seeder
      */
     public function run()
     {
-        factory(Legajo::class, 47)->create();
+        factory(Documento::class, 47)->create();
     }
 }
