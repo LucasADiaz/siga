@@ -78,6 +78,10 @@ class AddForeignKey extends Migration
         Schema::table('dia_actividad_cursos', function (Blueprint $table) {        
             $table->foreign('curso_id')->references('id')->on('cursos');
         });
+        Schema::table('autoridad_telefonos', function (Blueprint $table) {        
+            $table->foreign('autoridad_id')->references('id')->on('autoridades');
+            $table->foreign('telefono_id')->references('id')->on('telefonos');
+        });
     }
 
     /**
@@ -140,6 +144,9 @@ class AddForeignKey extends Migration
         });
         Schema::table('dia_actividad_cursos', function (Blueprint $table) {        
             $table->dropForeign(['curso_id']);            
+        });
+        Schema::table('autoridad_telefonos', function (Blueprint $table) {        
+            $table->dropForeign(['autoridad_id','telefono_id']);            
         });
     }
 }
