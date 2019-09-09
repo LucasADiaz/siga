@@ -1,9 +1,9 @@
 <?php
 
-use App\Documento;
+use App\Inasistencia;
 use Illuminate\Database\Seeder;
 
-class DocumentosSeeder extends Seeder
+class InasistetenciaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class DocumentosSeeder extends Seeder
      */
     public function run()
     {
-        factory(Documento::class, 47)->create();
+        factory(Inasistencia::class, 47)->create();
     }
 }

@@ -4,7 +4,7 @@ use App\CategoriaNota;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CategoriaNotasSeeder extends Seeder
+class CategoriaNotaSeeder extends Seeder
 {
     /**
      * Run the database seeds.

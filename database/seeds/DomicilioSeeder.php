@@ -4,7 +4,7 @@ use App\Domicilio;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class DomiciliosSeeder extends Seeder
+class DomicilioSeeder extends Seeder
 {
     /**
      * Run the database seeds.

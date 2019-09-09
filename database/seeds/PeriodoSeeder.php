@@ -3,7 +3,7 @@
 use App\Periodo;
 use Illuminate\Database\Seeder;
 
-class PeriodosSeeder extends Seeder
+class PeriodoSeeder extends Seeder
 {
     /**
      * Run the database seeds.

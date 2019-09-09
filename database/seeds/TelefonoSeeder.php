@@ -1,9 +1,9 @@
 <?php
 
-use App\Nota;
+use App\Telefono;
 use Illuminate\Database\Seeder;
 
-class NotasSeeder extends Seeder
+class TelefonoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class NotasSeeder extends Seeder
      */
     public function run()
     {
-        factory(Nota::class, 47)->create();
+        factory(Telefono::class, 47)->create();
     }
 }
