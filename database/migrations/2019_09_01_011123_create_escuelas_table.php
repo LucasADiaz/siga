@@ -22,8 +22,12 @@ class CreateEscuelasTable extends Migration
             $table->unsignedBigInteger('domicilio_id')
                     ->comment('identificado del domicilio.');
             
-            $table->unsignedBigInteger('telefono_id')
-                    ->comment('identificado del telefono.');
+            $table->unsignedBigInteger('telefono')
+                    ->comment('numero de telefono');
+                    
+            //$table->unsignedBigInteger('telefono_id')
+            // ->comment('identifica numero de telefono');
+            
 
             $table->timestamps();
         });

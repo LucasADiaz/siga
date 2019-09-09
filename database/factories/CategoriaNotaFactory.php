@@ -8,5 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(CategoriaNota::class, function (Faker $faker) {
     return [
         'nombre'=>$faker->sequence(),
+        'autoridad_id'=> App\Autoridad::all()->random()->id,
+        
     ];
 });

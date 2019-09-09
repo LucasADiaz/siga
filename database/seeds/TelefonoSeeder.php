@@ -12,6 +12,10 @@ class TelefonoSeeder extends Seeder
      */
     public function run()
     {
+        
+        // DB::table('telefonos')->insert([
+        //     'numero'=>'',
+        //     ]);
         factory(Telefono::class, 47)->create();
     }
 }

@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Documento::class, function (Faker $faker) {
     return [
+        'legajo_id'=> App\Legajo::all()->random()->id,
         'dni_pri'=>$faker->image($dir = '/tmp', $width = 640, $height = 480),
         'dni_seg'=>$faker->image($dir = '/tmp', $width = 640, $height = 480),
         'ficha_medica'=>$faker->image($dir = '/tmp', $width = 640, $height = 480),

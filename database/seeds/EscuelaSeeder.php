@@ -13,12 +13,21 @@ class EscuelaSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        DB::table('escuelas')->insert([
+            'id'=>'1',
             'nombre'=>'FRAY',
-            'nombre'=>'INDUSTRIAL',
-
+            'domicilio_id'=> '1',
+            'telefono'=>'+54383154571346'
 
         ]);
-        factory(Escuela::class, 47)->create();
+        
+        DB::table('escuelas')->insert([
+            'id'=>'2',
+            'nombre'=>'INDUSTRIAL',
+            'domicilio_id'=> '2',
+            'telefono'=>'+54383154571347'
+            ]);
+
+        //factory(Escuela::class, 47)->create();
     }
 }
