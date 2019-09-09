@@ -29,15 +29,15 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoriaNotificacioneSeeder::class);
         $this->call(DocumentoSeeder::class);        
         //funcionaria
-        $this->call(InasistetenciaSeeder::class);
-        $this->call(MateriaSeeder::class);
-        $this->call(ModalidadeSeeder::class);
-        $this->call(ModuloSeeder::class);
-        $this->call(NotaSeeder::class);
-        $this->call(NotificacioneSeeder::class);
-        $this->call(PeriodoSeeder::class); 
-        $this->call(AlumnoEscuelaSeeder::class);
-        $this->call(AlumnoSeeder::class);
+        // $this->call(InasistetenciaSeeder::class);
+        // $this->call(MateriaSeeder::class);
+        // $this->call(ModalidadeSeeder::class);
+        // $this->call(ModuloSeeder::class);
+        // $this->call(NotaSeeder::class);
+        // $this->call(NotificacioneSeeder::class);
+        // $this->call(PeriodoSeeder::class); 
+        // $this->call(AlumnoEscuelaSeeder::class);
+        // $this->call(AlumnoSeeder::class);
     }
 
 
