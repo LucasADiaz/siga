@@ -13,14 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< Updated upstream
-        $this->call(DomiciliosSeeder::class);
-    }
-
-    
-=======
         //debemos llamar todos los seeder que creamos
-        $this->call(LegajosSeeder::class);  
+        //$this->call(LegajosSeeder::class);  
         $this->call(DomiciliosSeeder::class);          
         $this->call(PersonasSeeder::class);
         $this->call(TelefonosSeeder::class);
@@ -56,7 +50,6 @@ class DatabaseSeeder extends Seeder
     
     // Es un metodo que se crea para que limpie las tablas
     // y tambien desactiva  luego activa las restriccion de la clave foranea
->>>>>>> Stashed changes
     protected function truncateTable(array $tables)
     {
         DB::statement('SET FOREING_KEY_CHECKS = 0;');
