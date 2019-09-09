@@ -24,10 +24,10 @@ class DatabaseSeeder extends Seeder
         $this->call(PersonaSeeder::class);
         $this->call(TelefonoSeeder::class);
         //--funciona
-        $this->call(AutoridadeSeeder::class);
-        $this->call(CategoriaNotaSeeder::class);
-        $this->call(CategoriaNotificacioneSeeder::class);
-        $this->call(DocumentoSeeder::class);        
+        // $this->call(AutoridadSeeder::class);
+        // $this->call(CategoriaNotaSeeder::class);
+        // $this->call(CategoriaNotificacioneSeeder::class);
+        // $this->call(DocumentoSeeder::class);        
         //funcionaria
         // $this->call(InasistetenciaSeeder::class);
         // $this->call(MateriaSeeder::class);
