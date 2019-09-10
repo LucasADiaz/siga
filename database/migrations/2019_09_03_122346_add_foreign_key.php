@@ -21,7 +21,7 @@ class AddForeignKey extends Migration
         });
         Schema::table('alumnos', function (Blueprint $table) {        
             $table->foreign('persona_id')->references('id')->on('personas');
-            $table->foreign('telefono_id')->references('id')->on('telefonos');
+            //$table->foreign('telefono_id')->references('id')->on('telefonos');
         });
         Schema::table('materias', function (Blueprint $table) {        
             $table->foreign('profesor_id')->references('id')->on('autoridades');
@@ -59,7 +59,7 @@ class AddForeignKey extends Migration
         });
         Schema::table('autoridades', function (Blueprint $table) {        
             $table->foreign('persona_id')->references('id')->on('personas');
-            $table->foreign('telefono_id')->references('id')->on('telefonos');
+            //$table->foreign('telefono_id')->references('id')->on('telefonos');
         });
         Schema::table('escuelas', function (Blueprint $table) {        
             $table->foreign('domicilio_id')->references('id')->on('domicilios');
@@ -98,7 +98,7 @@ class AddForeignKey extends Migration
             $table->dropForeign(['domicilio_id']);
         });
         Schema::table('alumnos', function (Blueprint $table) {    
-            $table->dropForeign(['persona_id','telefono_id']);
+            $table->dropForeign(['persona_id']);
         });
         Schema::table('materias', function (Blueprint $table) {        
             $table->dropForeign(['profesor_id','curso_id','modulo_id']);
@@ -128,7 +128,7 @@ class AddForeignKey extends Migration
             $table->dropForeign(['escuela_id']);            
         });
         Schema::table('autoridades', function (Blueprint $table) {      
-            $table->dropForeign(['persona_id','telefono_id']);
+            $table->dropForeign(['persona_id']);
         });
         Schema::table('escuelas', function (Blueprint $table) {     
             $table->dropForeign(['domicilio_id','telefono_id']);   
