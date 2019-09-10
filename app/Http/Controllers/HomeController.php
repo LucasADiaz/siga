@@ -30,8 +30,12 @@ class HomeController extends Controller
         $users = User::where('id','!=', auth()->id())->get();
         return view('home', compact('users'));
     }
-
-    public function store(Request $request)
+    public function enviarMensaje()
+    {
+        $users = User::where('id','!=', auth()->id())->get();
+        return view('message', compact('users'));
+    }
+    public function message(Request $request)
     {
 
         $this->validate($request,[
@@ -51,15 +55,17 @@ class HomeController extends Controller
         $receptor = User::find($request->receptor_id);
         $receptor->notify(new MessageSent($message));
         return back()->with('flash','Tu mensaje fue enviado');
+   
     }
 
     public function inicio()
     {
         return view('inicio');
     }
-    public function notificaciones()
+    public function show($id)
     {
-        $users = User::where('id','!=', auth()->id())->get();
-        return view('notificaciones', compact('users'));
+        $message = Message::findOrFail($id);
+        return view('messages.show', compact('message'));
     }
+    
 }
