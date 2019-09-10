@@ -94,9 +94,9 @@
                                             
                                         </li>
                                         <li class="nav-item ">
-                                            <a id="dropdown-menu" class="nav-link dropdown-item" href="/notificaciones" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <a id="dropdown-menu" class="nav-link dropdown-item" href="{{route('notifications.index')}}" aria-haspopup="true" aria-expanded="false" v-pre>
                                                 Notificaciones 
-                                                @if ($count = Auth::user()->notifications->count())
+                                                @if ($count = Auth::user()->unreadNotifications->count())
                                                
                                             <span class="badge">{{$count}}</span> 
                                                 @endif
@@ -106,7 +106,7 @@
                                             
                                         </li>
                                         <li class="nav-item ">
-                                            <a class="nav-link dropdown-item" href="/home" >
+                                            <a class="nav-link dropdown-item" href="{{route('sendmessage')}}" >
                                                 Enviar mensaje <span class="caret"></span>
                                             </a>
             

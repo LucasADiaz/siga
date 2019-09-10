@@ -10,6 +10,7 @@
                 <div class="card-header">Bienvenido</div>
 
                 <div class="card-body">
+                    <div class="container">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -17,9 +18,13 @@
                     @endif
 
                     Estas logeado en el sistema!
-                    <a href="/inicio"><input type="button" value="Continuar"></a>
+                    <form action="{{ route('inicio')}}" class="pull-rigth">
+                            <input type="submit"  value="Continuar"></a>
+                    </form>
+                    
 
 
+                </div>
                 </div>
            
             </div>
