@@ -1,6 +1,6 @@
 <?php
 
-use App\Notificacion;
+use App\Notification;
 use Illuminate\Database\Seeder;
 
 class NotificacionSeeder extends Seeder
@@ -12,6 +12,6 @@ class NotificacionSeeder extends Seeder
      */
     public function run()
     {
-        factory(Notificacion::class, 47)->create();
+        //factory(Notification::class, 47)->create();
     }
 }
