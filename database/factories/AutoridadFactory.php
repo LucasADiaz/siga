@@ -10,5 +10,6 @@ $factory->define(Autoridad::class, function (Faker $faker) {
         'email'=>$faker->freeEmail,
         'persona_id'=> App\Persona::all()->random()->id,
         'telefono_id'=> App\Telefono::all()->random()->id,
+        //se deberia tener una categoria de autoridad
     ];
 });

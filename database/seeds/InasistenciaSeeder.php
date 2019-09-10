@@ -3,7 +3,7 @@
 use App\Inasistencia;
 use Illuminate\Database\Seeder;
 
-class InasistetenciaSeeder extends Seeder
+class InasistenciaSeeder extends Seeder
 {
     /**
      * Run the database seeds.

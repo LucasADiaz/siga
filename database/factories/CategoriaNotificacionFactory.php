@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(CategoriaNotificacion::class, function (Faker $faker) {
     return [
         'escuela_id'=> App\Escuela::all()->random()->id,
-        'nombre'=>$faker->sequence(),
+        'nombre'=>$faker->sentence(),
         'whatsapp'=>$faker->boolean(),
         'email'=>$faker->boolean(),
         'aplicacion'=>$faker->boolean(),

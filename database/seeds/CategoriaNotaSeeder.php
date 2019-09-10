@@ -13,20 +13,20 @@ class CategoriaNotaSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categoria_notas')->insert([
+        //  DB::table('categoria_notas')->insert([
 
-            'nombre'=>'Conceptual',
-        ]);
+        //      'nombre'=>'Conceptual',
+        //  ]);
 
-        DB::table('categoria_notas')->insert([
+        //  DB::table('categoria_notas')->insert([
 
-            'nombre'=>'primera prueba',
-        ]);
+        //      'nombre'=>'primera prueba',
+        //  ]);
         
-        DB::table('categoria_notas')->insert([
+        //  DB::table('categoria_notas')->insert([
 
-            'nombre'=>'Carpeta completa',
-        ]);
+        //      'nombre'=>'Carpeta completa',
+        //  ]);
         
 
 
