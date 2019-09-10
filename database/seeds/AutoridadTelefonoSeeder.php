@@ -1,10 +1,9 @@
 <?php
 
-use App\Autoridad;
+use App\AutoridadTelefono;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class AutoridadSeeder extends Seeder
+class AutoridadTelefonoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,8 +12,6 @@ class AutoridadSeeder extends Seeder
      */
     public function run()
     {
-        
-
-        factory(Autoridad::class, 47)->create();
+        factory(AutoridadTelefono::class, 47)->create();
     }
 }

@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Notificacion;
+use App\Notification;
 use Faker\Generator as Faker;
 
-$factory->define(Notificacion::class, function (Faker $faker) {
+$factory->define(Notification::class, function (Faker $faker) {
     return [
         'asunto'=>$faker->sequence(),
         'mensaje'=>$faker->text($maxNbChars = 400),
