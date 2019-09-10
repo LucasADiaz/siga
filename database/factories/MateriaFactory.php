@@ -7,6 +7,9 @@ use Faker\Generator as Faker;
 
 $factory->define(Materia::class, function (Faker $faker) {
     return [
-        'profesor_id'=> App\P::all()->random()->id,
+        //REVISAR PROFESOR ID- ¿Necesario tener categorias de autoridades?
+        'profesor_id'=> App\Autoridad::all()->random()->id,
+        'curso_id'=> App\Curso::all()->random()->id,
+        'modulo_id'=> App\Modulo::all()->random()->id,
     ];
 });

@@ -13,7 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->cargarSeedersSobre(['legajos','domicilios','personas','telefonos','escuelas','dia_actividad_cursos']);
+        $this->cargarSeedersSobre(['legajos',
+        'domicilios',
+        'personas',
+        'telefonos',
+        'escuelas',
+        'dia_actividad_cursos',
+        ]);
         //debemos llamar todos los seeder que creamos
         $this->call(LegajoSeeder::class);  
         $this->call(DomicilioSeeder::class);          
@@ -23,21 +29,25 @@ class DatabaseSeeder extends Seeder
         $this->call(DiaActividadSeeder::class);  
         $this->call(PersonaSeeder::class);
         $this->call(TelefonoSeeder::class);
-        //--funciona
-        // $this->call(AutoridadSeeder::class);
-        // $this->call(CategoriaNotaSeeder::class);
-        // $this->call(CategoriaNotificacioneSeeder::class);
-        // $this->call(DocumentoSeeder::class);        
-        //funcionaria
-        // $this->call(InasistetenciaSeeder::class);
-        // $this->call(MateriaSeeder::class);
-        // $this->call(ModalidadeSeeder::class);
-        // $this->call(ModuloSeeder::class);
-        // $this->call(NotaSeeder::class);
-        // $this->call(NotificacioneSeeder::class);
-        // $this->call(PeriodoSeeder::class); 
-        // $this->call(AlumnoEscuelaSeeder::class);
-        // $this->call(AlumnoSeeder::class);
+        
+        $this->call(AutoridadSeeder::class);
+        $this->call(CategoriaNotaSeeder::class);
+        $this->call(CategoriaNotificacionSeeder::class);
+        //funciona
+        $this->call(ModuloSeeder::class);
+        $this->call(MateriaSeeder::class);
+        $this->call(ModalidadSeeder::class);
+        $this->call(PeriodoSeeder::class); 
+        $this->call(AlumnoSeeder::class);
+        $this->call(AlumnoEscuelaSeeder::class);
+        
+        // 
+        $this->call(NotificacionSeeder::class);
+        $this->call(InasistenciaSeeder::class);
+        $this->call(AutoridadTelefonoSeeder::class);
+        $this->call(NotaSeeder::class);
+        
+        $this->call(DocumentoSeeder::class);        
     }
 
 

@@ -13,14 +13,14 @@ class CategoriaNotificacionSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categoria_notificacions')->insert([
+        // DB::table('categoria_notificacions')->insert([
 
 
-            'nombre'=>'AVISO GENERAL',
-            'whatsapp'=>true,
-            'email'=>false,
-            'aplicacion'=>false,
-        ]);
+        //     'nombre'=>'AVISO GENERAL',
+        //     'whatsapp'=>true,
+        //     'email'=>false,
+        //     'aplicacion'=>false,
+        // ]);
 
         factory(CategoriaNotificacion::class, 47)->create();
     }

@@ -9,5 +9,6 @@ $factory->define(Alumno::class, function (Faker $faker) {
     return [
         'email'=>$faker->freeEmail,
         'grupo_factor'=>$faker->randomElement(['0+','0-','A+','A-','B+','B-','AB+','AB-']),
+        'persona_id'=> App\Persona::all()->random()->id,
     ];
 });
