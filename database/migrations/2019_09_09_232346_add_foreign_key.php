@@ -43,10 +43,10 @@ class AddForeignKey extends Migration
             $table->foreign('periodo_id')->references('id')->on('periodos');
             $table->foreign('categoria_nota_id')->references('id')->on('categoria_notas');
         });
-        Schema::table('notificaciones', function (Blueprint $table) {        
+        Schema::table('messages', function (Blueprint $table) {        
             $table->foreign('autoridad_id')->references('id')->on('autoridades');
             $table->foreign('alumno_id')->references('id')->on('alumnos');
-            $table->foreign('categoria_notificacion_id')->references('id')->on('categoria_notificacions');
+            $table->foreign('categoria_message_id')->references('id')->on('categoria_messages');
         });
         Schema::table('documentos', function (Blueprint $table) {        
             $table->foreign('legajo_id')->references('id')->on('legajos');
@@ -72,7 +72,7 @@ class AddForeignKey extends Migration
         Schema::table('categoria_notas', function (Blueprint $table) {        
             $table->foreign('autoridad_id')->references('id')->on('autoridades');
         });
-        Schema::table('categoria_notificacions', function (Blueprint $table) {        
+        Schema::table('categoria_messages', function (Blueprint $table) {        
             $table->foreign('escuela_id')->references('id')->on('escuelas');
         });
         Schema::table('dia_actividad_cursos', function (Blueprint $table) {        

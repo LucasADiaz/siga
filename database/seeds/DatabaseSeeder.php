@@ -23,14 +23,14 @@ class DatabaseSeeder extends Seeder
             'telefonos',
             'autoridades',
             'categoria_notas',
-            'categoria_notificacions',
+            'categoria_messages',
             'modulos',
             'materias',
             'modalidades',
             'periodos',
             'alumnos',
             'alumno_escuelas',
-            'notificaciones',
+            'messages',
             'autoridad_telefonos',
             'notas',
             'inasistencias',
@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AutoridadSeeder::class);
 
         $this->call(CategoriaNotaSeeder::class);
-        $this->call(CategoriaNotificacionSeeder::class);
+        $this->call(CategoriaMessageSeeder::class);
         $this->call(ModuloSeeder::class);
         $this->call(MateriaSeeder::class);
 
@@ -58,7 +58,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AlumnoSeeder::class);
         $this->call(AlumnoEscuelaSeeder::class);
 
-        $this->call(NotificacionSeeder::class);
+        $this->call(MessageSeeder::class);
         $this->call(AutoridadTelefonoSeeder::class);
         $this->call(NotaSeeder::class);
         $this->call(InasistenciaSeeder::class);

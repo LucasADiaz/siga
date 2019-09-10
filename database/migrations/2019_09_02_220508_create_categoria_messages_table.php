@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriaNotificacionsTable extends Migration
+class CreateCategoriaMessagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCategoriaNotificacionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('categoria_notificacions', function (Blueprint $table) {
+        Schema::create('categoria_messages', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->unsignedBigInteger('escuela_id')
@@ -42,6 +42,6 @@ class CreateCategoriaNotificacionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categoria_notificacions');
+        Schema::dropIfExists('categoria_messages');
     }
 }
