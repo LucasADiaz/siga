@@ -11,6 +11,6 @@ $factory->define(Message::class, function (Faker $faker) {
         'mensaje'=>$faker->text($maxNbChars = 400),
         'autoridad_id'=> App\Autoridad::all()->random()->id,
         'alumno_id'=> App\Alumno::all()->random()->id,
-        'categoria_message_id'=> App\CategoriaNotificacion::all()->random()->id,
+        'categoria_message_id'=> App\CategoriaMessage::all()->random()->id,
     ];
 });
