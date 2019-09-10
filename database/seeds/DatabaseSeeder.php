@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->cargarSeedersSobre([
+            'users',
             'legajos',
             'domicilios',
             'escuelas',
@@ -38,6 +39,7 @@ class DatabaseSeeder extends Seeder
 
         ]);
         //debemos llamar todos los seeder que creamos
+        $this->call(UserSeeder::class);  
         $this->call(LegajoSeeder::class);  
         $this->call(DomicilioSeeder::class);          
         $this->call(EscuelaSeeder::class); 
