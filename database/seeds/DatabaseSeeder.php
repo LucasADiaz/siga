@@ -13,12 +13,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->cargarSeedersSobre(['legajos',
-        'domicilios',
-        'personas',
-        'telefonos',
-        'escuelas',
-        'dia_actividad_cursos',
+        $this->cargarSeedersSobre([
+            'legajos',
+            'domicilios',
+            'escuelas',
+            'cursos',
+            'dia_actividad_cursos',
+            'personas',
+            'telefonos',
+            'autoridades',
+            'categoria_notas',
+            'categoria_notificacions',
+            'modulos',
+            'materias',
+            'modalidades',
+            'periodos',
+            'alumnos',
+            'alumno_escuelas',
+            'notificaciones',
+            'autoridad_telefonos',
+            'notas',
+            'inasistencias',
+            'documentos',
+
         ]);
         //debemos llamar todos los seeder que creamos
         $this->call(LegajoSeeder::class);  
@@ -29,27 +46,27 @@ class DatabaseSeeder extends Seeder
         $this->call(DiaActividadSeeder::class);  
         $this->call(PersonaSeeder::class);
         $this->call(TelefonoSeeder::class);
-        
         $this->call(AutoridadSeeder::class);
+
         $this->call(CategoriaNotaSeeder::class);
         $this->call(CategoriaNotificacionSeeder::class);
-        //funciona
         $this->call(ModuloSeeder::class);
         $this->call(MateriaSeeder::class);
+
         $this->call(ModalidadSeeder::class);
         $this->call(PeriodoSeeder::class); 
         $this->call(AlumnoSeeder::class);
         $this->call(AlumnoEscuelaSeeder::class);
-        
-        // 
+
         $this->call(NotificacionSeeder::class);
-        $this->call(InasistenciaSeeder::class);
         $this->call(AutoridadTelefonoSeeder::class);
         $this->call(NotaSeeder::class);
+        $this->call(InasistenciaSeeder::class);
         
-        $this->call(DocumentoSeeder::class);        
+        $this->call(DocumentoSeeder::class);      
+          
     }
-
+     
 
 
 

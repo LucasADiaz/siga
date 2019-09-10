@@ -11,5 +11,6 @@ $factory->define(Nota::class, function (Faker $faker) {
         'alumno_id'=> App\Alumno::all()->random()->id,
         'materia_id'=> App\Materia::all()->random()->id,
         'periodo_id'=> App\Periodo::all()->random()->id,
+        'categoria_nota_id'=> App\CategoriaNota::all()->random()->id,
     ];
 });

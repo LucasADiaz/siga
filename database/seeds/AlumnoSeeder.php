@@ -13,12 +13,12 @@ class AlumnoSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('alumnos')->insert([
+        // DB::table('alumnos')->insert([
 
-            'email'=>'johnnybarrionuevo5@gmail.com',
-            'grupo_factor'=>'A+',
+        //     'email'=>'johnnybarrionuevo5@gmail.com',
+        //     'grupo_factor'=>'A+',
 
-        ]);
+        // ]);
 
         factory(Alumno::class, 47)->create();
     }

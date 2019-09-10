@@ -14,7 +14,9 @@ class CreateCategoriaNotasTable extends Migration
     public function up()
     {
         Schema::create('categoria_notas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')
+                    ->unique()
+                    ->comment('identifica uniquivocamente una categoria de nota');
 
             $table->unsignedBigInteger('autoridad_id')
                     ->comment('identificador de el Profesor que crea la categoria de la nota.');
