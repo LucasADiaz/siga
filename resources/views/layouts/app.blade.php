@@ -67,13 +67,7 @@
         
                                 </div>
                             </li>
-                            <li class="nav-item ">
-                                    <a id="navbarDropdown" class="nav-link dropdown-item" href="/notificaciones" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        Notificaciones <span class="caret"></span>
-                                    </a>
-    
-                                    
-                                </li>
+                            
                                 <li class="nav-item ">
                                         <a id="navbarDropdown" class="nav-link dropdown-item" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                             Soporte <span class="caret"></span>
@@ -95,13 +89,29 @@
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                &nbsp;&nbsp;&nbsp;</a>
+                                                </a>
             
                                             
                                         </li>
+                                        <li class="nav-item ">
+                                            <a id="dropdown-menu" class="nav-link dropdown-item" href="/notificaciones" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                Notificaciones 
+                                                @if ($count = Auth::user()->notifications->count())
+                                               
+                                            <span class="badge">{{$count}}</span> 
+                                                @endif
+                                                <span class="caret"></span>
+                                            </a>
+            
+                                            
+                                        </li>
+                                        <li class="nav-item ">
+                                            <a class="nav-link dropdown-item" href="/home" >
+                                                Enviar mensaje <span class="caret"></span>
+                                            </a>
+            
+                                            
+                                        </li>   
                             <li class="nav-item dropdown">
                                 
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -127,7 +137,11 @@
                 </div>
             </div>
         </nav>
-        
+        @if (session()->has('flash'))
+        <div class="container">
+        <div class="alert alert-success">{{session('flash')}}</div>
+        </div>
+        @endif
         <main class="py-4">
             @yield('content')
         </main>
