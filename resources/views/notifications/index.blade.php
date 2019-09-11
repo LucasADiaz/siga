@@ -41,7 +41,7 @@
                                 {{ method_field('DELETE')}}
                                     {{ csrf_field() }}
                                     
-                                    <button class="btn btn-danger btn-xs">X</button>
+                                    <button class="btn-xs btn-danger float-right">x</button>
                                 
                             </form>
                         </li>

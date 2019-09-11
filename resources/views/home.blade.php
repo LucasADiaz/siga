@@ -7,7 +7,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Bienvenido</div>
+                <form action="{{ route('inicio')}}">
+                <div class="card-header">Bienvenido {{ Auth::user()->name }}</div>
 
                 <div class="card-body">
                     <div class="container">
@@ -17,16 +18,16 @@
                         </div>
                     @endif
 
-                    Estas logeado en el sistema!
-                    <form action="{{ route('inicio')}}" class="pull-rigth">
-                            <input type="submit"  value="Continuar"></a>
-                    </form>
+                    
+                    <div class="form-group">
+                        Estas logeado en el sistema <input class="btn btn-primary float-right" type="submit" value="Continuar">
+                        </div>
                     
 
 
                 </div>
                 </div>
-           
+            </form>
             </div>
         </div>
     </div>
