@@ -6,7 +6,7 @@
                     <div class="card-header">Examplasasase Component</div>
 
                     <div class="card-body">
-                        I'm an example componfxdggxfent.
+                       aaaaaaaaaaaaaaaaa
                     </div>
                 </div>
             </div>
