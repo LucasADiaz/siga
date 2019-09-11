@@ -12,4 +12,9 @@ class Message extends Model
     {
         return $this->belongsTo(User::class, 'emisor_id');
     }
+
+    public function fecha()
+    {
+        return $this->belongsTo(Message::class, 'id');
+    }
 }

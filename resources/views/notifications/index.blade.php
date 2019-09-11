@@ -19,7 +19,7 @@
                     
                 {{ method_field('PATCH')}}
                 {{ csrf_field() }}
-                <button class="btn btn-danger btn-xs ">X</button>
+                <button class="btn-xs btn-dark float-right">Marcar Leido</button>
                                 
             </form>
             </li>
@@ -41,7 +41,7 @@
                                 {{ method_field('DELETE')}}
                                     {{ csrf_field() }}
                                     
-                                    <button class="btn-xs btn-danger float-right">x</button>
+                                    <button class="btn-xs btn-danger float-right">Eliminar</button>
                                 
                             </form>
                         </li>
