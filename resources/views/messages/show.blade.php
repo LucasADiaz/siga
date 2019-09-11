@@ -13,7 +13,7 @@
                         <br>
                         <div class="form-group text-right">
                 
-                    <p> Enviado por <b>{{$message->sender->name }} </b>- {{$message->fecha->created_at}}</p>
+                    <p> Enviado por <b>{{$message->sender->name }} </b>- {{$message->msj->created_at}}</p>
                     <button class="btn btn-primary float-right">Atras</button> 
         
             </div>

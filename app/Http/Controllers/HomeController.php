@@ -30,42 +30,11 @@ class HomeController extends Controller
         $users = User::where('id','!=', auth()->id())->get();
         return view('home', compact('users'));
     }
-    public function enviarMensaje()
-    {
-        $users = User::where('id','!=', auth()->id())->get();
-        return view('message', compact('users'));
-    }
-    public function message(Request $request)
-    {
-
-        $this->validate($request,[
-            'mensaje'=>'required',
-            'receptor_id' => 'required|exists:users,id',
-            'asunto' => 'required'
-        ]);
-
-        $message = Message::create([
-            'emisor_id' => auth()->id(),
-            'receptor_id' => $request->receptor_id,
-            'asunto' => $request->asunto,
-            'categoria_notificacion_id' => Input::get('tipo'),
-            'mensaje' => $request->mensaje,
-        ]);
-
-        $receptor = User::find($request->receptor_id);
-        $receptor->notify(new MessageSent($message));
-        return back()->with('flash','Tu mensaje fue enviado');
-   
-    }
 
     public function inicio()
     {
         return view('inicio');
     }
-    public function show($id)
-    {
-        $message = Message::findOrFail($id);
-        return view('messages.show', compact('message'));
-    }
+
     
 }

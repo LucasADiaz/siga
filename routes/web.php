@@ -19,14 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 Route::get('/inicio', 'HomeController@inicio')->name('inicio');
 
-Route::get('/message', 'HomeController@enviarMensaje')->name('sendmessage');
+Route::get('/message/create', 'MessagesController@enviarMensaje')->name('messages.create');
 
-Route::post('/message', 'HomeController@message')->name('messages.store');
-
-Route::get('/message/{id}', 'HomeController@show')->name('messages.show');
+Route::get('/message/{id}', 'MessagesController@show')->name('messages.show');
 
 Route::patch('notificaciones/{id}', 'NotificationsController@read')->name('notifications.read');
 

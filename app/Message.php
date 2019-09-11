@@ -13,8 +13,10 @@ class Message extends Model
         return $this->belongsTo(User::class, 'emisor_id');
     }
 
-    public function fecha()
+    public function msj()
     {
         return $this->belongsTo(Message::class, 'id');
     }
+
+ 
 }
