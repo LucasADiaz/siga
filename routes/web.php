@@ -21,7 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/inicio', 'HomeController@inicio')->name('inicio');
 
-Route::get('/message/create', 'MessagesController@enviarMensaje')->name('messages.create');
+Route::post('/message/send', 'MessagesController@message')->name('messages.send');
+
+Route::get('/message', 'MessagesController@enviarMsj')->name('messages.create');
 
 Route::get('/message/{id}', 'MessagesController@show')->name('messages.show');
 
@@ -30,3 +32,4 @@ Route::patch('notificaciones/{id}', 'NotificationsController@read')->name('notif
 Route::delete('notificaciones/{id}', 'NotificationsController@destroy')->name('notifications.delete');
 
 Route::get('notificaciones', 'NotificationsController@index')->name('notifications.index');
+

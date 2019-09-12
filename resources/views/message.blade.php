@@ -8,7 +8,7 @@
         <div class="col-md-8">
             <div class="card">
 
-            <form method="POST" action="{{ route('messages.create')}}">
+            <form method="POST" action="{{ route('messages.send')}}">
                 {{ csrf_field() }}
                 <div class="card-header">Enviar Mensaje</div>
                 <div class="card-body">

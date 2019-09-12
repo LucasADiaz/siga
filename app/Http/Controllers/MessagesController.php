@@ -30,11 +30,13 @@ class MessagesController extends Controller
         $users = User::where('id','!=', auth()->id())->get();
         return view('home', compact('users'));
     }
-    public function enviarMensaje()
+
+    public function enviarMsj()
     {
         $users = User::where('id','!=', auth()->id())->get();
         return view('message', compact('users'));
     }
+
     public function message(Request $request)
     {
 
