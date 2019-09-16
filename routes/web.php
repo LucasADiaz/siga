@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::resource('posts', 'PostsController');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/inicio', 'HomeController@inicio')->name('inicio');
@@ -33,3 +35,8 @@ Route::delete('notificaciones/{id}', 'NotificationsController@destroy')->name('n
 
 Route::get('notificaciones', 'NotificationsController@index')->name('notifications.index');
 
+
+Route::get('/posts', 'PostsController@crearPost')->name('posts.crear');
+
+
+Route::post('/posts/send', 'PostsController@enviar')->name('posts.enviar');

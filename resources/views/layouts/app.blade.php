@@ -58,13 +58,13 @@
                             </a>
 
                             
-                        </li
-                        <li class="nav-item dropdown">
+                        </li>
+                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     Listado de Materias <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href=""> Materia 1
                                     </a>
 
@@ -79,7 +79,7 @@
                             </li>
                             
                                 <li class="nav-item ">
-                                        <a id="navbarDropdown" class="nav-link dropdown-item" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <a id="navbarDropdown" class="nav-link dropdown-item" href="{{route('posts.crear')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                             Soporte <span class="caret"></span>
                                         </a>
         
@@ -94,13 +94,17 @@
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 </a>
             
                                             
                                         </li>
+                                        <li class="nav-item ">
+                                            <a class="nav-link dropdown-item" href="{{route('posts.crear')}}" >
+                                                Nuevo Post <span class="caret"></span>
+                                            </a>
+            
+                                            
+                                        </li> 
                                         <li class="nav-item ">
                                         <a id="dropdown-menu" class="nav-link dropdown-item" href="{{route('notifications.index')}}" aria-haspopup="true" aria-expanded="false" v-pre>
                                                 Notificaciones 
@@ -151,7 +155,9 @@
         </div>
         @endif
         <main class="py-4">
+            
             @yield('content')
+
         </main>
     </div>
 </body>
