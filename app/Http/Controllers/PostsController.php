@@ -1,0 +1,118 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Notifications\PostPublished;
+use App\Post;
+use App\User;
+use Illuminate\Http\Request;
+
+class PostsController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //
+    }
+
+    public function enviar(Request $request)
+    {
+
+        $this->validate($request,[
+            'contenido'=>'required',
+            'titulo' => 'required'
+        ]);
+
+        $posts = Post::create([
+            'titulo' => $request->titulo,
+            'contenido' => $request->contenido,
+        ]);
+
+        $users = User::all();
+
+        foreach ($users as $user) {
+            $user->notify(new PostPublished($posts));
+        }
+
+
+        
+        return back()->with('flash','Tu mensaje fue enviado');
+   
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    
+    public function show(Post $post)
+    {
+        return view('posts.show',compact('post'));
+    }
+
+    public function crearPost()
+    {
+        $users = User::where('id','!=', auth()->id())->get();
+        return view('posts.posts', compact('users'));
+    }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Post $post)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Post $post)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Post $post)
+    {
+        //
+    }
+}

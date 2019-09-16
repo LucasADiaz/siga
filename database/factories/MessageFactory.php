@@ -9,8 +9,8 @@ $factory->define(Message::class, function (Faker $faker) {
     return [
         'asunto'=>$faker->sentence(),
         'mensaje'=>$faker->text($maxNbChars = 400),
-        'autoridad_id'=> App\Autoridad::all()->random()->id,
-        'alumno_id'=> App\Alumno::all()->random()->id,
-        'categoria_message_id'=> App\CategoriaMessage::all()->random()->id,
+        'emisor_id'=> App\Autoridad::all()->random()->id,
+        'receptor_id'=> App\Alumno::all()->random()->id,
+        'categoria_notificacion_id'=> App\CategoriaMessage::all()->random()->id,
     ];
 });

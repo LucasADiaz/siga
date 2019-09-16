@@ -18,18 +18,18 @@ class CreateMessagesTable extends Migration
             ->comment('identifica uniquivocamente a una notificacion');
     
     $table->string('asunto')
-            ->comment('titulo de la notifación');
+            ->comment('asunto de la notificación');
         
-    $table->unsignedBigInteger('autoridad_id')
-            ->comment('identificador del que genera la notificación ');
+    $table->unsignedBigInteger('emisor_id')
+            ->comment('identificador del que envia el mensaje ');
 
-    $table->unsignedBigInteger('alumno_id')
-            ->comment('identificador del Alumno');
+    $table->unsignedBigInteger('receptor_id')
+            ->comment('identificador del receptor');
 
     $table->string('mensaje',400)
             ->comment('mensaje enviado');
 
-    $table->unsignedBigInteger('categoria_message_id')
+    $table->unsignedBigInteger('categoria_notificacion_id')
             ->comment('se identifica el/los medios de emision del mensaje');
             
     $table->timestamps();
