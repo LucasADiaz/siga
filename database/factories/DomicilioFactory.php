@@ -10,6 +10,7 @@ $factory->define(Domicilio::class, function (Faker $faker) {
         'calle' => $faker->streetName(2),
         'numero' => $faker->buildingNumber(3),
         'cod_postal' => $faker->buildingNumber,
+        'localidad'=>$faker->randomElement(['Capital','San José','Pomán']),
         'referencias' => $faker->sentence(2),
         'piso' => $faker->buildingNumber,
         'departamento' => $faker->buildingNumber,

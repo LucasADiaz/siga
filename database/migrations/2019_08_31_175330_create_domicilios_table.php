@@ -27,11 +27,8 @@ class CreateDomiciliosTable extends Migration
             $table->integer('cod_postal')
                     ->comment('codigo postal.');
 
-            //$table->unsignedBigInteger('localidad_id')
-            //        ->comment('identificador de la localidad de la provincia.');
-
-            //$table->unsignedBigInteger('barrio_id')
-            //        ->comment('identificador del barrio.');
+            $table->enum('localidad',['Capital','San José','Pomán'])
+                    ->comment('identificador de la localidad de la provincia.');
 
             $table->string('referencias',400)
                     ->nullable()

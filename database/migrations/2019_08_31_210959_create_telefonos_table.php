@@ -19,9 +19,6 @@ class CreateTelefonosTable extends Migration
             $table->string('numero')
                     ->comment('numero de telefono formato: +54 9 383 4578983');
             
-            $table->unsignedBigInteger('persona_id')
-                    ->comment('Identificador de la persona propietaria del telefono.');
-            
              $table->enum('categoria',['Casa','Trabajo','Movil'])
                     ->comment('categoria de telefono. Ej: Casa, Trabajo...');
 
