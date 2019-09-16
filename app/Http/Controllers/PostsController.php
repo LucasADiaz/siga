@@ -40,7 +40,7 @@ class PostsController extends Controller
 
 
         
-        return back()->with('flash','Tu mensaje fue enviado');
+        return back()->with('flash','Tu post fue publicado');
    
     }
 
