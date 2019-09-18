@@ -55,16 +55,22 @@ class PostsController extends Controller
             $twilio = new Client($sid, $token);
 
             //Trae un unico telefeno de la base de dato y lo almaceno
-            $numero=Telefono::where('id','1')->value('numero');
+            // $numero=Telefono::where('id','1')->value('numero');
+            $numeros=Telefono::all('numero');
 
-            $message = $twilio->messages
-                            ->create("whatsapp:". $numero, // to
+            foreach ($numeros as $numero) {
+                $message = $twilio->messages
+                            ->create("whatsapp:". $numero->numero, // to
                                     array(
                                         "from" => "whatsapp:+14155238886",
                                         //tomo el valor del titulo y el contenido y lo mando atraves del wsp
-                                        "body" =>"Asunto: ".$request->titulo . "\n\nMensaje: " . $request->contenido
+                                        "body" =>"*Asunto:* ".$request->titulo . "\n\n*Mensaje:* " . $request->contenido
+                                        // "date_sent"=>
+                                        // "status"=>
                                             )
-                            );
+                                     );
+            }
+            
         }
 
 
