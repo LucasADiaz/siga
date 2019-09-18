@@ -50,8 +50,8 @@ class PostsController extends Controller
         if (INPUT::get('whatsapp')) {
 
             
-            $sid    = "ACf1bc96d37ecd824fe7410d3fa619f2d6";
-            $token  = "18e50cbb751c942755cd185354557e3e";
+            $sid    =getenv('TWILIO_SID');
+            $token  =getenv('TWILIO_TOKEN');
             $twilio = new Client($sid, $token);
 
             //Trae un unico telefeno de la base de dato y lo almaceno
