@@ -24,6 +24,7 @@
                 </div>
                     <div class="form-group">
                     <button class="btn btn-primary btn-block">Difundir</button>
+                    <input type="checkbox" name="whatsapp" value="activado">Enviar por whatsapp
                     </div>
                 </div>
             </form>
