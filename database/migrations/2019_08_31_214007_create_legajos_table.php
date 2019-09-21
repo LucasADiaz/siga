@@ -14,7 +14,12 @@ class CreateLegajosTable extends Migration
     public function up()
     {
         Schema::create('legajos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')
+                    ->comment('identifica uniquivocamente a un legajo');
+
+            $table->unsignedBigInteger('alumno_id')
+                    ->comment('identificador de un alumno');
+
             $table->timestamps();
         });
     }
