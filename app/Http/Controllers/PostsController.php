@@ -49,15 +49,13 @@ class PostsController extends Controller
         //toma el valor del checkbox desde el view post.blade
         if (INPUT::get('whatsapp')) {
 
-            
+            //El metodo getevn trae la vble desde el archivo .env
             $sid    =getenv('TWILIO_SID');
             $token  =getenv('TWILIO_TOKEN');
             $twilio = new Client($sid, $token);
-
             //Trae un unico telefeno de la base de dato y lo almaceno
-            // $numero=Telefono::where('id','1')->value('numero');
-            $numeros=Telefono::all('numero');
-
+            //$numero=Telefono::where('id','1')->value('numero');
+            $numeros=Telefono::all();
             foreach ($numeros as $numero) {
                 $message = $twilio->messages
                             ->create("whatsapp:". $numero->numero, // to
@@ -68,13 +66,10 @@ class PostsController extends Controller
                                         // "date_sent"=>
                                         // "status"=>
                                             )
-                                     );
+                                        );
             }
             
         }
-
-
-
         
         return back()->with('flash','Tu post fue publicado');
    
@@ -89,17 +84,13 @@ class PostsController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+
 
     /**
      * Display the specified resource.

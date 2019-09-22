@@ -13,10 +13,12 @@ class TelefonoSeeder extends Seeder
     public function run()
     {
         
+
+
         DB::table('telefonos')->insert([
-            'numero'=>'+5493834545986',
+            'numero'=>'+5493834772459',
             'categoria'=>'Movil'
-            ]);
+            ]); 
         DB::table('telefonos')->insert([
             'numero'=>'+5493834578983',
             'categoria'=>'Movil'
@@ -26,7 +28,11 @@ class TelefonoSeeder extends Seeder
             'categoria'=>'Movil'
             ]);
         DB::table('telefonos')->insert([
-            'numero'=>'+5493834772459',
+            'numero'=>'+5493834545986',
+            'categoria'=>'Movil'
+            ]);
+        DB::table('telefonos')->insert([
+            'numero'=>'+5493834571346',
             'categoria'=>'Movil'
             ]);
         // factory(Telefono::class, 47)->create();
