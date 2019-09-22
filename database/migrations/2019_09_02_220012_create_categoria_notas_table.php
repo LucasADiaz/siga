@@ -18,8 +18,8 @@ class CreateCategoriaNotasTable extends Migration
                     ->unique()
                     ->comment('identifica uniquivocamente una categoria de nota');
 
-            $table->unsignedBigInteger('autoridad_id')
-                    ->comment('identificador de el Profesor que crea la categoria de la nota.');
+            $table->unsignedBigInteger('materia_id')
+                    ->comment('identificador de la materia que crea la categoria de la nota.');
 
             $table->string('nombre')
                     ->comment('nombre de la categoria de la nota.');
