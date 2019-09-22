@@ -30,38 +30,34 @@ class DatabaseSeeder extends Seeder
             'modalidades',
             'periodos',
             'alumnos',
-            'alumno_escuelas',
             'messages',
-            'autoridad_telefonos',
             'notas',
             'inasistencias',
             'documentos',
 
         ]);
         //debemos llamar todos los seeder que creamos
-        $this->call(UserSeeder::class);  
-        $this->call(LegajoSeeder::class);  
+        $this->call(UserSeeder::class);    
         $this->call(DomicilioSeeder::class);          
         $this->call(EscuelaSeeder::class); 
         $this->call(CursoSeeder::class);
         
         $this->call(DiaActividadSeeder::class);  
         $this->call(PersonaSeeder::class);
-        $this->call(TelefonoSeeder::class);
         $this->call(AutoridadSeeder::class);
+        $this->call(TelefonoSeeder::class);
 
-        $this->call(CategoriaNotaSeeder::class);
         $this->call(CategoriaMessageSeeder::class);
         $this->call(ModuloSeeder::class);
         $this->call(MateriaSeeder::class);
+        $this->call(CategoriaNotaSeeder::class);
 
         $this->call(ModalidadSeeder::class);
         $this->call(PeriodoSeeder::class); 
         $this->call(AlumnoSeeder::class);
-        $this->call(AlumnoEscuelaSeeder::class);
+        $this->call(LegajoSeeder::class);
 
         $this->call(MessageSeeder::class);
-        $this->call(AutoridadTelefonoSeeder::class);
         $this->call(NotaSeeder::class);
         $this->call(InasistenciaSeeder::class);
         

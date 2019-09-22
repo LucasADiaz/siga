@@ -19,6 +19,17 @@ class CreateLegajosTable extends Migration
 
             $table->unsignedBigInteger('alumno_id')
                     ->comment('identificador de un alumno');
+                    
+            $table->unsignedBigInteger('padre_id')
+                    ->nullable()
+                    ->comment('identificador al padre de un alumno');
+
+            $table->unsignedBigInteger('madre_id')
+                    ->nullable()
+                    ->comment('identificador a la madre de un alumno');
+
+            $table->unsignedBigInteger('tutor_id')
+                    ->comment('identificador al tutor de un alumno');
 
             $table->timestamps();
         });

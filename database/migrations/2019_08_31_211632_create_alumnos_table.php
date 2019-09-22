@@ -19,6 +19,9 @@ class CreateAlumnosTable extends Migration
    
             $table->unsignedBigInteger('persona_id')
                     ->comment('identificador de persona.');
+                   
+            $table->unsignedBigInteger('escuela_id')
+                    ->comment('identificador de la escuela a la que pertenece el alumno.');
 
             $table->string('email')
                     ->nullable()
