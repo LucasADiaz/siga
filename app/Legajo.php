@@ -23,4 +23,8 @@ class Legajo extends Model
     public function tutor(){    
         return $this->belongsTo(Autoridad::class); 
     }
+
+    public function documentos(){    
+        return $this->hasMany(Documento::class); 
+    }
 }

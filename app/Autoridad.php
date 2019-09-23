@@ -20,12 +20,16 @@ class Autoridad extends Model
         return $this->hasMany(Legajo::class,'tutor_id'); 
     }
 
-    public function LegajosPadreDe(){    
+    public function lgajosPadreDe(){    
         return $this->hasMany(Legajo::class,'padre_id'); 
     }
 
-    public function LegajosMadreDe(){    
+    public function legajosMadreDe(){    
         return $this->hasMany(Legajo::class,'madre_id'); 
+    }
+
+    public function profesores(){    
+        return $this->hasMany(Profesor::class); 
     }
 
     public function user(){    

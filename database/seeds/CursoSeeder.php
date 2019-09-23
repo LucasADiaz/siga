@@ -18,6 +18,6 @@ class CursoSeeder extends Seeder
         //     'nivel'=>
         // ])
 
-        factory(Curso::class, 47)->create();
+        factory(Curso::class, 30)->create();
     }
 }

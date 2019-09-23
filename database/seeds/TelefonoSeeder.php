@@ -14,6 +14,6 @@ class TelefonoSeeder extends Seeder
     {
         
         
-        factory(Telefono::class, 47)->create();
+        factory(Telefono::class, 150)->create();
     }
 }

@@ -1,0 +1,18 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Profesor extends Model
+{
+    protected $table = 'profesores';
+
+    public function materias(){    
+        return $this->belongsToMany(Materia::class)->withPivot('caracter'); 
+    }
+
+    public function autoridad(){    
+        return $this->belongsTo(Autoridad::class); 
+    }
+}

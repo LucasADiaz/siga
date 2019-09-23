@@ -16,6 +16,12 @@ class CreateModulosTable extends Migration
         Schema::create('modulos', function (Blueprint $table) {
             $table->bigIncrements('id');
 
+            $table->string('dia')
+                    ->comment('dia de el modulo Ej: Lunes, Martes..');
+
+            $table->string('turno')
+                    ->comment('Ej: Mañana, Tarde o Noche');
+
             $table->string('nombre')
                     ->comment('nombre del modulo. Ej:1º hora , primero, prehora');
             

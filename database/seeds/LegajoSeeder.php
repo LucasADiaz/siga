@@ -12,6 +12,6 @@ class LegajoSeeder extends Seeder
      */
     public function run()
     {
-        factory(Legajo::class, 47)->create();
+        factory(Legajo::class, 300)->create();
     }
 }

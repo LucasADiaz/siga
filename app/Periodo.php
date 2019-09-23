@@ -9,4 +9,8 @@ class Periodo extends Model
     public function Nota(){    
         return $this->hasMany(Nota::class); 
     }
+
+    public function escuela(){    
+        return $this->belongsTo(Escuela::class); 
+    }
 }

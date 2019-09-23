@@ -17,15 +17,9 @@ class CreateMateriasTable extends Migration
    
             $table->bigIncrements('id')
                     ->comment('identifica uniquivocamente a una materia');
-            
-            $table->unsignedBigInteger('profesor_id')
-                    ->comment('identifica al profesor');
-
-            $table->unsignedBigInteger('curso_id')
-                    ->comment('identifica al curso');
-
-            $table->unsignedBigInteger('modulo_id')
-                    ->comment('identifica el modulo');
+                    
+            $table->string('nombre')
+                    ->comment('Nombre del Periodo');
 
             $table->timestamps();
         });
