@@ -10,6 +10,10 @@ class Alumno extends Model
         return $this->belongsTo(Persona::class); 
     }
 
+    public function curso(){    
+        return $this->belongsTo(Curso::class); 
+    }
+
     public function inasistencias(){    
         return $this->hasMany(Inasistencia::class); 
     }

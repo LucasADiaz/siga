@@ -40,4 +40,12 @@ class User extends Authenticatable
     public function autoridad(){    
         return $this->belongsTo(Autoridad::class); 
     }
+
+    public function messagesEnviados(){    
+        return $this->hasMany(Message::class,'emisor_id'); 
+    }
+
+    public function messagesRecibidos(){    
+        return $this->hasMany(Message::class,'receptor_id'); 
+    }
 }

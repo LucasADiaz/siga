@@ -1,9 +1,9 @@
 <?php
 
-use App\Materia;
+use App\MateriaModulo;
 use Illuminate\Database\Seeder;
 
-class MateriaSeeder extends Seeder
+class MateriaModuloSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class MateriaSeeder extends Seeder
      */
     public function run()
     {
-        factory(Materia::class, 150)->create();
+        factory(MateriaModulo::class, 47)->create();
     }
 }

@@ -12,6 +12,6 @@ class ModuloSeeder extends Seeder
      */
     public function run()
     {
-        factory(Modulo::class, 47)->create();
+        factory(Modulo::class, 50)->create();
     }
 }

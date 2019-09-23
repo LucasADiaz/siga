@@ -12,6 +12,6 @@ class InasistenciaSeeder extends Seeder
      */
     public function run()
     {
-        factory(Inasistencia::class, 47)->create();
+        factory(Inasistencia::class, 150)->create();
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Curso extends Model
 {
     public function materias(){    
-        return $this->hasMany(Materia::class); 
+        return $this->belongsToMany(Materia::class); 
     }
 
     public function escuela(){    
@@ -16,5 +16,9 @@ class Curso extends Model
 
     public function diasActividad(){    
         return $this->hasMany(DiaActividadCurso::class); 
+    }
+
+    public function alumnos(){    
+        return $this->hasMany(Alumno::class); 
     }
 }

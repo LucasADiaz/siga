@@ -9,4 +9,8 @@ class Domicilio extends Model
     public function persona(){    
         return $this->hasOne(Persona::class); 
     }
+
+    public function escuela(){    
+        return $this->hasOne(Escuela::class); 
+    }
 }

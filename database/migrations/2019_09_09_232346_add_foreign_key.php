@@ -20,11 +20,7 @@ class AddForeignKey extends Migration
         Schema::table('alumnos', function (Blueprint $table) {        
             $table->foreign('persona_id')->references('id')->on('personas');
             $table->foreign('escuela_id')->references('id')->on('escuelas');
-        });
-        Schema::table('materias', function (Blueprint $table) {        
-            $table->foreign('profesor_id')->references('id')->on('autoridades');
             $table->foreign('curso_id')->references('id')->on('cursos');
-            $table->foreign('modulo_id')->references('id')->on('modulos');
         });
         Schema::table('modulos', function (Blueprint $table) {        
             $table->foreign('escuela_id')->references('id')->on('escuelas');
@@ -59,6 +55,9 @@ class AddForeignKey extends Migration
             $table->foreign('persona_id')->references('id')->on('personas');
             //$table->foreign('telefono_id')->references('id')->on('telefonos');
         });
+        Schema::table('users', function (Blueprint $table) {        
+            $table->foreign('autoridad_id')->references('id')->on('autoridades');
+        });
         Schema::table('telefonos', function (Blueprint $table) {        
             $table->foreign('autoridad_id')->references('id')->on('autoridades');
         });
@@ -81,6 +80,21 @@ class AddForeignKey extends Migration
             $table->foreign('padre_id')->references('id')->on('autoridades');
             $table->foreign('madre_id')->references('id')->on('autoridades');
             $table->foreign('tutor_id')->references('id')->on('autoridades');
+        });
+        Schema::table('profesores', function (Blueprint $table) {        
+            $table->foreign('autoridad_id')->references('id')->on('autoridades');
+        });
+        Schema::table('materia_profesor', function (Blueprint $table) {        
+            $table->foreign('materia_id')->references('id')->on('materias');
+            $table->foreign('profesor_id')->references('id')->on('profesores');
+        });
+        Schema::table('curso_materia', function (Blueprint $table) {        
+            $table->foreign('materia_id')->references('id')->on('materias');
+            $table->foreign('curso_id')->references('id')->on('cursos');
+        });
+        Schema::table('materia_modulo', function (Blueprint $table) {        
+            $table->foreign('materia_id')->references('id')->on('materias');
+            $table->foreign('modulo_id')->references('id')->on('modulos');
         });
     }
 

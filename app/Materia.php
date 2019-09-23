@@ -14,11 +14,15 @@ class Materia extends Model
         return $this->hasOne(CategoriaNota::class); 
     }
 
-    public function curso(){    
-        return $this->belongsTo(Curso::class); 
+    public function cursos(){    
+        return $this->belongsToMany(Curso::class); 
     }
 
-    public function modulo(){    
-        return $this->hasMany(Modulo::class); 
+    public function modulos(){    
+        return $this->belongsToMany(Modulo::class); 
+    }
+
+    public function profesores(){    
+        return $this->belongsToMany(Profesor::class)->withPivot('caracter'); 
     }
 }

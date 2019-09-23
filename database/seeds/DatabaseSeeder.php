@@ -34,10 +34,13 @@ class DatabaseSeeder extends Seeder
             'notas',
             'inasistencias',
             'documentos',
+            'profesores',
+            'curso_materia',
+            'materia_modulo',
+            'materia_profesor',
 
         ]);
-        //debemos llamar todos los seeder que creamos
-        $this->call(UserSeeder::class);    
+        //debemos llamar todos los seeder que creamos    
         $this->call(DomicilioSeeder::class);          
         $this->call(EscuelaSeeder::class); 
         $this->call(CursoSeeder::class);
@@ -45,6 +48,7 @@ class DatabaseSeeder extends Seeder
         $this->call(DiaActividadSeeder::class);  
         $this->call(PersonaSeeder::class);
         $this->call(AutoridadSeeder::class);
+        $this->call(UserSeeder::class);
         $this->call(TelefonoSeeder::class);
 
         $this->call(CategoriaMessageSeeder::class);
@@ -62,6 +66,10 @@ class DatabaseSeeder extends Seeder
         $this->call(InasistenciaSeeder::class);
         
         $this->call(DocumentoSeeder::class);      
+        $this->call(ProfesorSeeder::class);      
+        $this->call(MateriaModuloSeeder::class);      
+        $this->call(MateriaProfesorSeeder::class);      
+        $this->call(CursoMateriaSeeder::class);      
           
     }
      

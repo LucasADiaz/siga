@@ -13,7 +13,7 @@ class DomicilioSeeder extends Seeder
      */
     public function run()
     {
-        
+        /**
         DB::table('domicilios')->insert([       //Carga de datos de pruebas
             'calle'=> 'Maipu ',
             'numero'=>'482',
@@ -31,7 +31,8 @@ class DomicilioSeeder extends Seeder
             'piso'=>'3',
             'departamento'=>'2',
         ]);
+        */
 
-        factory(Domicilio::class, 47)->create();
+        factory(Domicilio::class, 150)->create();
     }
 }

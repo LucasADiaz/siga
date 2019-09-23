@@ -15,6 +15,6 @@ class AutoridadSeeder extends Seeder
     {
         
 
-        factory(Autoridad::class, 47)->create();
+        factory(Autoridad::class, 150)->create();
     }
 }
