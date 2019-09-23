@@ -11,4 +11,7 @@ class DiaActividadCurso extends Model
     public function curso(){    
         return $this->belongsTo(Curso::class); 
     }
+
+    // seguridad de eloquent para la carga masiva
+    protected $fillable =['fecha']; 
 }

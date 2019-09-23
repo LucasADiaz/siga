@@ -29,4 +29,8 @@ class Alumno extends Model
     public function legajo(){    
         return $this->hasOne(Legajo::class); 
     }
+
+
+    // seguridad de eloquent para la carga masiva
+    protected $fillable =['email','grupo_factor'];   
 }

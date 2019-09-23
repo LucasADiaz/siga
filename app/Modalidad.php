@@ -11,4 +11,7 @@ class Modalidad extends Model
     public function escuela(){    
         return $this->belongsTo(Escuela::class); 
     }
+
+    // seguridad de eloquent para la carga masiva
+    protected $fillable =['nombre'];   
 }

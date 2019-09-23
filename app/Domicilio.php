@@ -13,4 +13,6 @@ class Domicilio extends Model
     public function escuela(){    
         return $this->hasOne(Escuela::class); 
     }
+    // seguridad de eloquent para la carga masiva
+    protected $fillable =['calle','numero','cod_postal','localidad','referencias','piso','departamento'];   
 }

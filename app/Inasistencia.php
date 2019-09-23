@@ -11,4 +11,6 @@ class Inasistencia extends Model
     public function alumno(){    
         return $this->belongsTo(Alumno::class); 
     }
+    // seguridad de eloquent para la carga masiva
+    protected $fillable =['fecha'];   
 }

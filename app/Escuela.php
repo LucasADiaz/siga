@@ -33,4 +33,6 @@ class Escuela extends Model
     public function domicilio(){    
         return $this->belongsTo(Domicilio::class); 
     }
+    // seguridad de eloquent para la carga masiva
+    protected $fillable =['nombre','telefono'];   
 }

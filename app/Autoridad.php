@@ -35,4 +35,6 @@ class Autoridad extends Model
     public function user(){    
         return $this->hasOne(User::class); 
     }
+   // seguridad de eloquent para la carga masiva
+    protected $fillable =['email'];
 }

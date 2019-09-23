@@ -13,4 +13,7 @@ class Modulo extends Model
     public function escuela(){    
         return $this->belongsTo(Escuela::class); 
     }
+
+    // seguridad de eloquent para la carga masiva
+    protected $fillable =['dia','turno','nombre','turno'];   
 }

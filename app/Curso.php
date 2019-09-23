@@ -21,4 +21,6 @@ class Curso extends Model
     public function alumnos(){    
         return $this->hasMany(Alumno::class); 
     }
+    // seguridad de eloquent para la carga masiva
+    protected $fillable =['nivel','anio','seccion','turno'];   
 }

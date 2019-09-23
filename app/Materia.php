@@ -25,4 +25,6 @@ class Materia extends Model
     public function profesores(){    
         return $this->belongsToMany(Profesor::class)->withPivot('caracter'); 
     }
+    // seguridad de eloquent para la carga masiva
+    protected $fillable =['nombre'];   
 }

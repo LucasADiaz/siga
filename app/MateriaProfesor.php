@@ -7,4 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class MateriaProfesor extends Model
 {
     protected $table = 'materia_profesor';
+
+    // seguridad de eloquent para la carga masiva
+    protected $fillable =['caracter'];   
 }

@@ -21,4 +21,7 @@ class Nota extends Model
     public function categoria(){    
         return $this->belongsTo(CategoriaNota::class,'categoria_nota_id'); 
     }
+
+    // seguridad de eloquent para la carga masiva
+    protected $fillable =['nota'];   
 }

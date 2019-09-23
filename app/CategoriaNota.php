@@ -13,4 +13,8 @@ class CategoriaNota extends Model
     public function materia(){    
         return $this->belongsTo(Nota::class); 
     }
+
+
+    // seguridad de eloquent para la carga masiva
+    protected $fillable =['nombre'];   
 }
