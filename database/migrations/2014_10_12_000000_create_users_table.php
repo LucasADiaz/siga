@@ -19,10 +19,6 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-
-            $table->unsignedBigInteger('autoridad_id')
-                    ->comment('identificador de una autoridad.');
-            
             $table->rememberToken();
             $table->timestamps();
         });

@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
 
     public function autoridad(){    
-        return $this->belongsTo(Autoridad::class); 
+        return $this->hasOne(Autoridad::class); 
     }
 
     public function messagesEnviados(){    
