@@ -40,7 +40,9 @@ class DatabaseSeeder extends Seeder
             'materia_profesor',
 
         ]);
-        //debemos llamar todos los seeder que creamos    
+        //debemos llamar todos los seeder que creamos   
+        
+        $this->call(UserSeeder::class); 
         $this->call(DomicilioSeeder::class);          
         $this->call(EscuelaSeeder::class); 
         $this->call(CursoSeeder::class);
@@ -48,7 +50,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DiaActividadSeeder::class);  
         $this->call(PersonaSeeder::class);
         $this->call(AutoridadSeeder::class);
-        $this->call(UserSeeder::class);
         $this->call(TelefonoSeeder::class);
 
         $this->call(CategoriaMessageSeeder::class);
