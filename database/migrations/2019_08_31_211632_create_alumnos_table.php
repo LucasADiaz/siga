@@ -20,12 +20,13 @@ class CreateAlumnosTable extends Migration
             $table->unsignedBigInteger('persona_id')
                     ->comment('identificador de persona.');
                    
-            $table->unsignedBigInteger('escuela_id')
+            $table->string('escuela_procedencia')
                     ->comment('identificador de la escuela a la que pertenece el alumno.');
 
             $table->unsignedBigInteger('curso_id')
+            ->nullable()
                     ->comment('identificador del curso actual al que pertenece el alumno.');
-
+                
             $table->string('email')
                     ->nullable()
                     ->comment('correo electronico que para el alumno es opcional.');

@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\LegajosController;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -42,3 +44,4 @@ Route::get('/posts', 'PostsController@crearPost')->name('posts.crear');
 Route::post('/posts/send', 'PostsController@enviar')->name('posts.enviar');
 
 Route::get('/legajos/new', 'LegajosController@crearLegajo')->name('legajos.crear');
+Route::post('/legajos/new','LegajosController@store')->name('legajos.guardar');

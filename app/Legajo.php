@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Legajo extends Model
 {
+    protected $guarded = [];
     protected $table = 'legajos';
 
     public function alumno(){    

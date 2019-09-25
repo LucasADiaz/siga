@@ -7,6 +7,12 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
+   
+            
+public function username()
+            {
+            return 'username';
+            }
     /*
     |--------------------------------------------------------------------------
     | Login Controller
