@@ -33,7 +33,7 @@ class CreateDomiciliosTable extends Migration
             $table->integer('cod_postal')
                     ->comment('codigo postal.');
 
-            $table->enum('localidad',['Capital','San José','Pomán'])
+            $table->string('localidad',50)
                     ->comment('identificador de la localidad de la provincia.');
 
             $table->integer('piso')

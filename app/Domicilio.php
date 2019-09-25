@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Domicilio extends Model
 {
+    protected $guarded = [];
     public function persona(){    
         return $this->belongsTo(Persona::class); 
     }

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Alumno extends Model
 {
+    protected $guarded = [];
     public function persona(){    
         return $this->belongsTo(Persona::class); 
     }
@@ -32,5 +33,5 @@ class Alumno extends Model
 
 
     // seguridad de eloquent para la carga masiva
-    protected $fillable =['email','grupo_factor'];   
+    protected $fillable =['persona_id','escuela_procedencia','email','grupo_factor'];   
 }

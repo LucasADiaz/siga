@@ -20,5 +20,5 @@ class Persona extends Model
     }
 
     // seguridad de eloquent para la carga masiva
-    protected $fillable =['nombre','apellido','fecha_nacimiento','sexo'];   
+    protected $fillable =['nombre','apellido','fecha_nacimiento','lugar_nacimiento','sexo','nro_doc','nacionalidad','domicilio_id'];   
 }
