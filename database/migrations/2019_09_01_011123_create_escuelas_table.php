@@ -19,14 +19,11 @@ class CreateEscuelasTable extends Migration
             $table->string('nombre',200)
                     ->comment('Nombre de la escuela.');
             
-            $table->unsignedBigInteger('domicilio_id')
-                    ->comment('identificado del domicilio.');
+            $table->string('domicilio')
+                    ->comment('domicilio.');
             
-            $table->unsignedBigInteger('telefono')
+            $table->string('telefono')
                     ->comment('numero de telefono');
-                    
-            //$table->unsignedBigInteger('telefono_id')
-            // ->comment('identifica numero de telefono');
             
 
             $table->timestamps();

@@ -1,5 +1,6 @@
 <?php
 
+use App\Directivo;
 use Illuminate\Database\Seeder;
 
 class DirectivoSeeder extends Seeder
@@ -11,6 +12,6 @@ class DirectivoSeeder extends Seeder
      */
     public function run()
     {
-        factory(Preceptor::class,20)->create();
+        factory(Directivo::class,20)->create();
     }
 }

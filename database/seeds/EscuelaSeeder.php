@@ -16,7 +16,7 @@ class EscuelaSeeder extends Seeder
         DB::table('escuelas')->insert([
             'id'=>'1',
             'nombre'=>'FRAY',
-            'domicilio_id'=> '1',
+            'domicilio'=> 'Belgrano 751',
             'telefono'=>'+54383154571346'
 
         ]);
@@ -24,7 +24,7 @@ class EscuelaSeeder extends Seeder
         DB::table('escuelas')->insert([
             'id'=>'2',
             'nombre'=>'INDUSTRIAL',
-            'domicilio_id'=> '2',
+            'domicilio'=> 'Mariano Moreno 122',
             'telefono'=>'+54383154571347'
             ]);
 

@@ -15,6 +15,10 @@ class CreateDirectivosTable extends Migration
     {
         Schema::create('directivos', function (Blueprint $table) {
             $table->bigIncrements('id');
+
+            $table->unsignedBigInteger('autoridad_id')
+                    ->comment('identifica de la autoridad');
+
             $table->timestamps();
         });
     }
