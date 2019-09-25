@@ -8,7 +8,7 @@ class Domicilio extends Model
 {
     protected $guarded = [];
     public function persona(){    
-        return $this->hasOne(Persona::class); 
+        return $this->belongsTo(Persona::class); 
     }
 
     public function escuela(){    

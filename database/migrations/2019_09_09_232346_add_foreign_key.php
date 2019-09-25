@@ -14,8 +14,8 @@ class AddForeignKey extends Migration
     public function up()
     {
         
-        Schema::table('personas', function (Blueprint $table) {        
-            $table->foreign('domicilio_id')->references('id')->on('domicilios');
+        Schema::table('domicilios', function (Blueprint $table) {        
+            $table->foreign('persona_id')->references('id')->on('personas');
         });
         Schema::table('alumnos', function (Blueprint $table) {        
             $table->foreign('persona_id')->references('id')->on('personas');
@@ -56,7 +56,7 @@ class AddForeignKey extends Migration
             $table->foreign('user_id')->references('id')->on('users');
         });
         Schema::table('telefonos', function (Blueprint $table) {        
-            $table->foreign('autoridad_id')->references('id')->on('autoridades');
+            $table->foreign('persona_id')->references('id')->on('personas');
         });
         Schema::table('escuelas', function (Blueprint $table) {        
             $table->foreign('domicilio_id')->references('id')->on('domicilios');
@@ -102,6 +102,7 @@ class AddForeignKey extends Migration
      */
     public function down()
     {
+        /** Modificar cuando este en Produccion
         Schema::table('telefonos', function (Blueprint $table) {        
             $table->dropForeign(['persona_id']);
         });
@@ -162,5 +163,6 @@ class AddForeignKey extends Migration
         Schema::table('legajos', function (Blueprint $table) {        
             $table->dropForeign(['alumno_id']);            
         });
+        */
     }
 }

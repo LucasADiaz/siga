@@ -20,6 +20,8 @@ class CreateDocumentosTable extends Migration
 
             $table->unsignedBigInteger('legajo_id')
                     ->comment('identifica a que legajo pertenecen los pdf ');
+            
+            $table->date('anio')->comment('año donde ingresa la documentación');
 
             $table->binary('dni_pri')->comment('primera hoja del dni');
             $table->binary('dni_seg')->comment('segunda hoda del dni');
@@ -27,7 +29,6 @@ class CreateDocumentosTable extends Migration
             $table->binary('const_cuil')->comment('constancia de cuil');
             $table->binary('libreta')->comment('libreta de año pasado');
             $table->binary('const_alum_reg')->comment('constancia de alumno regular');
-            $table->date('anio')->comment('año donde ingresa la documentación');
             $table->timestamps();
         });
 

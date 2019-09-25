@@ -20,6 +20,9 @@ class CreateCursosTable extends Migration
             $table->unsignedBigInteger('escuela_id')
                     ->comment('identifica a que escuela pertenece el curso');
 
+            $table->unsignedBigInteger('preceptor_id')
+                    ->comment('identifica al preceptor que esta a cargo del curso');
+
             $table->enum('nivel',['primaria','secundaria'])
                     ->comment('identifica al nivel del curso, si es primario o secundario');
             

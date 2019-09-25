@@ -2,14 +2,14 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Autoridad;
+use App\Persona;
 use App\Telefono;
 use Faker\Generator as Faker;
 
 $factory->define(Telefono::class, function (Faker $faker) {
     return [
         'numero'=>$faker->randomElement(['+5493834772459','+5493834571346','+5493834578983','+5493834545986','+5493834756323']),
-        'categoria'=>$faker->randomElement(['Casa','Trabajo','Movil']),
-        'autoridad_id'=>Autoridad::all()->random()->id,
+        'categoria'=>$faker->randomElement(['Fijo','Trabajo','Movil']),
+        'persona_id'=>Persona::all()->random()->id,
     ];
 });

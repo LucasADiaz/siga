@@ -15,24 +15,26 @@ class CreateDomiciliosTable extends Migration
     {
         Schema::create('domicilios', function (Blueprint $table) {
             $table->bigIncrements('id')
-                        ->unique()
-                        ->comment('identifica uniquivocamente un domicilio');
+                    ->unique()
+                    ->comment('identifica uniquivocamente un domicilio');
 
+            $table->unsignedBigInteger('persona_id')
+                    ->comment('Identifica a la persona que le pertenece este domicilio.');
+            
             $table->string('calle',100)
                     ->comment('nombre de la calle de frente de su casa.');
-
+                
             $table->integer('numero')
                     ->comment('numero de la casa.');
+                    
+            $table->string('barrio',100)
+                            ->comment('nombre del barrio de su casa.');
 
             $table->integer('cod_postal')
                     ->comment('codigo postal.');
 
             $table->string('localidad',50)
                     ->comment('identificador de la localidad de la provincia.');
-
-            $table->string('referencias',400)
-                    ->nullable()
-                    ->comment('Entre la calles, color de casa');
 
             $table->integer('piso')
                     ->nullable()
