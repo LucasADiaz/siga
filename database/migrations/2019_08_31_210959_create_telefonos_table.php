@@ -16,13 +16,13 @@ class CreateTelefonosTable extends Migration
         Schema::create('telefonos', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->unsignedBigInteger('autoridad_id')
+            $table->unsignedBigInteger('persona_id')
                     ->comment('identificador de la autoridad.');
 
             $table->string('numero')
                     ->comment('numero de telefono formato: +54 9 383 4578983');
             
-             $table->enum('categoria',['Casa','Trabajo','Movil'])
+             $table->enum('categoria',['Fijo','Trabajo','Movil'])
                     ->comment('categoria de telefono. Ej: Casa, Trabajo...');
 
             $table->timestamps();

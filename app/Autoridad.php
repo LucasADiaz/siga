@@ -20,7 +20,7 @@ class Autoridad extends Model
         return $this->hasMany(Legajo::class,'tutor_id'); 
     }
 
-    public function lgajosPadreDe(){    
+    public function legajosPadreDe(){    
         return $this->hasMany(Legajo::class,'padre_id'); 
     }
 
@@ -28,8 +28,8 @@ class Autoridad extends Model
         return $this->hasMany(Legajo::class,'madre_id'); 
     }
 
-    public function profesores(){    
-        return $this->hasMany(Profesor::class); 
+    public function profesor(){    
+        return $this->hasOne(Profesor::class); 
     }
 
     public function user(){    

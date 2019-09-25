@@ -27,9 +27,6 @@ class CreatePersonasTable extends Migration
 
             $table->enum('sexo',['M','F'])
                     ->comment('sexo de la persona, masculino y femenino. NADA DE HOMOSEXUAL O POKEMON.');
-            
-            $table->unsignedBigInteger('domicilio_id')
-                    ->comment('identificado del domicilio.');
 
             /*$table->unsignedBigInteger('grupo_factor_id')
                     ->comment('Grupo y Factor sanguineo.');*/

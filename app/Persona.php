@@ -16,7 +16,7 @@ class Persona extends Model
     }
 
     public function domicilio(){    
-        return $this->belongsTo(Domicilio::class); 
+        return $this->hasOne(Domicilio::class); 
     }
 
     // seguridad de eloquent para la carga masiva

@@ -14,6 +14,10 @@ class Curso extends Model
         return $this->belongsTo(Escuela::class); 
     }
 
+    public function preceptor(){    
+        return $this->belongsTo(Preceptor::class); 
+    }
+
     public function diasActividad(){    
         return $this->hasMany(DiaActividadCurso::class); 
     }

@@ -38,24 +38,31 @@ class DatabaseSeeder extends Seeder
             'curso_materia',
             'materia_modulo',
             'materia_profesor',
+            'preceptores',
+            'directivos',
+            'administrativos',
 
         ]);
         //debemos llamar todos los seeder que creamos   
         
         $this->call(UserSeeder::class); 
-        $this->call(DomicilioSeeder::class);          
         $this->call(EscuelaSeeder::class); 
         $this->call(CursoSeeder::class);
         
-        $this->call(DiaActividadSeeder::class);  
         $this->call(PersonaSeeder::class);
         $this->call(AutoridadSeeder::class);
+        $this->call(PreceptorSeeder::class);
+        $this->call(AdministrativoSeeder::class);
+        $this->call(DirectivoSeeder::class);
+
+        $this->call(DomicilioSeeder::class);
         $this->call(TelefonoSeeder::class);
 
         $this->call(CategoriaMessageSeeder::class);
         $this->call(ModuloSeeder::class);
         $this->call(MateriaSeeder::class);
         $this->call(CategoriaNotaSeeder::class);
+        $this->call(DiaActividadSeeder::class);  
 
         $this->call(ModalidadSeeder::class);
         $this->call(PeriodoSeeder::class); 
