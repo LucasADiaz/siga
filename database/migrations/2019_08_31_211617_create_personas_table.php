@@ -40,9 +40,6 @@ class CreatePersonasTable extends Migration
             $table->unsignedBigInteger('domicilio_id')
                     ->comment('identificado del domicilio.');
 
-            $table->unsignedBigInteger('telefono_id')
-                    ->comment('identificado del telefono.');
-
             $table->timestamps();
         });
     }

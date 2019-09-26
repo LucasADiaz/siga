@@ -21,7 +21,6 @@ class AddForeignKey extends Migration
         Schema::table('responsables', function (Blueprint $table) {        
             $table->foreign('persona_id')->references('id')->on('personas');
             $table->foreign('domicilio_laboral_id')->references('id')->on('domicilios');
-            $table->foreign('telefono_laboral_id')->references('id')->on('telefonos');
         });
         Schema::table('alumnos', function (Blueprint $table) {        
             $table->foreign('persona_id')->references('id')->on('personas');
