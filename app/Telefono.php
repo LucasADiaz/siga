@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Telefono extends Model
 {
-    public function autoridad(){    
-        return $this->belongsTo(Autoridad::class); 
+    public function persona(){    
+        return $this->belongsTo(Persona::class); 
     }
 
 

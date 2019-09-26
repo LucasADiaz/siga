@@ -97,6 +97,10 @@ class AddForeignKey extends Migration
             $table->foreign('materia_id')->references('id')->on('materias');
             $table->foreign('modulo_id')->references('id')->on('modulos');
         });
+        Schema::table('parentescos', function (Blueprint $table) {        
+            $table->foreign('persona_id')->references('id')->on('personas');
+            $table->foreign('alumno_id')->references('id')->on('alumnos');
+        });
     }
 
     /**
