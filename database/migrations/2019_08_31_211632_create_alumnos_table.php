@@ -30,6 +30,9 @@ class CreateAlumnosTable extends Migration
             $table->string('email')
                     ->nullable()
                     ->comment('correo electronico que para el alumno es opcional.');
+        
+            $table->string('grupo_factor')
+                    ->comment('grupo y factor sanguineo');
 
             $table->timestamps();
         });
