@@ -18,9 +18,6 @@ class CreateDomiciliosTable extends Migration
                     ->unique()
                     ->comment('identifica uniquivocamente un domicilio');
 
-            $table->unsignedBigInteger('persona_id')
-                    ->comment('Identifica a la persona que le pertenece este domicilio.');
-            
             $table->string('calle',100)
                     ->comment('nombre de la calle de frente de su casa.');
                 
@@ -28,7 +25,8 @@ class CreateDomiciliosTable extends Migration
                     ->comment('numero de la casa.');
                     
             $table->string('barrio',100)
-                            ->comment('nombre del barrio de su casa.');
+                        ->nullable()
+                        ->comment('nombre del barrio de su casa.');
 
             $table->integer('cod_postal')
                     ->comment('codigo postal.');

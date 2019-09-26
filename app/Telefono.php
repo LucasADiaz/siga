@@ -12,5 +12,5 @@ class Telefono extends Model
 
 
     // seguridad de eloquent para la carga masiva
-    protected $fillable =['numero','categoria'];   
+    protected $fillable =['persona_id','numero','categoria'];   
 }

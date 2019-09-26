@@ -14,12 +14,15 @@ class AddForeignKey extends Migration
     public function up()
     {
         
-        Schema::table('domicilios', function (Blueprint $table) {        
+        Schema::table('personas', function (Blueprint $table) {        
+            $table->foreign('domicilio_id')->references('id')->on('domicilios');
+        });
+        Schema::table('responsables', function (Blueprint $table) {        
             $table->foreign('persona_id')->references('id')->on('personas');
+            $table->foreign('domicilio_laboral_id')->references('id')->on('domicilios');
         });
         Schema::table('alumnos', function (Blueprint $table) {        
             $table->foreign('persona_id')->references('id')->on('personas');
-            
             $table->foreign('curso_id')->references('id')->on('cursos');
         });
         Schema::table('modulos', function (Blueprint $table) {        
@@ -54,10 +57,7 @@ class AddForeignKey extends Migration
         Schema::table('autoridades', function (Blueprint $table) {        
             $table->foreign('persona_id')->references('id')->on('personas');
             $table->foreign('user_id')->references('id')->on('users');
-        });
-        Schema::table('telefonos', function (Blueprint $table) {        
-            $table->foreign('persona_id')->references('id')->on('personas');
-        });        
+        });       
         Schema::table('categoria_notas', function (Blueprint $table) {        
             $table->foreign('materia_id')->references('id')->on('materias');
         });

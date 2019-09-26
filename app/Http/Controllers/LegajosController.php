@@ -9,6 +9,7 @@ use App\Autoridad;
 use App\Alumno;
 use App\Persona;
 use App\Domicilio;
+use App\Telefono;
 use Illuminate\Support\Facades\Hash;
 
 class LegajosController extends Controller
@@ -32,7 +33,7 @@ class LegajosController extends Controller
                'numero' => $request->num_calle_alu,
                'cod_postal' => $request->cod_postal_alu,
                'localidad' => $request->localidad_alu,
-               
+               'departamento' => $request->num_depto_alu,
 
             ]);
         $domicilio_alu->save();
@@ -68,6 +69,80 @@ class LegajosController extends Controller
             
         ]);
         $user->save();
+
+        $telefono_alu = Telefono::create([ 
+            'persona_id' => $persona_alu->id, 
+            'numero'=> $request->tel1_alu,
+            'categoria'=>'Personal',
+            
+        ]);
+        $telefono_alu->save();
+
+        if(empty($request->tel2_alu)){
+            
+        }else{
+            $telefono2_alu = Telefono::create([ 
+                'persona_id' => $persona_alu->id, 
+                'numero'=> $request->tel2_alu,
+                'categoria'=>'Personal',
+                
+            ]);
+            $telefono2_alu->save();
+        }
+
+        if($request->madre_fallecida){
+            
+        }else{
+            if($request->madre_mismodomicilio){
+                $domicilio_madre = $domicilio_alu;
+            }else{
+        $domicilio_madre = Domicilio::create([
+            'calle' => $request->calle_madre,
+            'numero' => $request->num_calle_madre,
+            'cod_postal' => $request->cod_postal_madre,
+            'localidad' => $request->localidad_madre,
+            'departamento' => $request->num_depto_madre,
+         ]);
+        }
+
+        $domicilio_madre->save();
+     
+        $persona_madre = Persona::create([
+         
+         'nombre' => $request->nombres_madre,
+         'apellido' => $request->apellidos_madre,
+         'fecha_nacimiento' => $request->fec_nac_madre,
+         'lugar_nacimiento' => $request->lugar_nac_madre,
+         'sexo'=> $request->sexo_madre,
+         'nro_doc' => $request->num_doc_madre,
+         'nacionalidad' => $request->nacionalidad_madre,
+         
+         'domicilio_id' =>$domicilio_madre->id,
+         
+     ]);
+     $persona_madre->save();
+
+     $telefono_madre = Telefono::create([ 
+         'persona_id' => $persona_madre->id, 
+         'numero'=> $request->tel1_madre,
+         'categoria'=>'Personal',
+         
+     ]);
+     $telefono_madre->save();
+
+     if(empty($request->tel2_madre)){
+            
+    }else{
+        $telefono2_madre = Telefono::create([ 
+            'persona_id' => $persona_madre->id, 
+            'numero'=> $request->tel2_madre,
+            'categoria'=>'Personal',
+            
+        ]);
+        $telefono2_madre->save();
+    }
+     
+    }
 
 
 

@@ -40,9 +40,6 @@ class CreatePersonasTable extends Migration
             $table->unsignedBigInteger('domicilio_id')
                     ->comment('identificado del domicilio.');
 
-            /*$table->unsignedBigInteger('grupo_factor_id')
-                    ->comment('Grupo y Factor sanguineo.');*/
-
             $table->timestamps();
         });
     }

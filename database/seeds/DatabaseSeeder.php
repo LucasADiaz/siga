@@ -46,6 +46,7 @@ class DatabaseSeeder extends Seeder
         //debemos llamar todos los seeder que creamos   
         
         $this->call(UserSeeder::class); 
+        $this->call(DomicilioSeeder::class);
         $this->call(EscuelaSeeder::class); 
         
         $this->call(PersonaSeeder::class);
@@ -54,7 +55,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AdministrativoSeeder::class);
         $this->call(DirectivoSeeder::class);
         
-        $this->call(DomicilioSeeder::class);
+        $this->call(ResponsableSeeder::class); 
         $this->call(TelefonoSeeder::class);
         
         $this->call(CursoSeeder::class);

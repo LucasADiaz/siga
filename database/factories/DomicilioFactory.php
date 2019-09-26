@@ -8,14 +8,12 @@ use Faker\Generator as Faker;
 
 $factory->define(Domicilio::class, function (Faker $faker) {
     return [
-        'persona_id' => Persona::all()->random()->id,
         'calle' => $faker->streetName(2),
         'numero' => $faker->buildingNumber(3),
         'barrio' => $faker->streetName(2),
         'cod_postal' => $faker->buildingNumber,
         'localidad'=>$faker->randomElement(['Capital','San José','Pomán']),
         'piso' => $faker->buildingNumber,
-        'departamento' => $faker->buildingNumber,
-                         
+        'departamento' => $faker->buildingNumber,          
     ];
 });

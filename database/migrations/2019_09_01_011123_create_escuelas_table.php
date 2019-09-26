@@ -19,8 +19,8 @@ class CreateEscuelasTable extends Migration
             $table->string('nombre',200)
                     ->comment('Nombre de la escuela.');
             
-            $table->string('domicilio')
-                    ->comment('domicilio.');
+            $table->string('domicilio_id')
+                    ->comment('Identificador del domicilio.');
             
             $table->string('telefono')
                     ->comment('numero de telefono');

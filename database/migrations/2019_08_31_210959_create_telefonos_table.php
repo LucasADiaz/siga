@@ -17,12 +17,12 @@ class CreateTelefonosTable extends Migration
             $table->bigIncrements('id');
 
             $table->unsignedBigInteger('persona_id')
-                    ->comment('identificador de la autoridad.');
+                    ->comment('identificado de la persona.');
 
             $table->string('numero')
                     ->comment('numero de telefono formato: +54 9 383 4578983');
             
-             $table->enum('categoria',['Fijo','Trabajo','Movil'])
+             $table->enum('categoria',['Laboral','Personal'])
                     ->comment('categoria de telefono. Ej: Casa, Trabajo...');
 
             $table->timestamps();
