@@ -15,8 +15,16 @@ class Persona extends Model
         return $this->hasOne(Autoridad::class); 
     }
 
+    public function telefonos(){    
+        return $this->hasMany(Telefono::class); 
+    }
+
     public function domicilio(){    
-        return $this->hasOne(Domicilio::class); 
+        return $this->belongsTo(Domicilio::class); 
+    }
+
+    public function parentescos(){    
+        return $this->belongsToMany(Alumno::class,'parentescos')->withPivot('parentesco'); 
     }
 
     // seguridad de eloquent para la carga masiva

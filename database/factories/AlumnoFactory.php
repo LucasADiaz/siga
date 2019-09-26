@@ -4,7 +4,6 @@
 
 use App\Alumno;
 use App\Curso;
-use App\Escuela;
 use App\Persona;
 use Faker\Generator as Faker;
 

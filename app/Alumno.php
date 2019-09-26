@@ -31,6 +31,9 @@ class Alumno extends Model
         return $this->hasOne(Legajo::class); 
     }
 
+    public function parentescos(){    
+        return $this->belongsToMany(Persona::class,'parentescos')->withPivot('parentesco'); 
+    }
 
     // seguridad de eloquent para la carga masiva
     protected $fillable =['persona_id','escuela_procedencia','email','grupo_factor'];   
