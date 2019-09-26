@@ -14,12 +14,11 @@ class AddForeignKey extends Migration
     public function up()
     {
         
-        Schema::table('domicilios', function (Blueprint $table) {        
-            $table->foreign('persona_id')->references('id')->on('personas');
+        Schema::table('personas', function (Blueprint $table) {        
+            $table->foreign('domicilio_id')->references('id')->on('domicilios');
         });
         Schema::table('alumnos', function (Blueprint $table) {        
             $table->foreign('persona_id')->references('id')->on('personas');
-            
             $table->foreign('curso_id')->references('id')->on('cursos');
         });
         Schema::table('modulos', function (Blueprint $table) {        
