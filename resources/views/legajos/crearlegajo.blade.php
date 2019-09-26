@@ -495,7 +495,7 @@
                           </div>
 
                           <div>
-                              <input type="checkbox" id="madre_fallecida" name="madre_fallecida" value="activado">Fallecida
+                              <input type="checkbox" id="madre_fallecida" name="madre_fallecida" value="activado" onChange="madreFallecida(this);">Fallecida
                           </div>
                       </div>
 
@@ -855,7 +855,7 @@
                           <h3>Domicilio de la madre </h3>
                         </div>
                         <div>
-                          <input type="checkbox" name="madre_mismodomicilio" value="activado" onChange="comprobar(this);">Mismo domicilio del alumno
+                          <input class="form-check-inline" type="checkbox" name="madre_mismodomicilio" id="madre_mismodomicilio" value="activado" onChange="mismoDomicilioMadre(this);">Mismo domicilio del alumno
                         </div>
                       </div>
 
@@ -937,6 +937,9 @@
                                 <input type="text" name="lugar_trabajo_madre" class="form-control" id="lugar_trabajo_madre">
                                 <p class="help-block error hidden">Ingresa un lugar de trabajo</p>
                             </div>
+                            <div class="col-md-4 form-group item-form">
+                          <input class="form-check-inline" type="checkbox" id="madre_no_trabaja" name="madre_no_trabaja" value="activado" onChange="madreNoTrabaja(this);">No trabaja
+                        </div>
                         </div>
                     </div>
 
@@ -949,71 +952,65 @@
                           <h3>Domicilio laboral del madre </h3>
                       </div>
 
-                      <div>
-                          <input type="checkbox" name="madre_no_trabaja" value="activado">No trabaja
-                      </div>
+                      
                   </div>
 
                   <div class="input-group row-md-4">
-                      <div class="col-md-4 form-group item-form">
-                          <label for="localidad_lab_madre">Localidad</label>
-                          <select id="localidad_lab_madre" name="localidad_lab_madre" class="form-control">
-                              <option value="San Fernando del Valle de Catamarca" selected="">San Fernando del Valle de Catamarca</option>
-                              <option value="Achalco">Achalco</option>
-                              <option value="Aconquija">Aconquija</option>
-                              <option value="Agua Amarilla Pta De Balasto">Agua Amarilla Pta De Balasto</option>
-                              <option value="Agua Colorada">Agua Colorada</option>
-                              <option value="Agua De Dionisio">Agua De Dionisio</option>
-                              <option value="Agua Del Campo">Agua Del Campo</option>
-                              <option value="Aguadita">Aguadita</option>
-                              <option value="Agua Grande">Agua Grande</option>
-                              <option value="Agua Salada">Agua Salada</option>
+                    <div class="col-md-4 form-group item-form">
+                      <label for="localidad_lab_madre">Localidad</label>
+                      <select id="localidad_lab_madre" name="localidad_lab_madre" class="form-control">
+                          <option value="San Fernando del Valle de Catamarca" selected="">San Fernando del Valle de Catamarca</option>
+                          <option value="Achalco">Achalco</option>
+                          <option value="Aconquija">Aconquija</option>
+                          <option value="Agua Amarilla Pta De Balasto">Agua Amarilla Pta De Balasto</option>
+                          <option value="Agua Colorada">Agua Colorada</option>
+                          <option value="Agua De Dionisio">Agua De Dionisio</option>
+                          <option value="Agua Del Campo">Agua Del Campo</option>
+                          <option value="Aguadita">Aguadita</option>
+                          <option value="Agua Grande">Agua Grande</option>
+                          <option value="Agua Salada">Agua Salada</option>
 
-                          </select>
-                          <p class="help-block error hidden">Elegí una localidad</p>
+                      </select>
+                      <p class="help-block error hidden">Elegí una localidad</p>
+                    </div>
+                    <div class="col-md-3 form-group item-form">
+                      <label for="cod_postal_lab_madre">Codigo Postal</label>
+                      <input type="text" name="cod_postal_lab_madre" class="form-control" id="cod_postal_lab_madre" >
+                      <p class="help-block error hidden">Ingresá un codigo postal</p>
+                    </div>
+                    
+                  
+                    <div class="col-md-4 form-group item-form">
+                        <label for="calle_lab_madre">Calle</label>
+                        <input type="text" name="calle_lab_madre" class="form-control" id="calle_lab_madre" >
+                        <p class="help-block error hidden">Ingresá una calle</p>
+                    </div>
+                    <div class="input-group row-md-4">
+                        <div class="col-md-3 form-group item-form">
+                            <label for="num_calle_lab_madre">N° Calle</label>
+                            <input type="text" name="num_calle_lab_madre" class="form-control" id="num_calle_lab_madre" >
+                            <p class="help-block error hidden">Ingresá un numero de calle</p>
                       </div>
 
-                      <div class="col-md-3 form-group item-form">
-                          <label for="cod_postal_lab_madre">Codigo Postal</label>
-                          <input type="text" name="cod_postal_lab_madre" class="form-control" id="cod_postal_lab_madre" >
-                          <p class="help-block error hidden">Ingresá un codigo postal</p>
-                      </div>
 
-                      <div class="col-md-4 form-group item-form">
-                          <label for="calle_lab_madre">Calle</label>
-                          <input type="text" name="calle_lab_madre" class="form-control" id="calle_lab_madre" >
-                          <p class="help-block error hidden">Ingresá una calle</p>
-                      </div>
+                    <div class="col-md-2 form-group item-form">
+                        <label for="piso_lab_madre">Piso</label>
+                        <input type="text" name="piso_lab_madre" class="form-control" id="piso_lab_madre">
+                        <p class="help-block error hidden">Ingresá un piso</p>
+                    </div>  
 
-                  </div>
-                  <div class="input-group row-md-4">
-                      <div class="col-md-3 form-group item-form">
-                          <label for="num_calle_lab_madre">Número de calle</label>
-                          <input type="text" class="form-control" id="num_calle_lab_madre" >
-                          <p class="help-block error hidden">Ingresá número de calle</p>
-                      </div>
+                    <div class="col-md-3 form-group item-form">
+                        <label for="num_depto_lab_madre">Departamento</label>
+                        <input type="text" class="form-control" id="num_depto_lab_madre">
+                        <p class="help-block error hidden">Ingresá un departamento</p>
+                    </div>
 
-                      <div class="col-md-2 form-group item-form">
-                          <label for="piso_lab_madre">Piso</label>
-                          <input type="text" name="piso_lab_madre" class="form-control" id="piso_lab_madre">
-                          <p class="help-block error hidden">Ingresá un piso</p>
-                      </div>
-
-                      <div class="col-md-3 form-group item-form">
-                          <label for="num_depto_lab_madre">Departamento</label>
-                          <input type="text" class="form-control" id="num_depto_lab_madre">
-                          <p class="help-block error hidden">Ingresá un un departamento</p>
-                      </div>
-
-                      <div class="col-md-3 form-group item-form">
-                          <label for="tel_lab_madre">Teléfono laboral</label>
-                          <br>
-                          <div class="input-group">
-                              <span class="input-group-addon">0</span>&nbsp;&nbsp;
-                              <input aria-label="número de teléfono laboral madre" class="form-control" id="tel_lab_madre"  type="text">
-                          </div>
-                          <p class="help-block error hidden">Ingresá tu número de teléfono laboral</p>
-                      </div>
+                    <div class="col-md-3 form-group item-form">
+                        <label for="tel_lab_madre">Telefonno Laboral</label>
+                        <input type="text" class="form-control" name="tel_lab_madre" id="tel_lab_madre">
+                        <p class="help-block error hidden">Ingresá un telefono laboral</p>
+                    </div>
+                    </div>
 
                   </div>
                 </fieldset>
@@ -1025,7 +1022,7 @@
                         <h3>Datos personales del padre</h3>
                       </div>
                       <div>
-                          <input type="checkbox" name="padre_fallecido" value="activado">Fallecido
+                          <input type="checkbox" name="padre_fallecido" id="padre_fallecido" value="activado" onChange="padreFallecido(this);">Fallecido
                       </div>
                   </div>
 
@@ -1051,9 +1048,10 @@
 
                     <div class="col-md-3 form-group item-form">
                         <label for="fec_nac_padre">Fecha de nacimiento</label>
-                        <input type="date" class="form-control" id="fec_nac_padre" >
+                        <input type="date" name="fec_nac_padre" class="form-control"  id="fec_nac_padre" >
                         <p class="help-block error hidden">Ingresá una fecha válida</p>
                     </div>
+
 
                   </div>
 
@@ -1069,15 +1067,16 @@
                           <p class="help-block error hidden">Elegí un tipo de documento</p>
                       </div>
 
-                      <div class="col-md-3 form-group item-form">
-                          <label for="num_doc_padre">Número de documento</label>
-                          <input type="number" min="1" class="form-control" id="num_doc_padre" >
-                          <p class="help-block error hidden">Ingresá tu número de documento</p>
-                      </div>
+                      <div class="col-md-2 form-group item-form">
+                        <label for="num_doc_padre">Número de documento</label>
+                        <input type="number" min="1" class="form-control" id="num_doc_padre" name="num_doc_padre" >
+                        <p class="help-block error hidden">Ingresá tu número de documento</p>
+                    </div>
+
 
                       <div class="col-md-2 form-group item-form">
-                            <label for="nacionalidad_alu">Nacionalidad</label>
-                            <select name="nacionalidad_alu" id="nacionalidad_alu" class="form-control">
+                            <label for="nacionalidad_padre">Nacionalidad</label>
+                            <select name="nacionalidad_padre" id="nacionalidad_padre" class="form-control">
                                   <option value="ARG" selected>Argentina</option>                        
                                   <option value="BRA">Brasil</option>                        
                                   <option value="URY">Uruguay</option>                        
@@ -1354,7 +1353,7 @@
                           <label for="tel1_padre">Teléfono móvil</label>
                           <div class="input-group">
                               <span class="input-group-addon">0</span>&nbsp;&nbsp;
-                              <input aria-label="número de teléfono móvil padre" class="form-control" id="tel1_padre"  type="text">
+                              <input aria-label="número de teléfono móvil padre" name="tel1_padre" class="form-control" id="tel1_padre"  type="text">
                           </div>
                           <p class="help-block error hidden">Ingresá tu número de teléfono móvil</p>
                       </div>
@@ -1363,17 +1362,17 @@
                           <label for="tel2_padre">Teléfono secundario (Opcional)</label>
                           <div class="input-group">
                               <span class="input-group-addon">0</span>&nbsp;&nbsp;
-                              <input aria-label="número de teléfono secundario padre" class="form-control" id="tel2_padre"  type="text">
+                              <input aria-label="número de teléfono secundario padre" class="form-control" id="tel2_padre" name="tel2_padre" type="text">
                           </div>
                           <p class="help-block error hidden">Ingresá tu número de teléfono secundario</p>
                       </div>
 
                       <div class="col-md-4 form-group item-form">
-                          <label for="email_padre">Dirección de correo electrónico</label>
-                          <input type="email" name="email_padre" class="form-control" id="email_padre" >
-                          <p class="help-block error hidden">Ingresá un correo electrónico
-                              <br> El correo electrónico tiene un formato no válido</p>
-                      </div>
+                        <label for="email_padre">Dirección de correo electrónico</label>
+                        <input type="email" name="email_padre" class="form-control" id="email_padre" required>
+                        <p class="help-block error hidden">Ingresá un correo electrónico
+                            <br> El correo electrónico tiene un formato no válido</p>
+                    </div>
                   </div>
                 </fieldset>
               <!-- DOMICILIO DEL PADRE-->
@@ -1385,7 +1384,7 @@
                         </div>
 
                         <div>
-                            <input type="checkbox" name="padre_mismodomicilio" value="activado">Mismo domicilio del alumno
+                            <input type="checkbox" name="padre_mismodomicilio" id="padre_mismodomicilio" value="activado" onChange="mismoDomicilioPadre(this);">Mismo domicilio del alumno
                           </div>
                     </div>
 
@@ -1433,7 +1432,7 @@
 
                         <div class="col-md-3 form-group item-form">
                             <label for="num_calle_padre">Número de calle</label>
-                            <input type="text" class="form-control" id="num_calle_padre" >
+                            <input type="text" class="form-control" name="num_calle_padre" id="num_calle_padre" >
                             <p class="help-block error hidden">Ingresá número de calle</p>
                         </div>
 
@@ -1476,7 +1475,7 @@
                     </div>
 
                 </fieldset>
-              <!-- DOMICILIO LABORAR DEL PADRE -->
+              <!-- DOMICILIO LABORAL DEL PADRE -->
                 <fieldset>
                   <hr>
                     <div class="input-group row-md-1">
@@ -1485,7 +1484,7 @@
                         <h3>Domicilio laboral del padre </h3>
                       </div>
                       <div>
-                        <input type="checkbox" name="padre_no_trabaja" value="activado">No trabaja</div>
+                        <input type="checkbox" name="padre_no_trabaja" id="padre_no_trabaja" value="activado" onChange="padreNoTrabaja(this);">No trabaja</div>
                       </div>
 
                     <div class="input-group row-md-4">
@@ -1510,7 +1509,7 @@
 
                         <div class="col-md-3 form-group item-form">
                             <label for="cod_postal_lab_padre">Codigo Postal</label>
-                            <input type="text" name="codigopostal" class="form-control" id="cod_postal_lab_padre" >
+                            <input type="text" name="cod_postal_lab_padre" class="form-control" id="cod_postal_lab_padre" >
                             <p class="help-block error hidden">Ingresá un codigo postal</p>
                         </div>
 
@@ -1525,7 +1524,7 @@
                     <div class="input-group row-md-4">
                         <div class="col-md-3 form-group item-form">
                             <label for="num_calle_lab_padre">Número de calle</label>
-                            <input type="text" class="form-control" id="num_calle_lab_padre" >
+                            <input type="text" class="form-control" id="num_calle_lab_padre" name="num_calle_lab_padre">
                             <p class="help-block error hidden">Ingresá número de calle</p>
                         </div>
 
@@ -1545,7 +1544,7 @@
                             <br>
                             <div class="input-group">
                                 <span class="input-group-addon">0</span>&nbsp;&nbsp;
-                                <input aria-label="número de teléfono móvil laboral padre" class="form-control" id="tel_lab_padre"  type="text">
+                                <input aria-label="número de teléfono móvil laboral padre" class="form-control" id="tel_lab_padre" name="tel_lab_padre"  type="text">
                             </div>
                             <p class="help-block error hidden">Ingresá tu número de teléfono laboral</p>
                         </div>
@@ -1560,10 +1559,10 @@
                         <h3>Datos personales del tutor</h3>
                       </div>
                       <div>
-                        <input type="checkbox" name="madre_es_tutor" value="activado">Es la madre
+                        <input type="checkbox" name="madre_es_tutor" id="madre_es_tutor" value="activado" onChange="esLaMadre(this);">Es la madre
                       </div>&nbsp;&nbsp;
                       <div>
-                        <input type="checkbox" name="padre_es_tutor" value="activado">Es el padre
+                        <input type="checkbox" name="padre_es_tutor" id="padre_es_tutor" value="activado" onChange="esElPadre(this);">Es el padre
                       </div>&nbsp;&nbsp;
                     </div>
 
@@ -1589,7 +1588,7 @@
 
                         <div class="col-md-3 form-group item-form">
                             <label for="fec_nac_tutor">Fecha de nacimiento</label>
-                            <input type="date" class="form-control" id="fec_nac_tutor" >
+                            <input type="date" class="form-control" id="fec_nac_tutor" name="fec_nac_tutor">
                             <p class="help-block error hidden">Ingresá una fecha válida</p>
                         </div>
 
@@ -1609,13 +1608,13 @@
 
                         <div class="col-md-3 form-group item-form">
                             <label for="num_doc_tutor">Número de documento</label>
-                            <input type="number" min="1" class="form-control" id="num_doc_tutor" >
+                            <input type="number" min="1" class="form-control" id="num_doc_tutor" name="num_doc_tutor">
                             <p class="help-block error hidden">Ingresá tu número de documento</p>
                         </div>
 
                         <div class="col-md-2 form-group item-form">
-                                <label for="nacionalidad_alu">Nacionalidad</label>
-                                <select name="nacionalidad_alu" id="nacionalidad_alu" class="form-control">
+                                <label for="nacionalidad_tutor">Nacionalidad</label>
+                                <select name="nacionalidad_tutor" id="nacionalidad_tutor" class="form-control">
                                       <option value="ARG" selected>Argentina</option>                        
                                       <option value="BRA">Brasil</option>                        
                                       <option value="URY">Uruguay</option>                        
@@ -1894,7 +1893,7 @@
                           <br>
                           <div class="input-group">
                               <span class="input-group-addon">0</span>&nbsp;&nbsp;
-                              <input aria-label="número de teléfono móvil del tutor" class="form-control" id="tel1_tutor"  type="text">
+                              <input aria-label="número de teléfono móvil del tutor" class="form-control" id="tel1_tutor" name="tel1_tutor" type="text">
                           </div>
                           <p class="help-block error hidden">Ingresá tu número de teléfono móvil</p>
                       </div>
@@ -1904,7 +1903,7 @@
                           <br>
                           <div class="input-group">
                               <span class="input-group-addon">0</span>&nbsp;&nbsp;
-                              <input aria-label="número de teléfono secundario del tutor" class="form-control" id="tel2_tutor"  type="text">
+                              <input aria-label="número de teléfono secundario del tutor" class="form-control" id="tel2_tutor" name="tel2_tutor" type="text">
                           </div>
                           <p class="help-block error hidden">Ingresá tu número de teléfono secundario</p>
                       </div>
@@ -1926,7 +1925,7 @@
                           <h3>Domicilio del tutor </h3>
                         </div>
                         <div>
-                            <input type="checkbox" name="mismodomicilio" value="activado">Mismo domicilio del alumno
+                            <input type="checkbox" name="tutor_mismodomicilio" id="tutor_mismodomicilio" value="activado" onChange="mismoDomicilioTutor(this);">Mismo domicilio del alumno
                         </div>
                     </div>
 
@@ -1934,7 +1933,7 @@
 
                         <div class="col-md-4 form-group item-form">
                             <label for="localidad_tutor">Localidad</label>
-                            <select id="localidad_tutor" name="localidad_tutor" class="form-control">
+                            <select id="localidad_tutor" name="localidad_tutor" id="localidad_tutor" class="form-control">
                                 <option value="San Fernando del Valle de Catamarca" selected="">San Fernando del Valle de Catamarca</option>
                                 <option value="Achalco">Achalco</option>
                                 <option value="Aconquija">Aconquija</option>
@@ -1974,7 +1973,7 @@
 
                         <div class="col-md-3 form-group item-form">
                             <label for="num_calle_tutor">Número de calle</label>
-                            <input type="text" class="form-control" id="num_calle_tutor" >
+                            <input type="text" class="form-control" id="num_calle_tutor" name="num_calle_tutor" >
                             <p class="help-block error hidden">Ingresá número de calle</p>
                         </div>
 
@@ -1986,7 +1985,7 @@
 
                         <div class="col-md-3 form-group item-form">
                             <label for="num_depto_tutor">Departamento</label>
-                            <input type="text" class="form-control" id="num_depto_tutor">
+                            <input type="text" class="form-control" id="num_depto_tutor" name="num_depto_tutor">
                             <p class="help-block error hidden">Ingresá un un departamento</p>
                         </div>
 
@@ -1994,30 +1993,28 @@
 
                   </fieldset>
 
-                <!-- OTROS DATOS ESPECÍFICOS DEL TUTOR-->
-                  <fieldset>
+                <!-- OTROS DATOS ESPECÍFICOS DEL PADRE-->
+                <fieldset>
                     <hr>
-                    <div class="col-md-12 form-group item-form">
-                        <h3>Otros datos específicos del tutor</h3>
-                    </div>
-
-                    <div class="col-md-12 form-group item-form">
-                        <div class="input-group row-md-4">
-
-                            <div class="col-md-4 form-group item-form">
-                                <label for="profesion_tutor">Profesion</label>
-                                <input type="text" name="profesion_tutor" class="form-control" id="profesion_tutor" >
-                                <p class="help-block error hidden">Ingresa una profesion</p>
-                            </div>
-
-                            <div class="col-md-4 form-group item-form">
-                                <label for="lugar_trabajo_tutor">Lugar de trabajo</label>
-                                <input type="text" name="lugar_trabajo_tutor" class="form-control" id="lugar_trabajo_tutor" >
-                                <p class="help-block error hidden">Ingresa un lugar de trabajo</p>
-                            </div>
-                        </div>
-                    </div>
-
+                      <div class="col-md-12 form-group item-form">
+                          <h3>Otros datos específicos del padre</h3>
+                      </div>
+  
+                      <div class="col-md-12 form-group item-form">
+                          <div class="input-group row-md-4">
+                              <div class="col-md-4 form-group item-form">
+                                  <label for="profesion_tutor">Profesion</label>
+                                  <input type="text" name="profesion_tutor" class="form-control" id="profesion_tutor" >
+                                  <p class="help-block error hidden">Ingresa una profesion</p>
+                              </div>
+                              <div class="col-md-4 form-group item-form">
+                                  <label for="lugar_trabajo_tutor">Lugar de trabajo</label>
+                                  <input type="text" name="lugar_trabajo_tutor" class="form-control" id="lugar_trabajo_tutor">
+                                  <p class="help-block error hidden">Ingresa un lugar de trabajo</p>
+                              </div>
+                          </div>
+                      </div>
+  
                   </fieldset>
                   
                 <!-- DOMICILIO LABORAL DEL TUTOR-->
@@ -2028,7 +2025,7 @@
                             <h3>Domicilio laboral del tutor </h3>
                           </div>
                           <div>
-                              <input type="checkbox" name="tutor_no_trabaja" value="activado">No trabaja
+                              <input type="checkbox" name="tutor_no_trabaja" value="activado" id="tutor_no_trabaja" onChange="tutorNoTrabaja(this);">No trabaja
                           </div>
                       </div>
 
@@ -2090,7 +2087,7 @@
                               <br>
                               <div class="input-group">
                                   <span class="input-group-addon">0</span>&nbsp;&nbsp;
-                                  <input aria-label="número de teléfono laboral tutor" class="form-control" id="tel_lab_tutor"  type="text">
+                                  <input aria-label="número de teléfono laboral tutor" class="form-control" id="tel_lab_tutor"  name="tel_lab_tutor" type="text">
                               </div>
                               <p class="help-block error hidden">Ingresá tu número de teléfono laboral</p>
                           </div>
@@ -2102,14 +2099,14 @@
                   <fieldset>
                         <hr size="8px" color="black" />
                       <div>&nbsp;&nbsp;&nbsp;¿El alumno puede ser retirado por otra persona?&nbsp;&nbsp;
-                        <input type="checkbox" name="tutor_suplente_ok" value="activado">Si
+                        <input type="checkbox" name="tutor_suplente_ok" id="tutor_suplente_ok" value="activado" onChange="puedeSerRetirado(this);" checked>Si
                       </div>
                       <br>
                       <div class="col-md-12 form-group item-form">
                           <h3>Tutores suplentes</h3>
                       </div>
-
-                      <div class="input-group row-md-4">
+                      <div id="puede_ser_retirado">
+                      <div class="input-group row-md-4" >
 
                           <div class="col-md-3 form-group item-form">
                               <label for="nombres_tutor_sup1">Nombres</label>
@@ -2170,7 +2167,7 @@
                               </div>
                               <p class="help-block error hidden">Ingresá tu número de teléfono móvil</p>
                           </div>
-
+                        </div>
                       </div>
 
                   </fieldset>
@@ -2193,7 +2190,7 @@
                   
    <script>
        
-function comprobar(checkbox) {
+       function mismoDomicilioMadre(checkbox) {
 var localidad = document.getElementById('localidad_madre');
 var cod_postal = document.getElementById('cod_postal_madre');
 var barrio = document.getElementById('barrio_madre');
@@ -2236,9 +2233,1001 @@ else{
 
 }
 }
+
 function clearThis(target) {
         target.value= "";
     }
+
+function madreNoTrabaja(checkbox) {
+
+var lugar_trabajo = document.getElementById('lugar_trabajo_madre');
+var localidad = document.getElementById('localidad_lab_madre');
+var cod_postal = document.getElementById('cod_postal_lab_madre');
+var calle = document.getElementById('calle_lab_madre');
+var num_calle = document.getElementById('num_calle_lab_madre');
+var piso = document.getElementById('piso_lab_madre');
+var depto = document.getElementById('num_depto_lab_madre');
+var tel_lab = document.getElementById('tel_lab_madre');
+
+if(checkbox.checked){
+
+lugar_trabajo.disabled = checkbox.checked;
+localidad.disabled = checkbox.checked;
+cod_postal.disabled = checkbox.checked;
+calle.disabled = checkbox.checked;
+num_calle.disabled = checkbox.checked;
+piso.disabled = checkbox.checked;
+depto.disabled = checkbox.checked;
+tel_lab.disabled = checkbox.checked;
+
+}
+else{
+    lugar_trabajo.removeAttribute("disabled");
+    localidad.removeAttribute("disabled");
+    cod_postal.removeAttribute("disabled");
+    calle.removeAttribute("disabled");
+    num_calle.removeAttribute("disabled");
+    piso.removeAttribute("disabled");
+    depto.removeAttribute("disabled");
+    tel_lab.removeAttribute("disabled");
+    clearThis(lugar_trabajo);
+    clearThis(cod_postal);
+    clearThis(calle);
+    clearThis(num_calle);
+    clearThis(piso);
+    clearThis(depto);
+    clearThis(tel_lab);
+   
+}
+}
+
+function madreFallecida(checkbox) {
+
+var nombres = document.getElementById('nombres_madre');
+var apellidos = document.getElementById('apellidos_madre');
+var lugar_nac = document.getElementById('lugar_nac_madre');
+var fec_nac = document.getElementById('fec_nac_madre');
+var tipo_doc = document.getElementById('tipo_doc_madre');
+var num_doc = document.getElementById('num_doc_madre');
+var nacionalidad = document.getElementById('nacionalidad_madre');
+var tel1 = document.getElementById('tel1_madre');
+var tel2 = document.getElementById('tel2_madre');
+var email = document.getElementById('email_madre');
+var madre_mismodomicilio = document.getElementById('madre_mismodomicilio');
+
+var localidad = document.getElementById('localidad_madre');
+var cod_postal = document.getElementById('cod_postal_madre');
+var calle = document.getElementById('calle_madre');
+var num_calle = document.getElementById('num_calle_madre');
+var barrio = document.getElementById('barrio_madre');
+var piso = document.getElementById('piso_madre');
+var depto = document.getElementById('num_depto_madre');
+
+var madre_no_trabaja = document.getElementById('madre_no_trabaja');
+var profesion = document.getElementById('profesion_madre');
+var lugar_trabajo = document.getElementById('lugar_trabajo_madre');
+var localidad_lab = document.getElementById('localidad_lab_madre');
+var cod_postal_lab = document.getElementById('cod_postal_lab_madre');
+
+var calle_lab = document.getElementById('calle_lab_madre');
+var num_calle_lab = document.getElementById('num_calle_lab_madre');
+var piso_lab = document.getElementById('piso_lab_madre');
+var depto_lab = document.getElementById('num_depto_lab_madre');
+var tel_lab = document.getElementById('tel_lab_madre');
+
+
+
+if(checkbox.checked){
+
+    nombres.disabled = checkbox.checked;
+    apellidos.disabled = checkbox.checked;
+    lugar_nac.disabled = checkbox.checked;
+    fec_nac.disabled = checkbox.checked;
+    tipo_doc.disabled = checkbox.checked;
+    num_doc.disabled = checkbox.checked;
+    nacionalidad.disabled = checkbox.checked;
+   
+    tel1.disabled = checkbox.checked;
+    tel2.disabled = checkbox.checked;
+    email.disabled = checkbox.checked;
+    madre_mismodomicilio.disabled=true;
+    madre_no_trabaja.disabled=true;
+    localidad.disabled = checkbox.checked;
+    cod_postal.disabled = checkbox.checked;
+    barrio.disabled = checkbox.checked;
+    calle.disabled = checkbox.checked;
+    num_calle.disabled = checkbox.checked;
+    piso.disabled = checkbox.checked;
+    depto.disabled = checkbox.checked;
+    
+
+    lugar_trabajo.disabled = checkbox.checked;
+    profesion.disabled = checkbox.checked
+    localidad_lab.disabled = checkbox.checked;
+    cod_postal_lab.disabled = checkbox.checked;
+    calle_lab.disabled = checkbox.checked;
+    num_calle_lab.disabled = checkbox.checked;
+    piso_lab.disabled = checkbox.checked;
+    depto_lab.disabled = checkbox.checked;
+    tel_lab.disabled = checkbox.checked;
+}
+else{
+   
+    nombres.removeAttribute("disabled");
+    apellidos.removeAttribute("disabled");
+    lugar_nac.removeAttribute("disabled");
+    fec_nac.removeAttribute("disabled");
+    tipo_doc.removeAttribute("disabled");
+    num_doc.removeAttribute("disabled");
+    nacionalidad.removeAttribute("disabled");
+    tel1.removeAttribute("disabled");
+    tel2.removeAttribute("disabled");
+    email.removeAttribute("disabled");
+    madre_mismodomicilio.removeAttribute("disabled");
+    madre_no_trabaja.removeAttribute("disabled");
+    localidad.removeAttribute("disabled");
+    cod_postal.removeAttribute("disabled");
+    barrio.removeAttribute("disabled");
+    calle.removeAttribute("disabled");
+    num_calle.removeAttribute("disabled");
+    piso.removeAttribute("disabled");
+    depto.removeAttribute("disabled");
+    profesion.removeAttribute("disabled");
+    lugar_trabajo.removeAttribute("disabled");
+    localidad_lab.removeAttribute("disabled");
+    cod_postal_lab.removeAttribute("disabled");
+    calle_lab.removeAttribute("disabled");
+    num_calle_lab.removeAttribute("disabled");
+    piso_lab.removeAttribute("disabled");
+    depto_lab.removeAttribute("disabled");
+    tel_lab.removeAttribute("disabled");
+    
+
+
+}
+
+}
+
+function mismoDomicilioPadre(checkbox) {
+var localidad = document.getElementById('localidad_padre');
+var cod_postal = document.getElementById('cod_postal_padre');
+var barrio = document.getElementById('barrio_padre');
+var calle = document.getElementById('calle_padre');
+var num_calle = document.getElementById('num_calle_padre');
+var piso = document.getElementById('piso_padre');
+var depto = document.getElementById('num_depto_padre');
+
+if(checkbox.checked){
+localidad.disabled = checkbox.checked;
+cod_postal.disabled = checkbox.checked;
+barrio.disabled = checkbox.checked;
+calle.disabled = checkbox.checked;
+num_calle.disabled = checkbox.checked;
+piso.disabled = checkbox.checked;
+depto.disabled = checkbox.checked;
+
+localidad.value = document.getElementById('localidad_alu').value;
+cod_postal.value = document.getElementById('cod_postal_alu').value;
+barrio.value = document.getElementById('barrio_alu').value;
+calle.value = document.getElementById('calle_alu').value;
+num_calle.value = document.getElementById('num_calle_alu').value;
+piso.value = document.getElementById('piso_alu').value;
+depto.value = document.getElementById('num_depto_alu').value;
+}
+else{
+    localidad.removeAttribute("disabled");
+    cod_postal.removeAttribute("disabled");
+    barrio.removeAttribute("disabled");
+    calle.removeAttribute("disabled");
+    num_calle.removeAttribute("disabled");
+    piso.removeAttribute("disabled");
+    depto.removeAttribute("disabled");
+    clearThis(cod_postal);
+    clearThis(barrio);
+    clearThis(calle);
+    clearThis(num_calle);
+    clearThis(piso);
+    clearThis(depto);
+
+}
+}
+
+
+function padreNoTrabaja(checkbox) {
+
+var lugar_trabajo = document.getElementById('lugar_trabajo_padre');
+var localidad = document.getElementById('localidad_lab_padre');
+var cod_postal = document.getElementById('cod_postal_lab_padre');
+var calle = document.getElementById('calle_lab_padre');
+var num_calle = document.getElementById('num_calle_lab_padre');
+var piso = document.getElementById('piso_lab_padre');
+var depto = document.getElementById('num_depto_lab_padre');
+var tel_lab = document.getElementById('tel_lab_padre');
+
+
+if(checkbox.checked){
+
+lugar_trabajo.disabled = checkbox.checked;
+localidad.disabled = checkbox.checked;
+cod_postal.disabled = checkbox.checked;
+calle.disabled = checkbox.checked;
+num_calle.disabled = checkbox.checked;
+piso.disabled = checkbox.checked;
+depto.disabled = checkbox.checked;
+tel_lab.disabled = checkbox.checked;
+
+}
+else{
+    lugar_trabajo.removeAttribute("disabled");
+    localidad.removeAttribute("disabled");
+    cod_postal.removeAttribute("disabled");
+    calle.removeAttribute("disabled");
+    num_calle.removeAttribute("disabled");
+    piso.removeAttribute("disabled");
+    depto.removeAttribute("disabled");
+    tel_lab.removeAttribute("disabled");
+    clearThis(lugar_trabajo);
+    clearThis(cod_postal);
+
+    clearThis(calle);
+    clearThis(num_calle);
+    clearThis(piso);
+    clearThis(depto);
+    clearThis(tel_lab);
+}
+}
+
+function padreFallecido(checkbox) {
+
+var nombres = document.getElementById('nombres_padre');
+var apellidos = document.getElementById('apellidos_padre');
+var lugar_nac = document.getElementById('lugar_nac_padre');
+var fec_nac = document.getElementById('fec_nac_padre');
+var tipo_doc = document.getElementById('tipo_doc_padre');
+var num_doc = document.getElementById('num_doc_padre');
+var nacionalidad = document.getElementById('nacionalidad_padre');
+var tel1 = document.getElementById('tel1_padre');
+var tel2 = document.getElementById('tel2_padre');
+var email = document.getElementById('email_padre');
+
+var madre_mismodomicilio = document.getElementById('padre_mismodomicilio');
+var madre_no_trabaja = document.getElementById('padre_no_trabaja');
+var localidad = document.getElementById('localidad_padre');
+var cod_postal = document.getElementById('cod_postal_padre');
+var barrio = document.getElementById('barrio_padre');
+var calle = document.getElementById('calle_padre');
+var num_calle = document.getElementById('num_calle_padre');
+var piso = document.getElementById('piso_padre');
+var depto = document.getElementById('num_depto_padre');
+var profesion = document.getElementById('profesion_padre');
+var lugar_trabajo = document.getElementById('lugar_trabajo_padre');
+var localidad_lab = document.getElementById('localidad_lab_padre');
+var cod_postal_lab = document.getElementById('cod_postal_lab_padre');
+var calle_lab = document.getElementById('calle_lab_padre');
+var num_calle_lab = document.getElementById('num_calle_lab_padre');
+var piso_lab = document.getElementById('piso_lab_padre');
+var depto_lab = document.getElementById('num_depto_lab_padre');
+var tel_lab = document.getElementById('tel_lab_padre');
+
+
+
+if(checkbox.checked){
+
+    nombres.disabled = checkbox.checked;
+    apellidos.disabled = checkbox.checked;
+    lugar_nac.disabled = checkbox.checked;
+    fec_nac.disabled = checkbox.checked;
+    tipo_doc.disabled = checkbox.checked;
+    num_doc.disabled = checkbox.checked;
+    nacionalidad.disabled = checkbox.checked;
+   
+    tel1.disabled = checkbox.checked;
+    tel2.disabled = checkbox.checked;
+    email.disabled = checkbox.checked;
+    madre_mismodomicilio.disabled=true;
+    madre_no_trabaja.disabled=true;
+    localidad.disabled = checkbox.checked;
+    cod_postal.disabled = checkbox.checked;
+    barrio.disabled = checkbox.checked;
+    calle.disabled = checkbox.checked;
+    num_calle.disabled = checkbox.checked;
+    piso.disabled = checkbox.checked;
+    depto.disabled = checkbox.checked;
+    
+
+    lugar_trabajo.disabled = checkbox.checked;
+    profesion.disabled = checkbox.checked
+    localidad_lab.disabled = checkbox.checked;
+    cod_postal_lab.disabled = checkbox.checked;
+    calle_lab.disabled = checkbox.checked;
+    num_calle_lab.disabled = checkbox.checked;
+    piso_lab.disabled = checkbox.checked;
+    depto_lab.disabled = checkbox.checked;
+    tel_lab.disabled = checkbox.checked;
+}
+else{
+   
+    nombres.removeAttribute("disabled");
+    apellidos.removeAttribute("disabled");
+    lugar_nac.removeAttribute("disabled");
+    fec_nac.removeAttribute("disabled");
+    tipo_doc.removeAttribute("disabled");
+    num_doc.removeAttribute("disabled");
+    nacionalidad.removeAttribute("disabled");
+    tel1.removeAttribute("disabled");
+    tel2.removeAttribute("disabled");
+    email.removeAttribute("disabled");
+    madre_mismodomicilio.removeAttribute("disabled");
+    madre_no_trabaja.removeAttribute("disabled");
+    localidad.removeAttribute("disabled");
+    cod_postal.removeAttribute("disabled");
+    barrio.removeAttribute("disabled");
+    calle.removeAttribute("disabled");
+    num_calle.removeAttribute("disabled");
+    piso.removeAttribute("disabled");
+    depto.removeAttribute("disabled");
+    profesion.removeAttribute("disabled");
+    lugar_trabajo.removeAttribute("disabled");
+    localidad_lab.removeAttribute("disabled");
+    cod_postal_lab.removeAttribute("disabled");
+    calle_lab.removeAttribute("disabled");
+    num_calle_lab.removeAttribute("disabled");
+    piso_lab.removeAttribute("disabled");
+    depto_lab.removeAttribute("disabled");
+    tel_lab.removeAttribute("disabled");
+    
+
+
+}
+
+}
+
+
+
+function mismoDomicilioMadre(checkbox) {
+var localidad = document.getElementById('localidad_madre');
+var cod_postal = document.getElementById('cod_postal_madre');
+var barrio = document.getElementById('barrio_madre');
+var calle = document.getElementById('calle_madre');
+var num_calle = document.getElementById('num_calle_madre');
+var piso = document.getElementById('piso_madre');
+var depto = document.getElementById('num_depto_madre');
+
+if(checkbox.checked){
+localidad.disabled = checkbox.checked;
+cod_postal.disabled = checkbox.checked;
+barrio.disabled = checkbox.checked;
+calle.disabled = checkbox.checked;
+num_calle.disabled = checkbox.checked;
+piso.disabled = checkbox.checked;
+depto.disabled = checkbox.checked;
+
+localidad.value = document.getElementById('localidad_alu').value;
+cod_postal.value = document.getElementById('cod_postal_alu').value;
+barrio.value = document.getElementById('barrio_alu').value;
+calle.value = document.getElementById('calle_alu').value;
+num_calle.value = document.getElementById('num_calle_alu').value;
+piso.value = document.getElementById('piso_alu').value;
+depto.value = document.getElementById('num_depto_alu').value;
+}
+else{
+    localidad.removeAttribute("disabled");
+    cod_postal.removeAttribute("disabled");
+    barrio.removeAttribute("disabled");
+    calle.removeAttribute("disabled");
+    num_calle.removeAttribute("disabled");
+    piso.removeAttribute("disabled");
+    depto.removeAttribute("disabled");
+    clearThis(cod_postal);
+    clearThis(barrio);
+    clearThis(calle);
+    clearThis(num_calle);
+    clearThis(piso);
+    clearThis(depto);
+
+}
+}
+
+function tutorNoTrabaja(checkbox) {
+
+var lugar_trabajo = document.getElementById('lugar_trabajo_madre');
+var localidad = document.getElementById('localidad_lab_madre');
+var cod_postal = document.getElementById('cod_postal_lab_madre');
+var barrio = document.getElementById('barrio_lab_madre');
+var calle = document.getElementById('calle_lab_madre');
+var num_calle = document.getElementById('num_calle_lab_madre');
+var piso = document.getElementById('piso_lab_madre');
+var depto = document.getElementById('num_depto_lab_madre');
+var tel_lab = document.getElementById('tel_lab_madre');
+
+if(checkbox.checked){
+
+lugar_trabajo.disabled = checkbox.checked;
+localidad.disabled = checkbox.checked;
+cod_postal.disabled = checkbox.checked;
+barrio.disabled = checkbox.checked;
+calle.disabled = checkbox.checked;
+num_calle.disabled = checkbox.checked;
+piso.disabled = checkbox.checked;
+depto.disabled = checkbox.checked;
+tel_lab.disabled = checkbox.checked;
+
+}
+else{
+    lugar_trabajo.removeAttribute("disabled");
+    localidad.removeAttribute("disabled");
+    cod_postal.removeAttribute("disabled");
+    barrio.removeAttribute("disabled");
+    calle.removeAttribute("disabled");
+    num_calle.removeAttribute("disabled");
+    piso.removeAttribute("disabled");
+    depto.removeAttribute("disabled");
+    tel_lab.removeAttribute("disabled");
+    clearThis(lugar_trabajo);
+    clearThis(cod_postal);
+    clearThis(barrio);
+    clearThis(calle);
+    clearThis(num_calle);
+    clearThis(piso);
+    clearThis(depto);
+    clearThis(tel_lab);
+   
+}
+}
+
+function madreFallecida(checkbox) {
+
+var nombres = document.getElementById('nombres_madre');
+var apellidos = document.getElementById('apellidos_madre');
+var lugar_nac = document.getElementById('lugar_nac_madre');
+var fec_nac = document.getElementById('fec_nac_madre');
+var tipo_doc = document.getElementById('tipo_doc_madre');
+var num_doc = document.getElementById('num_doc_madre');
+var nacionalidad = document.getElementById('nacionalidad_madre');
+var tel1 = document.getElementById('tel1_madre');
+var tel2 = document.getElementById('tel2_madre');
+var email = document.getElementById('email_madre');
+var madre_mismodomicilio = document.getElementById('madre_mismodomicilio');
+
+var localidad = document.getElementById('localidad_madre');
+var cod_postal = document.getElementById('cod_postal_madre');
+var calle = document.getElementById('calle_madre');
+var num_calle = document.getElementById('num_calle_madre');
+var barrio = document.getElementById('barrio_madre');
+var piso = document.getElementById('piso_madre');
+var depto = document.getElementById('num_depto_madre');
+
+var madre_no_trabaja = document.getElementById('madre_no_trabaja');
+var profesion = document.getElementById('profesion_madre');
+var lugar_trabajo = document.getElementById('lugar_trabajo_madre');
+var localidad_lab = document.getElementById('localidad_lab_madre');
+var cod_postal_lab = document.getElementById('cod_postal_lab_madre');
+
+var calle_lab = document.getElementById('calle_lab_madre');
+var num_calle_lab = document.getElementById('num_calle_lab_madre');
+var piso_lab = document.getElementById('piso_lab_madre');
+var depto_lab = document.getElementById('num_depto_lab_madre');
+var tel_lab = document.getElementById('tel_lab_madre');
+
+
+
+if(checkbox.checked){
+
+    nombres.disabled = checkbox.checked;
+    apellidos.disabled = checkbox.checked;
+    lugar_nac.disabled = checkbox.checked;
+    fec_nac.disabled = checkbox.checked;
+    tipo_doc.disabled = checkbox.checked;
+    num_doc.disabled = checkbox.checked;
+    nacionalidad.disabled = checkbox.checked;
+   
+    tel1.disabled = checkbox.checked;
+    tel2.disabled = checkbox.checked;
+    email.disabled = checkbox.checked;
+    madre_mismodomicilio.disabled=true;
+    madre_no_trabaja.disabled=true;
+    localidad.disabled = checkbox.checked;
+    cod_postal.disabled = checkbox.checked;
+    barrio.disabled = checkbox.checked;
+    calle.disabled = checkbox.checked;
+    num_calle.disabled = checkbox.checked;
+    piso.disabled = checkbox.checked;
+    depto.disabled = checkbox.checked;
+    
+
+    lugar_trabajo.disabled = checkbox.checked;
+    profesion.disabled = checkbox.checked
+    localidad_lab.disabled = checkbox.checked;
+    cod_postal_lab.disabled = checkbox.checked;
+    calle_lab.disabled = checkbox.checked;
+    num_calle_lab.disabled = checkbox.checked;
+    piso_lab.disabled = checkbox.checked;
+    depto_lab.disabled = checkbox.checked;
+    tel_lab.disabled = checkbox.checked;
+}
+else{
+   
+    nombres.removeAttribute("disabled");
+    apellidos.removeAttribute("disabled");
+    lugar_nac.removeAttribute("disabled");
+    fec_nac.removeAttribute("disabled");
+    tipo_doc.removeAttribute("disabled");
+    num_doc.removeAttribute("disabled");
+    nacionalidad.removeAttribute("disabled");
+    tel1.removeAttribute("disabled");
+    tel2.removeAttribute("disabled");
+    email.removeAttribute("disabled");
+    madre_mismodomicilio.removeAttribute("disabled");
+    madre_no_trabaja.removeAttribute("disabled");
+    localidad.removeAttribute("disabled");
+    cod_postal.removeAttribute("disabled");
+    barrio.removeAttribute("disabled");
+    calle.removeAttribute("disabled");
+    num_calle.removeAttribute("disabled");
+    piso.removeAttribute("disabled");
+    depto.removeAttribute("disabled");
+    profesion.removeAttribute("disabled");
+    lugar_trabajo.removeAttribute("disabled");
+    localidad_lab.removeAttribute("disabled");
+    cod_postal_lab.removeAttribute("disabled");
+    calle_lab.removeAttribute("disabled");
+    num_calle_lab.removeAttribute("disabled");
+    piso_lab.removeAttribute("disabled");
+    depto_lab.removeAttribute("disabled");
+    tel_lab.removeAttribute("disabled");
+    
+
+
+}
+
+}
+
+function mismoDomicilioPadre(checkbox) {
+var localidad = document.getElementById('localidad_padre');
+var cod_postal = document.getElementById('cod_postal_padre');
+var barrio = document.getElementById('barrio_padre');
+var calle = document.getElementById('calle_padre');
+var num_calle = document.getElementById('num_calle_padre');
+var piso = document.getElementById('piso_padre');
+var depto = document.getElementById('num_depto_padre');
+
+if(checkbox.checked){
+localidad.disabled = checkbox.checked;
+cod_postal.disabled = checkbox.checked;
+barrio.disabled = checkbox.checked;
+calle.disabled = checkbox.checked;
+num_calle.disabled = checkbox.checked;
+piso.disabled = checkbox.checked;
+depto.disabled = checkbox.checked;
+
+localidad.value = document.getElementById('localidad_alu').value;
+cod_postal.value = document.getElementById('cod_postal_alu').value;
+barrio.value = document.getElementById('barrio_alu').value;
+calle.value = document.getElementById('calle_alu').value;
+num_calle.value = document.getElementById('num_calle_alu').value;
+piso.value = document.getElementById('piso_alu').value;
+depto.value = document.getElementById('num_depto_alu').value;
+}
+else{
+    localidad.removeAttribute("disabled");
+    cod_postal.removeAttribute("disabled");
+    barrio.removeAttribute("disabled");
+    calle.removeAttribute("disabled");
+    num_calle.removeAttribute("disabled");
+    piso.removeAttribute("disabled");
+    depto.removeAttribute("disabled");
+    clearThis(cod_postal);
+    clearThis(barrio);
+    clearThis(calle);
+    clearThis(num_calle);
+    clearThis(piso);
+    clearThis(depto);
+
+}
+}
+
+
+
+function esLaMadre(checkbox) {
+    
+var nombres = document.getElementById('nombres_tutor');
+var apellidos = document.getElementById('apellidos_tutor');
+var lugar_nac = document.getElementById('lugar_nac_tutor');
+var fec_nac = document.getElementById('fec_nac_tutor');
+var tipo_doc = document.getElementById('tipo_doc_tutor');
+var num_doc = document.getElementById('num_doc_tutor');
+var nacionalidad = document.getElementById('nacionalidad_tutor');
+var tel1 = document.getElementById('tel1_tutor');
+var tel2 = document.getElementById('tel2_tutor');
+var email = document.getElementById('email_tutor');
+var localidad = document.getElementById('localidad_tutor');
+var cod_postal = document.getElementById('cod_postal_tutor');
+var calle = document.getElementById('calle_tutor');
+var num_calle = document.getElementById('num_calle_tutor');
+var barrio = document.getElementById('barrio_tutor');
+var piso = document.getElementById('piso_tutor');
+var depto = document.getElementById('num_depto_tutor');
+
+
+var profesion = document.getElementById('profesion_tutor');
+var lugar_trabajo = document.getElementById('lugar_trabajo_tutor');
+var localidad_lab = document.getElementById('localidad_lab_tutor');
+var cod_postal_lab = document.getElementById('cod_postal_lab_tutor');
+
+var calle_lab = document.getElementById('calle_lab_tutor');
+var num_calle_lab = document.getElementById('num_calle_lab_tutor');
+var piso_lab = document.getElementById('piso_lab_tutor');
+var depto_lab = document.getElementById('num_depto_lab_tutor');
+var tel_lab = document.getElementById('tel_lab_tutor');
+var tutor_mismodomicilio = document.getElementById('tutor_mismodomicilio');
+var tutor_no_trabaja = document.getElementById('tutor_no_trabaja');
+
+if(checkbox.checked){
+    nombres.disabled = checkbox.checked;
+    apellidos.disabled = checkbox.checked;
+    lugar_nac.disabled = checkbox.checked;
+    fec_nac.disabled = checkbox.checked;
+    tipo_doc.disabled = checkbox.checked;
+    num_doc.disabled = checkbox.checked;
+    nacionalidad.disabled = checkbox.checked;
+    tel1.disabled = checkbox.checked;
+    tel2.disabled = checkbox.checked;
+    email.disabled = checkbox.checked;
+    localidad.disabled = checkbox.checked;
+    cod_postal.disabled = checkbox.checked;
+    barrio.disabled = checkbox.checked;
+    calle.disabled = checkbox.checked;
+    num_calle.disabled = checkbox.checked;
+    piso.disabled = checkbox.checked;
+    depto.disabled = checkbox.checked;
+    tutor_mismodomicilio.disabled=true;
+    tutor_no_trabaja.disabled=true;
+    profesion.disabled = checkbox.checked;
+    lugar_trabajo.disabled = checkbox.checked;
+    localidad_lab.disabled = checkbox.checked;
+    cod_postal_lab.disabled = checkbox.checked;
+    calle_lab.disabled = checkbox.checked;
+    num_calle_lab.disabled = checkbox.checked;
+    piso_lab.disabled = checkbox.checked;
+    depto_lab.disabled = checkbox.checked;
+    tel_lab.disabled = checkbox.checked;
+
+nombres.value = document.getElementById('nombres_madre').value;
+apellidos.value = document.getElementById('apellidos_madre').value;
+lugar_nac.value = document.getElementById('lugar_nac_madre').value;
+fec_nac.value = document.getElementById('fec_nac_madre').value;
+tipo_doc.value = document.getElementById('tipo_doc_madre').value;
+num_doc.value = document.getElementById('num_doc_madre').value;
+nacionalidad.value = document.getElementById('nacionalidad_madre').value;
+tel1.value = document.getElementById('tel1_madre').value;
+tel2.value = document.getElementById('tel2_madre').value;
+email.value = document.getElementById('email_madre').value;
+localidad.value = document.getElementById('localidad_madre').value;
+cod_postal.value = document.getElementById('cod_postal_madre').value;
+barrio.value = document.getElementById('barrio_madre').value;
+calle.value = document.getElementById('calle_madre').value;
+num_calle.value = document.getElementById('num_calle_madre').value;
+piso.value = document.getElementById('piso_madre').value;
+depto.value = document.getElementById('num_depto_madre').value;
+profesion.value = document.getElementById('profesion_madre').value;
+lugar_trabajo.value = document.getElementById('lugar_trabajo_madre').value;
+localidad_lab.value = document.getElementById('lugar_trabajo_madre').value;
+    cod_postal_lab.value = document.getElementById('cod_postal_lab_madre').value;
+    calle_lab.value = document.getElementById('calle_lab_madre').value;
+    num_calle_lab.value = document.getElementById('num_calle_lab_madre').value;
+    piso_lab.value = document.getElementById('piso_lab_madre').value;
+    depto_lab.value = document.getElementById('num_depto_lab_madre').value;
+    tel_lab.value = document.getElementById('tel_lab_madre').value;
+}
+else{
+    nombres.removeAttribute("disabled");
+    apellidos.removeAttribute("disabled");
+    fec_nac.removeAttribute("disabled");
+    lugar_nac.removeAttribute("disabled");
+    tipo_doc.removeAttribute("disabled");
+    num_doc.removeAttribute("disabled");
+    nacionalidad.removeAttribute("disabled");
+    tel1.removeAttribute("disabled");
+    tel2.removeAttribute("disabled");
+    email.removeAttribute("disabled");
+    localidad.removeAttribute("disabled");
+    cod_postal.removeAttribute("disabled");
+    barrio.removeAttribute("disabled");
+    calle.removeAttribute("disabled");
+    num_calle.removeAttribute("disabled");
+    piso.removeAttribute("disabled");
+    depto.removeAttribute("disabled");
+    profesion.removeAttribute("disabled");
+    lugar_trabajo.removeAttribute("disabled");
+    tutor_mismodomicilio.removeAttribute("disabled");
+    tutor_no_trabaja.removeAttribute("disabled");
+    localidad_lab.removeAttribute("disabled");
+    cod_postal_lab.removeAttribute("disabled");
+    calle_lab.removeAttribute("disabled");
+    num_calle_lab.removeAttribute("disabled");
+    piso_lab.removeAttribute("disabled");
+    depto_lab.removeAttribute("disabled");
+    tel_lab.removeAttribute("disabled");
+    clearThis(nombres);
+    clearThis(apellidos);
+    clearThis(fec_nac);
+    clearThis(lugar_nac);
+    clearThis(tipo_doc);
+    clearThis(num_doc);
+    clearThis(nacionalidad);
+    clearThis(tel1);
+    clearThis(tel2);
+    clearThis(email);
+    clearThis(localidad);
+    clearThis(cod_postal);
+    clearThis(barrio);
+    clearThis(calle);
+    clearThis(num_calle);
+    clearThis(piso);
+    clearThis(depto);
+    clearThis(profesion);
+    clearThis(lugar_trabajo);
+    clearThis(localidad_lab);
+    clearThis(cod_postal_lab);
+    clearThis(calle_lab);
+    clearThis(piso_lab);
+    clearThis(depto_lab);
+    clearThis(tel_lab);
+
+}
+}
+
+function esElPadre(checkbox) {
+    
+    var nombres = document.getElementById('nombres_tutor');
+    var apellidos = document.getElementById('apellidos_tutor');
+    var lugar_nac = document.getElementById('lugar_nac_tutor');
+    var fec_nac = document.getElementById('fec_nac_tutor');
+    var tipo_doc = document.getElementById('tipo_doc_tutor');
+    var num_doc = document.getElementById('num_doc_tutor');
+    var nacionalidad = document.getElementById('nacionalidad_tutor');
+    var tel1 = document.getElementById('tel1_tutor');
+    var tel2 = document.getElementById('tel2_tutor');
+    var email = document.getElementById('email_tutor');
+    var localidad = document.getElementById('localidad_tutor');
+    var cod_postal = document.getElementById('cod_postal_tutor');
+    var calle = document.getElementById('calle_tutor');
+    var num_calle = document.getElementById('num_calle_tutor');
+    var barrio = document.getElementById('barrio_tutor');
+    var piso = document.getElementById('piso_tutor');
+    var depto = document.getElementById('num_depto_tutor');
+    
+    
+    var profesion = document.getElementById('profesion_tutor');
+    var lugar_trabajo = document.getElementById('lugar_trabajo_tutor');
+    var localidad_lab = document.getElementById('localidad_lab_tutor');
+    var cod_postal_lab = document.getElementById('cod_postal_lab_tutor');
+    
+    var calle_lab = document.getElementById('calle_lab_tutor');
+    var num_calle_lab = document.getElementById('num_calle_lab_tutor');
+    var piso_lab = document.getElementById('piso_lab_tutor');
+    var depto_lab = document.getElementById('num_depto_lab_tutor');
+    var tel_lab = document.getElementById('tel_lab_tutor');
+    var tutor_mismodomicilio = document.getElementById('tutor_mismodomicilio');
+    var tutor_no_trabaja = document.getElementById('tutor_no_trabaja');
+    
+    if(checkbox.checked){
+        nombres.disabled = checkbox.checked;
+        apellidos.disabled = checkbox.checked;
+        lugar_nac.disabled = checkbox.checked;
+        fec_nac.disabled = checkbox.checked;
+        tipo_doc.disabled = checkbox.checked;
+        num_doc.disabled = checkbox.checked;
+        nacionalidad.disabled = checkbox.checked;
+        tel1.disabled = checkbox.checked;
+        tel2.disabled = checkbox.checked;
+        email.disabled = checkbox.checked;
+        localidad.disabled = checkbox.checked;
+        cod_postal.disabled = checkbox.checked;
+        barrio.disabled = checkbox.checked;
+        calle.disabled = checkbox.checked;
+        num_calle.disabled = checkbox.checked;
+        piso.disabled = checkbox.checked;
+        depto.disabled = checkbox.checked;
+        tutor_mismodomicilio.disabled=true;
+        tutor_no_trabaja.disabled=true;
+        profesion.disabled = checkbox.checked;
+        lugar_trabajo.disabled = checkbox.checked;
+        localidad_lab.disabled = checkbox.checked;
+        cod_postal_lab.disabled = checkbox.checked;
+        calle_lab.disabled = checkbox.checked;
+        num_calle_lab.disabled = checkbox.checked;
+        piso_lab.disabled = checkbox.checked;
+        depto_lab.disabled = checkbox.checked;
+        tel_lab.disabled = checkbox.checked;
+    
+    nombres.value = document.getElementById('nombres_padre').value;
+    apellidos.value = document.getElementById('apellidos_padre').value;
+    lugar_nac.value = document.getElementById('lugar_nac_padre').value;
+    fec_nac.value = document.getElementById('fec_nac_padre').value;
+    tipo_doc.value = document.getElementById('tipo_doc_padre').value;
+    num_doc.value = document.getElementById('num_doc_padre').value;
+    nacionalidad.value = document.getElementById('nacionalidad_padre').value;
+    tel1.value = document.getElementById('tel1_padre').value;
+    tel2.value = document.getElementById('tel2_padre').value;
+    email.value = document.getElementById('email_padre').value;
+    localidad.value = document.getElementById('localidad_padre').value;
+    cod_postal.value = document.getElementById('cod_postal_padre').value;
+    barrio.value = document.getElementById('barrio_padre').value;
+    calle.value = document.getElementById('calle_padre').value;
+    num_calle.value = document.getElementById('num_calle_padre').value;
+    piso.value = document.getElementById('piso_padre').value;
+    depto.value = document.getElementById('num_depto_padre').value;
+    profesion.value = document.getElementById('profesion_padre').value;
+    lugar_trabajo.value = document.getElementById('lugar_trabajo_padre').value;
+    localidad_lab.value = document.getElementById('lugar_trabajo_padre').value;
+        cod_postal_lab.value = document.getElementById('cod_postal_lab_padre').value;
+        calle_lab.value = document.getElementById('calle_lab_padre').value;
+        num_calle_lab.value = document.getElementById('num_calle_lab_padre').value;
+        piso_lab.value = document.getElementById('piso_lab_padre').value;
+        depto_lab.value = document.getElementById('num_depto_lab_padre').value;
+        tel_lab.value = document.getElementById('tel_lab_padre').value;
+    }
+    else{
+        nombres.removeAttribute("disabled");
+        apellidos.removeAttribute("disabled");
+        lugar_nac.removeAttribute("disabled");
+        fec_nac.removeAttribute("disabled");
+        tipo_doc.removeAttribute("disabled");
+        num_doc.removeAttribute("disabled");
+        nacionalidad.removeAttribute("disabled");
+        tel1.removeAttribute("disabled");
+        tel2.removeAttribute("disabled");
+        email.removeAttribute("disabled");
+        localidad.removeAttribute("disabled");
+        cod_postal.removeAttribute("disabled");
+        barrio.removeAttribute("disabled");
+        calle.removeAttribute("disabled");
+        num_calle.removeAttribute("disabled");
+        piso.removeAttribute("disabled");
+        depto.removeAttribute("disabled");
+        profesion.removeAttribute("disabled");
+        lugar_trabajo.removeAttribute("disabled");
+    
+        localidad_lab.removeAttribute("disabled");
+        cod_postal_lab.removeAttribute("disabled");
+        calle_lab.removeAttribute("disabled");
+        num_calle_lab.removeAttribute("disabled");
+        piso_lab.removeAttribute("disabled");
+        depto_lab.removeAttribute("disabled");
+        tel_lab.removeAttribute("disabled");
+        clearThis(nombres);
+        clearThis(apellidos);
+        clearThis(fec_nac);
+        clearThis(lugar_nac);
+        clearThis(tipo_doc);
+        clearThis(num_doc);
+        clearThis(nacionalidad);
+        clearThis(tel1);
+        clearThis(tel2);
+        clearThis(email);
+        clearThis(localidad);
+        clearThis(cod_postal);
+        clearThis(barrio);
+        clearThis(calle);
+        clearThis(num_calle);
+        clearThis(piso);
+        clearThis(depto);
+        clearThis(profesion);
+        clearThis(lugar_trabajo);
+        clearThis(localidad_lab);
+        clearThis(cod_postal_lab);
+        clearThis(calle_lab);
+        clearThis(piso_lab);
+        clearThis(depto_lab);
+        clearThis(tel_lab);
+    
+    }
+    }
+
+    function mismoDomicilioTutor(checkbox) {
+var localidad = document.getElementById('localidad_tutor');
+var cod_postal = document.getElementById('cod_postal_tutor');
+var barrio = document.getElementById('barrio_tutor');
+var calle = document.getElementById('calle_tutor');
+var num_calle = document.getElementById('num_calle_tutor');
+var piso = document.getElementById('piso_tutor');
+var depto = document.getElementById('num_depto_tutor');
+
+if(checkbox.checked){
+localidad.disabled = checkbox.checked;
+cod_postal.disabled = checkbox.checked;
+barrio.disabled = checkbox.checked;
+calle.disabled = checkbox.checked;
+num_calle.disabled = checkbox.checked;
+piso.disabled = checkbox.checked;
+depto.disabled = checkbox.checked;
+
+localidad.value = document.getElementById('localidad_alu').value;
+cod_postal.value = document.getElementById('cod_postal_alu').value;
+barrio.value = document.getElementById('barrio_alu').value;
+calle.value = document.getElementById('calle_alu').value;
+num_calle.value = document.getElementById('num_calle_alu').value;
+piso.value = document.getElementById('piso_alu').value;
+depto.value = document.getElementById('num_depto_alu').value;
+}
+else{
+    localidad.removeAttribute("disabled");
+    cod_postal.removeAttribute("disabled");
+    barrio.removeAttribute("disabled");
+    calle.removeAttribute("disabled");
+    num_calle.removeAttribute("disabled");
+    piso.removeAttribute("disabled");
+    depto.removeAttribute("disabled");
+    clearThis(cod_postal);
+    clearThis(barrio);
+    clearThis(calle);
+    clearThis(num_calle);
+    clearThis(piso);
+    clearThis(depto);
+
+}
+}
+
+function clearThis(target) {
+        target.value= "";
+    }
+
+function tutorNoTrabaja(checkbox) {
+
+var lugar_trabajo = document.getElementById('lugar_trabajo_tutor');
+var localidad = document.getElementById('localidad_lab_tutor');
+var cod_postal = document.getElementById('cod_postal_lab_tutor');
+var calle = document.getElementById('calle_lab_tutor');
+var num_calle = document.getElementById('num_calle_lab_tutor');
+var piso = document.getElementById('piso_lab_tutor');
+var depto = document.getElementById('num_depto_lab_tutor');
+var tel_lab = document.getElementById('tel_lab_tutor');
+
+if(checkbox.checked){
+
+lugar_trabajo.disabled = checkbox.checked;
+localidad.disabled = checkbox.checked;
+cod_postal.disabled = checkbox.checked;
+calle.disabled = checkbox.checked;
+num_calle.disabled = checkbox.checked;
+piso.disabled = checkbox.checked;
+depto.disabled = checkbox.checked;
+tel_lab.disabled = checkbox.checked;
+
+}
+else{
+    lugar_trabajo.removeAttribute("disabled");
+    localidad.removeAttribute("disabled");
+    cod_postal.removeAttribute("disabled");
+    calle.removeAttribute("disabled");
+    num_calle.removeAttribute("disabled");
+    piso.removeAttribute("disabled");
+    depto.removeAttribute("disabled");
+    tel_lab.removeAttribute("disabled");
+    clearThis(lugar_trabajo);
+    clearThis(cod_postal);
+    clearThis(barrio);
+    clearThis(calle);
+    clearThis(num_calle);
+    clearThis(piso);
+    clearThis(depto);
+    clearThis(tel_lab);
+   
+}
+}
+    function puedeSerRetirado(checkbox) {
+
+var contenido = document.getElementById("puede_ser_retirado");
+
+
+if(checkbox.checked){
+    contenido.style.display='block';
+}
+else{
+    contenido.style.display='none';
+}
+}
 
        $(function(){
 
