@@ -33,7 +33,7 @@ class LegajosController extends Controller
                'numero' => $request->num_calle_alu,
                'cod_postal' => $request->cod_postal_alu,
                'localidad' => $request->localidad_alu,
-               
+               'departamento' => $request->num_depto_alu,
 
             ]);
         $domicilio_alu->save();
@@ -78,6 +78,18 @@ class LegajosController extends Controller
         ]);
         $telefono_alu->save();
 
+        if(empty($request->tel2_alu)){
+            
+        }else{
+            $telefono2_alu = Telefono::create([ 
+                'persona_id' => $persona_alu->id, 
+                'numero'=> $request->tel2_alu,
+                'categoria'=>'Personal',
+                
+            ]);
+            $telefono2_alu->save();
+        }
+
         if($request->madre_fallecida){
             
         }else{
@@ -89,7 +101,7 @@ class LegajosController extends Controller
             'numero' => $request->num_calle_madre,
             'cod_postal' => $request->cod_postal_madre,
             'localidad' => $request->localidad_madre,
-        
+            'departamento' => $request->num_depto_madre,
          ]);
         }
 
@@ -110,25 +122,26 @@ class LegajosController extends Controller
      ]);
      $persona_madre->save();
 
-   /*  $alumno = Alumno::create([
-         'persona_id' =>$persona_alu->id, 
-         'escuela_procedencia' => $request->esc_procedencia_alu,
-         'curso_id' => 'null',
-         'email'=> $request->email_alu,
-         'grupo_factor' =>$request->grupo_factor_alu,
-     ]);
-     $alumno->save();
-
-    
-
-     $telefono_alu = Telefono::create([ 
-         'persona_id' => $persona_alu->id, 
-         'numero'=> $request->tel1_alu,
+     $telefono_madre = Telefono::create([ 
+         'persona_id' => $persona_madre->id, 
+         'numero'=> $request->tel1_madre,
          'categoria'=>'Personal',
          
      ]);
-     $telefono_alu->save();
-     */
+     $telefono_madre->save();
+
+     if(empty($request->tel2_madre)){
+            
+    }else{
+        $telefono2_madre = Telefono::create([ 
+            'persona_id' => $persona_madre->id, 
+            'numero'=> $request->tel2_madre,
+            'categoria'=>'Personal',
+            
+        ]);
+        $telefono2_madre->save();
+    }
+     
     }
 
 

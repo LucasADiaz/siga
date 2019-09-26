@@ -381,14 +381,14 @@
                             </div>
                       
 
-                      <div class="col-md-3 form-group item-form">
-                          <label for="tel2_alu">Teléfono Secundario (Opcional)</label>
-                          <div class="input-group">
-                              <span class="input-group-addon">0</span>&nbsp;&nbsp;
-                              <input aria-label="número de teléfono secundario" class="form-control" id="tel2_alu" type="text">
-                          </div>
-                          <p class="help-block error hidden">Ingresá tu número de teléfono secundario</p>
-                      </div>
+                            <div class="col-md-3 form-group item-form">
+                                    <label for="tel2_alu">Teléfono Secundario</label>
+                                    <div class="input-group">
+                                    <span class="input-group-addon">0</span>&nbsp;&nbsp;
+                                    <input type="text" name="tel2_alu" class="form-control" id="tel2_alu" >
+                                    <p class="help-block error hidden">Ingresá tu número de teléfono secundario</p>
+                                    </div>
+                                </div>
 
                       <div class="col-md-4 form-group item-form">
                           <label for="email_alu">Dirección de correo electrónico</label>
@@ -458,8 +458,8 @@
                       </div>
 
                       <div class="col-md-3 form-group item-form">
-                          <label for="depto_alu">Departamento</label>
-                          <input type="text" class="form-control" id="depto_alu">
+                          <label for="num_depto_alu">Departamento</label>
+                          <input type="text" class="form-control" id="num_depto_alu">
                           <p class="help-block error hidden">Ingresá un un departamento</p>
                       </div>
                   </div>
@@ -820,33 +820,32 @@
                     </div>
 
                     <div class="input-group row-md-4">
-
-                      <div class="col-md-3 form-group item-form">
-                          <label for="tel1_madre">Teléfono móvil</label>
-                          <div class="input-group">
-                            <span class="input-group-addon">0</span>&nbsp;&nbsp;
-                            <input aria-label="número de teléfono móvil" class="form-control" id="tel1_madre" type="text">
+                            <div class="col-md-3 form-group item-form">
+                                    <label for="tel1_madre">Teléfono</label>
+                                    <div class="input-group">
+                                    <span class="input-group-addon">0</span>&nbsp;&nbsp;
+                                    <input type="text" name="tel1_madre" class="form-control" id="tel1_madre" >
+                                    <p class="help-block error hidden">Ingresá tu número de teléfono móvil</p>
+                                    </div>
+                                </div>
+                          
+    
+                                <div class="col-md-3 form-group item-form">
+                                        <label for="tel2_madre">Teléfono Secundario</label>
+                                        <div class="input-group">
+                                        <span class="input-group-addon">0</span>&nbsp;&nbsp;
+                                        <input type="text" name="tel2_madre" class="form-control" id="tel2_madre" >
+                                        <p class="help-block error hidden">Ingresá tu número de teléfono secundario</p>
+                                        </div>
+                                    </div>
+    
+                          <div class="col-md-4 form-group item-form">
+                              <label for="email_madre">Dirección de correo electrónico</label>
+                              <input type="email" name="email_madre" class="form-control" id="email_madre" required>
+                              <p class="help-block error hidden">Ingresá un correo electrónico
+                                  <br> El correo electrónico tiene un formato no válido</p>
                           </div>
-                          <p class="help-block error hidden">Ingresá tu número de teléfono móvil</p>
                       </div>
-
-                      <div class="col-md-3 form-group item-form">
-                          <label for="tel2_madre">Teléfono secundario (Opcional)</label>
-                          <br>
-                          <div class="input-group">
-                              <span class="input-group-addon">0</span>&nbsp;&nbsp;
-                              <input aria-label="número de teléfono secundario" class="form-control" id="tel2_madre" type="text">
-                          </div>
-                          <p class="help-block error hidden">Ingresá tu número de teléfono secundario</p>
-                      </div>
-
-                      <div class="col-md-4 form-group item-form">
-                          <label for="email_madre">Dirección de correo electrónico</label>
-                          <input type="email" name="email_madre" class="form-control" id="email_madre" >
-                          <p class="help-block error hidden">Ingresá un correo electrónico
-                              <br> El correo electrónico tiene un formato no válido</p>
-                      </div>
-                    </div>
                   </fieldset>
                 <!-- DOMICILIO DE LA MADRE-->
                   <fieldset>
@@ -856,7 +855,7 @@
                           <h3>Domicilio de la madre </h3>
                         </div>
                         <div>
-                          <input type="checkbox" name="madre_mismodomicilio" value="activado">Mismo domicilio del alumno
+                          <input type="checkbox" name="madre_mismodomicilio" value="activado" onChange="comprobar(this);">Mismo domicilio del alumno
                         </div>
                       </div>
 
@@ -2193,6 +2192,54 @@
 </div>
                   
    <script>
+       
+function comprobar(checkbox) {
+var localidad = document.getElementById('localidad_madre');
+var cod_postal = document.getElementById('cod_postal_madre');
+var barrio = document.getElementById('barrio_madre');
+var calle = document.getElementById('calle_madre');
+var num_calle = document.getElementById('num_calle_madre');
+var piso = document.getElementById('piso_madre');
+var depto = document.getElementById('num_depto_madre');
+
+if(checkbox.checked){
+localidad.disabled = checkbox.checked;
+cod_postal.disabled = checkbox.checked;
+barrio.disabled = checkbox.checked;
+calle.disabled = checkbox.checked;
+num_calle.disabled = checkbox.checked;
+piso.disabled = checkbox.checked;
+depto.disabled = checkbox.checked;
+
+localidad.value = document.getElementById('localidad_alu').value;
+cod_postal.value = document.getElementById('cod_postal_alu').value;
+barrio.value = document.getElementById('barrio_alu').value;
+calle.value = document.getElementById('calle_alu').value;
+num_calle.value = document.getElementById('num_calle_alu').value;
+piso.value = document.getElementById('piso_alu').value;
+depto.value = document.getElementById('num_depto_alu').value;
+}
+else{
+    localidad.removeAttribute("disabled");
+    cod_postal.removeAttribute("disabled");
+    barrio.removeAttribute("disabled");
+    calle.removeAttribute("disabled");
+    num_calle.removeAttribute("disabled");
+    piso.removeAttribute("disabled");
+    depto.removeAttribute("disabled");
+    clearThis(cod_postal);
+    clearThis(barrio);
+    clearThis(calle);
+    clearThis(num_calle);
+    clearThis(piso);
+    clearThis(depto);
+
+}
+}
+function clearThis(target) {
+        target.value= "";
+    }
+
        $(function(){
 
 
