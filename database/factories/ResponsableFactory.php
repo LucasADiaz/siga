@@ -14,6 +14,5 @@ $factory->define(Responsable::class, function (Faker $faker) {
         'lugar_trabajo' => $faker->streetName(2),
         'persona_id'=> Persona::all()->random()->id,
         'domicilio_laboral_id'=> Domicilio::all()->random()->id,
-        'telefono_laboral_id'=> Telefono::all()->random()->id,
     ];
 });
