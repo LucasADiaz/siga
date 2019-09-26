@@ -17,6 +17,5 @@ $factory->define(Persona::class, function (Faker $faker) {
         'nro_doc' =>$faker->numerify('#########'),
         'nacionalidad' =>$faker->sentence(2),
         'domicilio_id' =>Domicilio::all()->random()->id,
-        'telefono_id' =>Telefono::all()->random()->id,
     ];
 });

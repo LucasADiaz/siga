@@ -27,10 +27,6 @@ class CreateResponsablesTable extends Migration
 
             $table->unsignedBigInteger('domicilio_laboral_id')
                     ->comment('identificador de la escuela a la que pertenece el alumno.');
-
-            $table->unsignedBigInteger('telefono_laboral_id')
-                    ->comment('identificador de la escuela a la que pertenece el alumno.');
-
             
             $table->timestamps();
         });
