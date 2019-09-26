@@ -22,8 +22,8 @@ class CreateTelefonosTable extends Migration
             $table->string('numero')
                     ->comment('numero de telefono formato: +54 9 383 4578983');
             
-             $table->enum('categoria',['Fijo','Trabajo','Movil'])
-                    ->comment('categoria de telefono. Ej: Casa, Trabajo...');
+             $table->enum('categoria',['Personal','Trabajo'])
+                    ->comment('categoria de telefono. Ej: Personal, Trabajo...');
 
             $table->timestamps();
         });

@@ -13,10 +13,7 @@ class AddForeignKey extends Migration
      */
     public function up()
     {
-        
-        Schema::table('domicilios', function (Blueprint $table) {        
-            $table->foreign('persona_id')->references('id')->on('personas');
-        });
+    
         Schema::table('alumnos', function (Blueprint $table) {        
             $table->foreign('persona_id')->references('id')->on('personas');
             

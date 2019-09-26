@@ -9,6 +9,7 @@ use App\Autoridad;
 use App\Alumno;
 use App\Persona;
 use App\Domicilio;
+use App\Telefono;
 use Illuminate\Support\Facades\Hash;
 
 class LegajosController extends Controller
@@ -68,6 +69,67 @@ class LegajosController extends Controller
             
         ]);
         $user->save();
+
+        $telefono_alu = Telefono::create([ 
+            'persona_id' => $persona_alu->id, 
+            'numero'=> $request->tel1_alu,
+            'categoria'=>'Personal',
+            
+        ]);
+        $telefono_alu->save();
+
+        if($request->madre_fallecida){
+            
+        }else{
+            if($request->madre_mismodomicilio){
+                $domicilio_madre = $domicilio_alu;
+            }else{
+        $domicilio_madre = Domicilio::create([
+            'calle' => $request->calle_madre,
+            'numero' => $request->num_calle_madre,
+            'cod_postal' => $request->cod_postal_madre,
+            'localidad' => $request->localidad_madre,
+        
+         ]);
+        }
+
+        $domicilio_madre->save();
+     
+        $persona_madre = Persona::create([
+         
+         'nombre' => $request->nombres_madre,
+         'apellido' => $request->apellidos_madre,
+         'fecha_nacimiento' => $request->fec_nac_madre,
+         'lugar_nacimiento' => $request->lugar_nac_madre,
+         'sexo'=> $request->sexo_madre,
+         'nro_doc' => $request->num_doc_madre,
+         'nacionalidad' => $request->nacionalidad_madre,
+         
+         'domicilio_id' =>$domicilio_madre->id,
+         
+     ]);
+     $persona_madre->save();
+
+   /*  $alumno = Alumno::create([
+         'persona_id' =>$persona_alu->id, 
+         'escuela_procedencia' => $request->esc_procedencia_alu,
+         'curso_id' => 'null',
+         'email'=> $request->email_alu,
+         'grupo_factor' =>$request->grupo_factor_alu,
+     ]);
+     $alumno->save();
+
+    
+
+     $telefono_alu = Telefono::create([ 
+         'persona_id' => $persona_alu->id, 
+         'numero'=> $request->tel1_alu,
+         'categoria'=>'Personal',
+         
+     ]);
+     $telefono_alu->save();
+     */
+    }
 
 
 
