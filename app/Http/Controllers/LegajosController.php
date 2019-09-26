@@ -9,6 +9,7 @@ use App\Autoridad;
 use App\Alumno;
 use App\Persona;
 use App\Domicilio;
+use App\Parentesco;
 use App\Telefono;
 use App\Responsable;
 use Illuminate\Support\Facades\Hash;
@@ -174,6 +175,13 @@ class LegajosController extends Controller
         'lugar_trabajo' => $request->lugar_trabajo_madre,
     ]);
     $responsable_madre->save();
+    
+    $parentesco_madre = Parentesco::create([
+        'persona_id' =>$persona_madre->id, 
+        'alumno_id' => $alumno->id,
+        'parentesco' => 'Madre',
+    ]);
+    $parentesco_madre->save();
         }
     
     
@@ -263,7 +271,12 @@ $responsable_padre = Responsable::create([
     'lugar_trabajo' => $request->lugar_trabajo_padre,
 ]);
 $responsable_padre->save();
-
+$parentesco_padre = Parentesco::create([
+    'persona_id' =>$persona_padre->id, 
+    'alumno_id' => $alumno->id,
+    'parentesco' => 'Padre',
+]);
+$parentesco_padre->save();
 
 
 }
@@ -366,7 +379,12 @@ $responsable_tutor = Responsable::create([
     'lugar_trabajo' => $request->lugar_trabajo_tutor,
 ]);
 $responsable_tutor->save();
-
+$parentesco_tutor = Parentesco::create([
+    'persona_id' =>$persona_padre->id, 
+    'alumno_id' => $alumno->id,
+    'parentesco' => $request->parentesco_tutor,
+]);
+$parentesco_tutor->save();
 
 $autoridad_tutor = Autoridad::create([
     'persona_id' =>$persona_tutor->id, 

@@ -335,7 +335,7 @@
                               <label>Sexo</label>
                               <br>
                               <label for="f" class="radio-inline">
-                                  <input type="radio" name="sexo_alu" id="f" value="F" > Femenino
+                                  <input type="radio" name="sexo_alu" id="f" value="F" checked> Femenino
                               </label>
                               <br>
                               <label for="m" class="radio-inline">
@@ -1862,17 +1862,23 @@
                                       <p class="help-block error hidden">Ingresá nacionalidad</p>
                                 </select>
                             </div>
-                        <div class="col-md-3 form-group item-form">
-                            <label>Sexo</label>
-                            <br>
-                            <label for="f" class="radio-inline">
-                                <input type="radio" name="sexo_tutor" id="f" value="F"  checked> Femenino
-                            </label>
-                            <label for="m" class="radio-inline">
-                                <input type="radio" name="sexo_tutor" id="m" value="M" > Masculino
-                            </label>
-                            <p class="help-block error hidden">Ingresá tu sexo</p>
-                        </div>
+                            <div class="col-md-2 form-group item-form">
+                                <label>Sexo</label>
+                                <br>
+                                <label for="f" class="radio-inline">
+                                    <input type="radio" name="sexo_tutor" id="f" value="F" checked> Femenino
+                                </label>
+                                <br>
+                                <label for="m" class="radio-inline">
+                                    <input type="radio" name="sexo_tutor" id="m" value="M" > Masculino
+                                </label>
+                                <p class="help-block error hidden">Ingresá tu sexo</p>
+                            </div>
+                            <div class="col-md-2 form-group item-form">
+                                <label for="parentesco_tutor">Parentesco</label>
+                                <input type="text" name="parentesco_tutor" class="form-control" id="parentesco_tutor" value="Hermano">
+                                <p class="help-block error hidden">Ingresá tu parentesco</p>
+                            </div>
 
                     </div>
 
