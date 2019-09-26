@@ -47,6 +47,7 @@ class DatabaseSeeder extends Seeder
         
         $this->call(UserSeeder::class); 
         $this->call(DomicilioSeeder::class);
+        $this->call(TelefonoSeeder::class);
         $this->call(EscuelaSeeder::class); 
         
         $this->call(PersonaSeeder::class);
@@ -55,7 +56,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AdministrativoSeeder::class);
         $this->call(DirectivoSeeder::class);
         
-        $this->call(TelefonoSeeder::class);
+        $this->call(ResponsableSeeder::class); 
         
         $this->call(CursoSeeder::class);
         $this->call(CategoriaMessageSeeder::class);

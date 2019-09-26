@@ -4,6 +4,7 @@
 
 use App\Domicilio;
 use App\Persona;
+use App\Telefono;
 use Faker\Generator as Faker;
 
 $factory->define(Persona::class, function (Faker $faker) {
@@ -16,5 +17,6 @@ $factory->define(Persona::class, function (Faker $faker) {
         'nro_doc' =>$faker->numerify('#########'),
         'nacionalidad' =>$faker->sentence(2),
         'domicilio_id' =>Domicilio::all()->random()->id,
+        'telefono_id' =>Telefono::all()->random()->id,
     ];
 });

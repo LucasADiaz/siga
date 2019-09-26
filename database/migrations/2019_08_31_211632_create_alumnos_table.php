@@ -31,9 +31,9 @@ class CreateAlumnosTable extends Migration
                     ->nullable()
                     ->comment('correo electronico que para el alumno es opcional.');
         
-            $table->string('grupo_factor')
-                    ->comment('grupo y factor sanguineo');
-
+            $table->enum('grupo_factor',['0+','0-','A+','A-','B+','B-','AB+','AB-'])
+                    ->comment('Grupo y Factor sanguineo.');
+                    
             $table->timestamps();
         });
     }
