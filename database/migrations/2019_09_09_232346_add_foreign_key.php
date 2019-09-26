@@ -68,8 +68,8 @@ class AddForeignKey extends Migration
         });
         Schema::table('legajos', function (Blueprint $table) {        
             $table->foreign('alumno_id')->references('id')->on('alumnos');
-            $table->foreign('padre_id')->references('id')->on('autoridades');
-            $table->foreign('madre_id')->references('id')->on('autoridades');
+            $table->foreign('padre_id')->references('id')->on('responsables');
+            $table->foreign('madre_id')->references('id')->on('responsables');
             $table->foreign('tutor_id')->references('id')->on('autoridades');
         });
         Schema::table('profesores', function (Blueprint $table) {        

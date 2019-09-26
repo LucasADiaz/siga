@@ -263,17 +263,20 @@ $responsable_padre = Responsable::create([
     'lugar_trabajo' => $request->lugar_trabajo_padre,
 ]);
 $responsable_padre->save();
-/*
+
+
+
 }
 
 
     if($request->padre_es_tutor){
         $autoridad_padre = Autoridad::create([
-            'persona_id' =>$responsable_padre->id, 
+            'persona_id' =>$persona_padre->id, 
             'user_id' => $user->id,
             'email' => $request->email_padre,
         ]);
         $autoridad_padre->save();
+
     }else if($request->madre_es_tutor){
         $autoridad_madre = Autoridad::create([
             'persona_id' =>$responsable_madre->id, 
@@ -359,7 +362,7 @@ $telefono_lab_tutor = Telefono::create([
 $responsable_tutor = Responsable::create([
     'persona_id' =>$persona_tutor->id, 
     'profesion' => $request->profesion_tutor,
-    'email' => $request->email_tuto,
+    'email' => $request->email_tutor,
     'lugar_trabajo' => $request->lugar_trabajo_tutor,
 ]);
 $responsable_tutor->save();
@@ -370,9 +373,17 @@ $autoridad_tutor = Autoridad::create([
     'user_id' => $user->id,
     'email' => $request->email_tutor,
 ]);
-$autoridad_tutor->save(); */
+$autoridad_tutor->save(); 
 }  
 
+$legajo_alumno = Legajo::create([
+    'alumno_id' =>$persona_alu->id, 
+    'padre_id' =>$responsable_padre->persona_id, 
+    'madre_id' =>$responsable_madre->persona_id, 
+    'tutor_id' =>$autoridad_tutor->id,
+]);
+$legajo_alumno->save(); 
+  
 return back()->with('flash','Tu legajo fue creado');
 
 }

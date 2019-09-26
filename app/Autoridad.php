@@ -36,5 +36,5 @@ class Autoridad extends Model
         return $this->belongsTo(User::class); 
     }
    // seguridad de eloquent para la carga masiva
-    protected $fillable =['email'];
+    protected $fillable =['persona_id','user_id','email'];
 }

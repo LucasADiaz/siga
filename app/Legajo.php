@@ -28,4 +28,7 @@ class Legajo extends Model
     public function documentos(){    
         return $this->hasMany(Documento::class); 
     }
+     // seguridad de eloquent para la carga masiva
+     protected $fillable =['alumno_id','madre_id','padre_id','tutor_id'];   
+
 }
