@@ -13,11 +13,6 @@ class CursoSeeder extends Seeder
      */
     public function run()
     {
-        // DB::table('cursos')->insert([
-
-        //     'nivel'=>
-        // ])
-
         factory(Curso::class, 30)->create();
     }
 }

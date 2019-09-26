@@ -1,5 +1,6 @@
 <?php
 
+use App\Administrativo;
 use Illuminate\Database\Seeder;
 
 class AdministrativoSeeder extends Seeder
@@ -11,6 +12,6 @@ class AdministrativoSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Administrativo::class,20)->create();
     }
 }
