@@ -10,6 +10,7 @@ use App\Alumno;
 use App\Persona;
 use App\Domicilio;
 use App\Telefono;
+use App\Responsable;
 use Illuminate\Support\Facades\Hash;
 
 class LegajosController extends Controller
@@ -141,23 +142,247 @@ class LegajosController extends Controller
         ]);
         $telefono2_madre->save();
     }
+
+    if($request->madre_no_trabaja){
+        
+    }else{
+        $domicilio_lab_madre = Domicilio::create([
+            'calle' => $request->calle_lab_madre,
+            'numero' => $request->num_calle_lab_madre,
+            'cod_postal' => $request->cod_postal_lab_madre,
+            'localidad' => $request->localidad_lab_madre,
+            'departamento' => $request->num_depto_lab_madre,
+         ]);
+        $domicilio_lab_madre->save();
+
+    
+
+    $telefono_lab_madre = Telefono::create([ 
+         'persona_id' => $persona_madre->id, 
+         'numero' => $request->tel_lab_madre,
+         'categoria'=>'Laboral',
+         
+     ]);
+     $telefono_lab_madre->save();
+
+  
+    }
+    $responsable_madre = Responsable::create([
+        'persona_id' =>$persona_madre->id, 
+        'profesion' => $request->profesion_madre,
+        'email' => $request->email_madre,
+        'lugar_trabajo' => $request->lugar_trabajo_madre,
+    ]);
+    $responsable_madre->save();
+        }
+    
+    
+
+    if($request->padre_fallecido){
+            
+    }else{
+        if($request->padre_mismodomicilio){
+            $domicilio_padre = $domicilio_alu;
+        }else{
+    $domicilio_padre = Domicilio::create([
+        'calle' => $request->calle_padre,
+        'numero' => $request->num_calle_padre,
+        'cod_postal' => $request->cod_postal_padre,
+        'localidad' => $request->localidad_padre,
+        'departamento' => $request->num_depto_padre,
+     ]);
      
     }
+    $domicilio_padre->save();
 
+    
+ 
+    $persona_padre = Persona::create([
+     
+     'nombre' => $request->nombres_padre,
+     'apellido' => $request->apellidos_padre,
+     'fecha_nacimiento' => $request->fec_nac_padre,
+     'lugar_nacimiento' => $request->lugar_nac_padre,
+     'sexo'=> $request->sexo_padre,
+     'nro_doc' => $request->num_doc_padre,
+     'nacionalidad' => $request->nacionalidad_padre,
+     
+     'domicilio_id' =>$domicilio_padre->id,
+     
+ ]);
+ $persona_padre->save();
 
+ $telefono_padre = Telefono::create([ 
+     'persona_id' => $persona_padre->id, 
+     'numero'=> $request->tel1_padre,
+     'categoria'=>'Personal',
+     
+ ]);
+ $telefono_padre->save();
 
-        return back()->with('flash','Tu legajo fue creado');
-      //  $alumno = Alumno::create([
-            
-            
-          //  ]);
+ if(empty($request->tel2_padre)){
         
-            
+}else{
+    $telefono2_padre = Telefono::create([ 
+        'persona_id' => $persona_padre->id, 
+        'numero'=> $request->tel2_padre,
+        'categoria'=>'Personal',
+        
+    ]);
+    $telefono2_padre->save();
+}
 
-      //  $legajo = Legajo::create([
-            
-      //  ));
+if($request->padre_no_trabaja){
+    
+}else{
+    $domicilio_lab_padre = Domicilio::create([
+        'calle' => $request->calle_lab_padre,
+        'numero' => $request->num_calle_lab_padre,
+        'cod_postal' => $request->cod_postal_lab_padre,
+        'localidad' => $request->localidad_lab_padre,
+        'departamento' => $request->num_depto_lab_padre,
+     ]);
+    $domicilio_lab_padre->save();
+
+
+
+$telefono_lab_padre = Telefono::create([ 
+     'persona_id' => $persona_padre->id, 
+     'numero' => $request->tel_lab_padre,
+     'categoria'=>'Laboral',
+     
+ ]);
+ $telefono_lab_padre->save();
+
+
+}
+$responsable_padre = Responsable::create([
+    'persona_id' =>$persona_padre->id, 
+    'profesion' => $request->profesion_padre,
+    'email' => $request->email_padre,
+    'lugar_trabajo' => $request->lugar_trabajo_padre,
+]);
+$responsable_padre->save();
+/*
+}
+
+
+    if($request->padre_es_tutor){
+        $autoridad_padre = Autoridad::create([
+            'persona_id' =>$responsable_padre->id, 
+            'user_id' => $user->id,
+            'email' => $request->email_padre,
+        ]);
+        $autoridad_padre->save();
+    }else if($request->madre_es_tutor){
+        $autoridad_madre = Autoridad::create([
+            'persona_id' =>$responsable_madre->id, 
+            'user_id' => $user->id,
+            'email' => $request->email_madre,
+        ]);
+        $autoridad_madre->save();
     }
+    else{
+        if($request->tutor_mismodomicilio){
+            $domicilio_tutor = $domicilio_alu;
+        }else{
+    $domicilio_tutor = Domicilio::create([
+        'calle' => $request->calle_tutor,
+        'numero' => $request->num_calle_tutor,
+        'cod_postal' => $request->cod_postal_tutor,
+        'localidad' => $request->localidad_tutor,
+        'departamento' => $request->num_depto_tutor,
+     ]);
+    }
+
+    $domicilio_tutor->save();
+ 
+    $persona_tutor = Persona::create([
+     
+     'nombre' => $request->nombres_tutor,
+     'apellido' => $request->apellidos_tutor,
+     'fecha_nacimiento' => $request->fec_nac_tutor,
+     'lugar_nacimiento' => $request->lugar_nac_tutor,
+     'sexo'=> $request->sexo_tutor,
+     'nro_doc' => $request->num_doc_tutor,
+     'nacionalidad' => $request->nacionalidad_tutor,
+     
+     'domicilio_id' =>$domicilio_tutor->id,
+     
+ ]);
+ $persona_tutor->save();
+
+ $telefono_tutor = Telefono::create([ 
+     'persona_id' => $persona_tutor->id, 
+     'numero'=> $request->tel1_tutor,
+     'categoria'=>'Personal',
+     
+ ]);
+ $telefono_tutor->save();
+
+ if(empty($request->tel2_tutor)){
+        
+}else{
+    $telefono2_tutor = Telefono::create([ 
+        'persona_id' => $persona_tutor->id, 
+        'numero'=> $request->tel2_tutor,
+        'categoria'=>'Personal',
+        
+    ]);
+    $telefono2_tutor->save();
+}
+
+if($request->tutor_no_trabaja){
+    
+}else{
+    $domicilio_lab_tutor = Domicilio::create([
+        'calle' => $request->calle_lab_tutor,
+        'numero' => $request->num_calle_lab_tutor,
+        'cod_postal' => $request->cod_postal_lab_tutor,
+        'localidad' => $request->localidad_lab_tutor,
+        'departamento' => $request->num_depto_lab_tutor,
+     ]);
+    $domicilio_lab_tutor->save();
+
+
+
+$telefono_lab_tutor = Telefono::create([ 
+     'persona_id' => $persona_tutor->id, 
+     'numero' => $request->tel_lab_tutor,
+     'categoria'=>'Laboral',
+     
+ ]);
+ $telefono_lab_tutor->save();
+
+}
+
+$responsable_tutor = Responsable::create([
+    'persona_id' =>$persona_tutor->id, 
+    'profesion' => $request->profesion_tutor,
+    'email' => $request->email_tuto,
+    'lugar_trabajo' => $request->lugar_trabajo_tutor,
+]);
+$responsable_tutor->save();
+
+
+$autoridad_tutor = Autoridad::create([
+    'persona_id' =>$persona_tutor->id, 
+    'user_id' => $user->id,
+    'email' => $request->email_tutor,
+]);
+$autoridad_tutor->save(); */
+}  
+
+return back()->with('flash','Tu legajo fue creado');
+
+}
+
+
+
+
+        
+
+
 
     
     public function show()

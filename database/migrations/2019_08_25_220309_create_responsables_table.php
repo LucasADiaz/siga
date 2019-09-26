@@ -20,13 +20,15 @@ class CreateResponsablesTable extends Migration
                     ->comment('identificador de persona.');
 
             $table->string('profesion')
+                    ->nullable()
                     ->comment('identificador de la escuela a la que pertenece el alumno.');
 
             $table->string('lugar_trabajo')
+                    ->nullable()
                     ->comment('identificador de la escuela a la que pertenece el alumno.');
-
-            $table->unsignedBigInteger('domicilio_laboral_id')
-                    ->comment('identificador de la escuela a la que pertenece el alumno.');
+            
+            $table->string('email')
+                    ->comment('email del responsable.');
             
             $table->timestamps();
         });
