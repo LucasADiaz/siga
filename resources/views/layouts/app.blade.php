@@ -102,7 +102,7 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href=""> Cargar Nota
+                                    <a class="dropdown-item" href="{{ route('nota.index') }}"> Cargar Nota
                                     </a>
 
                                 

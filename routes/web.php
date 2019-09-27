@@ -37,11 +37,13 @@ Route::delete('notificaciones/{id}', 'NotificationsController@destroy')->name('n
 
 Route::get('notificaciones', 'NotificationsController@index')->name('notifications.index');
 
-
+//rutas para controlar el modulo POST  ----------------------
 Route::get('/posts', 'PostsController@crearPost')->name('posts.crear');
-
-
 Route::post('/posts/send', 'PostsController@enviar')->name('posts.enviar');
 
+//rutas para controlar el modulo Legajos --------------------
 Route::get('/legajos/new', 'LegajosController@crearLegajo')->name('legajos.crear');
 Route::post('/legajos/new','LegajosController@store')->name('legajos.guardar');
+
+//rutas para controlar el modulo de Notas -------------------
+Route::resource('nota', 'NotaController');
