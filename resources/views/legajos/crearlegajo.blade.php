@@ -27,7 +27,7 @@
 
             
 
-              <form method="POST" action="{{ route('legajos.guardar')}}" >
+              <form method="POST" action="{{ route('legajos.store')}}" >
                 <input type="hidden" name="_token" value="{!! csrf_token() !!}">
 
                 <!-- DATOS DEL ALUMNO -->
@@ -43,8 +43,8 @@
 
                                   
                 <div class="col-md-12 form-group item-form text-center">
-                    <a href="" class="btn btn-link">Anterior</a>
-                <button type="submit" >Siguiente</button>
+      
+                <button type="submit" >Guardar Legajo</button>
                 </div>
             </form>
         </div>
@@ -1094,75 +1094,6 @@ else{
 }
 }
 
-       $(function(){
-
-
-    $('.error').removeClass("hidden");
-    $('.item-form').addClass('has-error has-feedback');
-    mostrarErrores();
-
-
-});
-      
-      function mostrarErrores(){
-        $("#errores").html("");
-        $("#errores").html("<h5>Se han producido los siguientes errores:</h5><ol></ol>");
-        var cantidadErrores = 0;
-      
-        $(".has-error").each(function(){
-      
-          if(cantidadErrores<3){// A MODO EJEMPLO SE LIMITÓ LA CANTIDAD DE ERRORES A 3
-            var mensajeError = $(this).find(".help-block.error").html();
-            $("#errores ol").append("<li>"+mensajeError+"</li>");
-            cantidadErrores++;
-          }
-      
-        });
-      
-        if(cantidadErrores >0){
-          $("#errores").show();
-        }
-        else{
-          $("#errores").hide(); 
-        }
-      }
-      
-      $('button').click(function(event) {
-        mostrarErrores();
-      });
-      
-      var content_popover = document.getElementById('content-popover');
-      function popshow(){
-        content_popover.classList.toggle('hidden');
-      }
-      function pophidde(){
-        content_popover.classList.add('hidden')
-      }
-      </script>
-      
-      <script>
-        $(document).ready(function(){
-          $('#mostrar-tipo').text('Numero de DNI');
-          $("select[name=tipodoc]").change(function(){
-            //alert($('select[name=tipodoc]').val());
-          if($('select[name=tipodoc]').val() === 'DNI') {
-            $('#mostrar-tipo').text('Numero de DNI');
-          }else if ($('select[name=tipodoc]').val() === 'Pasaporte extranjero') {
-            $('#mostrar-tipo').text('Numero de Pasaporte');
-          }
-            //$('#mostrar-tipo').text('Pasaporte');
-          });
-          /*
-          $("select[name=address_state]").change(function(){
-            if($('select[name=address_state]').val() === 'Ciudad Autónoma de buenos Aires') {
-              alert($('#address_state option:selected').val());  
-              $("#municipio option[value='Prueba']").attr("selected", true);
-            }
-          
-      
-          });
-          */
-        });
       </script>
 @endsection
 

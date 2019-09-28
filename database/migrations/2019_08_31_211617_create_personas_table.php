@@ -33,7 +33,18 @@ class CreatePersonasTable extends Migration
             
             $table->string('nro_doc',9)
                     ->comment('documento de la persona.');
-        
+
+            $table->string('tipo_nro_doc',9)
+                    ->comment('tipo documento de la persona.');
+                    
+            $table->string('email')
+                        ->nullable()
+                    ->comment('email del responsable.');
+
+
+             $table->string('profesion')
+                    ->comment('profesion del responsable.');
+
             $table->string('nacionalidad')
                     ->comment('nacionalidad de la persona.');
 

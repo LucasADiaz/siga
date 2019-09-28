@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::resource('posts', 'PostsController');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');  
 
 Route::get('/inicio', 'HomeController@inicio')->name('inicio');
 
@@ -43,5 +43,4 @@ Route::get('/posts', 'PostsController@crearPost')->name('posts.crear');
 
 Route::post('/posts/send', 'PostsController@enviar')->name('posts.enviar');
 
-Route::get('/legajos/new', 'LegajosController@crearLegajo')->name('legajos.crear');
-Route::post('/legajos/new','LegajosController@store')->name('legajos.guardar');
+Route::resource('legajos','LegajosController');

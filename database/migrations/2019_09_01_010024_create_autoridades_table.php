@@ -23,9 +23,6 @@ class CreateAutoridadesTable extends Migration
             $table->unsignedBigInteger('user_id')
                     ->comment('identificador del usuario.');
             
-            
-            $table->string('email')
-                    ->comment('correo electronico que para el autoridad.');
 
             $table->timestamps();
         });

@@ -84,7 +84,7 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{route('legajos.crear')}}"> Crear Legajo
+                                    <a class="dropdown-item" href="{{route('legajos.create')}}"> Crear Legajo
                                     </a>
 
                                 
