@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateResponsablesTable extends Migration
+class CreateTrabajoPersonasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateResponsablesTable extends Migration
      */
     public function up()
     {
-        Schema::create('responsables', function (Blueprint $table) {
+        Schema::create('trabajo_personas', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->unsignedBigInteger('persona_id')
@@ -40,6 +40,6 @@ class CreateResponsablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('responsables');
+        Schema::dropIfExists('trabajo_personas');
     }
 }

@@ -1,6 +1,5 @@
 <?php
 
-use App\Parentesco;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 //use PhpParser\Node\Expr\Cast\Array_;
@@ -43,6 +42,8 @@ class DatabaseSeeder extends Seeder
             'directivos',
             'parentescos',
             'administrativos',
+            'trabajo_personas',
+            'tutor_suplentes',
 
         ]);
         //debemos llamar todos los seeder que creamos   
@@ -57,7 +58,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AdministrativoSeeder::class);
         $this->call(DirectivoSeeder::class);
         
-        $this->call(ResponsableSeeder::class); 
+        $this->call(TrabajoPersonaSeeder::class); 
         $this->call(TelefonoSeeder::class);
         
         $this->call(CursoSeeder::class);
@@ -83,7 +84,7 @@ class DatabaseSeeder extends Seeder
         $this->call(MateriaProfesorSeeder::class);      
         $this->call(CursoMateriaSeeder::class); 
 
-        $this->call(PermisionsTableSeeder::class);           
+        $this->call(TutorSuplenteSeeder::class);           
     }
      
 

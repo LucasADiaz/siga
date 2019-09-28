@@ -4,15 +4,13 @@
 
 use App\Domicilio;
 use App\Persona;
-use App\Responsable;
-use App\Telefono;
+use App\TrabajoPersona;
 use Faker\Generator as Faker;
 
-$factory->define(Responsable::class, function (Faker $faker) {
+$factory->define(TrabajoPersona::class, function (Faker $faker) {
     return [
-        'profesion' => $faker->streetName(2),
         'lugar_trabajo' => $faker->streetName(2),
         'persona_id'=> Persona::all()->random()->id,
-        'domicilio_laboral_id'=> Domicilio::all()->random()->id,
+        'domicilio_trabajo_id'=> Domicilio::all()->random()->id,
     ];
 });
