@@ -321,11 +321,18 @@
                 </label>
                 <p class="help-block error hidden">Ingresá tu sexo</p>
             </div>
-            <div class="col-md-2 form-group item-form">
-                <label for="parentesco_tutor">Parentesco</label>
-                <input type="text" name="parentesco_tutor" class="form-control" id="parentesco_tutor" value="Hermano">
-                <p class="help-block error hidden">Ingresá tu parentesco</p>
-            </div>
+           <div class="col-md-2 form-group item-form">
+            <label for="parentesco_tutor">Parentesco</label>
+            <select id="parentesco_tutor" name="parentesco_tutor" class="form-control">
+                <option value="Hermano" selected="">Hermano</option>
+                <option value="Hermana" >Hermana</option>
+                <option value="Tio">Tio</option>
+                <option value="Tia">Tia</option>
+                <option value="Abuelo">Abuelo</option>
+                <option value="Abuela">Abuela</option>
+            </select>
+            <p class="help-block error hidden">Elegí un parentesco</p>
+        </div>
 
     </div>
 
@@ -445,7 +452,7 @@
 
   </fieldset>
 
-<!-- OTROS DATOS ESPECÍFICOS DEL PADRE-->
+<!-- OTROS DATOS ESPECÍFICOS DEL TUTOR-->
 <fieldset>
     <hr>
       <div class="col-md-12 form-group item-form">

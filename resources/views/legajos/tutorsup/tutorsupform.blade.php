@@ -24,10 +24,17 @@
       </div>
 
       <div class="col-md-2 form-group item-form">
-          <label for="parentesco_tutor_sup1">Parentesco</label>
-          <input type="text" name="parentesco_tutor_sup1" class="form-control" id="parentesco_tutor_sup1" >
-          <p class="help-block error hidden">Ingresá tu nombre</p>
-      </div>
+        <label for="parentesco_tutor_sup1">Parentesco</label>
+        <select id="parentesco_tutor_sup1" name="parentesco_tutor_sup1" class="form-control">
+            <option value="Hermano" selected="">Hermano</option>
+            <option value="Hermana" >Hermana</option>
+            <option value="Tio">Tio</option>
+            <option value="Tia">Tia</option>
+            <option value="Abuelo">Abuelo</option>
+            <option value="Abuela">Abuela</option>
+        </select>
+        <p class="help-block error hidden">Elegí un parentesco</p>
+    </div>
 
       <div class="col-md-3 form-group item-form">
           <label for="tel_tutor_sup1">Teléfono</label>
@@ -56,10 +63,17 @@
       </div>
 
       <div class="col-md-2 form-group item-form">
-          <label for="parentesco_tutor_sup2">Parentesco</label>
-          <input type="text" name="parentesco_tutor_sup2" class="form-control" id="parentesco_tutor_sup2" >
-          <p class="help-block error hidden">Ingresá tu nombre</p>
-      </div>
+        <label for="parentesco_tutor_sup2">Parentesco</label>
+        <select id="parentesco_tutor_sup2" name="parentesco_tutor_sup2" class="form-control">
+            <option value="Hermano" selected="">Hermano</option>
+            <option value="Hermana" >Hermana</option>
+            <option value="Tio">Tio</option>
+            <option value="Tia">Tia</option>
+            <option value="Abuelo">Abuelo</option>
+            <option value="Abuela">Abuela</option>
+        </select>
+        <p class="help-block error hidden">Elegí un parentesco</p>
+    </div>
 
       <div class="col-md-3 form-group item-form">
           <label for="tel_tutor_sup2">Teléfono móvil</label>

@@ -54,8 +54,11 @@
 </div>
                   
    <script>
-       
-       function mismoDomicilioMadre(checkbox) {
+       function clearThis(target) {
+        target.value= "";
+    }
+       //FUNCIONES MADRE
+function mismoDomicilioMadre(checkbox) {
 var localidad = document.getElementById('localidad_madre');
 var cod_postal = document.getElementById('cod_postal_madre');
 var barrio = document.getElementById('barrio_madre');
@@ -98,11 +101,6 @@ else{
 
 }
 }
-
-function clearThis(target) {
-        target.value= "";
-    }
-
 function madreNoTrabaja(checkbox) {
 
 var lugar_trabajo = document.getElementById('lugar_trabajo_madre');
@@ -179,7 +177,7 @@ var num_calle_lab = document.getElementById('num_calle_lab_madre');
 var piso_lab = document.getElementById('piso_lab_madre');
 var depto_lab = document.getElementById('num_depto_lab_madre');
 var tel_lab = document.getElementById('tel_lab_madre');
-
+var tel_lab = document.getElementById('madre_es_tutor');
 
 
 if(checkbox.checked){
@@ -215,9 +213,11 @@ if(checkbox.checked){
     piso_lab.disabled = checkbox.checked;
     depto_lab.disabled = checkbox.checked;
     tel_lab.disabled = checkbox.checked;
+    madre_es_tutor.disabled=true;
+   
 }
 else{
-   
+    madre_es_tutor.removeAttribute("disabled");
     nombres.removeAttribute("disabled");
     apellidos.removeAttribute("disabled");
     lugar_nac.removeAttribute("disabled");
@@ -252,6 +252,9 @@ else{
 }
 
 }
+
+
+//FUNCIONES PADRE
 
 function mismoDomicilioPadre(checkbox) {
 var localidad = document.getElementById('localidad_padre');
@@ -308,7 +311,7 @@ var num_calle = document.getElementById('num_calle_lab_padre');
 var piso = document.getElementById('piso_lab_padre');
 var depto = document.getElementById('num_depto_lab_padre');
 var tel_lab = document.getElementById('tel_lab_padre');
-
+var padre_es_tutor = document.getElementById('padre_es_tutor');
 
 if(checkbox.checked){
 
@@ -320,6 +323,7 @@ num_calle.disabled = checkbox.checked;
 piso.disabled = checkbox.checked;
 depto.disabled = checkbox.checked;
 tel_lab.disabled = checkbox.checked;
+padre_es_tutor.disabled=true;
 
 }
 else{
@@ -331,6 +335,7 @@ else{
     piso.removeAttribute("disabled");
     depto.removeAttribute("disabled");
     tel_lab.removeAttribute("disabled");
+    padre_es_tutor.removeAttribute("disabled");
     clearThis(lugar_trabajo);
     clearThis(cod_postal);
 
@@ -373,6 +378,7 @@ var num_calle_lab = document.getElementById('num_calle_lab_padre');
 var piso_lab = document.getElementById('piso_lab_padre');
 var depto_lab = document.getElementById('num_depto_lab_padre');
 var tel_lab = document.getElementById('tel_lab_padre');
+var padre_es_tutor = document.getElementById('padre_es_tutor');
 
 
 
@@ -409,9 +415,10 @@ if(checkbox.checked){
     piso_lab.disabled = checkbox.checked;
     depto_lab.disabled = checkbox.checked;
     tel_lab.disabled = checkbox.checked;
+    padre_es_tutor.disabled=true;
 }
 else{
-   
+  padre_es_tutor.removeAttribute("disabled");
     nombres.removeAttribute("disabled");
     apellidos.removeAttribute("disabled");
     lugar_nac.removeAttribute("disabled");
@@ -445,52 +452,6 @@ else{
 
 }
 
-}
-
-
-
-function mismoDomicilioMadre(checkbox) {
-var localidad = document.getElementById('localidad_madre');
-var cod_postal = document.getElementById('cod_postal_madre');
-var barrio = document.getElementById('barrio_madre');
-var calle = document.getElementById('calle_madre');
-var num_calle = document.getElementById('num_calle_madre');
-var piso = document.getElementById('piso_madre');
-var depto = document.getElementById('num_depto_madre');
-
-if(checkbox.checked){
-localidad.disabled = checkbox.checked;
-cod_postal.disabled = checkbox.checked;
-barrio.disabled = checkbox.checked;
-calle.disabled = checkbox.checked;
-num_calle.disabled = checkbox.checked;
-piso.disabled = checkbox.checked;
-depto.disabled = checkbox.checked;
-
-localidad.value = document.getElementById('localidad_alu').value;
-cod_postal.value = document.getElementById('cod_postal_alu').value;
-barrio.value = document.getElementById('barrio_alu').value;
-calle.value = document.getElementById('calle_alu').value;
-num_calle.value = document.getElementById('num_calle_alu').value;
-piso.value = document.getElementById('piso_alu').value;
-depto.value = document.getElementById('num_depto_alu').value;
-}
-else{
-    localidad.removeAttribute("disabled");
-    cod_postal.removeAttribute("disabled");
-    barrio.removeAttribute("disabled");
-    calle.removeAttribute("disabled");
-    num_calle.removeAttribute("disabled");
-    piso.removeAttribute("disabled");
-    depto.removeAttribute("disabled");
-    clearThis(cod_postal);
-    clearThis(barrio);
-    clearThis(calle);
-    clearThis(num_calle);
-    clearThis(piso);
-    clearThis(depto);
-
-}
 }
 
 function tutorNoTrabaja(checkbox) {
@@ -539,159 +500,6 @@ else{
    
 }
 }
-
-function madreFallecida(checkbox) {
-
-var nombres = document.getElementById('nombres_madre');
-var apellidos = document.getElementById('apellidos_madre');
-var lugar_nac = document.getElementById('lugar_nac_madre');
-var fec_nac = document.getElementById('fec_nac_madre');
-var tipo_doc = document.getElementById('tipo_doc_madre');
-var num_doc = document.getElementById('num_doc_madre');
-var nacionalidad = document.getElementById('nacionalidad_madre');
-var tel1 = document.getElementById('tel1_madre');
-var tel2 = document.getElementById('tel2_madre');
-var email = document.getElementById('email_madre');
-var madre_mismodomicilio = document.getElementById('madre_mismodomicilio');
-
-var localidad = document.getElementById('localidad_madre');
-var cod_postal = document.getElementById('cod_postal_madre');
-var calle = document.getElementById('calle_madre');
-var num_calle = document.getElementById('num_calle_madre');
-var barrio = document.getElementById('barrio_madre');
-var piso = document.getElementById('piso_madre');
-var depto = document.getElementById('num_depto_madre');
-
-var madre_no_trabaja = document.getElementById('madre_no_trabaja');
-var profesion = document.getElementById('profesion_madre');
-var lugar_trabajo = document.getElementById('lugar_trabajo_madre');
-var localidad_lab = document.getElementById('localidad_lab_madre');
-var cod_postal_lab = document.getElementById('cod_postal_lab_madre');
-
-var calle_lab = document.getElementById('calle_lab_madre');
-var num_calle_lab = document.getElementById('num_calle_lab_madre');
-var piso_lab = document.getElementById('piso_lab_madre');
-var depto_lab = document.getElementById('num_depto_lab_madre');
-var tel_lab = document.getElementById('tel_lab_madre');
-
-
-
-if(checkbox.checked){
-
-    nombres.disabled = checkbox.checked;
-    apellidos.disabled = checkbox.checked;
-    lugar_nac.disabled = checkbox.checked;
-    fec_nac.disabled = checkbox.checked;
-    tipo_doc.disabled = checkbox.checked;
-    num_doc.disabled = checkbox.checked;
-    nacionalidad.disabled = checkbox.checked;
-   
-    tel1.disabled = checkbox.checked;
-    tel2.disabled = checkbox.checked;
-    email.disabled = checkbox.checked;
-    madre_mismodomicilio.disabled=true;
-    madre_no_trabaja.disabled=true;
-    localidad.disabled = checkbox.checked;
-    cod_postal.disabled = checkbox.checked;
-    barrio.disabled = checkbox.checked;
-    calle.disabled = checkbox.checked;
-    num_calle.disabled = checkbox.checked;
-    piso.disabled = checkbox.checked;
-    depto.disabled = checkbox.checked;
-    
-
-    lugar_trabajo.disabled = checkbox.checked;
-    profesion.disabled = checkbox.checked
-    localidad_lab.disabled = checkbox.checked;
-    cod_postal_lab.disabled = checkbox.checked;
-    calle_lab.disabled = checkbox.checked;
-    num_calle_lab.disabled = checkbox.checked;
-    piso_lab.disabled = checkbox.checked;
-    depto_lab.disabled = checkbox.checked;
-    tel_lab.disabled = checkbox.checked;
-}
-else{
-   
-    nombres.removeAttribute("disabled");
-    apellidos.removeAttribute("disabled");
-    lugar_nac.removeAttribute("disabled");
-    fec_nac.removeAttribute("disabled");
-    tipo_doc.removeAttribute("disabled");
-    num_doc.removeAttribute("disabled");
-    nacionalidad.removeAttribute("disabled");
-    tel1.removeAttribute("disabled");
-    tel2.removeAttribute("disabled");
-    email.removeAttribute("disabled");
-    madre_mismodomicilio.removeAttribute("disabled");
-    madre_no_trabaja.removeAttribute("disabled");
-    localidad.removeAttribute("disabled");
-    cod_postal.removeAttribute("disabled");
-    barrio.removeAttribute("disabled");
-    calle.removeAttribute("disabled");
-    num_calle.removeAttribute("disabled");
-    piso.removeAttribute("disabled");
-    depto.removeAttribute("disabled");
-    profesion.removeAttribute("disabled");
-    lugar_trabajo.removeAttribute("disabled");
-    localidad_lab.removeAttribute("disabled");
-    cod_postal_lab.removeAttribute("disabled");
-    calle_lab.removeAttribute("disabled");
-    num_calle_lab.removeAttribute("disabled");
-    piso_lab.removeAttribute("disabled");
-    depto_lab.removeAttribute("disabled");
-    tel_lab.removeAttribute("disabled");
-    
-
-
-}
-
-}
-
-function mismoDomicilioPadre(checkbox) {
-var localidad = document.getElementById('localidad_padre');
-var cod_postal = document.getElementById('cod_postal_padre');
-var barrio = document.getElementById('barrio_padre');
-var calle = document.getElementById('calle_padre');
-var num_calle = document.getElementById('num_calle_padre');
-var piso = document.getElementById('piso_padre');
-var depto = document.getElementById('num_depto_padre');
-
-if(checkbox.checked){
-localidad.disabled = checkbox.checked;
-cod_postal.disabled = checkbox.checked;
-barrio.disabled = checkbox.checked;
-calle.disabled = checkbox.checked;
-num_calle.disabled = checkbox.checked;
-piso.disabled = checkbox.checked;
-depto.disabled = checkbox.checked;
-
-localidad.value = document.getElementById('localidad_alu').value;
-cod_postal.value = document.getElementById('cod_postal_alu').value;
-barrio.value = document.getElementById('barrio_alu').value;
-calle.value = document.getElementById('calle_alu').value;
-num_calle.value = document.getElementById('num_calle_alu').value;
-piso.value = document.getElementById('piso_alu').value;
-depto.value = document.getElementById('num_depto_alu').value;
-}
-else{
-    localidad.removeAttribute("disabled");
-    cod_postal.removeAttribute("disabled");
-    barrio.removeAttribute("disabled");
-    calle.removeAttribute("disabled");
-    num_calle.removeAttribute("disabled");
-    piso.removeAttribute("disabled");
-    depto.removeAttribute("disabled");
-    clearThis(cod_postal);
-    clearThis(barrio);
-    clearThis(calle);
-    clearThis(num_calle);
-    clearThis(piso);
-    clearThis(depto);
-
-}
-}
-
-
 
 function esLaMadre(checkbox) {
     
@@ -990,7 +798,7 @@ function esElPadre(checkbox) {
     }
     }
 
-    function mismoDomicilioTutor(checkbox) {
+function mismoDomicilioTutor(checkbox) {
 var localidad = document.getElementById('localidad_tutor');
 var cod_postal = document.getElementById('cod_postal_tutor');
 var barrio = document.getElementById('barrio_tutor');
@@ -1034,53 +842,6 @@ else{
 }
 }
 
-function clearThis(target) {
-        target.value= "";
-    }
-
-function tutorNoTrabaja(checkbox) {
-
-var lugar_trabajo = document.getElementById('lugar_trabajo_tutor');
-var localidad = document.getElementById('localidad_lab_tutor');
-var cod_postal = document.getElementById('cod_postal_lab_tutor');
-var calle = document.getElementById('calle_lab_tutor');
-var num_calle = document.getElementById('num_calle_lab_tutor');
-var piso = document.getElementById('piso_lab_tutor');
-var depto = document.getElementById('num_depto_lab_tutor');
-var tel_lab = document.getElementById('tel_lab_tutor');
-
-if(checkbox.checked){
-
-lugar_trabajo.disabled = checkbox.checked;
-localidad.disabled = checkbox.checked;
-cod_postal.disabled = checkbox.checked;
-calle.disabled = checkbox.checked;
-num_calle.disabled = checkbox.checked;
-piso.disabled = checkbox.checked;
-depto.disabled = checkbox.checked;
-tel_lab.disabled = checkbox.checked;
-
-}
-else{
-    lugar_trabajo.removeAttribute("disabled");
-    localidad.removeAttribute("disabled");
-    cod_postal.removeAttribute("disabled");
-    calle.removeAttribute("disabled");
-    num_calle.removeAttribute("disabled");
-    piso.removeAttribute("disabled");
-    depto.removeAttribute("disabled");
-    tel_lab.removeAttribute("disabled");
-    clearThis(lugar_trabajo);
-    clearThis(cod_postal);
-    clearThis(barrio);
-    clearThis(calle);
-    clearThis(num_calle);
-    clearThis(piso);
-    clearThis(depto);
-    clearThis(tel_lab);
-   
-}
-}
     function puedeSerRetirado(checkbox) {
 
 var contenido = document.getElementById("puede_ser_retirado");
