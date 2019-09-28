@@ -27,24 +27,34 @@
 
             
 
-              <form method="POST" action="{{ route('legajos.store')}}" >
+              <form method="POST" action="{{ route('legajos.storeDocs')}}" >
                 <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+                <fieldset>
+                      <hr>
+                      <div class="col-md-12 form-group item-form">
+                          <h3>Selecciona los documentos del alumno</h3>
+                      </div>
 
-                <!-- DATOS DEL ALUMNO -->
-                @include('legajos.alumno.alumnoform')
-                <!--DATOS PERSONALES DE LA MADRE-->
-                @include('legajos.madre.madreform')
-                <!--DATOS PERSONALES DEL PADRE-->
-                @include('legajos.padre.padreform')
-                <!--DATOS PERSONALES DEL TUTOR-->
-                @include('legajos.tutor.tutorform')
-                <!-- DATOS DE TUTORES SUPLENTES -->
-                @include('legajos.tutorsup.tutorsupform')
+                      <div class="col-md-12 form-group item-form">
+                          <div class="input-group row-md-4">
+                              <div class="col-md-4 form-group item-form">
+                                  <label for="docs">Documentos del alumno</label>
+                                  <input type="file" id="docs" name="image[]" class="form-item" accept=".jpg,.png" multiple >
+                                </div>
 
+                          </div>
+                      </div>
+                    
+</fieldset>
+    
+                
                                   
                 <div class="col-md-12 form-group item-form text-center">
       
-                <button type="submit" >Guardar Legajo</button>
+                <button type="submit" >Subir Documentos</button>
+
+                <a href="{{route('inicio')}}"><input type="button" value="Subir luego"></a>
+                
                 </div>
             </form>
         </div>

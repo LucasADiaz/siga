@@ -21,6 +21,17 @@ class LegajosController extends Controller
         //
     }
 
+    public function storeDocs(Request $request)
+    {
+        $pdf = PDF::loadView('pruebaparapdf');
+        return $pdf->download('pruebapdf.pdf');
+        
+    }
+
+    public function crearDocs(Request $request)
+    {
+        return view('legajos.crearDocs');
+    }
     public function store(Request $request)
     {
     //Creamos el alumno (domicilio, persona, alumno, usuario, telefonos)
@@ -709,6 +720,7 @@ if($request->madre_fallecida){
                 $legajo_alumno = Legajo::create([
                     'alumno_id' =>$persona_alu->id, 
                     'padre_id' =>$persona_padre->id, 
+                    'madre_id' =>$persona_madre->id, 
                     'tutor_id' =>$autoridad_tutor->id,
                     ]);
                 $legajo_alumno->save(); 
