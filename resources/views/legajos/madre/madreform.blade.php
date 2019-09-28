@@ -366,7 +366,7 @@
       <h3>Domicilio de la madre </h3>
     </div>
     <div>
-      <input class="form-check-inline" type="checkbox" name="madre_mismodomicilio" id="madre_mismodomicilio" value="activado" onChange="mismoDomicilioMadre(this);">Mismo domicilio del alumno
+      <input class="form-check-inline" type="checkbox" name="madre_mismodomicilio" id="madre_mismodomicilio" value="activado" onChange="mismoDomicilioAlumno(this,'madre');">Mismo domicilio del alumno
     </div>
   </div>
 
@@ -449,7 +449,7 @@
             <p class="help-block error hidden">Ingresa un lugar de trabajo</p>
         </div>
         <div class="col-md-4 form-group item-form">
-      <input class="form-check-inline" type="checkbox" id="madre_no_trabaja" name="madre_no_trabaja" value="activado" onChange="madreNoTrabaja(this);">No trabaja
+      <input class="form-check-inline" type="checkbox" id="madre_no_trabaja" name="madre_no_trabaja" value="activado" onChange="personaNoTrabaja(this,'madre');">No trabaja
     </div>
     </div>
 </div>

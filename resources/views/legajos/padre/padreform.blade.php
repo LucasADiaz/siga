@@ -367,7 +367,7 @@
             </div>
 
             <div>
-                <input type="checkbox" name="padre_mismodomicilio" id="padre_mismodomicilio" value="activado" onChange="mismoDomicilioPadre(this);">Mismo domicilio del alumno
+                <input type="checkbox" name="padre_mismodomicilio" id="padre_mismodomicilio" value="activado" onChange="mismoDomicilioAlumno(this,'padre');">Mismo domicilio del alumno
               </div>
         </div>
 
@@ -467,7 +467,7 @@
             <h3>Domicilio laboral del padre </h3>
           </div>
           <div>
-            <input type="checkbox" name="padre_no_trabaja" id="padre_no_trabaja" value="activado" onChange="padreNoTrabaja(this);">No trabaja</div>
+            <input type="checkbox" name="padre_no_trabaja" id="padre_no_trabaja" value="activado" onChange="personaNoTrabaja(this,'padre');">No trabaja</div>
           </div>
 
         <div class="input-group row-md-4">
