@@ -145,7 +145,12 @@ if($request->madre_fallecida){
             }
 
             if($request->tutor_no_trabaja){
-                
+                $responsable_tutor = Responsable::create([
+                    'persona_id' =>$persona_tutor->id, 
+                    'profesion' => $request->profesion_tutor,
+                    'email' => $request->email_tutor,
+                ]);
+                $responsable_tutor->save();
             }else{
                 $domicilio_lab_tutor = Domicilio::create([
                     'calle' => $request->calle_lab_tutor,
@@ -166,15 +171,16 @@ if($request->madre_fallecida){
             ]);
             $telefono_lab_tutor->save();
 
-            }
-
             $responsable_tutor = Responsable::create([
                 'persona_id' =>$persona_tutor->id, 
                 'profesion' => $request->profesion_tutor,
                 'email' => $request->email_tutor,
+                'domicilio_trabajo_id' =>$request->domicilio_lab_tutor,
                 'lugar_trabajo' => $request->lugar_trabajo_tutor,
             ]);
             $responsable_tutor->save();
+            }
+            
             $parentesco_tutor = Parentesco::create([
                 'persona_id' =>$persona_tutor->id, 
                 'alumno_id' => $alumno->id,
@@ -547,7 +553,12 @@ if($request->madre_fallecida){
                             }
     
                             if($request->tutor_no_trabaja){
-                                
+                                $responsable_tutor = Responsable::create([
+                                    'persona_id' =>$persona_tutor->id, 
+                                    'profesion' => $request->profesion_tutor,
+                                    'email' => $request->email_tutor,
+                                ]);
+                                $responsable_tutor->save();
                             }else{
                                 $domicilio_lab_tutor = Domicilio::create([
                                     'calle' => $request->calle_lab_tutor,
@@ -568,16 +579,17 @@ if($request->madre_fallecida){
                             ]);
                             $telefono_lab_tutor->save();
     
-                            }
+                            
     
                             $responsable_tutor = Responsable::create([
                                 'persona_id' =>$persona_tutor->id, 
                                 'profesion' => $request->profesion_tutor,
                                 'email' => $request->email_tutor,
+                                'domicilio_trabajo_id' => $request->domicilio_lab_tutor,
                                 'lugar_trabajo' => $request->lugar_trabajo_tutor,
                             ]);
                             $responsable_tutor->save();
-    
+                        }
                             $parentesco_tutor = Parentesco::create([
                                 'persona_id' =>$persona_tutor->id, 
                                 'alumno_id' => $alumno->id,
