@@ -353,14 +353,11 @@
                                         <option value="AB+">AB+</option>
                                         <option value="AB-">AB-</option>  
                                         <option value="0-" >0-</option>
-                                        <option value="0+">0+</option>
-                                                
+                                        <option value="0+">0+</option>                                              
                                 </select>
                                 <p class="help-block error hidden">Ingresá tu grupo y factor</p>
                             </div>
-
                       </div>
-
                   </fieldset>
 
                 <!-- DATOS DE CONTACTO DEL ALUMNO -->

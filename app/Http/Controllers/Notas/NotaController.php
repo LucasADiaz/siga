@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -14,7 +15,11 @@ class NotaController extends Controller
      */
     public function index()
     {
-        return view('nota.index');
+        
+        return view('nota.index',[
+            // enviamos todos los usuarios a la vista
+            'usuarios' => User::get(),
+            ]);
     }
 
     /**
