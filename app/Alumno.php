@@ -22,6 +22,10 @@ class Alumno extends Model
     public function notas(){    
         return $this->hasMany(Nota::class); 
     }
+    
+    public function tutor_suplentes(){    
+        return $this->hasMany(TutorSuplente::class); 
+    }
 
     public function escuela(){    
         return $this->belongsTo(Escuela::class); 

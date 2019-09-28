@@ -1,9 +1,9 @@
 <?php
 
-use App\Responsable;
+use App\TutorSuplente;
 use Illuminate\Database\Seeder;
 
-class ResponsableSeeder extends Seeder
+class TutorSuplenteSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class ResponsableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Responsable::class,200)->create();
+        factory(TutorSuplente::class, 200)->create();
     }
 }
