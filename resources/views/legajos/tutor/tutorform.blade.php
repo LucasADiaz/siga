@@ -313,11 +313,11 @@
                 <label>Sexo</label>
                 <br>
                 <label for="f" class="radio-inline">
-                    <input type="radio" name="sexo_tutor" id="f" value="F" checked> Femenino
+                    <input type="radio" name="sexo_tutor" id="sexo_tutor_f" value="F" checked> Femenino
                 </label>
                 <br>
                 <label for="m" class="radio-inline">
-                    <input type="radio" name="sexo_tutor" id="m" value="M" > Masculino
+                    <input type="radio" name="sexo_tutor" id="sexo_tutor_m" value="M" > Masculino
                 </label>
                 <p class="help-block error hidden">Ingresá tu sexo</p>
             </div>

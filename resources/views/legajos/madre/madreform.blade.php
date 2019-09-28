@@ -6,7 +6,7 @@
       </div>
 
       <div>
-          <input type="checkbox" id="madre_fallecida" name="madre_fallecida" value="activado" onChange="madreFallecida(this);">Fallecida
+          <input type="checkbox" id="madre_fallecida" name="madre_fallecida" value="activado" onChange="personaFallecida(this,'madre');">Fallecida
       </div>
   </div>
 
@@ -312,10 +312,10 @@
           <label>Sexo</label>
           <br>
           <label for="f" class="radio-inline">
-              <input type="radio" name="sexo_madre" id="f" value="F"  checked> Femenino
+              <input type="radio" name="sexo_madre" id="sexo_madre_f" value="F"  checked> Femenino
           </label>
           <label for="m" class="radio-inline">
-              <input type="radio" name="sexo_madre" id="m" value="M" > Masculino
+              <input type="radio" name="sexo_madre" id="sexo_madre_m" value="M" > Masculino
           </label>
           <p class="help-block error hidden">Ingresá tu sexo</p>
       </div>

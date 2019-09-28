@@ -71,7 +71,7 @@ class AddForeignKey extends Migration
             $table->foreign('curso_id')->references('id')->on('cursos');
         });
         Schema::table('legajos', function (Blueprint $table) {        
-            $table->foreign('alumno_id')->references('id')->on('alumnos');
+            $table->foreign('alumno_id')->references('id')->on('personas');
             $table->foreign('padre_id')->references('id')->on('personas');
             $table->foreign('madre_id')->references('id')->on('personas');
             $table->foreign('tutor_id')->references('id')->on('autoridades');
