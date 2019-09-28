@@ -15,6 +15,8 @@ $factory->define(Persona::class, function (Faker $faker) {
         'lugar_nacimiento' => $faker->sentence(1),
         'sexo' =>$faker->randomElement(['M','F']),
         'nro_doc' =>$faker->numerify('#########'),
+        'tipo_nro_doc'=>$faker->randomElement(['dni','libreta','pasaporte']),
+        'profesion'=>$faker->randomElement(['profesor','preceptor','director']),
         'nacionalidad' =>$faker->sentence(2),
         'domicilio_id' =>Domicilio::all()->random()->id,
     ];

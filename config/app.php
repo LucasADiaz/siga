@@ -165,7 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Caffeinated\Shinobi\ShinobiServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
         /*
          * Application Service Providers...
          */

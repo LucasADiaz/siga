@@ -1,9 +1,8 @@
 <?php
-
-use App\User;
+use App\Product;    
 use Illuminate\Database\Seeder;
 
-class UserSeeder extends Seeder
+class ProductsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,8 +11,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        factory(User::class, 7)->create([
-            'password' => bcrypt('secret'),
-        ]);
+        factory(Product::class, 20)->create();
     }
 }
