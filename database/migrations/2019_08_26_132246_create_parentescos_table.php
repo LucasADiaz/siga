@@ -21,7 +21,7 @@ class CreateParentescosTable extends Migration
             $table->unsignedBigInteger('alumno_id')
                     ->comment('identificador de alumno.');
                 
-            $table->enum('parentesco',['Tia','Tio','Hermana','Hermano'])
+            $table->enum('parentesco',['Tia','Tio','Hermana','Hermano','Padre','Madre','Abuela','Abuelo'])
                     ->comment('identifica la seccion del curso');
 
             $table->timestamps();

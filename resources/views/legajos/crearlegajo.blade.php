@@ -36,25 +36,25 @@
                         
                           <div class="col-md-3 form-group item-form">
                               <label for="nombres_alu">Nombres</label>
-                              <input type="text" name="nombres_alu" class="form-control" id="nombres_alu" >
+                              <input type="text" name="nombres_alu" class="form-control" id="nombres_alu" value="NombreAlumno" required>
                               <p class="help-block error hidden">Ingresá tu nombre</p>
                           </div>
 
                           <div class="col-md-3 form-group item-form">
                               <label for="apellidos_alu">Apellidos</label>
-                              <input type="text" name="apellidos_alu" class="form-control" id="apellidos_alu" >
+                              <input type="text" name="apellidos_alu" class="form-control" id="apellidos_alu" value="ApellidoAlumno"  required>
                               <p class="help-block error hidden">Ingresá tu apellido</p>
                           </div>
 
                           <div class="col-md-3 form-group item-form">
                               <label for="lugar_nac_alu">Lugar de nacimiento</label>
-                              <input type="text" name="lugar_nac_alu" class="form-control" id="lugar_nac_alu" >
+                              <input type="text" name="lugar_nac_alu" class="form-control" id="lugar_nac_alu" value="LugarNacimientoAlumno"  required>
                               <p class="help-block error hidden">Ingresá el lugar de nacimiento</p>
                           </div>
 
                           <div class="col-md-3 form-group item-form">
                               <label for="fec_nac_alu">Fecha de nacimiento</label>
-                              <input type="date" name="fec_nac_alu" class="form-control"  id="fec_nac_alu" >
+                              <input type="date" name="fec_nac_alu" class="form-control"  id="fec_nac_alu"  required>
                               <p class="help-block error hidden">Ingresá una fecha válida</p>
                           </div>
 
@@ -75,7 +75,7 @@
 
                           <div class="col-md-2 form-group item-form">
                               <label for="num_doc_alu">Número de documento</label>
-                              <input type="number" min="1" class="form-control" id="num_doc_alu" name="num_doc_alu" >
+                              <input type="number" min="1" class="form-control" id="num_doc_alu" name="num_doc_alu" value="40123456"  required>
                               <p class="help-block error hidden">Ingresá tu número de documento</p>
                           </div>
 
@@ -335,7 +335,7 @@
                               <label>Sexo</label>
                               <br>
                               <label for="f" class="radio-inline">
-                                  <input type="radio" name="sexo_alu" id="f" value="F" > Femenino
+                                  <input type="radio" name="sexo_alu" id="f" value="F" checked> Femenino
                               </label>
                               <br>
                               <label for="m" class="radio-inline">
@@ -345,7 +345,7 @@
                           </div>
                           <div class="col-md-2 form-group item-form">
                                 <label>Grupo y Factor</label>
-                                <select id="grupo_factor_alu" name="grupo_factor_alu" class="form-control">
+                                <select id="grupo_factor_alu" name="grupo_factor_alu" class="form-control" >
                                         <option value="A+" selected="">A+</option>
                                         <option value="A-">A-</option>
                                         <option value="B+">B+</option>
@@ -375,7 +375,7 @@
                                 <label for="tel1_alu">Teléfono</label>
                                 <div class="input-group">
                                 <span class="input-group-addon">0</span>&nbsp;&nbsp;
-                                <input type="text" name="tel1_alu" class="form-control" id="tel1_alu" >
+                                <input type="text" name="tel1_alu" class="form-control" id="tel1_alu" value="3834123123"  required>
                                 <p class="help-block error hidden">Ingresá tu número de teléfono móvil</p>
                                 </div>
                             </div>
@@ -392,7 +392,7 @@
 
                       <div class="col-md-4 form-group item-form">
                           <label for="email_alu">Dirección de correo electrónico</label>
-                          <input type="email" name="email_alu" class="form-control" id="email_alu" required>
+                          <input type="email" name="email_alu" class="form-control" id="email_alu" value="email@ejemplo.com"  required>
                           <p class="help-block error hidden">Ingresá un correo electrónico
                               <br> El correo electrónico tiene un formato no válido</p>
                       </div>
@@ -426,13 +426,13 @@
 
                       <div class="col-md-3 form-group item-form">
                           <label for="cod_postal_alu">Codigo Postal</label>
-                          <input type="text" name="cod_postal_alu" class="form-control" id="cod_postal_alu" >
+                          <input type="text" name="cod_postal_alu" class="form-control" id="cod_postal_alu" value="4700"  required>
                           <p class="help-block error hidden">Ingresá un codigo postal</p>
                       </div>
 
                       <div class="col-md-4 form-group item-form">
                           <label for="barrio_alu">Barrio</label>
-                          <input type="text" name="barrio_alu" class="form-control" id="barrio_alu">
+                          <input type="text" name="barrio_alu" class="form-control" id="barrio_alu" >
                           <p class="help-block error hidden">Ingresá un barrio</p>
                       </div>
 
@@ -441,13 +441,13 @@
                   <div class="input-group row-md-4">
                       <div class="col-md-4 form-group item-form">
                           <label for="calle_alu">Calle</label>
-                          <input type="text" name="calle_alu" class="form-control" id="calle_alu" >
+                          <input type="text" name="calle_alu" class="form-control" id="calle_alu" value="NombreCalleAlumno"  required>
                           <p class="help-block error hidden">Ingresá una calle</p>
                       </div>
 
                       <div class="col-md-3 form-group item-form">
                             <label for="num_calle_alu">N° Calle</label>
-                            <input type="text" name="num_calle_alu" class="form-control" id="num_calle_alu" >
+                            <input type="text" name="num_calle_alu" class="form-control" id="num_calle_alu" value="000"  required>
                             <p class="help-block error hidden">Ingresá un numero de calle</p>
                       </div>
 
@@ -477,7 +477,7 @@
                           <div class="input-group row-md-4">
                               <div class="col-md-4 form-group item-form">
                                   <label for="esc_procedencia_alu">Escuela o colegio del que procede</label>
-                                  <input type="text" name="esc_procedencia_alu" class="form-control" id="esc_procedencia_alu" >
+                                  <input type="text" name="esc_procedencia_alu" class="form-control" id="esc_procedencia_alu" value="EscuelaProcedenciaAlumno"  required>
                                   <p class="help-block error hidden">Ingresá una escuela o colegio</p>
                               </div>
 
@@ -502,19 +502,19 @@
                       <div class="input-group row-md-4">
                           <div class="col-md-3 form-group item-form">
                               <label for="nombres_madre">Nombres</label>
-                              <input type="text" name="nombres_madre" class="form-control" id="nombres_madre" >
+                              <input type="text" name="nombres_madre" class="form-control" id="nombres_madre" value="NombreMadre"  required>
                               <p class="help-block error hidden">Ingresá tu nombre</p>
                           </div>
 
                           <div class="col-md-3 form-group item-form">
                               <label for="apellidos_madre">Apellidos</label>
-                              <input type="text" name="apellidos_madre" class="form-control" id="apellidos_madre" >
+                              <input type="text" name="apellidos_madre" class="form-control" id="apellidos_madre" value="ApellidoMadre"  required>
                               <p class="help-block error hidden">Ingresá tu apellido</p>
                           </div>
 
                           <div class="col-md-3 form-group item-form">
                                 <label for="lugar_nac_madre">Lugar de nacimiento</label>
-                                <input type="text" name="lugar_nac_madre" class="form-control" id="lugar_nac_madre" >
+                                <input type="text" name="lugar_nac_madre" class="form-control" id="lugar_nac_madre" value="LugarNacimientoMadre"  required>
                                 <p class="help-block error hidden">Ingresá el lugar de nacimiento</p>
                             </div>
   
@@ -541,7 +541,7 @@
   
                             <div class="col-md-2 form-group item-form">
                                 <label for="num_doc_madre">Número de documento</label>
-                                <input type="number" min="1" class="form-control" id="num_doc_madre" name="num_doc_madre" >
+                                <input type="number" min="1" class="form-control" id="num_doc_madre" name="num_doc_madre" value="30123456"  required>
                                 <p class="help-block error hidden">Ingresá tu número de documento</p>
                             </div>
   
@@ -824,7 +824,7 @@
                                     <label for="tel1_madre">Teléfono</label>
                                     <div class="input-group">
                                     <span class="input-group-addon">0</span>&nbsp;&nbsp;
-                                    <input type="text" name="tel1_madre" class="form-control" id="tel1_madre" >
+                                    <input type="text" name="tel1_madre" class="form-control" id="tel1_madre" value="3834234234"  required >
                                     <p class="help-block error hidden">Ingresá tu número de teléfono móvil</p>
                                     </div>
                                 </div>
@@ -841,7 +841,7 @@
     
                           <div class="col-md-4 form-group item-form">
                               <label for="email_madre">Dirección de correo electrónico</label>
-                              <input type="email" name="email_madre" class="form-control" id="email_madre" required>
+                              <input type="email" name="email_madre" class="form-control" id="email_madre" value="emailmadre@ejemplo.com"  required>
                               <p class="help-block error hidden">Ingresá un correo electrónico
                                   <br> El correo electrónico tiene un formato no válido</p>
                           </div>
@@ -879,7 +879,7 @@
                         </div>
                         <div class="col-md-3 form-group item-form">
                           <label for="cod_postal_madre">Codigo Postal</label>
-                          <input type="text" name="cod_postal_madre" class="form-control" id="cod_postal_madre" >
+                          <input type="text" name="cod_postal_madre" class="form-control" id="cod_postal_madre" value="4700"  required>
                           <p class="help-block error hidden">Ingresá un codigo postal</p>
                         </div>
                         <div class="col-md-4 form-group item-form">
@@ -891,13 +891,13 @@
                       <div class="input-group row-md-4">
                         <div class="col-md-4 form-group item-form">
                             <label for="calle_madre">Calle</label>
-                            <input type="text" name="calle_madre" class="form-control" id="calle_madre" >
+                            <input type="text" name="calle_madre" class="form-control" id="calle_madre" value="NombreCalleMadre"  required>
                             <p class="help-block error hidden">Ingresá una calle</p>
                         </div>
 
                         <div class="col-md-3 form-group item-form">
                                 <label for="num_calle_madre">N° Calle</label>
-                                <input type="text" name="num_calle_madre" class="form-control" id="num_calle_madre" >
+                                <input type="text" name="num_calle_madre" class="form-control" id="num_calle_madre" value="111"  required>
                                 <p class="help-block error hidden">Ingresá un numero de calle</p>
                           </div>
     
@@ -929,12 +929,12 @@
                         <div class="input-group row-md-4">
                             <div class="col-md-4 form-group item-form">
                                 <label for="profesion_madre">Profesion</label>
-                                <input type="text" name="profesion_madre" class="form-control" id="profesion_madre" >
+                                <input type="text" name="profesion_madre" class="form-control" id="profesion_madre" value="ProfesionMadre"  required>
                                 <p class="help-block error hidden">Ingresa una profesion</p>
                             </div>
                             <div class="col-md-4 form-group item-form">
                                 <label for="lugar_trabajo_madre">Lugar de trabajo</label>
-                                <input type="text" name="lugar_trabajo_madre" class="form-control" id="lugar_trabajo_madre">
+                                <input type="text" name="lugar_trabajo_madre" class="form-control" id="lugar_trabajo_madre" value="LugarTrabajoMadre"  required>
                                 <p class="help-block error hidden">Ingresa un lugar de trabajo</p>
                             </div>
                             <div class="col-md-4 form-group item-form">
@@ -975,20 +975,20 @@
                     </div>
                     <div class="col-md-3 form-group item-form">
                       <label for="cod_postal_lab_madre">Codigo Postal</label>
-                      <input type="text" name="cod_postal_lab_madre" class="form-control" id="cod_postal_lab_madre" >
+                      <input type="text" name="cod_postal_lab_madre" class="form-control" id="cod_postal_lab_madre" value="4700"  required>
                       <p class="help-block error hidden">Ingresá un codigo postal</p>
                     </div>
                     
                   
                     <div class="col-md-4 form-group item-form">
                         <label for="calle_lab_madre">Calle</label>
-                        <input type="text" name="calle_lab_madre" class="form-control" id="calle_lab_madre" >
+                        <input type="text" name="calle_lab_madre" class="form-control" id="calle_lab_madre" value="CalleLaboralMadre"  required>
                         <p class="help-block error hidden">Ingresá una calle</p>
                     </div>
                     <div class="input-group row-md-4">
                         <div class="col-md-3 form-group item-form">
                             <label for="num_calle_lab_madre">N° Calle</label>
-                            <input type="text" name="num_calle_lab_madre" class="form-control" id="num_calle_lab_madre" >
+                            <input type="text" name="num_calle_lab_madre" class="form-control" id="num_calle_lab_madre" value="333"  required>
                             <p class="help-block error hidden">Ingresá un numero de calle</p>
                       </div>
 
@@ -1007,7 +1007,7 @@
 
                     <div class="col-md-3 form-group item-form">
                         <label for="tel_lab_madre">Telefonno Laboral</label>
-                        <input type="text" class="form-control" name="tel_lab_madre" id="tel_lab_madre">
+                        <input type="text" class="form-control" name="tel_lab_madre" id="tel_lab_madre" value="3834345345"  required>
                         <p class="help-block error hidden">Ingresá un telefono laboral</p>
                     </div>
                     </div>
@@ -1030,19 +1030,19 @@
                     
                     <div class="col-md-3 form-group item-form">
                         <label for="nombres_padre">Nombres</label>
-                        <input type="text" name="nombres_padre" class="form-control" id="nombres_padre" >
+                        <input type="text" name="nombres_padre" class="form-control" id="nombres_padre" value="NombrePadre"  required>
                         <p class="help-block error hidden">Ingresá tu nombre</p>
                     </div>
 
                     <div class="col-md-3 form-group item-form">
                         <label for="apellidos_padre">Apellidos</label>
-                        <input type="text" name="apellidos_padre" class="form-control" id="apellidos_padre" >
+                        <input type="text" name="apellidos_padre" class="form-control" id="apellidos_padre" value="ApellidoPadre"  required>
                         <p class="help-block error hidden">Ingresá tu apellido</p>
                     </div>
 
                     <div class="col-md-3 form-group item-form">
                         <label for="lugar_nac_padre">Lugar de nacimiento</label>
-                        <input type="text" name="lugar_nac_padre" class="form-control" id="lugar_nac_padre" >
+                        <input type="text" name="lugar_nac_padre" class="form-control" id="lugar_nac_padre" value="LugarNacimientoPadre"  required>
                         <p class="help-block error hidden">Ingresá el lugar de nacimiento</p>
                     </div>
 
@@ -1069,7 +1069,7 @@
 
                       <div class="col-md-2 form-group item-form">
                         <label for="num_doc_padre">Número de documento</label>
-                        <input type="number" min="1" class="form-control" id="num_doc_padre" name="num_doc_padre" >
+                        <input type="number" min="1" class="form-control" id="num_doc_padre" name="num_doc_padre" value="20123123"  required>
                         <p class="help-block error hidden">Ingresá tu número de documento</p>
                     </div>
 
@@ -1353,7 +1353,7 @@
                           <label for="tel1_padre">Teléfono móvil</label>
                           <div class="input-group">
                               <span class="input-group-addon">0</span>&nbsp;&nbsp;
-                              <input aria-label="número de teléfono móvil padre" name="tel1_padre" class="form-control" id="tel1_padre"  type="text">
+                              <input aria-label="número de teléfono móvil padre" name="tel1_padre" class="form-control" id="tel1_padre"  type="text" value="3834595959"  required>
                           </div>
                           <p class="help-block error hidden">Ingresá tu número de teléfono móvil</p>
                       </div>
@@ -1369,7 +1369,7 @@
 
                       <div class="col-md-4 form-group item-form">
                         <label for="email_padre">Dirección de correo electrónico</label>
-                        <input type="email" name="email_padre" class="form-control" id="email_padre" required>
+                        <input type="email" name="email_padre" class="form-control" id="email_padre" value="emailpadre@ejemplo.com"  required>
                         <p class="help-block error hidden">Ingresá un correo electrónico
                             <br> El correo electrónico tiene un formato no válido</p>
                     </div>
@@ -1410,7 +1410,7 @@
 
                         <div class="col-md-3 form-group item-form">
                             <label for="cod_postal_padre">Codigo Postal</label>
-                            <input type="text" name="cod_postal_padre" class="form-control" id="cod_postal_padre" >
+                            <input type="text" name="cod_postal_padre" class="form-control" id="cod_postal_padre" value="4700"  required>
                             <p class="help-block error hidden">Ingresá un codigo postal</p>
                         </div>
 
@@ -1426,13 +1426,13 @@
 
                         <div class="col-md-4 form-group item-form">
                             <label for="calle_padre">Calle</label>
-                            <input type="text" name="calle_padre" class="form-control" id="calle_padre" >
+                            <input type="text" name="calle_padre" class="form-control" id="calle_padre" value="CallePadre"  required>
                             <p class="help-block error hidden">Ingresá una calle</p>
                         </div>
 
                         <div class="col-md-3 form-group item-form">
                             <label for="num_calle_padre">Número de calle</label>
-                            <input type="text" class="form-control" name="num_calle_padre" id="num_calle_padre" >
+                            <input type="text" class="form-control" name="num_calle_padre" id="num_calle_padre" value="555"  required>
                             <p class="help-block error hidden">Ingresá número de calle</p>
                         </div>
 
@@ -1463,12 +1463,12 @@
                         <div class="input-group row-md-4">
                             <div class="col-md-4 form-group item-form">
                                 <label for="profesion_padre">Profesion</label>
-                                <input type="text" name="profesion_padre" class="form-control" id="profesion_padre" >
+                                <input type="text" name="profesion_padre" class="form-control" id="profesion_padre" value="ProfesionPadre"  required>
                                 <p class="help-block error hidden">Ingresa una profesion</p>
                             </div>
                             <div class="col-md-4 form-group item-form">
                                 <label for="lugar_trabajo_padre">Lugar de trabajo</label>
-                                <input type="text" name="lugar_trabajo_padre" class="form-control" id="lugar_trabajo_padre">
+                                <input type="text" name="lugar_trabajo_padre" class="form-control" id="lugar_trabajo_padre" value="LugarTrabajoPadre"  required>
                                 <p class="help-block error hidden">Ingresa un lugar de trabajo</p>
                             </div>
                         </div>
@@ -1509,13 +1509,13 @@
 
                         <div class="col-md-3 form-group item-form">
                             <label for="cod_postal_lab_padre">Codigo Postal</label>
-                            <input type="text" name="cod_postal_lab_padre" class="form-control" id="cod_postal_lab_padre" >
+                            <input type="text" name="cod_postal_lab_padre" class="form-control" id="cod_postal_lab_padre" value="4700"  >
                             <p class="help-block error hidden">Ingresá un codigo postal</p>
                         </div>
 
                         <div class="col-md-4 form-group item-form">
                             <label for="calle_lab_padre">Calle</label>
-                            <input type="text" name="calle_lab_padre" class="form-control" id="calle_lab_padre" >
+                            <input type="text" name="calle_lab_padre" class="form-control" id="calle_lab_padre" value="CalleLaboralPadre" >
                             <p class="help-block error hidden">Ingresá una calle</p>
                         </div>
 
@@ -1524,29 +1524,28 @@
                     <div class="input-group row-md-4">
                         <div class="col-md-3 form-group item-form">
                             <label for="num_calle_lab_padre">Número de calle</label>
-                            <input type="text" class="form-control" id="num_calle_lab_padre" name="num_calle_lab_padre">
+                            <input type="text" class="form-control" name="num_calle_lab_padre" id="num_calle_lab_padre"  value="0002"  >
                             <p class="help-block error hidden">Ingresá número de calle</p>
                         </div>
 
                         <div class="col-md-2 form-group item-form">
                             <label for="piso_lab_padre">Piso</label>
-                            <input type="text" name="piso_lab_padre" class="form-control" id="piso_lab_padre">
+                            <input type="text" name="piso_lab_padre" class="form-control" id="piso_lab_padre" name="piso_lab_padre">
                             <p class="help-block error hidden">Ingresá un piso</p>
                         </div>
 
                         <div class="col-md-3 form-group item-form">
                             <label for="num_depto_lab_padre">Departamento</label>
-                            <input type="text" class="form-control" id="num_depto_lab_padre" >
+                            <input type="text" class="form-control" id="num_depto_lab_padre" name="num_depto_lab_padre">
                             <p class="help-block error hidden">Ingresá un un departamento</p>
                         </div>
                         <div class="col-md-3 form-group item-form">
-                            <label for="tel_lab_padre">Teléfono laboral</label>
-                            <br>
+                            <label for="tel_lab_padre">Teléfono móvil</label>
                             <div class="input-group">
                                 <span class="input-group-addon">0</span>&nbsp;&nbsp;
-                                <input aria-label="número de teléfono móvil laboral padre" class="form-control" id="tel_lab_padre" name="tel_lab_padre"  type="text">
+                                <input aria-label="número de teléfono móvil padre" name="tel_lab_padre" class="form-control" id="tel_lab_padre"  type="text" value="3834544449">
                             </div>
-                            <p class="help-block error hidden">Ingresá tu número de teléfono laboral</p>
+                            <p class="help-block error hidden">Ingresá tu número de teléfono móvil</p>
                         </div>
 
                     </div>
@@ -1570,25 +1569,25 @@
 
                         <div class="col-md-3 form-group item-form">
                             <label for="nombres_tutor">Nombres</label>
-                            <input type="text" name="nombres_tutor" class="form-control" id="nombres_tutor" >
+                            <input type="text" name="nombres_tutor" class="form-control" id="nombres_tutor" value="NombreTutor"  required>
                             <p class="help-block error hidden">Ingresá tu nombre</p>
                         </div>
 
                         <div class="col-md-3 form-group item-form">
                             <label for="apellidos_tutor">Apellidos</label>
-                            <input type="text" name="apellidos_tutor" class="form-control" id="apellidos_tutor" >
+                            <input type="text" name="apellidos_tutor" class="form-control" id="apellidos_tutor" value="NombreTutor"  required>
                             <p class="help-block error hidden">Ingresá tu apellido</p>
                         </div>
 
                         <div class="col-md-3 form-group item-form">
                             <label for="lugar_nac_tutor">Lugar de nacimiento</label>
-                            <input type="text" name="lugar_nac_tutor" class="form-control" id="lugar_nac_tutor" >
+                            <input type="text" name="lugar_nac_tutor" class="form-control" id="lugar_nac_tutor" value="LugarNacimientoTutor"  required>
                             <p class="help-block error hidden">Ingresá el lugar de nacimiento</p>
                         </div>
 
                         <div class="col-md-3 form-group item-form">
                             <label for="fec_nac_tutor">Fecha de nacimiento</label>
-                            <input type="date" class="form-control" id="fec_nac_tutor" name="fec_nac_tutor">
+                            <input type="date" class="form-control" id="fec_nac_tutor" name="fec_nac_tutor" required>
                             <p class="help-block error hidden">Ingresá una fecha válida</p>
                         </div>
 
@@ -1608,7 +1607,7 @@
 
                         <div class="col-md-3 form-group item-form">
                             <label for="num_doc_tutor">Número de documento</label>
-                            <input type="number" min="1" class="form-control" id="num_doc_tutor" name="num_doc_tutor">
+                            <input type="number" min="1" class="form-control" id="num_doc_tutor" name="num_doc_tutor" value="50234234"  required>
                             <p class="help-block error hidden">Ingresá tu número de documento</p>
                         </div>
 
@@ -1863,17 +1862,23 @@
                                       <p class="help-block error hidden">Ingresá nacionalidad</p>
                                 </select>
                             </div>
-                        <div class="col-md-3 form-group item-form">
-                            <label>Sexo</label>
-                            <br>
-                            <label for="f" class="radio-inline">
-                                <input type="radio" name="sexo_tutor" id="f" value="F"  checked> Femenino
-                            </label>
-                            <label for="m" class="radio-inline">
-                                <input type="radio" name="sexo_tutor" id="m" value="M" > Masculino
-                            </label>
-                            <p class="help-block error hidden">Ingresá tu sexo</p>
-                        </div>
+                            <div class="col-md-2 form-group item-form">
+                                <label>Sexo</label>
+                                <br>
+                                <label for="f" class="radio-inline">
+                                    <input type="radio" name="sexo_tutor" id="f" value="F" checked> Femenino
+                                </label>
+                                <br>
+                                <label for="m" class="radio-inline">
+                                    <input type="radio" name="sexo_tutor" id="m" value="M" > Masculino
+                                </label>
+                                <p class="help-block error hidden">Ingresá tu sexo</p>
+                            </div>
+                            <div class="col-md-2 form-group item-form">
+                                <label for="parentesco_tutor">Parentesco</label>
+                                <input type="text" name="parentesco_tutor" class="form-control" id="parentesco_tutor" value="Hermano">
+                                <p class="help-block error hidden">Ingresá tu parentesco</p>
+                            </div>
 
                     </div>
 
@@ -1893,7 +1898,7 @@
                           <br>
                           <div class="input-group">
                               <span class="input-group-addon">0</span>&nbsp;&nbsp;
-                              <input aria-label="número de teléfono móvil del tutor" class="form-control" id="tel1_tutor" name="tel1_tutor" type="text">
+                              <input aria-label="número de teléfono móvil del tutor" class="form-control" id="tel1_tutor" name="tel1_tutor" type="text" value="3834505050"  required>
                           </div>
                           <p class="help-block error hidden">Ingresá tu número de teléfono móvil</p>
                       </div>
@@ -1910,7 +1915,7 @@
 
                       <div class="col-md-4 form-group item-form">
                           <label for="email_tutor">Dirección de correo electrónico</label>
-                          <input type="email" name="email_tutor" class="form-control" id="email_tutor" >
+                          <input type="email" name="email_tutor" class="form-control" id="email_tutor" value="emailtutor@ejemplo.com"  required>
                           <p class="help-block error hidden">Ingresá un correo electrónico
                               <br> El correo electrónico tiene un formato no válido</p>
                       </div>
@@ -1951,7 +1956,7 @@
 
                         <div class="col-md-3 form-group item-form">
                             <label for="cod_postal_tutor">Codigo Postal</label>
-                            <input type="text" name="cod_postal_tutor" class="form-control" id="cod_postal_tutor" >
+                            <input type="text" name="cod_postal_tutor" class="form-control" id="cod_postal_tutor" value="4700"  required>
                             <p class="help-block error hidden">Ingresá un codigo postal</p>
                         </div>
 
@@ -1967,13 +1972,13 @@
 
                         <div class="col-md-4 form-group item-form">
                             <label for="calle_tutor">Calle</label>
-                            <input type="text" name="calle_tutor" class="form-control" id="calle_tutor" >
+                            <input type="text" name="calle_tutor" class="form-control" id="calle_tutor" value="CalleTutor"  required >
                             <p class="help-block error hidden">Ingresá una calle</p>
                         </div>
 
                         <div class="col-md-3 form-group item-form">
                             <label for="num_calle_tutor">Número de calle</label>
-                            <input type="text" class="form-control" id="num_calle_tutor" name="num_calle_tutor" >
+                            <input type="text" class="form-control" id="num_calle_tutor" name="num_calle_tutor" value="44"  required>
                             <p class="help-block error hidden">Ingresá número de calle</p>
                         </div>
 
@@ -2004,12 +2009,12 @@
                           <div class="input-group row-md-4">
                               <div class="col-md-4 form-group item-form">
                                   <label for="profesion_tutor">Profesion</label>
-                                  <input type="text" name="profesion_tutor" class="form-control" id="profesion_tutor" >
+                                  <input type="text" name="profesion_tutor" class="form-control" id="profesion_tutor" value="ProfesionTutor"  required>
                                   <p class="help-block error hidden">Ingresa una profesion</p>
                               </div>
                               <div class="col-md-4 form-group item-form">
                                   <label for="lugar_trabajo_tutor">Lugar de trabajo</label>
-                                  <input type="text" name="lugar_trabajo_tutor" class="form-control" id="lugar_trabajo_tutor">
+                                  <input type="text" name="lugar_trabajo_tutor" class="form-control" id="lugar_trabajo_tutor"value="LugarTrabajoTutor" >
                                   <p class="help-block error hidden">Ingresa un lugar de trabajo</p>
                               </div>
                           </div>
@@ -2031,68 +2036,66 @@
 
                       <div class="input-group row-md-4">
 
-                          <div class="col-md-4 form-group item-form">
-                              <label for="localidad_lab_tutor">Localidad</label>
-                              <select id="localidad_lab_tutor" name="localidad_lab_tutor" class="form-control">
-                                  <option value="San Fernando del Valle de Catamarca" selected="">San Fernando del Valle de Catamarca</option>
-                                  <option value="Achalco">Achalco</option>
-                                  <option value="Aconquija">Aconquija</option>
-                                  <option value="Agua Amarilla Pta De Balasto">Agua Amarilla Pta De Balasto</option>
-                                  <option value="Agua Colorada">Agua Colorada</option>
-                                  <option value="Agua De Dionisio">Agua De Dionisio</option>
-                                  <option value="Agua Del Campo">Agua Del Campo</option>
-                                  <option value="Aguadita">Aguadita</option>
-                                  <option value="Agua Grande">Agua Grande</option>
-                                  <option value="Agua Salada">Agua Salada</option>
+                        <div class="col-md-4 form-group item-form">
+                            <label for="localidad_lab_tutor">Localidad</label>
+                            <select id="localidad_lab_tutor" name="localidad_lab_tutor" class="form-control">
+                                <option value="San Fernando del Valle de Catamarca" selected="">San Fernando del Valle de Catamarca</option>
+                                <option value="Achalco">Achalco</option>
+                                <option value="Aconquija">Aconquija</option>
+                                <option value="Agua Amarilla Pta De Balasto">Agua Amarilla Pta De Balasto</option>
+                                <option value="Agua Colorada">Agua Colorada</option>
+                                <option value="Agua De Dionisio">Agua De Dionisio</option>
+                                <option value="Agua Del Campo">Agua Del Campo</option>
+                                <option value="Aguadita">Aguadita</option>
+                                <option value="Agua Grande">Agua Grande</option>
+                                <option value="Agua Salada">Agua Salada</option>
 
-                              </select>
-                              <p class="help-block error hidden">Elegí una localidad</p>
-                          </div>
+                            </select>
+                            <p class="help-block error hidden">Elegí una localidad</p>
+                        </div>
 
-                          <div class="col-md-3 form-group item-form">
-                              <label for="cod_postal_lab_tutor">Codigo Postal</label>
-                              <input type="text" name="cod_postal_lab_tutor" class="form-control" id="cod_postal_lab_tutor" >
-                              <p class="help-block error hidden">Ingresá un codigo postal</p>
-                          </div>
+                        <div class="col-md-3 form-group item-form">
+                            <label for="cod_postal_lab_tutor">Codigo Postal</label>
+                            <input type="text" name="cod_postal_lab_tutor" class="form-control" id="cod_postal_lab_tutor" value="4700"  >
+                            <p class="help-block error hidden">Ingresá un codigo postal</p>
+                        </div>
 
-                          <div class="col-md-4 form-group item-form">
-                              <label for="calle_lab_tutor">Calle</label>
-                              <input type="text" name="calle_lab_tutor" class="form-control" id="calle_lab_tutor" >
-                              <p class="help-block error hidden">Ingresá una calle</p>
-                          </div>
-                      </div>
+                        <div class="col-md-4 form-group item-form">
+                            <label for="calle_lab_tutor">Calle</label>
+                            <input type="text" name="calle_lab_tutor" class="form-control" id="calle_lab_tutor" value="CalleLaboralTutor" >
+                            <p class="help-block error hidden">Ingresá una calle</p>
+                        </div>
 
-                      <div class="input-group row-md-4">
+                    </div>
 
-                          <div class="col-md-3 form-group item-form">
-                              <label for="num_calle_lab_tutor">Número de calle</label>
-                              <input type="text" class="form-control" id="num_calle_lab_tutor" >
-                              <p class="help-block error hidden">Ingresá número de calle</p>
-                          </div>
+                    <div class="input-group row-md-4">
+                        <div class="col-md-3 form-group item-form">
+                            <label for="num_calle_lab_tutor">Número de calle</label>
+                            <input type="text" class="form-control" name="num_calle_lab_tutor" id="num_calle_lab_tutor"  value="0002"  >
+                            <p class="help-block error hidden">Ingresá número de calle</p>
+                        </div>
 
-                          <div class="col-md-2 form-group item-form">
-                              <label for="piso_lab_tutor">Piso</label>
-                              <input type="text" name="piso_lab_tutor" class="form-control" id="piso_lab_tutor">
-                              <p class="help-block error hidden">Ingresá un piso</p>
-                          </div>
+                        <div class="col-md-2 form-group item-form">
+                            <label for="piso_lab_tutor">Piso</label>
+                            <input type="text" name="piso_lab_tutor" class="form-control" id="piso_lab_tutor" name="piso_lab_tutor">
+                            <p class="help-block error hidden">Ingresá un piso</p>
+                        </div>
 
-                          <div class="col-md-3 form-group item-form">
-                              <label for="num_depto_lab_tutor">Departamento</label>
-                              <input type="text" class="form-control" id="num_depto_lab_tutor">
-                              <p class="help-block error hidden">Ingresá un un departamento</p>
-                          </div>
+                        <div class="col-md-3 form-group item-form">
+                            <label for="num_depto_lab_tutor">Departamento</label>
+                            <input type="text" class="form-control" id="num_depto_lab_tutor" name="num_depto_lab_tutor">
+                            <p class="help-block error hidden">Ingresá un un departamento</p>
+                        </div>
+                        <div class="col-md-3 form-group item-form">
+                            <label for="tel_lab_tutor">Teléfono móvil</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">0</span>&nbsp;&nbsp;
+                                <input aria-label="número de teléfono móvil padre" name="tel_lab_tutor" class="form-control" id="tel_lab_tutor"  type="text" value="3834544449">
+                            </div>
+                            <p class="help-block error hidden">Ingresá tu número de teléfono móvil</p>
+                        </div>
 
-                          <div class="col-md-3 form-group item-form">
-                              <label for="tel_lab_tutor">Teléfono laboral</label>
-                              <br>
-                              <div class="input-group">
-                                  <span class="input-group-addon">0</span>&nbsp;&nbsp;
-                                  <input aria-label="número de teléfono laboral tutor" class="form-control" id="tel_lab_tutor"  name="tel_lab_tutor" type="text">
-                              </div>
-                              <p class="help-block error hidden">Ingresá tu número de teléfono laboral</p>
-                          </div>
-
-                      </div>
+                    </div>
                   </fieldset>
                     
                 <!-- DATOS DE TUTORES SUPLENTES -->
