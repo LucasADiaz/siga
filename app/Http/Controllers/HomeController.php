@@ -7,6 +7,8 @@ use App\User;
 use App\Notifications\MessageSent;
 use App\Message;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Collection;
 
 class HomeController extends Controller
 {
@@ -27,12 +29,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+    
         $users = User::where('id','!=', auth()->id())->get();
         return view('home', compact('users'));
     }
 
     public function inicio()
     {
+
+ 
         return view('inicio');
     }
 

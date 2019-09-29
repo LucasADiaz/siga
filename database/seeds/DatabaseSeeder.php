@@ -43,11 +43,20 @@ class DatabaseSeeder extends Seeder
             'directivos',
             'parentescos',
             'administrativos',
+            'permissions',
+            'roles',
+            'role_has_permissions',
+            'model_has_roles',
+            'model_has_permissions',
+            
+
 
         ]);
         //debemos llamar todos los seeder que creamos   
         
-        $this->call(UserSeeder::class); 
+        $this->call(PermissionsSeeder::class);
+        $this->call(UserSeeder::class);    
+
         $this->call(DomicilioSeeder::class);
         $this->call(EscuelaSeeder::class); 
         
@@ -83,10 +92,8 @@ class DatabaseSeeder extends Seeder
         $this->call(MateriaProfesorSeeder::class);      
         $this->call(CursoMateriaSeeder::class); 
 
-
-        $this->call(UserSeeder::class);
-        $this->call(ProductsTableSeeder::class);
-        $this->call(PermissionsTableSeeder::class);       
+  
+    
     }
      
 
