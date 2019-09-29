@@ -83,7 +83,7 @@ class DatabaseSeeder extends Seeder
         $this->call(MateriaProfesorSeeder::class);      
         $this->call(CursoMateriaSeeder::class); 
 
-        $this->call(PermisionsTableSeeder::class);           
+        // $this->call(PermisionsTableSeeder::class);           
     }
      
 
