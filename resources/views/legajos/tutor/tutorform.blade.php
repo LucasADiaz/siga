@@ -5,10 +5,10 @@
         <h3>Datos personales del tutor</h3>
       </div>
       <div>
-        <input type="checkbox" name="madre_es_tutor" id="madre_es_tutor" value="activado" onChange="esLaMadre(this);">Es la madre
+        <input type="checkbox" name="madre_es_tutor" id="madre_es_tutor" value="activado" onChange="esElTutor(this,'madre');">Es la madre
       </div>&nbsp;&nbsp;
       <div>
-        <input type="checkbox" name="padre_es_tutor" id="padre_es_tutor" value="activado" onChange="esElPadre(this);">Es el padre
+        <input type="checkbox" name="padre_es_tutor" id="padre_es_tutor" value="activado" onChange="esElTutor(this,'padre');">Es el padre
       </div>&nbsp;&nbsp;
     </div>
 
@@ -313,11 +313,11 @@
                 <label>Sexo</label>
                 <br>
                 <label for="f" class="radio-inline">
-                    <input type="radio" name="sexo_tutor" id="f" value="F" checked> Femenino
+                    <input type="radio" name="sexo_tutor" id="sexo_tutor_f" value="F" checked> Femenino
                 </label>
                 <br>
                 <label for="m" class="radio-inline">
-                    <input type="radio" name="sexo_tutor" id="m" value="M" > Masculino
+                    <input type="radio" name="sexo_tutor" id="sexo_tutor_m" value="M" > Masculino
                 </label>
                 <p class="help-block error hidden">Ingresá tu sexo</p>
             </div>
@@ -384,7 +384,7 @@
           <h3>Domicilio del tutor </h3>
         </div>
         <div>
-            <input type="checkbox" name="tutor_mismodomicilio" id="tutor_mismodomicilio" value="activado" onChange="mismoDomicilioTutor(this);">Mismo domicilio del alumno
+            <input type="checkbox" name="tutor_mismodomicilio" id="tutor_mismodomicilio" value="activado" onChange="mismoDomicilioAlumno(this,'tutor');">Mismo domicilio del alumno
         </div>
     </div>
 
@@ -484,7 +484,7 @@
             <h3>Domicilio laboral del tutor </h3>
           </div>
           <div>
-              <input type="checkbox" name="tutor_no_trabaja" value="activado" id="tutor_no_trabaja" onChange="tutorNoTrabaja(this);">No trabaja
+              <input type="checkbox" name="tutor_no_trabaja" value="activado" id="tutor_no_trabaja" onChange="personaNoTrabaja(this,'tutor');">No trabaja
           </div>
       </div>
 

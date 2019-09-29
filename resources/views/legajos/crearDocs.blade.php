@@ -10,10 +10,10 @@
           <hr>
 
             <div class="wizard m-b-3">
-                <p class="text-muted">Paso 1 de 2</p>
+                <p class="text-muted">Paso 2 de 2</p>
                 <div class="progress">
-                <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
-                  <span class="sr-only">Paso 1 de 2</span>
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                  <span class="sr-only">Paso 2 de 2</span>
                 </div>
               </div>
             </div> 
@@ -27,24 +27,34 @@
 
             
 
-              <form method="POST" action="{{ route('legajos.store')}}" >
+              <form method="POST" action="{{ route('legajos.storeDocs')}}" >
                 <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+                <fieldset>
+                      <hr>
+                      <div class="col-md-12 form-group item-form">
+                          <h3>Selecciona los documentos del alumno</h3>
+                      </div>
 
-                <!-- DATOS DEL ALUMNO -->
-                @include('legajos.alumno.alumnoform')
-                <!--DATOS PERSONALES DE LA MADRE-->
-                @include('legajos.madre.madreform')
-                <!--DATOS PERSONALES DEL PADRE-->
-                @include('legajos.padre.padreform')
-                <!--DATOS PERSONALES DEL TUTOR-->
-                @include('legajos.tutor.tutorform')
-                <!-- DATOS DE TUTORES SUPLENTES -->
-                @include('legajos.tutorsup.tutorsupform')
+                      <div class="col-md-12 form-group item-form">
+                          <div class="input-group row-md-4">
+                              <div class="col-md-4 form-group item-form">
+                                  <label for="docs">Documentos del alumno</label>
+                                  <input type="file" id="docs" name="image[]" class="form-item" accept=".jpg,.png" multiple >
+                                </div>
 
+                          </div>
+                      </div>
+                    
+</fieldset>
+    
+                
                                   
                 <div class="col-md-12 form-group item-form text-center">
       
-                <button type="submit" >Guardar Legajo</button>
+                <button type="submit" >Subir Documentos</button>
+
+                <a href="{{route('inicio')}}"><input type="button" value="Subir luego"></a>
+                
                 </div>
             </form>
         </div>
@@ -204,8 +214,6 @@ if(persona == "madre"){
         var tipo_doc = document.getElementById('tipo_doc_madre');
         var num_doc = document.getElementById('num_doc_madre');
         var nacionalidad = document.getElementById('nacionalidad_madre');
-        var sexo_f = document.getElementById('sexo_madre_f');
-        var sexo_m = document.getElementById('sexo_madre_m');
         var tel1 = document.getElementById('tel1_madre');
         var tel2 = document.getElementById('tel2_madre');
         var email = document.getElementById('email_madre');
@@ -238,8 +246,6 @@ if(persona == "madre"){
         var tipo_doc = document.getElementById('tipo_doc_padre');
         var num_doc = document.getElementById('num_doc_padre');
         var nacionalidad = document.getElementById('nacionalidad_padre');
-        var sexo_f = document.getElementById('sexo_padre_f');
-        var sexo_m = document.getElementById('sexo_padre_m');
         var tel1 = document.getElementById('tel1_padre');
         var tel2 = document.getElementById('tel2_padre');
         var email = document.getElementById('email_padre');
@@ -265,32 +271,21 @@ if(persona == "madre"){
 }
 
 array = [nombres, apellidos, lugar_nac, fec_nac, tipo_doc, num_doc, nacionalidad, tel1, tel2, email, madre_mismodomicilio,
-        localidad, cod_postal, calle, num_calle, barrio, piso, depto, madre_no_trabaja, profesion, lugar_trabajo, localidad_lab, cod_postal_lab,
-        calle_lab, num_calle_lab, piso_lab, depto_lab, tel_lab, sexo_f, sexo_m]
+        localidad, cod_postal, calle, num_calle, barrio, piso, depto, madre_no_trabaja, profesion, lugar_trabajo, cod_postal_lab,
+        calle_lab, num_calle_lab, piso_lab, depto_lab, tel_lab, madre_es_tutor]
 
-//Si la persona esta fallecida
+//Si la madre esta fallecida
 if(checkbox.checked){
-    //Deshabilitamos todos los campos de la persona
+    //Deshabilitamos todos los campos de madre
     array.forEach(function(array) {
         deshabilitarCampo(array)
-
 });
-
-if(persona == "madre"){
-    deshabilitarCampo(madre_es_tutor)
-}else if(persona == "padre"){
-deshabilitarCampo(padre_es_tutor)
-}
+    
 }
 else{ //Si no está fallecida los habilitamos
     array.forEach(function(array) {
         habilitarCampo(array)
     });
-    if(persona == "madre"){
-    habilitarCampo(madre_es_tutor)
-}else if(persona == "padre"){
-habilitarCampo(padre_es_tutor)
-}
 
 }
 

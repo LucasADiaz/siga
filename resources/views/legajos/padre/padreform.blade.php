@@ -5,7 +5,7 @@
           <h3>Datos personales del padre</h3>
         </div>
         <div>
-            <input type="checkbox" name="padre_fallecido" id="padre_fallecido" value="activado" onChange="padreFallecido(this);">Fallecido
+            <input type="checkbox" name="padre_fallecido" id="padre_fallecido" value="activado" onChange="personaFallecida(this,'padre');">Fallecido
         </div>
     </div>
 
@@ -310,18 +310,17 @@
           </div>
 
         <div class="col-md-3 form-group item-form">
-            <label>Sexo</label>
-            <br>
-            <label for="f" class="radio-inline">
-                <input type="radio" name="sexo_padre" id="f" value="F" > Femenino
-            </label>
-            <label for="m" class="radio-inline">
-                <input type="radio" name="sexo_padre" id="m" value="M"  checked> Masculino
-            </label>
-            <p class="help-block error hidden">Ingresá tu sexo</p>
-        </div>
-
-    </div>
+          <label>Sexo</label>
+          <br>
+          <label for="f" class="radio-inline" >
+              <input type="radio" name="sexo_padre" id="sexo_padre_f" value="F"  > Femenino
+          </label>
+          <label for="m" class="radio-inline">
+              <input type="radio" name="sexo_padre" id="sexo_padre_m" value="M" checked> Masculino
+          </label>
+          <p class="help-block error hidden">Ingresá tu sexo</p>
+      </div>
+  </div>
   </fieldset>
   <!-- DATOS DE CONTACTO DEL PADRE-->
     <fieldset>
@@ -367,7 +366,7 @@
             </div>
 
             <div>
-                <input type="checkbox" name="padre_mismodomicilio" id="padre_mismodomicilio" value="activado" onChange="mismoDomicilioPadre(this);">Mismo domicilio del alumno
+                <input type="checkbox" name="padre_mismodomicilio" id="padre_mismodomicilio" value="activado" onChange="mismoDomicilioAlumno(this,'padre');">Mismo domicilio del alumno
               </div>
         </div>
 
@@ -467,7 +466,7 @@
             <h3>Domicilio laboral del padre </h3>
           </div>
           <div>
-            <input type="checkbox" name="padre_no_trabaja" id="padre_no_trabaja" value="activado" onChange="padreNoTrabaja(this);">No trabaja</div>
+            <input type="checkbox" name="padre_no_trabaja" id="padre_no_trabaja" value="activado" onChange="personaNoTrabaja(this,'padre');">No trabaja</div>
           </div>
 
         <div class="input-group row-md-4">

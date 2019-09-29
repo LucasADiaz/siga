@@ -44,3 +44,7 @@ Route::get('/posts', 'PostsController@crearPost')->name('posts.crear');
 Route::post('/posts/send', 'PostsController@enviar')->name('posts.enviar');
 
 Route::resource('legajos','LegajosController');
+
+Route::get('legajos/new/docs','LegajosController@crearDocs')->name('legajos.crearDocs');
+
+Route::post('legajos/new/docscreado','LegajosController@storeDocs')->name('legajos.storeDocs');

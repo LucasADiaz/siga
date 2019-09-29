@@ -11,7 +11,7 @@ use App\Persona;
 use App\Domicilio;
 use App\Parentesco;
 use App\Telefono;
-use App\Responsable;
+use App\TrabajoPersona;
 use Illuminate\Support\Facades\Hash;
 
 class LegajosController extends Controller
@@ -21,9 +21,20 @@ class LegajosController extends Controller
         //
     }
 
+    public function storeDocs(Request $request)
+    {
+        $pdf = PDF::loadView('pruebaparapdf');
+        return $pdf->download('pruebapdf.pdf');
+        
+    }
+
+    public function crearDocs(Request $request)
+    {
+        return view('legajos.crearDocs');
+    }
     public function store(Request $request)
     {
-        
+    //Creamos el alumno (domicilio, persona, alumno, usuario, telefonos)
     $domicilio_alu = Domicilio::create([
     'calle' => $request->calle_alu,
     'numero' => $request->num_calle_alu,
@@ -87,10 +98,12 @@ if(empty($request->tel2_alu)){
  ]);
  $telefono2_alu->save();
 }
+//Preguntamos si la madre esta fallecida
 if($request->madre_fallecida){
 
+    //Casos con madre fallecida
     if($request->padre_fallecido){
-        //1
+        //Caso 1 - Padre fallecido
         if($request->tutor_mismodomicilio){
             $domicilio_tutor = $domicilio_alu;
         }else{
@@ -144,11 +157,11 @@ if($request->madre_fallecida){
             }
 
             if($request->tutor_no_trabaja){
-                $responsable_tutor = Responsable::create([
+                $trabajo_tutor = TrabajoPersona::create([
                     'persona_id' =>$persona_tutor->id, 
                     'email' => $request->email_tutor,
                 ]);
-                $responsable_tutor->save();
+                $trabajo_tutor->save();
             }else{
                 $domicilio_lab_tutor = Domicilio::create([
                     'calle' => $request->calle_lab_tutor,
@@ -169,12 +182,12 @@ if($request->madre_fallecida){
             ]);
             $telefono_lab_tutor->save();
 
-            $responsable_tutor = Responsable::create([
+            $trabajo_tutor = TrabajoPersona::create([
                 'persona_id' =>$persona_tutor->id, 
                 'domicilio_trabajo_id' =>$domicilio_lab_tutor->id,
                 'lugar_trabajo' => $request->lugar_trabajo_tutor,
             ]);
-            $responsable_tutor->save();
+            $trabajo_tutor->save();
             }
             
             $parentesco_tutor = Parentesco::create([
@@ -197,7 +210,7 @@ if($request->madre_fallecida){
             $legajo_alumno->save(); 
             }
             else{
-                //2
+                //Caso 2 - Con padre vivo
         if($request->padre_mismodomicilio){
             $domicilio_padre = $domicilio_alu;
         }else{
@@ -270,12 +283,12 @@ if($request->madre_fallecida){
 
 
             }
-            $responsable_padre = Responsable::create([
+            $trabajo_padre = TrabajoPersona::create([
                 'persona_id' =>$persona_padre->id, 
                 'lugar_trabajo' => $request->lugar_trabajo_padre,
                 'domicilio_trabajo_id' => $domicilio_lab_padre->id
             ]);
-            $responsable_padre->save();
+            $trabajo_padre->save();
             $parentesco_padre = Parentesco::create([
                 'persona_id' =>$persona_padre->id, 
                 'alumno_id' => $alumno->id,
@@ -293,7 +306,7 @@ if($request->madre_fallecida){
 
             $legajo_alumno = Legajo::create([
                 'alumno_id' =>$persona_alu->id, 
-                'padre_id' =>$responsable_padre->id, 
+                'padre_id' =>$persona_padre->id, 
                 'tutor_id' =>$autoridad_tutor->id,
             ]);
             }else{
@@ -372,12 +385,12 @@ if($request->madre_fallecida){
         
         }
     
-        $responsable_tutor = Responsable::create([
+        $trabajo_tutor = TrabajoPersona::create([
             'persona_id' =>$persona_tutor->id, 
             'domicilio_trabajo_id' => $domicilio_lab_padre->id,
             'lugar_trabajo' => $request->lugar_trabajo_tutor,
         ]);
-        $responsable_tutor->save();
+        $trabajo_tutor->save();
 
         $parentesco_tutor = Parentesco::create([
             'persona_id' =>$persona_tutor->id, 
@@ -394,14 +407,16 @@ if($request->madre_fallecida){
           
         $legajo_alumno = Legajo::create([
             'alumno_id' =>$persona_alu->id, 
-            'padre_id' =>$responsable_padre->id, 
+            'padre_id' =>$persona_padre->id, 
             'tutor_id' =>$autoridad_tutor->id,
         ]);
         $legajo_alumno->save();
         }
             }
 }else{
-    //3 y 4
+    
+    //Casos con madre viva
+    //Creamos a la madre
     if($request->madre_mismodomicilio){
         $domicilio_madre = $domicilio_alu;
     }else{
@@ -470,12 +485,12 @@ if($request->madre_fallecida){
             ]);
             $telefono_lab_madre->save();
             }
-            $responsable_madre = Responsable::create([
+            $trabajo_madre = TrabajoPersona::create([
             'persona_id' =>$persona_madre->id, 
             'domicilio_trabajo_id' =>$domicilio_lab_madre->id, 
             'lugar_trabajo' => $request->lugar_trabajo_madre,
             ]);
-            $responsable_madre->save();
+            $trabajo_madre->save();
 
             $parentesco_madre = Parentesco::create([
             'persona_id' =>$persona_madre->id, 
@@ -485,7 +500,7 @@ if($request->madre_fallecida){
             $parentesco_madre->save();
 
     if($request->padre_fallecido){
-        //3
+        //Caso 3 con padre fallecido
                                 if($request->madre_es_tutor){
                                     $autoridad_tutor = Autoridad::create([
                                         'persona_id' =>$persona_madre->id, 
@@ -495,7 +510,7 @@ if($request->madre_fallecida){
                                       
                                     $legajo_alumno = Legajo::create([
                                         'alumno_id' =>$persona_alu->id, 
-                                        'madre_id' =>$responsable_madre->id, 
+                                        'madre_id' =>$persona_madre->id, 
                                         'tutor_id' =>$autoridad_tutor->id,
                                     ]);
                                     $legajo_alumno->save();
@@ -574,12 +589,12 @@ if($request->madre_fallecida){
                             $telefono_lab_tutor->save();
     
                         }
-                        $responsable_tutor = Responsable::create([
+                        $trabajo_tutor = TrabajoPersona::create([
                             'persona_id' =>$persona_tutor->id,
                             'domicilio_trabajo_id' => $request->domicilio_lab_tutor,
                             'lugar_trabajo' => $request->lugar_trabajo_tutor,
                         ]);
-                        $responsable_tutor->save();
+                        $trabajo_tutor->save();
                             $parentesco_tutor = Parentesco::create([
                                 'persona_id' =>$persona_tutor->id, 
                                 'alumno_id' => $alumno->id,
@@ -595,7 +610,7 @@ if($request->madre_fallecida){
                               
                             $legajo_alumno = Legajo::create([
                                 'alumno_id' =>$persona_alu->id, 
-                                'madre_id' =>$responsable_madre->id, 
+                                'madre_id' =>$persona_madre->id, 
                                 'tutor_id' =>$autoridad_tutor->id,
                             ]);
                             $legajo_alumno->save();
@@ -603,7 +618,7 @@ if($request->madre_fallecida){
         
                         }
     else{
-        //4
+        //Caso 4 con padre vivo
         if($request->padre_mismodomicilio){
             $domicilio_padre = $domicilio_alu;
         }else{
@@ -681,12 +696,12 @@ if($request->madre_fallecida){
 
 
             }
-            $responsable_padre = Responsable::create([
+            $trabajo_padre = TrabajoPersona::create([
                 'persona_id' =>$persona_padre->id, 
                 'domicilio_trabajo_id' => $domicilio_lab_padre->id,
                 'lugar_trabajo' => $request->lugar_trabajo_padre,
             ]);
-            $responsable_padre->save();
+            $trabajo_padre->save();
             $parentesco_padre = Parentesco::create([
                 'persona_id' =>$persona_padre->id, 
                 'alumno_id' => $alumno->id,
@@ -704,7 +719,8 @@ if($request->madre_fallecida){
     
                 $legajo_alumno = Legajo::create([
                     'alumno_id' =>$persona_alu->id, 
-                    'padre_id' =>$responsable_padre->id, 
+                    'padre_id' =>$persona_padre->id, 
+                    'madre_id' =>$persona_madre->id, 
                     'tutor_id' =>$autoridad_tutor->id,
                     ]);
                 $legajo_alumno->save(); 
@@ -717,8 +733,8 @@ if($request->madre_fallecida){
     
                 $legajo_alumno = Legajo::create([
                     'alumno_id' =>$persona_alu->id, 
-                    'madre_id' =>$responsable_madre->id, 
-                    'padre_id' =>$responsable_padre->id, 
+                    'madre_id' =>$persona_madre->id, 
+                    'padre_id' =>$persona_padre->id, 
                     'tutor_id' =>$autoridad_tutor->id,
                     ]);
                 $legajo_alumno->save();
@@ -801,12 +817,12 @@ if($request->madre_fallecida){
         
                     }
         
-                    $responsable_tutor = Responsable::create([
+                    $trabajo_tutor = TrabajoPersona::create([
                         'persona_id' =>$persona_tutor->id, 
                         'lugar_trabajo' => $request->lugar_trabajo_tutor,
                         'persona_id' =>$domicilio_lab_tutor->id, 
                     ]);
-                    $responsable_tutor->save();
+                    $trabajo_tutor->save();
                     $parentesco_tutor = Parentesco::create([
                         'persona_id' =>$persona_tutor->id, 
                         'alumno_id' => $alumno->id,
@@ -822,8 +838,8 @@ if($request->madre_fallecida){
         
                     $legajo_alumno = Legajo::create([
                         'alumno_id' =>$persona_alu->id, 
-                        'padre_id' =>$responsable_padre->id,
-                        'madre_id' =>$responsable_madre->id,  
+                        'padre_id' =>$persona_padre->id,
+                        'madre_id' =>$persona_madre->id,  
                         'tutor_id' =>$autoridad_tutor->id,
                         ]);
                     $legajo_alumno->save(); 
@@ -831,7 +847,8 @@ if($request->madre_fallecida){
     }
 }
     
-    return back()->with('flash','Tu legajo fue creado');
+    //return back()->with('flash','Tu legajo fue creado');
+    return view('legajos.crearDocs');
     }
 
     public function create()
@@ -839,17 +856,17 @@ if($request->madre_fallecida){
         return view('legajos.crearlegajo');
     }
     
-    public function edit(Post $post)
+    public function edit()
     {
         //
     }
 
-    public function update(Request $request, Post $post)
+    public function update(Request $request)
     {
         //
     }
 
-    public function destroy(Post $post)
+    public function destroy()
     {
         //
     }
