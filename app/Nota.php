@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Nota extends Model
 {
+    // seguridad de eloquent para la carga masiva
+    protected $fillable =['alumno_id','materia_id','periodo_id','nota','categoria_nota_id'];  
+
     public function alumno(){    
         return $this->belongsTo(Alumno::class); 
     }
@@ -21,7 +24,5 @@ class Nota extends Model
     public function categoria(){    
         return $this->belongsTo(CategoriaNota::class,'categoria_nota_id'); 
     }
-
-    // seguridad de eloquent para la carga masiva
-    protected $fillable =['nota'];   
+ 
 }

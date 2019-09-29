@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Alumno extends Model
 {
-    protected $guarded = [];
+    // seguridad de eloquent para la carga masiva
+    protected $fillable =['persona_id','curso_id','escuela_procedencia','grupo_factor'];   
+
     public function persona(){    
         return $this->belongsTo(Persona::class); 
     }
@@ -39,6 +41,4 @@ class Alumno extends Model
         return $this->belongsToMany(Persona::class,'parentescos')->withPivot('parentesco'); 
     }
 
-    // seguridad de eloquent para la carga masiva
-    protected $fillable =['persona_id','escuela_procedencia','email','grupo_factor'];   
 }

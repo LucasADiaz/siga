@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Domicilio extends Model
 {
-    protected $guarded = [];
+        // seguridad de eloquent para la carga masiva
+        protected $fillable =['calle','numero','barrio','cod_postal','localidad','piso','departamento'];   
+
     public function persona(){    
         return $this->hasOne(Persona::class); 
     }
@@ -14,6 +16,8 @@ class Domicilio extends Model
     public function escuela(){    
         return $this->hasOne(Escuela::class); 
     }
-    // seguridad de eloquent para la carga masiva
-    protected $fillable =['calle','numero','cod_postal','localidad','referencias','piso','departamento'];   
+
+    public function laboral(){    
+        return $this->hasOne(TrabajoPersona::class); 
+    }
 }

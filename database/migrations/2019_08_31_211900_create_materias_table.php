@@ -19,7 +19,7 @@ class CreateMateriasTable extends Migration
                     ->comment('identifica uniquivocamente a una materia');
                     
             $table->string('nombre')
-                    ->comment('Nombre del Periodo');
+                    ->comment('Nombre de la Materia');
 
             $table->timestamps();
         });

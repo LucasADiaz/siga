@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Periodo extends Model
 {
+    // seguridad de eloquent para la carga masiva
+    protected $fillable =['escuela_id','nombre','fecha_inicio','fecha_fin'];   
+
     public function Nota(){    
         return $this->hasMany(Nota::class); 
     }
@@ -14,6 +17,4 @@ class Periodo extends Model
         return $this->belongsTo(Escuela::class); 
     }
 
-    // seguridad de eloquent para la carga masiva
-    protected $fillable =['nombre'];   
 }

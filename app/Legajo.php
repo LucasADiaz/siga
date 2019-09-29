@@ -14,11 +14,11 @@ class Legajo extends Model
     }
 
     public function padre(){    
-        return $this->belongsTo(Autoridad::class); 
+        return $this->belongsTo(Persona::class); 
     }
 
     public function madre(){    
-        return $this->belongsTo(Autoridad::class); 
+        return $this->belongsTo(Persona::class); 
     }
 
     public function tutor(){    

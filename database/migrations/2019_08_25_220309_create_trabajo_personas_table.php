@@ -27,8 +27,6 @@ class CreateTrabajoPersonasTable extends Migration
                     ->nullable()
                     ->comment('identificador de la escuela a la que pertenece el alumno.');
             
-            
-            
             $table->timestamps();
         });
     }

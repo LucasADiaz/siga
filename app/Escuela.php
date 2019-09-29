@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Escuela extends Model
 {
+
+    // seguridad de eloquent para la carga masiva
+    protected $fillable =['nombre','domicilio_id','telefono'];   
+
     public function alumnos(){    
         return $this->hasMany(Alumno::class); 
     }
@@ -33,6 +37,4 @@ class Escuela extends Model
     public function domicilio(){    
         return $this->belongsTo(Domicilio::class); 
     }
-    // seguridad de eloquent para la carga masiva
-    protected $fillable =['nombre','telefono'];   
 }

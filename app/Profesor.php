@@ -8,6 +8,9 @@ class Profesor extends Model
 {
     protected $table = 'profesores';
 
+    // seguridad de eloquent para la carga masiva
+    protected $fillable =['autoridad_id','titulo'];   
+
     public function materias(){    
         return $this->belongsToMany(Materia::class)->withPivot('caracter'); 
     }
@@ -16,6 +19,4 @@ class Profesor extends Model
         return $this->belongsTo(Autoridad::class); 
     }
 
-    // seguridad de eloquent para la carga masiva
-    protected $fillable =['titulo'];   
 }

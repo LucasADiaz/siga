@@ -23,12 +23,15 @@ class CreateDocumentosTable extends Migration
             
             $table->date('anio')->comment('año donde ingresa la documentación');
 
+            $table->string('url')->comment('url de la carpeta del legajo');
+            /**
             $table->binary('dni_pri')->comment('primera hoja del dni');
             $table->binary('dni_seg')->comment('segunda hoda del dni');
             $table->binary('ficha_medica')->comment('ficha medica');
             $table->binary('const_cuil')->comment('constancia de cuil');
             $table->binary('libreta')->comment('libreta de año pasado');
             $table->binary('const_alum_reg')->comment('constancia de alumno regular');
+            */
             $table->timestamps();
         });
 

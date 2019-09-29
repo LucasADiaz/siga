@@ -7,8 +7,9 @@ use App\Events\PostCreated;
 
 class Post extends Model
 {
-    protected $guarded = [];
-    
+    // seguridad de eloquent para la carga masiva
+    protected $fillable =['titulo','contenido'];   
+
     protected $events = [
         'created' => PostCreated::class
     ];

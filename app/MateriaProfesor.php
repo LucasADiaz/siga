@@ -9,5 +9,5 @@ class MateriaProfesor extends Model
     protected $table = 'materia_profesor';
 
     // seguridad de eloquent para la carga masiva
-    protected $fillable =['caracter'];   
+    protected $fillable =['materia_id','profesor_id','caracter'];   
 }

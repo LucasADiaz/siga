@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Materia extends Model
 {
+
+    // seguridad de eloquent para la carga masiva
+    protected $fillable =['nombre'];  
+    
     public function notas(){    
         return $this->hasMany(Nota::class); 
     }
@@ -25,6 +29,5 @@ class Materia extends Model
     public function profesores(){    
         return $this->belongsToMany(Profesor::class)->withPivot('caracter'); 
     }
-    // seguridad de eloquent para la carga masiva
-    protected $fillable =['nombre'];   
+ 
 }
