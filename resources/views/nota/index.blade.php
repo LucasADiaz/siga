@@ -4,29 +4,36 @@
 
 
 
-  @ctrf
-  <div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control">
-        <div class="">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="" aria-haspopup="true" aria-expanded="false">
-             {{-- {{$usuarios}} --}} <strong>Profesores</strong> 
-          </button> 
-             
-        </div>
-
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 Elegir Profesor
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">{{$usuarios1->name}}</a>
-                <a class="dropdown-item" href="#">{{$usuarios2->name}}</a>
-                <a class="dropdown-item" href="#">{{$usuarios3->name}}</a>
-              </div>
-            </div>
-    </div>
-  </div>
-              
+  @csrf
+  
+  <div class="col-lg-3">
+      <div class="form-group">
+      <label for="formGroupExampleInput"><strong>Hola Profesor</strong>   {{$profesor->titulo}}</label>
+      
+      <label for="formGroupExampleInput">Por favor, seleccione una <strong>Materia</strong></label>
           
+      <select class="browser-default custom-select">
+            <option selected>Materias</option>
+              @foreach ($profesor->materias as $materia)
+              <option value='{{$materia->id}}'>{{$materia->nombre}} </option>      
+              @endforeach
+              
+          </select>
+      </div>
+  </div>  
+  
+  <div class="col-lg-3">
+      <div class="form-group">
+          <label for="formGroupExampleInput">A continuacion seleccione un Curso</label>
+          <select class="browser-default custom-select" disabled='{{}}'>
+            <option selected>Cursos</option>
+              {{-- @foreach ($profesor->materias->first() as $user)
+              <option >{{$user->materias}} </option>      
+              @endforeach --}}
+              <option value="1">One</option>
+          </select>
+      </div>
+  </div>     
+  
+  
 @endsection

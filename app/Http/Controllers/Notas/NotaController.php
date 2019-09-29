@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Profesor;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
@@ -15,13 +16,14 @@ class NotaController extends Controller
      */
     public function index()
     {
+        $id = '3';
         
         return view('nota.index',[
             // enviamos todos los usuarios a la vista
-            'usuarios' => User::get(),
+            'profesor' => Profesor::get()->first()->find($id), //definimos una variable users que contendra el nombre y id del profesor
+                                                            // para usarlos, sera mediante el nombre users en la vista
             ]);
     }
-
     /**
      * Show the form for creating a new resource.
      *

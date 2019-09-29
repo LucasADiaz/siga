@@ -12,6 +12,10 @@ class Profesor extends Model
         return $this->belongsToMany(Materia::class)->withPivot('caracter'); 
     }
 
+    public function cursos(){    
+        return $this->belongsToMany(Curso::class); 
+    }
+
     public function autoridad(){    
         return $this->belongsTo(Autoridad::class); 
     }
