@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Curso;
 use App\Profesor;
 use App\User;
 use Illuminate\Http\Request;
@@ -17,12 +18,12 @@ class NotaController extends Controller
 
     public function index()
     {
-        $id = '22';
-        
+        $id = '1'; //JONY pone 22 para que te funque... acordate
+        $materia_id =null;
         return view('nota.index',[
             // enviamos todos los usuarios a la vista
             'profesor' => Profesor::get()->first()->find($id), //definimos una variable users que contendra el nombre y id del profesor
-                                                            // para usarlos, sera mediante el nombre users en la vista
+             'materia_id' =>  $materia_id ,                                             // para usarlos, sera mediante el nombre users en la vista
             ]);
     }
     /**
@@ -54,7 +55,12 @@ class NotaController extends Controller
      */
     public function show($id)
     {
-        //
+        $id2 = '1'; //id obtenido de la variable session
+
+        return view('nota.show',[
+            'profesor' => Profesor::get()->first()->find($id2), //definimos una variable users que contendra el nombre y id del profesor
+            'curso' => Curso::find($id),
+        ]);
     }
 
     /**
@@ -90,11 +96,12 @@ class NotaController extends Controller
     {
         //
     }
-    public function byMaterias($id){
 
+    public function byMaterias($id)
+    {
         return view('nota.index',[
-
-            'materia_id' => $id,
-            ]);
+            'materia_id' => $id
+        ]);
     }
+    
 }
