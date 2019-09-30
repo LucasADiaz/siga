@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use View;
+//use Redirect;
 use Illuminate\Http\Request;
 use App\Legajo;
 use App\User;
@@ -12,6 +14,7 @@ use App\Domicilio;
 use App\Parentesco;
 use App\Telefono;
 use App\TrabajoPersona;
+use App\TutorSuplente;
 use Illuminate\Support\Facades\Hash;
 use jsPDF;
 
@@ -22,18 +25,21 @@ class LegajosController extends Controller
         //
     }
 
-    public function show(Request $request)
+    public function storeDocs($nombrealu)
     {
-        return view('legajos.crearDocs');
+        
+        return View::make('legajos.crearDocs')->with('nombrealu', $nombrealu );
     }
 
-    public function crearDocs(Request $request)
-    {
-        return view('legajos.crearDocs');
-    }
-    public function store(Request $request)
-    {
 
+    public function legajoCreado()
+    {
+        return view('legajos.legajoCreado');
+    }
+
+    public function storeLegajo(Request $request)
+    {
+        
      //Creamos el alumno (domicilio, persona, alumno, usuario, telefonos)
      $domicilio_alu = Domicilio::create([
         'calle' => $request->calle_alu,
@@ -845,14 +851,41 @@ class LegajosController extends Controller
                         $legajo_alumno->save(); 
                 }
         }
-    }
         
-        //return back()->with('flash','Tu legajo fue creado');
-        return view('legajos.crearDocs')->with('alumno', $persona_alu);
         
-
     }
 
+    
+    if($request->tutor_suplente_ok){
+        $tutor_sup = TutorSuplente::create([
+            'alumno_id' =>$alumno->id, 
+            'nombre' => $request->nombres_tutor_sup1,
+            'apellido' => $request->apellidos_tutor_sup1,
+            'parentesco' =>$request->parentesco_tutor_sup1,
+            ]);
+        $tutor_sup->save(); 
+        
+    
+    if(empty($request->nombres_tutor_sup2)){
+    }else{
+        $tutor_sup2 = TutorSuplente::create([
+            'alumno_id' =>$alumno->id, 
+            'nombre' => $request->nombres_tutor_sup2,
+            'apellido' => $request->apellidos_tutor_sup2,
+            'parentesco' =>$request->parentesco_tutor_sup2,
+            ]);
+        $tutor_sup2->save();
+    }
+    
+    }
+        
+       // return back()->with('flash','Tu legajo fue creado');
+       
+        return View::make('legajos.legajoCreado')->with('alumno', $persona_alu)->with('flash','Tu legajo fue creado')->with('nombrealu', $persona_alu->nombre );;
+
+
+    }
+    
 
     public function create()
     {

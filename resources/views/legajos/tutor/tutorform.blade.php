@@ -330,6 +330,9 @@
                 <option value="Tia">Tia</option>
                 <option value="Abuelo">Abuelo</option>
                 <option value="Abuela">Abuela</option>
+                <option value="Padre" style="display:none;">Padre</option>
+                <option value="Madre" style="display:none;">Madre</option>
+               
             </select>
             <p class="help-block error hidden">Elegí un parentesco</p>
         </div>

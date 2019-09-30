@@ -94,9 +94,6 @@
                                    <a class="dropdown-item" href=""> Modificar Legajo
                                         </a>
     
-                                    <a class="dropdown-item" href=""> Eliminar Legajo
-                                            </a>
-        
                                 </div>
                             </li>
                             <li class="nav-item dropdown">

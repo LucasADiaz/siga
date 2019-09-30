@@ -5,10 +5,11 @@
     <input type="checkbox" name="tutor_suplente_ok" id="tutor_suplente_ok" value="activado" onChange="puedeSerRetirado(this);" checked>Si
   </div>
   <br>
+  <div id="puede_ser_retirado">
   <div class="col-md-12 form-group item-form">
       <h3>Tutores suplentes</h3>
   </div>
-  <div id="puede_ser_retirado">
+  
   <div class="input-group row-md-4" >
 
       <div class="col-md-3 form-group item-form">

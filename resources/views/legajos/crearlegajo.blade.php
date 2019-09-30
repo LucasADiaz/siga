@@ -27,7 +27,7 @@
 
             
 
-              <form method="POST" action="{{ route('legajos.store')}}" >
+              <form method="POST" action="{{ route('legajos.storeLegajo')}}" >
                 <input type="hidden" name="_token" value="{!! csrf_token() !!}">
 
                 <!-- DATOS DEL ALUMNO -->
@@ -330,10 +330,11 @@ function esElTutor(checkbox, persona) {
         var tutor_no_trabaja = document.getElementById('tutor_no_trabaja');
         var padre_es_tutor = document.getElementById('padre_es_tutor');
         var madre_es_tutor = document.getElementById('madre_es_tutor');
+        var parentesco_tutor = document.getElementById('parentesco_tutor');
 
 array = [nombres, apellidos, lugar_nac, fec_nac, tipo_doc, num_doc, nacionalidad, tel1, tel2, email,
         localidad, cod_postal, calle, num_calle, barrio, piso, depto, tutor_no_trabaja, profesion, lugar_trabajo, localidad_lab, cod_postal_lab,
-        calle_lab, num_calle_lab, piso_lab, depto_lab, tel_lab, tutor_mismodomicilio]
+        calle_lab, num_calle_lab, piso_lab, depto_lab, tel_lab, tutor_mismodomicilio, parentesco_tutor]
     
     //Si la madre es el tutor
     if(checkbox.checked){
@@ -371,6 +372,7 @@ if(persona == "madre"){
         piso_lab.value = document.getElementById('piso_lab_madre').value;
         depto_lab.value = document.getElementById('num_depto_lab_madre').value;
         tel_lab.value = document.getElementById('tel_lab_madre').value;
+        parentesco_tutor.value = "Madre";
 }else if(persona == "padre"){
     deshabilitarCampo(madre_es_tutor)
 //Copiamos los datos del padre al tutor
@@ -400,6 +402,7 @@ if(persona == "madre"){
         piso_lab.value = document.getElementById('piso_lab_padre').value;
         depto_lab.value = document.getElementById('num_depto_lab_padre').value;
         tel_lab.value = document.getElementById('tel_lab_padre').value;
+        parentesco_tutor.value = "Padre";
 }
 
 }
@@ -409,6 +412,7 @@ else{//Si no es la tutor habilitamos los campos de tutor nuevamente
     });
     habilitarCampo(madre_es_tutor)
     habilitarCampo(padre_es_tutor)
+    habilitarCampo(parentesco_tutor);
     //Limpiamos los campos de tutor
     array.forEach(function(array) {
             limpiarCampos(array)

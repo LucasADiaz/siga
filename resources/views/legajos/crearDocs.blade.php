@@ -32,7 +32,7 @@
                 <fieldset>
                     <br>
                       <div class="col-md-12 form-group item-form">
-                      <h3>Selecciona los documentos del alumno {{$alumno->nombre}}</h3>
+                      <h3>Selecciona los documentos del alumno {{$nombrealu}}</h3>
                       </div>
 
                       <div class="col-md-12 form-group item-form">
@@ -66,7 +66,7 @@
                     <div id="imprimir">
                             <br>
                             <div class="col-md-12 form-group item-form">
-                                    <h3>Documentos del legajo de {{$alumno->nombre}} </h3>
+                                    <h3>Documentos del legajo de {{$nombrealu}} </h3>
                                 </div>
                                 <hr>
                             <div align="center"><div class="gallery"></div></div>
