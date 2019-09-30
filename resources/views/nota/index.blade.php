@@ -26,10 +26,6 @@
       <div class="form-group">
           <label for="formGroupExampleInput">A continuacion seleccione un Curso</label>
           <select class="browser-default custom-select" id="cursos">
-          
-               {{-- @foreach ($profesor->materias->first() as $user)
-              <option >{{$user->materias}} </option>      
-              @endforeach  --}}
               
           </select>
       </div>

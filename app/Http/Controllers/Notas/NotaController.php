@@ -14,6 +14,7 @@ class NotaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $id = '22';
@@ -88,5 +89,12 @@ class NotaController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function byMaterias($id){
+
+        return view('nota.index',[
+
+            'materia_id' => $id,
+            ]);
     }
 }
