@@ -23,31 +23,39 @@
         {{-- traemos las notas del alumno, por periodo y controlamos existencia --}}
         @foreach ($curso->alumnos as $alumno)
         <tr>
+
            {{-- imprimimos el nombre del alumno --}}
             <th scope="row"> {{$alumno->persona->nombre}} </th>
-            {{-- recorremos las notas buscando coincidencias con el primer periodo --}}
-            @forelse ($alumno->notas->where('periodo_id','1') as $nota)
-                <td>{{$nota->nota}}</td>
-            @empty
-                 <td>-</td>
-            @endforelse
+
+
+
+            {{-- traemos las notas buscando coincidencias con el primer periodo y que la nota sea de la materia --}}
+            @if ((empty($alumno->notas->where('periodo_id','1')->where('materia_id','67')->first())) == true)
+            <td>-</td>   
+            @else 
+            <td>{{$alumno->notas->where('periodo_id','1')->where('materia_id','67')->first()->nota}}</td>
+            @endif
             
+
+
+            {{-- recorremos las notas buscando coincidencias con el segundo periodo y que la nota sea de la materia --}}
+             @if ((empty($alumno->notas->where('periodo_id','2')->where('materia_id','67')->first())) == true)
+             <td>-</td>   
+             @else 
+             <td>{{$alumno->notas->where('periodo_id','2')->where('materia_id','67')->first()->nota}}</td>
+             @endif
+
+
+
+            {{-- recorremos las notas buscando coincidencias con el tercer periodo y que la nota sea de la materia --}}
+            @if ((empty($alumno->notas->where('periodo_id','3')->where('materia_id','67')->first())) == true)
+            <td>-</td>   
+            @else 
+            <td>{{$alumno->notas->where('periodo_id','3')->where('materia_id','67')->first()->nota}}</td>
+            @endif
             
-            {{-- recorremos las notas buscando coincidencias con el segundo periodo --}}
-            @forelse ($alumno->notas->where('periodo_id','2') as $nota)
-                <td>{{$nota->nota}}</td>
-            @empty
-                 <td>-</td>
-            @endforelse
-            
-            {{-- recorremos las notas buscando coincidencias con el tercer periodo --}}
-           
-            @forelse ($alumno->notas->where('periodo_id','3') as $nota)
-                <td>{{$nota->nota}}</td>
-            @empty
-                 <td>-</td>
-            @endforelse
-            
+
+
             {{-- crear funcion promedio --}}
                 <td>pro</td>
  
@@ -62,9 +70,28 @@
 @endsection
 
 
+{{-- POSIBILIDAD DE HACERLO DIFERENTE!!  --}}
+          
 
-           {{-- @if (empty($alumno->notas->where('periodo_id','1')->first()))
-                <td>{{}}</td>
-            @else
+            {{-- @forelse ($alumno->notas->where('periodo_id','1') as $nota)
+                <td>{{$nota->nota}}</td>
+            @empty
                  <td>-</td>
-            @endif --}}
+            @endforelse --}}
+
+
+
+
+            {{-- @forelse ($alumno->notas->where('periodo_id','2') as $nota)
+                <td>{{$nota->nota}}</td>
+            @empty
+                 <td>-</td>
+            @endforelse
+             --}}
+
+
+                {{-- @forelse ($alumno->notas->where('periodo_id','3') as $nota)
+                <td>{{$nota->nota}}</td>
+            @empty
+                 <td>-</td>
+            @endforelse --}}

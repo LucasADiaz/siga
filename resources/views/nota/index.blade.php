@@ -36,12 +36,19 @@
                       <th scope="col">Cursos</th>
                     </tr>
                   </thead>
-                  
-                      @foreach ($profesor->materias->first()->cursos as $curso)
+                  @if (empty($materia_id))
+                        <tr>
+                          <th>seleccione Materia</th>
+                        </tr>
+                
+                      
+                  @else
+                      @foreach ($profesor->materias->find($materia_id)->cursos as $curso)
                       <tr> 
                       <th scope="row" ><a href="{{route('nota.show', $curso)}}"> {{$curso->id}} {{$curso->anio}} {{$curso->seccion}} </a></th>
                       </tr>
-                    @endforeach   
+                    @endforeach 
+                  @endif
                 </table>
               </div>
       </div>

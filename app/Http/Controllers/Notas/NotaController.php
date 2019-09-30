@@ -18,11 +18,11 @@ class NotaController extends Controller
     public function index()
     {
         $id = '1'; //JONY pone 22 para que te funque... acordate
-        
+        $materia_id =null;
         return view('nota.index',[
             // enviamos todos los usuarios a la vista
             'profesor' => Profesor::get()->first()->find($id), //definimos una variable users que contendra el nombre y id del profesor
-                                                            // para usarlos, sera mediante el nombre users en la vista
+             'materia_id' =>  $materia_id ,                                             // para usarlos, sera mediante el nombre users en la vista
             ]);
     }
     /**
@@ -95,4 +95,12 @@ class NotaController extends Controller
     {
         //
     }
+
+    public function byMaterias($id)
+    {
+        return view('nota.index',[
+            'materia_id' => $id
+        ]);
+    }
+    
 }
