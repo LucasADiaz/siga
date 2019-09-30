@@ -38,7 +38,7 @@
                   </thead>
                   @if (empty($materia_id))
                         <tr>
-                          <th>seleccione Materia</th>
+                          <th>seleccione Una Materia para ver sus Cursos</th>
                         </tr>
                 
                       
