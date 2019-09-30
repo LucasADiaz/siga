@@ -90,6 +90,8 @@
                                     <a class="dropdown-item" href="{{route('legajos.create')}}"> Crear Legajo
                                     </a>
 
+                                    <a class="dropdown-item" href="{{route('documentos.create')}}"> Crear Documentos
+                                        </a>
                                 
                                    <a class="dropdown-item" href=""> Modificar Legajo
                                         </a>

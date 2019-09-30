@@ -17,7 +17,7 @@
                                 <h6>El legajo de {{$alumno->nombre}} se ha creado exitosamente. Continua con la carga de documentos o redireccioná al inicio!</h6>
                             </div>
                         <div class="col-md-12 form-group item-form text-center">
-                                <a href="{{route('legajos.storeDocs', $alumno->nombre)}}" class="button"><input type="button" value="Cargar documentos"></a>
+                                <a href="{{route('documentos.store', $alumno->nombre)}}" class="button"><input type="button" value="Cargar documentos"></a>
         
                                 <a href="{{route('inicio')}}" class="button"><input type="button" value="Inicio"></a>
         
@@ -29,3 +29,8 @@
          
 @endsection
 
+<script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+    </script>

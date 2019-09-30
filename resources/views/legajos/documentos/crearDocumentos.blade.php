@@ -25,14 +25,34 @@
           <div class="card">
 
 
-            
+                <form method="POST" action="" onSubmit="return validarForm(this)">
+                        <div class="form-group" >
+                                <fieldset>
+                                        <br>
+                                          <div class="col-md-12 form-group item-form">
+                        <input type="text" placeholder="Buscar usuario" name="palabra">
+                     
+                        <input type="submit" value="Buscar" name="buscar">
+                                          </div>
+                                </fieldset>
+                        </div>
+                    </form>
 
             <form runat="server" action="{{ route('inicio')}}">
                 <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+                <div class="form-group" >
+                        <select name="receptor_id" id="" class="form-control">
+                            <option value="">Selecciona el alumno</option>
+                            @foreach ($personas as $alumno)
+                        <option value="{{ $alumno->nombre }} {{$alumno->apellido}}">{{ $alumno->nombre }} {{$alumno->apellido}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                 <fieldset>
                     <br>
                       <div class="col-md-12 form-group item-form">
-                      <h3>Selecciona los documentos del alumno {{$nombrealu}}</h3>
+                      <h3>Selecciona los documentos del alumno</h3>
                       </div>
 
                       <div class="col-md-12 form-group item-form">
@@ -46,8 +66,7 @@
                           </div>
                           <div class="col-md-12 form-group item-form text-center">
                                 <a href="javascript:pruebaDivAPdf()" class="button"><input type="button" value="Pasar a PDF"></a>
-                                <a href="{{route('inicio')}}" class="button"><input type="button" value="Cargar luego"></a>
-                            </div>
+                                </div>
                       </div>
                     
                 </fieldset>
@@ -66,7 +85,7 @@
                     <div id="imprimir">
                             <br>
                             <div class="col-md-12 form-group item-form">
-                                    <h3>Documentos del legajo de {{$nombrealu}} </h3>
+                                    <h3>Documentos del legajo de  </h3>
                                 </div>
                                 <hr>
                             <div align="center"><div class="gallery"></div></div>

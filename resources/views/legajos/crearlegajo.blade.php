@@ -27,7 +27,7 @@
 
             
 
-              <form method="POST" action="{{ route('legajos.storeLegajo')}}" >
+              <form method="POST" action="{{ route('legajos.store')}}" onsubmit="enviado()">
                 <input type="hidden" name="_token" value="{!! csrf_token() !!}">
 
                 <!-- DATOS DEL ALUMNO -->
@@ -54,7 +54,20 @@
 </div>
                   
    <script>
+var cuenta=0;
 
+function enviado() { 
+if (cuenta == 0)
+{
+cuenta++;
+return true;
+}
+else 
+{
+alert("El siguiente formulario ya ha sido enviado, muchas gracias.");
+return false;
+}
+}
 //Funciones utilizadas
     //Limpiar campo
     function clearThis(target) {

@@ -20,15 +20,18 @@ use jsPDF;
 
 class LegajosController extends Controller
 {
+    
+
     public function index()
     {
         //
     }
 
-    public function storeDocs($nombrealu)
+    
+
+    public function show()
     {
-        
-        return View::make('legajos.crearDocs')->with('nombrealu', $nombrealu );
+        return view('legajos.crearlegajo');
     }
 
 
@@ -36,8 +39,8 @@ class LegajosController extends Controller
     {
         return view('legajos.legajoCreado');
     }
-
-    public function storeLegajo(Request $request)
+  
+    public function store(Request $request)
     {
         
      //Creamos el alumno (domicilio, persona, alumno, usuario, telefonos)
@@ -163,11 +166,7 @@ class LegajosController extends Controller
                 }
     
                 if($request->tutor_no_trabaja){
-                    $trabajo_tutor = TrabajoPersona::create([
-                        'persona_id' =>$persona_tutor->id, 
-                        'email' => $request->email_tutor,
-                    ]);
-                    $trabajo_tutor->save();
+                    
                 }else{
                     $domicilio_lab_tutor = Domicilio::create([
                         'calle' => $request->calle_lab_tutor,
@@ -597,7 +596,7 @@ class LegajosController extends Controller
                             }
                             $trabajo_tutor = TrabajoPersona::create([
                                 'persona_id' =>$persona_tutor->id,
-                                'domicilio_trabajo_id' => $request->domicilio_lab_tutor,
+                                'domicilio_trabajo_id' => $domicilio_lab_tutor->id,
                                 'lugar_trabajo' => $request->lugar_trabajo_tutor,
                             ]);
                             $trabajo_tutor->save();
@@ -826,7 +825,7 @@ class LegajosController extends Controller
                         $trabajo_tutor = TrabajoPersona::create([
                             'persona_id' =>$persona_tutor->id, 
                             'lugar_trabajo' => $request->lugar_trabajo_tutor,
-                            'persona_id' =>$domicilio_lab_tutor->id, 
+                            'domicilio_trabajo_id' =>$domicilio_lab_tutor->id, 
                         ]);
                         $trabajo_tutor->save();
                         $parentesco_tutor = Parentesco::create([
@@ -855,7 +854,107 @@ class LegajosController extends Controller
         
     }
 
+    if(!$request->padre_fallecido && !$request->madre_fallecida){
+
+        if(!$request->padre_es_tutor && !$request->madre_es_tutor){
+            if($request->tutor_mismodomicilio){
+                $domicilio_tutor = $domicilio_alu;
+            }else{
+                    $domicilio_tutor = Domicilio::create([
+                        'calle' => $request->calle_tutor,
+                        'numero' => $request->num_calle_tutor,
+                        'cod_postal' => $request->cod_postal_tutor,
+                        'localidad' => $request->localidad_tutor,
+                        'departamento' => $request->num_depto_tutor,
+                    ]);
+                    }
     
+                    $domicilio_tutor->save();
+                
+                    $persona_tutor = Persona::create([
+                    
+                    'nombre' => $request->nombres_tutor,
+                    'apellido' => $request->apellidos_tutor,
+                    'fecha_nacimiento' => $request->fec_nac_tutor,
+                    'lugar_nacimiento' => $request->lugar_nac_tutor,
+                    'sexo'=> $request->sexo_tutor,
+                    'email'=> $request->email_tutor,
+                    'profesion'=> $request->profesion_tutor,
+                    'tipo_nro_doc'=> $request->tipo_doc_alu,
+                    'nro_doc' => $request->num_doc_tutor,
+                    'nacionalidad' => $request->nacionalidad_tutor,
+                    'email'=> $request->email_tutor,
+                    'profesion'=> $request->profesion_tutor,
+                    'domicilio_id' =>$domicilio_tutor->id,
+                    
+                ]);
+                $persona_tutor->save();
+    
+                $telefono_tutor = Telefono::create([ 
+                    'persona_id' => $persona_tutor->id, 
+                    'numero'=> $request->tel1_tutor,
+                    'categoria'=>'Personal',
+                    
+                ]);
+                $telefono_tutor->save();
+    
+                if(empty($request->tel2_tutor)){
+                        
+                }else{
+                    $telefono2_tutor = Telefono::create([ 
+                        'persona_id' => $persona_tutor->id, 
+                        'numero'=> $request->tel2_tutor,
+                        'categoria'=>'Personal',
+                        
+                    ]);
+                    $telefono2_tutor->save();
+                }
+    
+                if($request->tutor_no_trabaja){
+                    
+                }else{
+                    $domicilio_lab_tutor = Domicilio::create([
+                        'calle' => $request->calle_lab_tutor,
+                        'numero' => $request->num_calle_lab_tutor,
+                        'cod_postal' => $request->cod_postal_lab_tutor,
+                        'localidad' => $request->localidad_lab_tutor,
+                        'departamento' => $request->num_depto_lab_tutor,
+                    ]);
+                    $domicilio_lab_tutor->save();
+    
+    
+    
+                $telefono_lab_tutor = Telefono::create([ 
+                    'persona_id' => $persona_tutor->id, 
+                    'numero' => $request->tel_lab_tutor,
+                    'categoria'=>'Laboral',
+                    
+                ]);
+                $telefono_lab_tutor->save();
+    
+                }
+    
+                $trabajo_tutor = TrabajoPersona::create([
+                    'persona_id' =>$persona_tutor->id, 
+                    'lugar_trabajo' => $request->lugar_trabajo_tutor,
+                    'domicilio_trabajo_id' =>$domicilio_lab_tutor->id, 
+                ]);
+                $trabajo_tutor->save();
+                $parentesco_tutor = Parentesco::create([
+                    'persona_id' =>$persona_tutor->id, 
+                    'alumno_id' => $alumno->id,
+                    'parentesco' => $request->parentesco_tutor,
+                ]);
+                $parentesco_tutor->save();
+    
+                $autoridad_tutor = Autoridad::create([
+                    'persona_id' =>$persona_tutor->id, 
+                    'user_id' => $user->id,
+                ]);
+                $autoridad_tutor->save(); 
+        }
+    }
+
     if($request->tutor_suplente_ok){
         $tutor_sup = TutorSuplente::create([
             'alumno_id' =>$alumno->id, 
