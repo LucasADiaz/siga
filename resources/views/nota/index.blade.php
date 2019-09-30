@@ -4,7 +4,7 @@
 
 
 
-  @csrf
+  
   
   <div class="col-lg-3">
       <div class="form-group">
@@ -12,7 +12,7 @@
       
       <label for="formGroupExampleInput">Por favor, seleccione una <strong>Materia</strong></label>
           
-      <select class="browser-default custom-select">
+      <select class="browser-default custom-select" id="materias">
             <option selected>Materias</option>
               @foreach ($profesor->materias as $materia)
               <option value='{{$materia->id}}'>{{$materia->nombre}} </option>      
@@ -25,15 +25,24 @@
   <div class="col-lg-3">
       <div class="form-group">
           <label for="formGroupExampleInput">A continuacion seleccione un Curso</label>
-          <select class="browser-default custom-select" disabled='{{}}'>
-            <option selected>Cursos</option>
-              {{-- @foreach ($profesor->materias->first() as $user)
+          <select class="browser-default custom-select" id="cursos">
+          
+               {{-- @foreach ($profesor->materias->first() as $user)
               <option >{{$user->materias}} </option>      
-              @endforeach --}}
-              <option value="1">One</option>
+              @endforeach  --}}
+              
           </select>
       </div>
   </div>     
   
-  
+
+
+
+     
+ @endsection
+
+@section('scripts')
+    <script src="/js/admin/users/edit.js">
+    </script>
 @endsection
+

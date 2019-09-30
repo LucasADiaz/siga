@@ -2,28 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Profesor;
-use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
+use App\CursoMateria;
 
-class NotaController extends Controller
+class CursoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    
+    public function byMaterias($id)
+    {
+
+        return CursoMateria::where('materia_id',$id)->get();
+    }
+
+
     public function index()
     {
-        $id = '22';
-        
-        return view('nota.index',[
-            // enviamos todos los usuarios a la vista
-            'profesor' => Profesor::get()->first()->find($id), //definimos una variable users que contendra el nombre y id del profesor
-                                                            // para usarlos, sera mediante el nombre users en la vista
-            ]);
+        //
     }
+
     /**
      * Show the form for creating a new resource.
      *
