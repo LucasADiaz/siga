@@ -17,7 +17,7 @@ class NotaController extends Controller
      */
     public function index()
     {
-        $id = '1';
+        $id = '1'; //JONY pone 22 para que te funque... acordate
         
         return view('nota.index',[
             // enviamos todos los usuarios a la vista
