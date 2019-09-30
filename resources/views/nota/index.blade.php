@@ -23,7 +23,7 @@
               <select class="browser-default custom-select" >
                     <option selected>Materias</option>
                       @foreach ($profesor->materias as $materia)
-                      <option value='{{$materia->id}}'>{{$materia->nombre}} </option>      
+                      <a href="www.google.com.ar"><option value='{{$materia->id}}'>{{$materia->nombre}} </option></a>      
                       @endforeach
                       
                   </select>
@@ -36,19 +36,19 @@
                       <th scope="col">Cursos</th>
                     </tr>
                   </thead>
-                  @if (empty($materia_id))
+                  {{-- @if (empty($materia_id))
                         <tr>
                           <th>seleccione Una Materia para ver sus Cursos</th>
                         </tr>
                 
                       
-                  @else
-                      @foreach ($profesor->materias->find($materia_id)->cursos as $curso)
+                  @else --}}
+                      @foreach ($profesor->materias->find(67)->cursos as $curso)
                       <tr> 
                       <th scope="row" ><a href="{{route('nota.show', $curso)}}"> {{$curso->id}} {{$curso->anio}} {{$curso->seccion}} </a></th>
                       </tr>
                     @endforeach 
-                  @endif
+                  {{-- @endif --}}
                 </table>
               </div>
       </div>
