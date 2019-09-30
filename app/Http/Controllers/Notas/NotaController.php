@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Curso;
 use App\Profesor;
 use App\User;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class NotaController extends Controller
      */
     public function index()
     {
-        $id = '3';
+        $id = '1';
         
         return view('nota.index',[
             // enviamos todos los usuarios a la vista
@@ -53,7 +54,12 @@ class NotaController extends Controller
      */
     public function show($id)
     {
-        //
+        $id2 = '1'; //id obtenido de la variable session
+
+        return view('nota.show',[
+            'profesor' => Profesor::get()->first()->find($id2), //definimos una variable users que contendra el nombre y id del profesor
+            'curso' => Curso::find($id),
+        ]);
     }
 
     /**
