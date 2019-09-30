@@ -15,6 +15,7 @@ class NotaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $id = '1'; //JONY pone 22 para que te funque... acordate

@@ -18,8 +18,10 @@ if(!materia_id){
 $.get('/api/MateriaProfesor/'+materia_id+'/Curso',function(datos){
       var html_select='<option value="">Cursos</option>';
       for(var i=0; i<datos.length; i++)
-      html_select+='<option value="'+datos[i].id+'">'+datos[i].curso_id+'</option>'
+      html_select+='<option value="'+datos[i].id+'">'+datos[i].seccion+'</option>'
       $('#cursos').html(html_select);
 });
+
+
 
 }
