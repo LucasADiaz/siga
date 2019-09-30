@@ -332,7 +332,7 @@ function esElTutor(checkbox, persona) {
         var madre_es_tutor = document.getElementById('madre_es_tutor');
 
 array = [nombres, apellidos, lugar_nac, fec_nac, tipo_doc, num_doc, nacionalidad, tel1, tel2, email,
-        localidad, cod_postal, calle, num_calle, barrio, piso, depto, tutor_no_trabaja, profesion, lugar_trabajo, cod_postal_lab,
+        localidad, cod_postal, calle, num_calle, barrio, piso, depto, tutor_no_trabaja, profesion, lugar_trabajo, localidad_lab, cod_postal_lab,
         calle_lab, num_calle_lab, piso_lab, depto_lab, tel_lab, tutor_mismodomicilio]
     
     //Si la madre es el tutor
@@ -364,7 +364,7 @@ if(persona == "madre"){
         depto.value = document.getElementById('num_depto_madre').value;
         profesion.value = document.getElementById('profesion_madre').value;
         lugar_trabajo.value = document.getElementById('lugar_trabajo_madre').value;
-        localidad_lab.value = document.getElementById('lugar_trabajo_madre').value;
+        localidad_lab.value = document.getElementById('localidad_lab_madre').value;
         cod_postal_lab.value = document.getElementById('cod_postal_lab_madre').value;
         calle_lab.value = document.getElementById('calle_lab_madre').value;
         num_calle_lab.value = document.getElementById('num_calle_lab_madre').value;
@@ -393,7 +393,7 @@ if(persona == "madre"){
         depto.value = document.getElementById('num_depto_padre').value;
         profesion.value = document.getElementById('profesion_padre').value;
         lugar_trabajo.value = document.getElementById('lugar_trabajo_padre').value;
-        localidad_lab.value = document.getElementById('lugar_trabajo_padre').value;
+        localidad_lab.value = document.getElementById('localidad_lab_padre').value;
         cod_postal_lab.value = document.getElementById('cod_postal_lab_padre').value;
         calle_lab.value = document.getElementById('calle_lab_padre').value;
         num_calle_lab.value = document.getElementById('num_calle_lab_padre').value;
