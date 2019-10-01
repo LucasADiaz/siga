@@ -50,4 +50,12 @@ Route::resource('materias','MateriaController');
 
 Route::get('legajos/new/docs','LegajosController@crearDocs')->name('legajos.crearDocs');
 
-Route::post('legajos/new/docscreado','LegajosController@storeDocs')->name('legajos.storeDocs');
+Route::post('legajos/new/','LegajosController@store')->name('legajos.store');
+
+Route::get('legajos/new/legajocreado/{nombrealu}','LegajosController@legajoCreado')->name('legajos.legajoCreado');
+
+
+Route::get('documentos/new/{nombrealu}','DocumentoController@store')->name('documentos.store');
+
+Route::get('documentos/create','DocumentoController@create')->name('documentos.create');
+//Route::resource('documentos','DocumentoController');

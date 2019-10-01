@@ -11,6 +11,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -87,13 +90,12 @@
                                     <a class="dropdown-item" href="{{route('legajos.create')}}"> Crear Legajo
                                     </a>
 
+                                    <a class="dropdown-item" href="{{route('documentos.create')}}"> Crear Documentos
+                                        </a>
                                 
                                    <a class="dropdown-item" href=""> Modificar Legajo
                                         </a>
     
-                                    <a class="dropdown-item" href=""> Eliminar Legajo
-                                            </a>
-        
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
