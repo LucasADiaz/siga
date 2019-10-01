@@ -24,7 +24,7 @@ class LegajosController extends Controller
 
     public function index()
     {
-        //
+        
     }
 
     
@@ -209,7 +209,7 @@ class LegajosController extends Controller
                 $autoridad_tutor->save(); 
     
                 $legajo_alumno = Legajo::create([
-                    'alumno_id' =>$persona_alu->id, 
+                    'alumno_id' =>$alumno->id, 
                     'tutor_id' =>$autoridad_tutor->id,
                     ]);
                 $legajo_alumno->save(); 
@@ -310,7 +310,7 @@ class LegajosController extends Controller
                 $autoridad_tutor->save(); 
     
                 $legajo_alumno = Legajo::create([
-                    'alumno_id' =>$persona_alu->id, 
+                    'alumno_id' =>$alumno->id, 
                     'padre_id' =>$persona_padre->id, 
                     'tutor_id' =>$autoridad_tutor->id,
                 ]);
@@ -411,7 +411,7 @@ class LegajosController extends Controller
             $autoridad_tutor->save(); 
               
             $legajo_alumno = Legajo::create([
-                'alumno_id' =>$persona_alu->id, 
+                'alumno_id' =>$alumno->id, 
                 'padre_id' =>$persona_padre->id, 
                 'tutor_id' =>$autoridad_tutor->id,
             ]);
@@ -514,7 +514,7 @@ class LegajosController extends Controller
                                         $autoridad_tutor->save(); 
                                           
                                         $legajo_alumno = Legajo::create([
-                                            'alumno_id' =>$persona_alu->id, 
+                                            'alumno_id' =>$alumno->id, 
                                             'madre_id' =>$persona_madre->id, 
                                             'tutor_id' =>$autoridad_tutor->id,
                                         ]);
@@ -614,7 +614,7 @@ class LegajosController extends Controller
                                 $autoridad_tutor->save(); 
                                   
                                 $legajo_alumno = Legajo::create([
-                                    'alumno_id' =>$persona_alu->id, 
+                                    'alumno_id' =>$alumno->id, 
                                     'madre_id' =>$persona_madre->id, 
                                     'tutor_id' =>$autoridad_tutor->id,
                                 ]);
@@ -723,7 +723,7 @@ class LegajosController extends Controller
                     $autoridad_tutor->save(); 
         
                     $legajo_alumno = Legajo::create([
-                        'alumno_id' =>$persona_alu->id, 
+                        'alumno_id' =>$alumno->id, 
                         'padre_id' =>$persona_padre->id, 
                         'madre_id' =>$persona_madre->id, 
                         'tutor_id' =>$autoridad_tutor->id,
@@ -737,7 +737,7 @@ class LegajosController extends Controller
                     $autoridad_tutor->save(); 
         
                     $legajo_alumno = Legajo::create([
-                        'alumno_id' =>$persona_alu->id, 
+                        'alumno_id' =>$alumno->id, 
                         'madre_id' =>$persona_madre->id, 
                         'padre_id' =>$persona_padre->id, 
                         'tutor_id' =>$autoridad_tutor->id,
@@ -842,7 +842,7 @@ class LegajosController extends Controller
                         $autoridad_tutor->save(); 
             
                         $legajo_alumno = Legajo::create([
-                            'alumno_id' =>$persona_alu->id, 
+                            'alumno_id' =>$alumno->id, 
                             'padre_id' =>$persona_padre->id,
                             'madre_id' =>$persona_madre->id,  
                             'tutor_id' =>$autoridad_tutor->id,
@@ -980,7 +980,7 @@ class LegajosController extends Controller
         
        // return back()->with('flash','Tu legajo fue creado');
        
-        return View::make('legajos.legajoCreado')->with('alumno', $persona_alu)->with('flash','Tu legajo fue creado')->with('nombrealu', $persona_alu->nombre );;
+        return View::make('legajos.legajoCreado')->with('alumno', $alumno);
 
 
     }

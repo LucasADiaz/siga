@@ -14,14 +14,14 @@ class DocumentoController extends Controller
     }
     public function create()
     {
-        $personas = Alumno::all();
+        $alumnos = Alumno::all();
 
-        return view('legajos.documentos.crearDocumentos', compact('personas'));
+        return view('legajos.documentos.crearDocumentosBusqueda', compact('alumnos'));
     }
 
-    public function store($nombrealu)
+    public function store($id_alumno)
     {
-        
-        return View::make('legajos.documentos.crearDocumentos')->with('nombrealu', $nombrealu );
+        $alumno = Alumno::where('id', $id_alumno)->first();
+        return View::make('legajos.documentos.crearDocumentos', compact('alumno'));
     }   
 }

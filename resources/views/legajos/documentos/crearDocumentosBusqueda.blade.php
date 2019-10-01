@@ -24,10 +24,31 @@
         <div class="col-md-12">
           <div class="card">
 
+
+            <form action="" class="navbar-form navbar-left" role="search" >
+                <br>
+                <div class="col-md-3 form-group item-form">
+            		<label for="search" class="sr-only">Search</label>
+            		<input type="text" class="form-control" name="search" id="search" placeholder="Buscar alumno por DNI">
+              		<button type="submit" class="btn btn-default">Submit</button>
+            	</div>
+            </form>
+
+            <form runat="server" action="{{ route('inicio')}}">
+                <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+                <div class="form-group" >
+                        <select name="receptor_id" id="" class="form-control">
+                            <option value="">Selecciona el alumno</option>
+                            @foreach ($alumnos as $alumno)
+                        <option value="{{ $alumno->persona->nombre }} {{$alumno->persona->apellido}}">{{ $alumno->persona->nombre }} {{$alumno->persona->apellido}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                 <fieldset>
                     <br>
                       <div class="col-md-12 form-group item-form">
-                      <h3>Selecciona los documentos del alumno {{ $alumno->persona->nombre }} {{$alumno->persona->apellido}}</h3>
+                      <h3>Selecciona los documentos del alumno</h3>
                       </div>
 
                       <div class="col-md-12 form-group item-form">
@@ -60,7 +81,7 @@
                     <div id="imprimir">
                             <br>
                             <div class="col-md-12 form-group item-form">
-                                    <h3>Documentos del legajo de  {{ $alumno->persona->nombre }} {{$alumno->persona->apellido}}</h3>
+                                    <h3>Documentos del legajo de  </h3>
                                 </div>
                                 <hr>
                             <div align="center"><div class="gallery"></div></div>

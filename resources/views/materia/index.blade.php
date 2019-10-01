@@ -4,7 +4,7 @@
 @section('content')
     <h4 class="border-bottom border-gray pb-2 mb-0">{{ $titulo }}</h4>
 
-            @include('info')
+            
 
             @forelse($users as $u)
                 <div class="media text-muted pt-3">
