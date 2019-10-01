@@ -18,7 +18,7 @@ class NotaController extends Controller
 
     public function index()
     {
-        $id = '1'; //JONY pone 22 para que te funque... acordate
+        $id = '22'; //JONY pone 22 para que te funque... acordate
         $materia_id =null;
         return view('nota.index',[
             // enviamos todos los usuarios a la vista
@@ -55,7 +55,7 @@ class NotaController extends Controller
      */
     public function show($id)
     {
-        $id2 = '1'; //id obtenido de la variable session
+        $id2 = '22'; //id obtenido de la variable session
 
         return view('nota.show',[
             'profesor' => Profesor::get()->first()->find($id2), //definimos una variable users que contendra el nombre y id del profesor
@@ -97,11 +97,19 @@ class NotaController extends Controller
         //
     }
 
-    public function byMaterias($id)
+    public function getcurso(Request  $request )
     {
-        return view('nota.index',[
-            'materia_id' => $id
-        ]);
+        if($request->ajax()){
+            // $cursos= Curso::where('materia_id',$request->materia_id )->get();
+            $cursos= Materia::find($request->materia)->cursos;
+            foreach($cursos as $curso){
+                $cursoArray[$curso->id]= $curso->seccion;
+            }
+            return response()->json($cursoArray);
+        }
+
+
     }
+
     
 }

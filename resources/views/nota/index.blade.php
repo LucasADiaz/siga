@@ -19,39 +19,37 @@
               <label for="formGroupExampleInput"><strong>Hola Profesor</strong>   {{$profesor->autoridad->persona->nombre}}</label>
                       
               <label for="formGroupExampleInput">Por favor, seleccione una <strong>Materia</strong></label>
-                          
-              <select class="browser-default custom-select" >
-                    <option selected>Materias</option>
-                      @foreach ($profesor->materias as $materia)
-                      <a href="www.google.com.ar"><option value='{{$materia->id}}'>{{$materia->nombre}} </option></a>      
-                      @endforeach
+              <form method="POST" action="{{route('nota.index')}}" >  
+                  @csrf
+                <div>
+                  <select class="browser-default custom-select" id="materias" name="materias" >
+                        <option selected>Materias</option>
+                          @foreach ($profesor->materias as $materia)
+                            <option value='{{$materia->id}}'>{{$materia->nombre}} </option>
+                          @endforeach
                       
                   </select>
-              </div>   
-              {{-- seccion dentro de la columna para mostrar los cursos --}}
-              <div class="form" >
-                  <table class="table table-sm table-hover">
-                  <thead>
-                    <tr>
-                      <th scope="col">Cursos</th>
-                    </tr>
-                  </thead>
-                  {{-- @if (empty($materia_id))
-                        <tr>
-                          <th>seleccione Una Materia para ver sus Cursos</th>
-                        </tr>
-                
-                      
-                  @else --}}
-                      @foreach ($profesor->materias->find(67)->cursos as $curso)
-                      <tr> 
-                      <th scope="row" ><a href="{{route('nota.show', $curso)}}"> {{$curso->id}} {{$curso->anio}} {{$curso->seccion}} </a></th>
-                      </tr>
-                    @endforeach 
-                  {{-- @endif --}}
-                </table>
-              </div>
+
+                </div>
+                <br>
+                <div>
+                  <select class="browser-default custom-select" id="cursos" name="cursos" >
+               
+                    
+                  </select>
+
+                </div>
+                <br>
+                <div>
+                  <button type="submit">
+                      Cargar
+                  </button>
+                </div>
+              </form>     
+          </div>   
+
       </div>
+
        {{-- Columna grande de la derecha --}}
        <div class="col-sm card text-center" aling="center">
           <title> </title><strong>Tabla de Notas por Curso</strong></title>
@@ -62,12 +60,38 @@
       
     </div>
  </div> 
+
+
+
+<script>
+
+$(function(){
+  $('#materias').on('change',function(){
+    var materia_id=$(this).val();
+    if($.trim(materia_id)!=''){
+      $.get('/nota/cargar',{materia_id:materia_id},function(cursos){
+
+        $('#cursos').empty();
+        $('#cursos').append("<option value=''>Seleccione un Curso </option>");
+        $.each(cursos,function(index,value){
+          $('#cursos').append("<option value='"+index+"'>" + value +" </option>");
+        }); 
+      });
+    }
+  });
+});
+
+
+</script>
+
     
 @endsection
+{{-- 
+@section('scripts')
 
 
-
-
+    
+@endsection --}}
 
 
 

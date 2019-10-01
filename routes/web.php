@@ -48,3 +48,5 @@ Route::post('/legajos/new','LegajosController@store')->name('legajos.guardar');
 //rutas para controlar el modulo de Notas -------------------
 Route::resource('nota', 'NotaController');
 
+Route::get('/nota/cargar','NotaController@getcurso')->name('nota.getcurso');
+
