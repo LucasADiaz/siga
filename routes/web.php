@@ -51,3 +51,4 @@ Route::get('obtener_curso/{id}', 'NotaController@obtener_cursos')->name('obtener
 Route::get('nota/{id_materia}/{id_curso}', 'NotaController@mostrar_alumnos')->name('mostrar_alumnos');
 
 
+

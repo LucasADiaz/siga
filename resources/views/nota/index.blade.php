@@ -4,22 +4,23 @@
 
 
   @csrf
-  <div class="container ">
-    Modulo Notas
+  <div class="container  text-center">
+    <h1><strong> Modulo Notas </strong></h1>  
   </div>
   {{-- Contenedor de todo  --}}
   <div class="container" > 
     {{-- fila --}}
     <div class="row ">
       {{-- Columna que tendra la pequeña navegacion de la izquierda--}}
-      <div class="col-3 card">
+      <div class="col-3 card" >
           {{-- seccion dentro de la columna para mostrar las materias --}}
-          <div class="">
+          <div class="form-group">
+            <br>
               <label for="formGroupExampleInput"><strong>Hola Profesor</strong>   {{$profesor->autoridad->persona->nombre}}</label>
                       
               <label for="formGroupExampleInput">Por favor, seleccione una <strong>Materia</strong></label>
                           
-              <select class="" id="materia" onchange="cursos();" style="width:100%">
+              <select class="form-control" id="materia" onchange="cursos();" style="width:100%">
                     <option>Materia</option>
                       @foreach ($profesor->materias as $materia)
                       <option value='{{$materia->id}}' {{isset($id_materia) ? ($id_materia == $materia->id ? 'selected' : '') : '' }}>{{$materia->nombre}} </option>     
@@ -33,25 +34,24 @@
             <br>
               
 
-
+           
               {{-- seccion dentro de la columna para mostrar los cursos --}}
               <div class="form" >
-                  
-                  <select class="" id="curso" onchange="alumnos();" oninput="alumnos();">
-                      
-                    </select>
+                  <label for="formGroupExampleInput">Por favor, seleccione un <strong>Curso</strong></label>
+                  <select class="form-control" id="curso" onchange="alumnos();" oninput="alumnos();">
+                  </select>
                     
                 </div> 
                 <br> 
               {{-- link se usa en jquerry  --}}
-                <div class="form" id="link"> 
+                <div class="form-group text-center" id="link"> 
 
               </div>
       </div>
       
        {{-- Columna grande de la derecha --}}
        <div class="col-sm card text-center" aling="center">
-          <title> </title><strong>Tabla de Notas por Curso</strong></title>
+          <h4>Tabla de Notas por Curso</h4>
           @yield('show')
      
       </div>
@@ -59,7 +59,6 @@
       
     </div>
  </div> 
-    
 @endsection
 
 @section('scripts')
@@ -102,22 +101,23 @@
     }
   }
 
+// actualiza dinamicamente los alumnos mendiante el uso del boton 
   function alumnos(){
     if($('#curso').val() != '' && $('#materia').val() != ''){
       let curso = $('#curso').val()
       let materia = $('#materia').val()
       $('#link').empty();
-      $("#link").append('<a href="/nota/'+materia+'/'+curso+'">Notas</a>');
+      $("#link").append('<button type="button" class="btn-ls btn-link card text-center"><a href="/nota/'+materia+'/'+curso+'">Notas</a></button>');
     }
   }
+  
+
 
 
 </script>
+
+    
 @endsection
-
-
-
-
 
 
 

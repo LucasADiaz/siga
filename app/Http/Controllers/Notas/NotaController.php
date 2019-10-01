@@ -56,7 +56,7 @@ class NotaController extends Controller
      */
     public function show($id)
     {
-        $id2 = '1'; //id obtenido de la variable session
+        $id2 = '22'; //id obtenido de la variable session
 
         return view('nota.show',[
             'profesor' => Profesor::get()->first()->find($id2), //definimos una variable users que contendra el nombre y id del profesor
@@ -105,6 +105,7 @@ class NotaController extends Controller
 
         return $materia->cursos;
     }
+
     
     public function mostrar_alumnos($id_materia, $id_curso)
     {

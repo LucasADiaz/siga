@@ -1,27 +1,16 @@
 $(function(){
+  $('#materias').on('change',function(){
+    var materia_id=$(this).val();
+    if($.trim(materia_id)!=''){
+      $.get('nota/cargar',{materia_id:materia_id},function(cursos){
 
-$('#materias').on('change',ListaDesplegables);
+        $('#cursos').empty();
+        $('#cursos').append("<optiion value=''>Seleccione un Curso </optiion>");
+        $.each(cursos,function(index,value){
+          $('#cursos').append("<optiion value='"+index+"'>" + value +" </optiion>");
+        }); 
+      });
+    }
+  });
 });
 
-function ListaDesplegables(){
-
-  var materia_id=$(this).val();
-
-if(!materia_id){
-  $('#cursos').html('<option value="">Cursos</option>');
-  return;
-
-}
-
-  //Ajax con webservicw(api)
-
-$.get('/api/MateriaProfesor/'+materia_id+'/Curso',function(datos){
-      var html_select='<option value="">Cursos</option>';
-      for(var i=0; i<datos.length; i++)
-      html_select+='<option value="'+datos[i].id+'">'+datos[i].seccion+'</option>'
-      $('#cursos').html(html_select);
-});
-
-
-
-}
