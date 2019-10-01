@@ -45,6 +45,9 @@ Route::post('/posts/send', 'PostsController@enviar')->name('posts.enviar');
 
 Route::resource('legajos','LegajosController');
 
+//Rutas de Alta Baja y Modificaciones de las materias
+Route::resource('materias','MateriaController');
+
 Route::get('legajos/new/docs','LegajosController@crearDocs')->name('legajos.crearDocs');
 
 Route::post('legajos/new/docscreado','LegajosController@storeDocs')->name('legajos.storeDocs');
