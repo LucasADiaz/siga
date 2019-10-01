@@ -9,11 +9,13 @@
         <thead>
           <tr>
             <th scope="col-2">Alumno</th>
-            <th scope="col-2">1er Trimestre</th>
-            <th scope="col-2">2do Trimestre</th>
-            <th scope="col-2">3er Trimestre</th>
+            <th scope="col-2">1er periodo <button type="button" class="btn btn-ls btn-dark" data-toggle="modal" data-target="#primerTrimestre"><i class="fa fa-pencil"></i>Editar</button>
+                    
+                 
+            <th scope="col-2">2do trimester <span class="glyphicon glyphicon-search"></span></th>
+            <th scope="col-2">3er trimestre</th>
             <th scope="col-2">Promedio</th>
-            <th scope="col-2">Gestion</th>
+            {{-- <th scope="col-2">Gestion</th> --}}
 
           </tr>
         </thead>
@@ -21,7 +23,7 @@
 
     <tbody>
         {{-- traemos las notas del alumno, por periodo y controlamos existencia --}}
-        @foreach ($curso->alumnos as $alumno)
+        @foreach ($alumnos as $alumno)
         <tr>
 
            {{-- imprimimos el nombre del alumno --}}
@@ -53,42 +55,15 @@
             @else 
             <td>{{$alumno->notas->where('periodo_id','3')->where('materia_id','67')->first()->nota}}</td>
             @endif
-            
 
-
-            {{-- crear funcion promedio --}}
                 <td>pro</td>
- 
-            {{-- Botom modificar para cargar GestionNotaController --}}
-            <td>
-                {{-- <button type="button" class="btn btn-dark"><a href="">Gestionar Alumno</a></button> --}}
-                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#miAlumno">
-                        Abrir modal
-                    </button>
-                
-                
-            </td>
-        </tr>
-        <div class="modal fade" id="miAlumno" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <h4 class="modal-title" id="myModalLabel">Esto es un modal</h4>
-                        </div>
-                        <div class="modal-body">
-                            Texto del modal
-                        </div>
-                    </div>
-                </div>
-        </div> 
+            {{-- Botom modificar para cargar GestionNotaController --}}  
+        </tr> 
         @endforeach
       
     </tbody>
   </table>
- 
+  @include('nota.primerPeriodo.modalPrimer')
 @endsection
 
 
@@ -117,3 +92,21 @@
             @empty
                  <td>-</td>
             @endforelse --}}
+
+
+
+            {{-- MODAL --}}
+{{-- 
+             --}}
+
+            {{-- Boton para Activar el Modal, tiene que ir dentro de la fila --}}
+            
+                    {{-- <button type="button" class="btn btn-dark"><a href="">Gestionar Alumno</a></button> --}}
+                    
+                  {{--  --<td>  
+                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#primerTrimestre">
+                            Abrir modal
+                        </button>
+                    
+                    
+            </td>--}}

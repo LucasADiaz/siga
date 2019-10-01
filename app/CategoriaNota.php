@@ -11,7 +11,7 @@ class CategoriaNota extends Model
     }
 
     public function materia(){    
-        return $this->belongsTo(Nota::class); 
+        return $this->belongsTo(Materia::class); 
     }
 
 

@@ -3,7 +3,6 @@
 @section('content')
 
 
-
   @csrf
   <div class="container ">
     Modulo Notas
@@ -20,38 +19,36 @@
                       
               <label for="formGroupExampleInput">Por favor, seleccione una <strong>Materia</strong></label>
                           
-              <select class="browser-default custom-select" >
-                    <option selected>Materias</option>
+              <select class="" id="materia" onchange="cursos();" style="width:100%">
+                    <option>Materia</option>
                       @foreach ($profesor->materias as $materia)
-                      <a href="www.google.com.ar"><option value='{{$materia->id}}'>{{$materia->nombre}} </option></a>      
+                      <option value='{{$materia->id}}' {{isset($id_materia) ? ($id_materia == $materia->id ? 'selected' : '') : '' }}>{{$materia->nombre}} </option>     
                       @endforeach
-                      
+                      {{-- todo el isset detnro del tag option, realiza una selecion dinamica en el caso de haber seleccionado una option previamente, para no perder la informacion anterior
+                        en los select --}}
                   </select>
-              </div>   
+              </div>  
+              
+              
+            <br>
+              
+
+
               {{-- seccion dentro de la columna para mostrar los cursos --}}
               <div class="form" >
-                  <table class="table table-sm table-hover">
-                  <thead>
-                    <tr>
-                      <th scope="col">Cursos</th>
-                    </tr>
-                  </thead>
-                  {{-- @if (empty($materia_id))
-                        <tr>
-                          <th>seleccione Una Materia para ver sus Cursos</th>
-                        </tr>
-                
+                  
+                  <select class="" id="curso" onchange="alumnos();" oninput="alumnos();">
                       
-                  @else --}}
-                      @foreach ($profesor->materias->find(67)->cursos as $curso)
-                      <tr> 
-                      <th scope="row" ><a href="{{route('nota.show', $curso)}}"> {{$curso->id}} {{$curso->anio}} {{$curso->seccion}} </a></th>
-                      </tr>
-                    @endforeach 
-                  {{-- @endif --}}
-                </table>
+                    </select>
+                    
+                </div> 
+                <br> 
+              {{-- link se usa en jquerry  --}}
+                <div class="form" id="link"> 
+
               </div>
       </div>
+      
        {{-- Columna grande de la derecha --}}
        <div class="col-sm card text-center" aling="center">
           <title> </title><strong>Tabla de Notas por Curso</strong></title>
@@ -63,6 +60,59 @@
     </div>
  </div> 
     
+@endsection
+
+@section('scripts')
+<script>
+
+  /* $('#materia').select2({
+    placeholder: "Materia..."
+  });
+  $('#curso').select2({
+    placeholder: "Materia..."
+  }); */
+
+
+/*en el caso que se manden los id... va a tratar de llamar la funcion, el isset pregunta si fue seteado en primera isntancia antes de activarlo*/
+  {{isset($id_materia, $id_curso) ?(($id_materia && $id_curso) ? 'cursos('.$id_curso.')' : '') : ''}}
+  
+  function cursos(id_curso){
+    if($('#materia').val() != 'Materia'){
+      let valor = $('#materia').val()
+      $.ajax({
+          type: "get",
+          url: "/obtener_curso/"+$('#materia').val(),
+          success: function( respuesta ){
+            if(respuesta.length > 0){
+              $('#curso').empty();
+              $('#link').empty();
+              $.each(respuesta, function (key, value) {
+                  $("#curso").append('<option value="'+ value.id +'">'+ value.anio + value.seccion+'</option>');
+              });
+              if(id_curso){
+                $('#curso').val(id_curso);
+              }
+              $('#curso').trigger('change')
+            }
+          },
+          error: function(){
+            console.log("hay error");
+          }
+      });
+    }
+  }
+
+  function alumnos(){
+    if($('#curso').val() != '' && $('#materia').val() != ''){
+      let curso = $('#curso').val()
+      let materia = $('#materia').val()
+      $('#link').empty();
+      $("#link").append('<a href="/nota/'+materia+'/'+curso+'">Notas</a>');
+    }
+  }
+
+
+</script>
 @endsection
 
 
