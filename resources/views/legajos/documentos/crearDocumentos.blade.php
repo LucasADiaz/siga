@@ -25,18 +25,14 @@
           <div class="card">
 
 
-                <form method="POST" action="" onSubmit="return validarForm(this)">
-                        <div class="form-group" >
-                                <fieldset>
-                                        <br>
-                                          <div class="col-md-12 form-group item-form">
-                        <input type="text" placeholder="Buscar usuario" name="palabra">
-                     
-                        <input type="submit" value="Buscar" name="buscar">
-                                          </div>
-                                </fieldset>
-                        </div>
-                    </form>
+            <form action="" class="navbar-form navbar-left" role="search" >
+                <br>
+                <div class="col-md-3 form-group item-form">
+            		<label for="search" class="sr-only">Search</label>
+            		<input type="text" class="form-control" name="search" id="search" placeholder="Buscar alumno por DNI">
+              		<button type="submit" class="btn btn-default">Submit</button>
+            	</div>
+            </form>
 
             <form runat="server" action="{{ route('inicio')}}">
                 <input type="hidden" name="_token" value="{!! csrf_token() !!}">
@@ -44,7 +40,7 @@
                         <select name="receptor_id" id="" class="form-control">
                             <option value="">Selecciona el alumno</option>
                             @foreach ($personas as $alumno)
-                        <option value="{{ $alumno->nombre }} {{$alumno->apellido}}">{{ $alumno->nombre }} {{$alumno->apellido}}</option>
+                        <option value="{{ $alumno->persona->nombre }} {{$alumno->persona->apellido}}">{{ $alumno->persona->nombre }} {{$alumno->persona->apellido}}</option>
                             @endforeach
                         </select>
                     </div>

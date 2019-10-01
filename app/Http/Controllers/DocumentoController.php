@@ -14,7 +14,7 @@ class DocumentoController extends Controller
     }
     public function create()
     {
-        $personas = Persona::all();
+        $personas = Alumno::all();
 
         return view('legajos.documentos.crearDocumentos', compact('personas'));
     }
