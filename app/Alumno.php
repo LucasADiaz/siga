@@ -40,5 +40,7 @@ class Alumno extends Model
     public function parentescos(){    
         return $this->belongsToMany(Persona::class,'parentescos')->withPivot('parentesco'); 
     }
+    
+    
 
 }

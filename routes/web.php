@@ -12,10 +12,9 @@
 */
 
 use App\Http\Controllers\LegajosController;
+use Illuminate\Support\Facades\Input;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@inicio')->name('inicio');
 
 Auth::routes();
 
@@ -58,5 +57,32 @@ Route::get('legajos/new/legajocreado/{nombrealu}','LegajosController@legajoCread
 
 Route::get('documentos/new/{nombrealu}','DocumentoController@store')->name('documentos.store');
 
-Route::get('documentos/create','DocumentoController@create')->name('documentos.create');
-//Route::resource('documentos','DocumentoController');
+
+Route::get('documentos/new/','DocumentoController@create')->name('documentos.create');
+
+Route::get('documentos/buscado/{dni?}','DocumentoController@search')->name('documentos.search');
+
+//Route::get('documentos/buscado/{dni?}','DocumentoController@index')->name('documentos.index');
+
+Route::get('documentos/searchredirect/',function (){
+    $search = urlencode(e(Input::get('dni')));
+    $route = "documentos/buscado/$search";
+    return redirect($route);
+})->name('documentos.searchredirect');
+
+
+/*Route::resource('documentos','DocumentoController');
+
+
+<div class="col-md-3 form-group item-form float-right">
+                {!! Form::open(array('route' => 'documentos.create','method'=> 'GET', 'class' => 'navbar-form-left', 'role' => 'search'))!!}
+                            
+               
+                        {!! Form::text('dni', null, array('placeholder' => 'Buscar alumno por DNI', 'class' => 'form-control')) !!}       
+                    </div>
+                    <div class="col-md-1 form-group item-form float-right">
+                        {!! Form::button('Buscar', array('type' => 'submit', 'class' => 'btn btn-outline-dark')) !!}    
+            </div>
+                
+                    {!! Form::close()!!} 
+                    */

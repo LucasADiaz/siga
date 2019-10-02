@@ -25,26 +25,38 @@
           <div class="card">
 
 
-            <form action="" class="navbar-form navbar-left" role="search" >
+            
                 <br>
-                <div class="col-md-3 form-group item-form">
-            		<label for="search" class="sr-only">Search</label>
-            		<input type="text" class="form-control" name="search" id="search" placeholder="Buscar alumno por DNI">
-              		<button type="submit" class="btn btn-default">Submit</button>
-            	</div>
-            </form>
+                <div class="col-md-12 form-group ">
+                       <div class="input-group row-md-4">
+                            <div class="col-md-5 form-group item-form">
+                            <div class="input-group row-md-4">
+                            <div class="col-md-5 form-group item-form">
+                                 <label>Selecciona el alumno</label>
+                            </div>
+                                <select name="selec_alumno" id="" class="form-control ">
+                                    <option value="">Listado de alumnos</option>
+                                    @foreach ($alumnos as $alumno)
+                                <option value="{{ $alumno->persona->nombre }} {{$alumno->persona->apellido}}">{{$alumno->persona->nombre }} {{$alumno->persona->apellido}}</option>
+                                    @endforeach
+                                </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3 form-group item-form">
+                            </div>
+                                    
+                            <form method="GET" class="navbar-form navbar-left" role="search" action="{{route('documentos.search')}}">
+                                    <div class="input-group row-md-4">
+                                      <input type="search" id="dni" name="dni" class="form-control">
+                                      <button>Buscar por DNI</button>
+                                    </div>
+                                  </form> 
+        </div>       
+                </div>
+            </div>  
 
             <form runat="server" action="{{ route('inicio')}}">
-                <input type="hidden" name="_token" value="{!! csrf_token() !!}">
-                <div class="form-group" >
-                        <select name="receptor_id" id="" class="form-control">
-                            <option value="">Selecciona el alumno</option>
-                            @foreach ($alumnos as $alumno)
-                        <option value="{{ $alumno->persona->nombre }} {{$alumno->persona->apellido}}">{{ $alumno->persona->nombre }} {{$alumno->persona->apellido}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
+                
                 <fieldset>
                     <br>
                       <div class="col-md-12 form-group item-form">

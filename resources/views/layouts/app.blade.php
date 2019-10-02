@@ -186,6 +186,11 @@
         <div class="alert alert-success">{{session('flash')}}</div>
         </div>
         @endif
+        @if (session()->has('flasherror'))
+        <div class="container">
+        <div class="alert alert-danger">{{session('flasherror')}}</div>
+        </div>
+        @endif
         <main class="py-4">
             
             @yield('content')

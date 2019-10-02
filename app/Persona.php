@@ -36,5 +36,11 @@ class Persona extends Model
     public function parentescos(){    
         return $this->belongsToMany(Alumno::class,'parentescos')->withPivot('parentesco'); 
     }
+    
+    public function scopeDni($query, $dni){
+       
+        $query->where('nro_doc', $dni);
+    }
+
 
 }
