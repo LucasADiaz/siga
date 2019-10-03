@@ -23,29 +23,33 @@
               
         <div class="col-md-12">
           <div class="card">
-
                 <fieldset>
-                    <br>
-                      <div class="col-md-12 form-group item-form">
-                      <h3>Selecciona los documentos del alumno {{ $alumno->persona->nombre }} {{$alumno->persona->apellido}}</h3>
-                      </div>
-
-                      <div class="col-md-12 form-group item-form">
-                          <div class="input-group row-md-4">
-                              <div class="col-md-4 form-group item-form">
-                                  
-                                  <input type="file" multiple id="gallery-photo-add">
-                                  
-                                </div>
-
-                          </div>
+                        <br>
+                        
                           <div class="col-md-12 form-group item-form text-center">
-                                <a href="javascript:pruebaDivAPdf()" class="button"><input type="button" value="Pasar a PDF"></a>
+                          <h2>Selecciona los documentos del alumno {{ $alumno->persona->nombre }} {{$alumno->persona->apellido}}</h2>
+                          </div>
+                          <div class="input-group row-md-4 ">
+                                <div class="col-md-2 form-group item-form">
                                 </div>
-                      </div>
-                    
-                </fieldset>
-
+                                <div class="col-md-6 form-group item-form">
+                                <div class="input-group ">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="inputGroupFileAddon01">Documentos del alumno</span>
+                                    </div>
+                                    <div class="custom-file">
+                                      <input type="file" class="custom-file-input" multiple id="gallery-photo-add"
+                                        aria-describedby="inputGroupFileAddon01">
+                                      <label class="custom-file-label" for="inputGroupFile01">Seleccione los archivos</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              <div class="col-md-2 form-group ">
+                                    <a href="javascript:pruebaDivAPdf()" class="button"><input type="button" class="btn btn-dark" value="Pasar a PDF"></a>
+                                    </div>
+                                
+                            </div>
+                    </fieldset>
             </form>
         </div>
         </div>
@@ -60,7 +64,8 @@
                     <div id="imprimir">
                             <br>
                             <div class="col-md-12 form-group item-form">
-                                    <h3>Documentos del legajo de  {{ $alumno->persona->nombre }} {{$alumno->persona->apellido}}</h3>
+                                    <h4>Documentos del legajo de  {{ $alumno->persona->nombre }} {{$alumno->persona->apellido}}</h4>
+                                    
                                 </div>
                                 <hr>
                             <div align="center"><div class="gallery"></div></div>

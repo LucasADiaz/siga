@@ -23,54 +23,67 @@
               
         <div class="col-md-12">
           <div class="card">
-
-
-            <form action="" class="navbar-form navbar-left" role="search" >
                 <br>
-                <div class="col-md-3 form-group item-form">
-            		<label for="search" class="sr-only">Search</label>
-            		<input type="text" class="form-control" name="search" id="search" placeholder="Buscar alumno por DNI">
-              		<button type="submit" class="btn btn-default">Submit</button>
-            	</div>
-            </form>
-
-            <form runat="server" action="{{ route('inicio')}}">
-                <input type="hidden" name="_token" value="{!! csrf_token() !!}">
-                <div class="form-group" >
-                        <select name="receptor_id" id="" class="form-control">
-                            <option value="">Selecciona el alumno</option>
-                            @foreach ($alumnos as $alumno)
-                        <option value="{{ $alumno->persona->nombre }} {{$alumno->persona->apellido}}">{{ $alumno->persona->nombre }} {{$alumno->persona->apellido}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                <fieldset>
-                    <br>
-                      <div class="col-md-12 form-group item-form">
-                      <h3>Selecciona los documentos del alumno</h3>
-                      </div>
-
-                      <div class="col-md-12 form-group item-form">
-                          <div class="input-group row-md-4">
-                              <div class="col-md-4 form-group item-form">
-                                  
-                                  <input type="file" multiple id="gallery-photo-add">
-                                  
+                <div class="col-md-12 form-group ">
+                <div class="input-group row-md-4">
+                <form method="GET" class="navbar-form " role="search" action="{{route('documentos.searchListado')}}">
+                       
+                            
+                            <div class="col-md-65 form-group item-form">
+                            <div class="input-group row-md-1">
+                                <select name="alumno[]" id="alumno"  class="form-control ">
+                                    <option value="0">Selecciona un alumno</option>
+                                    @foreach ($alumnos as $alumno)
+                                <option value="{{$alumno->id}}">{{$alumno->persona->nombre }} {{$alumno->persona->apellido}}</option>
+                                    @endforeach
+                                </select>
+                                <button>Seleccionar Alumno</button>
+                               </div>
+                            </div>
+                           </form>
+                            <div class="col-md-4 form-group item-form">
+                            </div>
+                                    
+                            <form method="GET" class="navbar-form navbar-left" role="search" action="{{route('documentos.searchDNI')}}">
+                                    <div class="input-group row-md-4">
+                                      <input type="search" id="dni" name="dni" class="form-control">
+                                      <button>Buscar por DNI</button>
+                                    </div>
+                                  </form> 
+                    </div>       
+                </div>
+        </div>  
+            <form runat="server" action="{{ route('inicio')}}"  >
+                
+                    <fieldset>
+                            <br>
+                            
+                              <div class="col-md-12 form-group item-form text-center">
+                              <h3>Selecciona los documentos del alumno </h3>
+                              </div>
+                              <div class="input-group row-md-4 ">
+                                    <div class="col-md-2 form-group item-form">
+                                    </div>
+                                    <div class="col-md-6 form-group item-form">
+                                    <div class="input-group ">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="inputGroupFileAddon01">Documentos del alumno</span>
+                                        </div>
+                                        <div class="custom-file">
+                                          <input type="file" class="custom-file-input" multiple id="gallery-photo-add"
+                                            aria-describedby="inputGroupFileAddon01">
+                                          <label class="custom-file-label" for="inputGroupFile01">Seleccione los archivos</label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  <div class="col-md-2 form-group ">
+                                        <a href="javascript:pruebaDivAPdf()" class="button"><input type="button" class="btn btn-dark" value="Pasar a PDF"></a>
+                                        </div>
+                                    
                                 </div>
-
-                          </div>
-                          <div class="col-md-12 form-group item-form text-center">
-                                <a href="javascript:pruebaDivAPdf()" class="button"><input type="button" value="Pasar a PDF"></a>
-                                </div>
-                      </div>
-                    
-                </fieldset>
+                        </fieldset>
 
             </form>
-        </div>
-        </div>
-    </div>
     &nbsp;
     <div class="container">
             <div class="row">

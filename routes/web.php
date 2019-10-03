@@ -12,51 +12,53 @@
 */
 
 use App\Http\Controllers\LegajosController;
+use Illuminate\Support\Facades\Input;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@inicio')->name('inicio');
 
 Auth::routes();
 
+//Rutas de Posts
 Route::resource('posts', 'PostsController');
 
+Route::post('/posts/send', 'PostsController@enviar')->name('posts.enviar');
+
+//Rutas del Home
 Route::get('/home', 'HomeController@index')->name('home');  
 
 Route::get('/inicio', 'HomeController@inicio')->name('inicio');
 
+//Rutas de Mensajes
 Route::post('/message/send', 'MessagesController@message')->name('messages.send');
 
 Route::get('/message', 'MessagesController@enviarMsj')->name('messages.create');
 
 Route::get('/message/{id}', 'MessagesController@show')->name('messages.show');
 
+//Rutas de Notificaciones
 Route::patch('notificaciones/{id}', 'NotificationsController@read')->name('notifications.read');
 
 Route::delete('notificaciones/{id}', 'NotificationsController@destroy')->name('notifications.delete');
 
 Route::get('notificaciones', 'NotificationsController@index')->name('notifications.index');
 
-
-Route::get('/posts', 'PostsController@crearPost')->name('posts.crear');
-
-
-Route::post('/posts/send', 'PostsController@enviar')->name('posts.enviar');
-
-
 //Rutas de Alta Baja y Modificaciones de las materias
 Route::resource('materias','MateriaController');
 
+//Rutas de Legajos
 Route::resource('legajos','LegajosController');
-
-Route::get('legajos/new/docs','LegajosController@crearDocs')->name('legajos.crearDocs');
 
 Route::post('legajos/new/','LegajosController@store')->name('legajos.store');
 
 Route::get('legajos/new/legajocreado/{nombrealu}','LegajosController@legajoCreado')->name('legajos.legajoCreado');
 
-
+//Rutas de Documentos
 Route::get('documentos/new/{nombrealu}','DocumentoController@store')->name('documentos.store');
 
-Route::get('documentos/create','DocumentoController@create')->name('documentos.create');
-//Route::resource('documentos','DocumentoController');
+Route::get('documentos/new/','DocumentoController@create')->name('documentos.create');
+
+Route::get('documentos/searchdni/{dni?}','DocumentoController@searchDNI')->name('documentos.searchDNI');
+
+Route::get('documentos/searchname/{alumno?}','DocumentoController@searchListado')->name('documentos.searchListado');
+
+//Route::get('legajos/new/documentos','LegajosController@crearDocs')->name('legajos.crearDocs');
