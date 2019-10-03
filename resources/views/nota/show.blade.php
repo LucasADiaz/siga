@@ -1,14 +1,36 @@
-{{-- @extends('layouts.app') --}}
+{{-- IMPORTANTE : en esta vista se muestra en tiempo real, la lista de alumnos de cada curso --}}
 @extends('nota.index')
 
 @section('show')
-{{-- tablaaaaaaaaaaaaaaaa --}}
+
+  
+{{-- con la creacion de los periodos, estos elementos deberan repetirse tantas veces como periodos existan --}}
+{{-- cargamos  la lista por medio de nota.trimestre --}}
   @include('nota.trimestre')
+
+
   @foreach ($categorias as $cat)
+      {{-- cargamos la vista que contiene un modal por cada categoria que exista y asignamos el nombre de la categoria en el id del modal --}}
        @include('nota.modal.modal')
   @endforeach
- 
-@endsection
+  {{-- cargamos la vista que controla el modal de las notas finales --}}
+  @include('nota.modalNotaFinal.modal')
+
+
+  @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 {{-- POSIBILIDAD DE HACERLO DIFERENTE!!  --}}

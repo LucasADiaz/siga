@@ -1,4 +1,4 @@
-{{-- esta vista responde a la pagina principal del modulo notas de un profesor --}}
+{{-- IMPORTANTE: esta vista responde a la pagina principal del modulo notas de un profesor --}}
 
 
 @extends('layouts.app')

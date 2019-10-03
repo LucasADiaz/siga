@@ -11,7 +11,7 @@
              @foreach ($categorias as $cat)
              <th scope="col-1">{{$cat->nombre}}  <button type="button" class="btn btn-ls btn-dark" data-toggle="modal" data-target="#{{$cat->nombre}}"><i class="fa fa-pencil"></i>e</button></th>
              @endforeach
-             <th class="table-dark ">Nota Final {{$periodos['0']}}</th> 
+             <th class="table-dark ">Final {{$periodos['0']}} <button type="button" class="btn btn-ls btn-light" data-toggle="modal" data-target="#{{$periodos['0']}}"><i class="fa fa-pencil"></i>e</button></th> 
          
           </tr>
         </thead>
