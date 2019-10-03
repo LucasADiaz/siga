@@ -11,7 +11,7 @@ class Materia extends Model
     }
 
     public function categoriaNota(){    
-        return $this->hasOne(CategoriaNota::class); 
+        return $this->hasMany(CategoriaNota::class); 
     }
 
     public function cursos(){    

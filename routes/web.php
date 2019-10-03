@@ -52,3 +52,4 @@ Route::get('nota/{id_materia}/{id_curso}', 'NotaController@mostrar_alumnos')->na
 
 
 
+

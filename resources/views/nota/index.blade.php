@@ -1,3 +1,6 @@
+{{-- esta vista responde a la pagina principal del modulo notas de un profesor --}}
+
+
 @extends('layouts.app')
 
 @section('content')
@@ -29,13 +32,8 @@
                         en los select --}}
                   </select>
               </div>  
-              
-              
             <br>
-              
-
-           
-              {{-- seccion dentro de la columna para mostrar los cursos --}}
+              {{-- -------- seccion dentro de la columna para mostrar los cursos------------- --}}
               <div class="form" >
                   <label for="formGroupExampleInput">Por favor, seleccione un <strong>Curso</strong></label>
                   <select class="form-control" id="curso" onchange="alumnos();" oninput="alumnos();">
@@ -47,6 +45,7 @@
                 <div class="form-group text-center" id="link"> 
 
               </div>
+              
       </div>
       
        {{-- Columna grande de la derecha --}}
@@ -61,15 +60,15 @@
  </div> 
 @endsection
 
+
+
+
+
+
+{{-- section Scripts --}}
 @section('scripts')
 <script>
 
-  /* $('#materia').select2({
-    placeholder: "Materia..."
-  });
-  $('#curso').select2({
-    placeholder: "Materia..."
-  }); */
 
 
 /*en el caso que se manden los id... va a tratar de llamar la funcion, el isset pregunta si fue seteado en primera isntancia antes de activarlo*/
@@ -112,7 +111,13 @@
   }
   
 
-
+// seccion para los placeholder de la libreria select 2
+  /* $('#materia').select2({
+    placeholder: "Materia..."
+  });
+  $('#curso').select2({
+    placeholder: "Materia..."
+  }); */
 
 </script>
 

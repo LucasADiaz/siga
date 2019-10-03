@@ -1,5 +1,5 @@
 
- <div class="modal fade" id="primerTrimestre" tabindex="-1" aria-hidden="true">
+ <div class="modal fade" id="{{$cat->nombre}}" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog" >
             <div class="modal-content">
                 <div class="modal-header">
@@ -11,7 +11,7 @@
                 </div>
                 <div class="modal-body">
 
-                    @include('nota.primerPeriodo.formNotaPrimer')
+                    @include('nota.modal.formNota')
                 
                 </div>
             </div>

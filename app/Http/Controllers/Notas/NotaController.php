@@ -7,6 +7,7 @@ use App\Profesor;
 use App\Materia;
 use App\User;
 use App\Alumno;
+use App\Periodo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
@@ -20,6 +21,7 @@ class NotaController extends Controller
 
     public function index()
     {
+        //Profesor::with('materias')->where('id','1')->get()
         $id = '1'; //JONY pone 22 para que te funque... acordate
         return view('nota.index',[
             // enviamos todos los usuarios a la vista
@@ -56,12 +58,18 @@ class NotaController extends Controller
      */
     public function show($id)
     {
-        $id2 = '22'; //id obtenido de la variable session
 
-        return view('nota.show',[
-            'profesor' => Profesor::get()->first()->find($id2), //definimos una variable users que contendra el nombre y id del profesor
-            'curso' => Curso::find($id),
-        ]);
+    
+
+
+
+        // forma estatica.------------------------------------------------------
+        // $id2 = '22'; //id obtenido de la variable session
+
+        // return view('nota.show',[
+        //     'profesor' => Profesor::get()->first()->find($id2), //definimos una variable users que contendra el nombre y id del profesor
+        //     'curso' => Curso::find($id),
+        // ]);
     }
     
     /**
@@ -99,6 +107,8 @@ class NotaController extends Controller
         //
     }
 
+    // esta funcion permite devolver los cursos al cambiar el valor del select, este devuelve
+    // los cursos pertenecientes a una materia
     public function obtener_cursos($id)
     {
         $materia = Materia::with('cursos')->find($id);
@@ -106,11 +116,26 @@ class NotaController extends Controller
         return $materia->cursos;
     }
 
-    
+    // esta funcion permite mostrar los alumnos relacionados a un curso
     public function mostrar_alumnos($id_materia, $id_curso)
     {
         $alumnos = Alumno::with('persona', 'notas')->where('curso_id', $id_curso)->get();
-/*         $alumnos = $alumnos->map(function($val) use($id_materia){
+        $trimestres = Periodo::get()->pluck('nombre');
+        $id2 = '1';
+        return view('nota.show',[
+            'alumnos' => $alumnos,
+            'profesor' => Profesor::get()->first()->find($id2),
+            'id_materia'=> $id_materia, 
+            'id_curso'=> $id_curso,
+            'periodos' => $trimestres,
+            'categorias' => Materia::find($id_materia)->categoriaNota
+        ]);
+
+
+
+
+            // intento para hacer un filtro---------------------------
+        /*         $alumnos = $alumnos->map(function($val) use($id_materia){
             $val->notas = $val->notas->filter(function ($key, $value) use($id_materia){
                     if(!empty($value)){
                         if($value->materia_id == $id_materia){
@@ -119,13 +144,10 @@ class NotaController extends Controller
                     }
             });
             return $val;
-        }); */
-        $id2 = '1';
-        return view('nota.show',[
-            'alumnos' => $alumnos,
-            'profesor' => Profesor::get()->first()->find($id2),
-            'id_materia'=> $id_materia, 
-            'id_curso'=> $id_curso
-        ]);
+            }); */
+    }
+
+    public function editable(){
+        return view('nota.prueba');
     }
 }
