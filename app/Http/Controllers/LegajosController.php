@@ -27,7 +27,7 @@ class LegajosController extends Controller
         
     }
 
-    
+
 
     public function show()
     {
@@ -56,19 +56,19 @@ class LegajosController extends Controller
     
     $persona_alu = Persona::create([
      
-     'nombre' => $request->nombres_alu,
-     'apellido' => $request->apellidos_alu,
-     'fecha_nacimiento' => $request->fec_nac_alu,
-     'lugar_nacimiento' => $request->lugar_nac_alu,
-     'sexo'=> $request->sexo_alu,
-     'tipo_nro_doc'=> $request->tipo_doc_alu,
-     'nro_doc' => $request->num_doc_alu,
-     'nacionalidad' => $request->nacionalidad_alu,
-     'domicilio_id' =>$domicilio_alu->id,
-     'email' => $request->email_alu,
-     'profesion' => 'Estudiante',
-     
-    ]);
+        'nombre' => $request->nombres_alu,
+        'apellido' => $request->apellidos_alu,
+        'fecha_nacimiento' => $request->fec_nac_alu,
+        'lugar_nacimiento' => $request->lugar_nac_alu,
+        'sexo'=> $request->sexo_alu,
+        'tipo_nro_doc'=> $request->tipo_doc_alu,
+        'nro_doc' => $request->num_doc_alu,
+        'nacionalidad' => $request->nacionalidad_alu,
+        'domicilio_id' =>$domicilio_alu->id,
+        'email' => $request->email_alu,
+        'profesion' => 'Estudiante',
+        
+       ]);
     $persona_alu->save();
     
     $alumno = Alumno::create([

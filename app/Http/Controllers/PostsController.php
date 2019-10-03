@@ -82,7 +82,8 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::where('id','!=', auth()->id())->get();
+        return view('posts.posts', compact('users'));
     }
     /**
      * Store a newly created resource in storage.
@@ -104,11 +105,6 @@ class PostsController extends Controller
         return view('posts.show',compact('post'));
     }
 
-    public function crearPost()
-    {
-        $users = User::where('id','!=', auth()->id())->get();
-        return view('posts.posts', compact('users'));
-    }
     /**
      * Show the form for editing the specified resource.
      *

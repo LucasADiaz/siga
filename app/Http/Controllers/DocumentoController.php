@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Alumno;
 use App\Persona;
 use Illuminate\Http\Request;
@@ -16,27 +17,25 @@ class DocumentoController extends Controller
         return view('legajos.documentos.crearDocumentos', compact('alumnos'));*/
     }
 
-    public function search(Request $request)
+    public function searchDNI(Request $request)
     {
-        $dni = $request->dni;   
-        $persona = Persona::where('nro_doc', $dni);
+        $dni = $request->dni;  
+        $persona = Persona::where('nro_doc', $dni)->get()->first();
         
-
         if ($persona->exists()){
-            $alumno = Alumno::find($persona->get('id'))->first();
+            $alumno = Alumno::find($persona->alumno->id);
             return view('legajos.documentos.crearDocumentos', compact('alumno'));
+        
         }else{
             return back()->with('flasherror','El DNI ingresado no se encuentra cargado');
         }
-        
-        
-    /*$alumno = Alumno::newQuery();
-
-    if($request->has('dni')){
-    $alumno->where('dni', 'like', $request->dni);
     }
-    $alumno = $alumno->get();
-    return view('crearDocumentos', compact('alumno'));*/
+
+    public function searchListado(Request $request)
+    {
+        $id = $request->alumno;  
+        $alumno = Alumno::find($id)->first();
+        return view('legajos.documentos.crearDocumentos', compact('alumno'));
     }
 
     public function create(Request $request)

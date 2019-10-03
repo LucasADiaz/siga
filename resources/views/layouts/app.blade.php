@@ -117,7 +117,7 @@
                                 </div>
                             </li>
                                 <li class="nav-item ">
-                                        <a id="navbarDropdown" class="nav-link dropdown-item" href="{{route('posts.crear')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        <a id="navbarDropdown" class="nav-link dropdown-item" href="{{route('posts.create')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                             Soporte <span class="caret"></span>
                                         </a>
         
@@ -131,7 +131,7 @@
                                             
                                         </li>
                                         <li class="nav-item ">
-                                            <a class="nav-link dropdown-item" href="{{route('posts.crear')}}" >
+                                            <a class="nav-link dropdown-item" href="{{route('posts.create')}}" >
                                                 Nuevo Post <span class="caret"></span>
                                             </a>
             
