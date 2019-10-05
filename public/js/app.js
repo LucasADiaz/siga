@@ -1797,9 +1797,11 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       items: [{
-        src: 'img/img1.jpg'
+        src: 'img/img0.jpg'
       }, {
         src: 'img/img2.jpg'
+      }, {
+        src: 'img/img3.jpg'
       }]
     };
   }
@@ -37751,7 +37753,6 @@ var render = function() {
         cycle: "",
         continuous: "",
         "show-arrows": false,
-        height: "400",
         interval: "3000"
       }
     },
