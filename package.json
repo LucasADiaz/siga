@@ -10,6 +10,7 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "@mdi/font": "^4.4.95",
         "axios": "^0.18",
         "bootstrap": "^4.0.0",
         "browser-sync": "^2.26.7",
@@ -26,6 +27,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "jspdf": "^1.5.3"
+        "jspdf": "^1.5.3",
+        "vuetify": "^2.1.1"
     }
 }

@@ -7,6 +7,10 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import '@mdi/font/css/materialdesignicons.css';
+import Vuetify from 'vuetify';
+
+Vue.use(Vuetify);
 
 /**
  * The following block of code may be used to automatically register your
@@ -19,7 +23,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('ex-s', require('./components/ExampleComponent.vue').default);
+Vue.component('ex-s', require('./components/SlideInicio.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,4 +33,9 @@ Vue.component('ex-s', require('./components/ExampleComponent.vue').default);
 
 const app = new Vue({
     el: '#app',
+    vuetify: new Vuetify({
+        icons: {
+            iconfont: 'mdi', // default - only for display purposes
+        },
+    })
 });
