@@ -197,6 +197,8 @@
             @yield('content')
 
         </main>
+
+        <footer-l></footer-l>
     </div>
 </body>
 </html>

@@ -1,13 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div>
-<ex-s></ex-s>
+<div class="container-fluid">
+<slide-i></slide-i>
 </div>
 <div class="container">
     
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-5">
+                    <h2>Sistema Informático de Gestión Académica</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus nesciunt nisi iusto modi sit magnam enim accusamus debitis eum odit similique numquam et repellendus deserunt est cupiditate, ipsa recusandae ad?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus nesciunt nisi iusto modi sit magnam enim accusamus debitis eum odit similique numquam et repellendus deserunt est cupiditate, ipsa recusandae ad?</p>
+        </div>
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
@@ -73,7 +78,6 @@
             </div>
         </div>
     </div>
-
-
+   
 </div>
 @endsection

@@ -23,7 +23,9 @@ Vue.use(Vuetify);
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('ex-s', require('./components/SlideInicio.vue').default);
+Vue.component('slide-i', require('./components/SlideInicio.vue').default);
+Vue.component('footer-l', require('./components/FooterLayout.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
