@@ -46,11 +46,22 @@ Route::get('notificaciones', 'NotificationsController@index')->name('notificatio
 Route::resource('materias','MateriaController');
 
 //Rutas de Legajos
-Route::resource('legajos','LegajosController');
+//Route::resource('legajos','LegajosController');
+
+Route::get('legajos/create/','LegajosController@create')->name('legajos.create');
 
 Route::post('legajos/new/','LegajosController@store')->name('legajos.store');
 
+Route::get('legajos/searchname/{alumno?}','LegajosController@searchListado')->name('legajos.searchListado');
+
+Route::get('legajos/searchdni/{dni?}','LegajosController@searchDNI')->name('legajos.searchDNI');
+
 Route::get('legajos/new/legajocreado/{nombrealu}','LegajosController@legajoCreado')->name('legajos.legajoCreado');
+
+Route::get('legajos/edit/','LegajosController@edit')->name('legajos.edit');
+
+Route::get('legajos/update/{alumno?}','LegajosController@update')->name('legajos.update');
+
 
 //Rutas de Documentos
 Route::get('documentos/new/{nombrealu}','DocumentoController@store')->name('documentos.store');
@@ -60,5 +71,7 @@ Route::get('documentos/new/','DocumentoController@create')->name('documentos.cre
 Route::get('documentos/searchdni/{dni?}','DocumentoController@searchDNI')->name('documentos.searchDNI');
 
 Route::get('documentos/searchname/{alumno?}','DocumentoController@searchListado')->name('documentos.searchListado');
+
+
 
 //Route::get('legajos/new/documentos','LegajosController@crearDocs')->name('legajos.crearDocs');

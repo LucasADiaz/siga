@@ -93,7 +93,7 @@
                                     <a class="dropdown-item" href="{{route('documentos.create')}}"> Crear Documentos
                                         </a>
                                 
-                                   <a class="dropdown-item" href=""> Modificar Legajo
+                                   <a class="dropdown-item" href="{{  route('legajos.edit') }}"> Modificar Legajo
                                         </a>
     
                                 </div>

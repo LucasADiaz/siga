@@ -5,8 +5,8 @@
 <div class="container">
   <div class="row">
       <div class="col-md-12 col-md-offset-2">
-          <h1>Crear Legajo del Alumno</h1>
-          <p>Se creará el legajo de un alumno, con todos sus datos y los datos de sus familares.</p>
+          <h1>Modificar Legajo del Alumno</h1>
+          <p>Se modificará el legajo de un alumno, con todos sus datos y los datos de sus familares.</p>
           <hr>
 
             <div class="wizard m-b-3">
@@ -23,23 +23,42 @@
               
       <div class="col-md-12">
           <div class="card">
+               <!-- BUSQUEDA BLOCK -->
+               @include('legajos.busqueda.bloqueBusqueda', array('routeDNI'=> 'legajos.searchDNI', 'routeListado' => 'legajos.searchListado'))
 
-
-            
-
-              <form method="POST" action="{{ route('legajos.store')}}" onsubmit="enviado()">
+              <form method="POST" action="{{ route('legajos.update')}}" onsubmit="enviado()">
                 <input type="hidden" name="_token" value="{!! csrf_token() !!}">
 
                 <!-- DATOS DEL ALUMNO -->
-                @include('legajos.alumno.alumnoform')
+                @include('legajos.crearLegajos.alumno.alumnoform',array(    'nombres_alu' => 'nombrePorDefecto',
+                                                                            'apellidos_alu' => 'apellidoPorDefecto',
+                                                                            'lugar_nac_alu' => 'lugarNacPorDefecto',
+                                                                            'fec_nac_alu' => '1111-11-11',
+                                                                            'tipo_doc_alu' => 'DNI',
+                                                                            'num_doc_alu' => '99999',
+                                                                            'nacionalidad_alu' => 'ARG',
+                                                                            'sexo_alu' => 'F',
+                                                                            'grupo_factor_alu' => 'A+',
+                                                                            'tel1_alu' => '383400000',
+                                                                            'tel2_alu' => '',
+                                                                            'email_alu' => 'email@gmail.com',
+                                                                            'localidad_alu' => 'San Fernando del Valle de Catamarca',
+                                                                            'cod_postal_alu' => '4700',
+                                                                            'barrio_alu' => '',
+                                                                            'calle_alu' => 'DNI',
+                                                                            'num_calle_alu' => '000',
+                                                                            'piso_alu' => '',
+                                                                            'num_depto_alu' => '',
+                                                                            'esc_procedencia_alu' => 'EscuelaProcedencia'))
                 <!--DATOS PERSONALES DE LA MADRE-->
-                @include('legajos.madre.madreform')
+                @include('legajos.crearLegajos.madre.madreform' )
                 <!--DATOS PERSONALES DEL PADRE-->
-                @include('legajos.padre.padreform')
+                @include('legajos.crearLegajos.padre.padreform')
                 <!--DATOS PERSONALES DEL TUTOR-->
-                @include('legajos.tutor.tutorform')
+                @include('legajos.crearLegajos.tutor.tutorform')
                 <!-- DATOS DE TUTORES SUPLENTES -->
-                @include('legajos.tutorsup.tutorsupform')
+                @include('legajos.crearLegajos.tutorsup.tutorsupform')
+
 
                                   
                 <div class="col-md-12 form-group item-form text-center">
