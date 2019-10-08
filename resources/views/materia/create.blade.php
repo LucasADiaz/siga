@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="container">
+    @include('errors.validacion')
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -10,7 +11,9 @@
                     Crear Nueva Materia
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('materias.store') }}">
+                    <form method="POST" action="{{ route('materias.store') }}" class="needs-validation">
+
+                        @csrf
                         {{-- Nombre del Profesor --}}
 
                         <div class="form-group row">
@@ -21,7 +24,7 @@
                             </label>
                             <div class="col-8">
                                 <input id="name" name="name" placeholder="Nombre de la Materia" type="text"
-                                    class="form-control" required="required">
+                                    class="form-control" value="{{ old('name') }}">
                             </div>
                         </div>
 
@@ -34,7 +37,7 @@
                                 </font>
                             </label>
                             <div class="col-8">
-                                <select id="prof" name="prof" class="custom-select" required="required">
+                                <select id="prof" name="per_prof" class="custom-select" required="required">
 
                                     {{-- Listado de profesores --}}
                                     @foreach ($persona_prof as $p)

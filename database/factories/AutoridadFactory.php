@@ -9,7 +9,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Autoridad::class, function (Faker $faker) {
     return [
-        'persona_id'=> Persona::all()->random()->id,
-        'user_id'=> User::all()->random()->id,
+        'persona_id'=> Persona::all()->unique()->random()->id,
+        'user_id'=> User::all()->unique()->random()->id,
     ];
 });

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CrearMateriaRequest;
 use App\Materia;
+use App\MateriaProfesor;
+use App\Periodo;
+use App\Persona;
 use App\Profesor;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Http\Request;
 
 class MateriaController extends Controller
 {
@@ -18,7 +21,7 @@ class MateriaController extends Controller
     {
         $materias = Materia::all();
         $titulo = 'Listado de Materias';
-        return view('materia.index', compact('titulo','materias'));
+        return view('materia.index', compact('titulo', 'materias'));
     }
 
     /**
@@ -39,12 +42,33 @@ class MateriaController extends Controller
     /**
      * Almacenar un recurso recién creado en la Base de Datos.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Requests\CrearMateriaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CrearMateriaRequest $request)
     {
-        //
+
+        $validated = $request->validated();
+        /**
+         * validated[▼
+         * "name" => "Matematicas"
+         * "prof" => "8"
+         * "caracter" => "1"
+         * ]
+         */
+        //dd($validated);
+        $m = new Materia();
+        $m->nombre = $validated['name'];
+        $m->save();
+
+        $mp = new MateriaProfesor();
+        $mp->materia_id = $m->id;
+        $mp->profesor_id = Persona::find($validated['per_prof'])->autoridad->profesor->id;
+        $mp->caracter = $validated['caracter'];
+        $mp->save();
+
+        return redirect()->route('materias.index')->with('info', 'Se creo con exito la materia '.$m->nombre.'.');
+
     }
 
     /**
