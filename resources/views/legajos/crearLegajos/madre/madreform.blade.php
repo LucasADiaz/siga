@@ -68,11 +68,11 @@
           <label>Sexo</label>
           <br>
           <label for="F" class="radio-inline">
-              <input type="radio" name="sexo_madre" id="sexo_madre" value="F" <?php if($sexo_madre=='F') echo 'checked="checked"'; ?> {{ $sexo_madre_f ?? '' }}> Femenino
+              <input type="radio" name="sexo_madre" id="sexo_madre" value="F" <?php if($sexo_madre == 'F') echo 'checked="checked"'; ?> {{ $sexo_madre_f ?? '' }}> Femenino
             </label>
             <br>
             <label for="M" class="radio-inline">
-                  <input type="radio" name="sexo_madre" id="sexo_madre" value="M" <?php if($sexo_madre=='M') echo 'checked="checked"'; ?> {{ $sexo_madre_m ?? '' }}> Masculino
+                  <input type="radio" name="sexo_madre" id="sexo_madre" value="M" <?php  if($sexo_madre == 'M') echo 'checked="checked"'; ?> {{ $sexo_madre_m ?? '' }}> Masculino
             </label>
           <p class="help-block error hidden">Ingresá tu sexo</p>
       </div>

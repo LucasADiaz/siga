@@ -387,16 +387,14 @@ class LegajosController extends Controller
                  
              ]);
              $telefono_lab_tutor->save();
-            
-            }
-        
-            $trabajo_tutor = TrabajoPersona::create([
+             $trabajo_tutor = TrabajoPersona::create([
                 'persona_id' =>$persona_tutor->id, 
                 'domicilio_trabajo_id' => $domicilio_lab_padre->id,
                 'lugar_trabajo' => $request->lugar_trabajo_tutor,
             ]);
             $trabajo_tutor->save();
-    
+            }
+        
             $parentesco_tutor = Parentesco::create([
                 'persona_id' =>$persona_tutor->id, 
                 'alumno_id' => $alumno->id,
@@ -594,13 +592,14 @@ class LegajosController extends Controller
                                 ]);
                                 $telefono_lab_tutor->save();
         
-                            }
+                            
                             $trabajo_tutor = TrabajoPersona::create([
                                 'persona_id' =>$persona_tutor->id,
                                 'domicilio_trabajo_id' => $domicilio_lab_tutor->id,
                                 'lugar_trabajo' => $request->lugar_trabajo_tutor,
                             ]);
                             $trabajo_tutor->save();
+                        }
                                 $parentesco_tutor = Parentesco::create([
                                     'persona_id' =>$persona_tutor->id, 
                                     'alumno_id' => $alumno->id,
@@ -1023,7 +1022,8 @@ class LegajosController extends Controller
         'sexo_madre' => 'F',
         'tel1_madre' => '38341111',
         'tel2_madre' => '',
-        'email_madre' => 'emailmadre@gmail.com',
+        'email_madre' => 'emailmadre@gmail.com',        
+        'madre_mismodomicilio ' => "si",
         'localidad_madre' => 'Localidad',
         'cod_postal_madre' => '4700',
         'barrio_madre' => '',
@@ -1075,7 +1075,10 @@ class LegajosController extends Controller
         'tel_lab_padre' => '383400000',
     );
     $tutor_mismodomicilio ='no';
-    $tutorPorDefecto = array ( 'tutor_mismodomicilio ' => 'no',
+    $madre_es_tutor = 'no';
+    $padre_es_tutor = 'no';
+    $tutorPorDefecto = array ( 
+        'tutor_mismodomicilio ' => 'no',
         'nombres_tutor' => 'NombresTutor',
         'apellidos_tutor' => 'ApellidosTutor',
         'lugar_nac_tutor' => 'LugarNacimientoTutor',
@@ -1110,14 +1113,14 @@ class LegajosController extends Controller
     $tutorSupPorDefecto = array (   'puede_ser_retirado' => 'no',
                                     'tutor_suplente_ok' => 'no');
 
-        return view('legajos.crearLegajos.crearlegajo', compact('alumnoPorDefecto','madrePorDefecto','padrePorDefecto', 'tutorPorDefecto', 'tutorSupPorDefecto', 'madre_mismodomicilio','padre_mismodomicilio','tutor_mismodomicilio'));
+        return view('legajos.crearLegajos.crearlegajo', compact('alumnoPorDefecto','madrePorDefecto','padrePorDefecto', 'tutorPorDefecto', 'tutorSupPorDefecto', 'madre_mismodomicilio','padre_mismodomicilio','tutor_mismodomicilio','madre_es_tutor','padre_es_tutor'));
     }
     
     public function edit()
-    {
-        $alumnos = Alumno::all();
-        
-        return view('legajos.modificarLegajos.legajoBusqueda')->with('alumnos', $alumnos)->with('sexo_madre','F')->with('sexo_padre','M')->with('madre_mismodomicilio','no')->with('padre_mismodomicilio','no')->with('tutor_mismodomicilio','no');
+    {   $alumnos = Alumno::all();
+       
+        $checkBoxPorDefecto = array('sexo_madre' =>'F', 'sexo_padre' => 'M', 'madre_mismodomicilio' => 'no', 'padre_mismodomicilio' =>'no', 'tutor_mismodomicilio' =>'no', 'madre_es_tutor' => 'no', 'padre_es_tutor' => 'no');
+        return view('legajos.modificarLegajos.legajoBusqueda', compact('checkBoxPorDefecto'))->with('alumnos', $alumnos);
     }
 
     public function update(Request $request)
@@ -1376,7 +1379,9 @@ class LegajosController extends Controller
 
                 $datos_lab_padre = TrabajoPersona::where('persona_id',$padre->id)->get()->first();
                 $domicilio_lab_padre = Domicilio::find(TrabajoPersona::where('persona_id',$padre->id)->get()->first()->domicilio_trabajo_id);
-                $tel_lab_padre = Telefono::where('persona_id', $padre->id)->where('categoria','Laboral')->get('numero')->first()->numero;
+                
+                $tel_lab_padre = Telefono::where('persona_id', $padre->id)->where('categoria','Laboral')->first()->numero;
+                
                 $datosPadre = array('nombres_padre' => $padre->nombre,
                 'apellidos_padre' => $padre->apellido,
                 'lugar_nac_padre' => $padre->lugar_nacimiento,
@@ -1405,18 +1410,24 @@ class LegajosController extends Controller
                 'num_calle_lab_padre' => $domicilio_lab_padre->numero,
                 'piso_lab_padre' => $domicilio_lab_padre->piso,
                 'num_depto_lab_padre' => $domicilio_lab_padre->num_depto,
-                'tel_lab_padre' => $tel_lab_madre,
+                'tel_lab_padre' => $tel_lab_padre,
             );    
         }
        
         }
+
         $tutor = $alumno->legajo->tutor->persona;
-        if($tutor == $madre){
+        $madre_es_tutor = 'no';
+        $padre_es_tutor = 'no';
+
+        if($madre->id == $tutor->id){
+           
             $tutor = $madre;
+            $madre_es_tutor = 'si';
             
-         }else if($tutor == $padre){
+         }else if($padre->id == $tutor->id){
             $tutor = $padre;
-            
+            $padre_es_tutor = 'si';
          }else{
             $tutor = Autoridad::where('persona_id',$tutor->id)->get()->first()->persona;
          }
@@ -1432,11 +1443,17 @@ class LegajosController extends Controller
             $tutor_mismodomicilio = 'si';
         }else{
             $tutor_mismodomicilio = 'no';
+            $padre_es_tutor = 'no';
+            $madre_es_tutor = 'no';
         }
         //Si el tutor no tiene domicilio de trabajo (NO TRABAJA)
+
+        
         if(TrabajoPersona::where('persona_id',$tutor->id)->get()->first() == null){
             $notrabaja_tutor = 'si';
-            $datosTutor = array('nombres_tutor' => $tutor->nombre,
+            $datosTutor = array('madre_es_tutor' => $madre_es_tutor,
+            'padre_es_tutor' => $padre_es_tutor,
+                'nombres_tutor' => $tutor->nombre,
             'apellidos_tutor' => $tutor->apellido,
             'lugar_nac_tutor' => $tutor->lugar_nacimiento,
             'fec_nac_tutor' => $tutor->fecha_nacimiento,
@@ -1463,7 +1480,9 @@ class LegajosController extends Controller
             $datos_lab_tutor = TrabajoPersona::where('persona_id',$tutor->id)->get()->first();
             $domicilio_lab_tutor = Domicilio::find(TrabajoPersona::where('persona_id',$tutor->id)->get()->first()->domicilio_trabajo_id);
             $tel_lab_tutor = Telefono::where('persona_id', $tutor->id)->where('categoria','Laboral')->get('numero')->first()->numero;
-            $datosTutor = array('nombres_tutor' => $tutor->nombre,
+            $datosTutor = array('madre_es_tutor' => $madre_es_tutor,
+            'padre_es_tutor' => $padre_es_tutor,
+            'nombres_tutor' => $tutor->nombre,
             'apellidos_tutor' => $tutor->apellido,
             'lugar_nac_tutor' => $tutor->lugar_nacimiento,
             'fec_nac_tutor' => $tutor->fecha_nacimiento,
@@ -1492,7 +1511,7 @@ class LegajosController extends Controller
             'num_calle_lab_tutor' => $domicilio_lab_tutor->numero,
             'piso_lab_tutor' => $domicilio_lab_tutor->piso,
             'num_depto_lab_tutor' => $domicilio_lab_tutor->num_depto,
-            'tel_lab_tutor' => $tel_lab_madre,
+            'tel_lab_tutor' => $tel_lab_tutor,
         );    
         }
         $datosTutorSup = array();

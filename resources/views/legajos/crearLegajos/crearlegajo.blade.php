@@ -43,7 +43,7 @@
                                   
                 <div class="col-md-12 form-group item-form text-center">
       
-                <button type="submit" >Guardar Legajo</button>
+                <button type="submit" class="btn btn-light btn-outline-dark" >Guardar Legajo</button>
                 </div>
             </form>
         </div>

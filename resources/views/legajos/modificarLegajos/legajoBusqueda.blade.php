@@ -51,19 +51,19 @@
                                                                             'num_depto_alu' => '',
                                                                             'esc_procedencia_alu' => 'EscuelaProcedencia'))
                 <!--DATOS PERSONALES DE LA MADRE-->
-                @include('legajos.crearLegajos.madre.madreform' )
+                @include('legajos.crearLegajos.madre.madreform' ,$checkBoxPorDefecto)
                 <!--DATOS PERSONALES DEL PADRE-->
-                @include('legajos.crearLegajos.padre.padreform')
+                @include('legajos.crearLegajos.padre.padreform',$checkBoxPorDefecto)
                 <!--DATOS PERSONALES DEL TUTOR-->
-                @include('legajos.crearLegajos.tutor.tutorform')
+                @include('legajos.crearLegajos.tutor.tutorform',$checkBoxPorDefecto)
                 <!-- DATOS DE TUTORES SUPLENTES -->
-                @include('legajos.crearLegajos.tutorsup.tutorsupform')
+                @include('legajos.crearLegajos.tutorsup.tutorsupform',$checkBoxPorDefecto)
 
 
                                   
                 <div class="col-md-12 form-group item-form text-center">
       
-                <button type="submit" >Guardar Legajo</button>
+                <button type="submit" class="btn btn-light btn-outline-dark">Guardar Legajo</button>
                 </div>
             </form>
         </div>

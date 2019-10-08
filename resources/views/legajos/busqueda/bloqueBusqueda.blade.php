@@ -7,11 +7,13 @@
                 <div class="input-group row-md-1">
                 <select name="alumno[]" id="alumno"  class="form-control ">
                     <option value="0">Selecciona un alumno</option>
-                    @foreach ($alumnos as $alumno)
+                    @if($alumnos ?? '' != null)
+                    @foreach ($alumnos ?? '' ?? '' as $alumno)
                 <option value="{{ $alumno->id }}">{{$alumno->persona->nombre }} {{$alumno->persona->apellido}}</option>
                     @endforeach
+                    @endif
                 </select>
-                <button>Seleccionar Alumno</button>
+                <button class="btn btn-light btn-outline-dark">Seleccionar Alumno</button>
                </div>
             </div>
            </form>
@@ -21,7 +23,7 @@
             <form method="GET" class="navbar-form navbar-left" role="search" action="{{ route($routeDNI) }}">
                     <div class="input-group row-md-4">
                       <input type="search" id="dni" name="dni" class="form-control">
-                      <button>Buscar por DNI</button>
+                      <button class="btn btn-light btn-outline-dark">Buscar por DNI</button>
                     </div>
                   </form> 
     </div>       

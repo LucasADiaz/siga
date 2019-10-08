@@ -5,7 +5,8 @@
         <h3>Datos personales del tutor</h3>
       </div>
       <div>
-        <input type="checkbox" name="madre_es_tutor" id="madre_es_tutor" value="activado" onChange="esElTutor(this,'madre');">Es la madre
+   
+        <input type="checkbox" name="madre_es_tutor" id="madre_es_tutor" value="activado" <?php $madre_es_tutor ?? ''; if($madre_es_tutor == "si")echo "checked";?>  onChange="esElTutor(this,'madre');">Es la madre
       </div>&nbsp;&nbsp;
       <div>
         <input type="checkbox" name="padre_es_tutor" id="padre_es_tutor" value="activado" onChange="esElTutor(this,'padre');">Es el padre
@@ -143,7 +144,7 @@
           <h3>Domicilio del tutor </h3>
         </div>
         <div>
-                <input type="checkbox" name="tutor_mismodomicilio" id="tutor_mismodomicilio" value="desactivado" <?php $tutor_mismodomicilio ?? ''; if($tutor_mismodomicilio == "si")echo "checked";?> onChange="mismoDomicilioAlumno(this,'tutor');" <?php if($mismodomicilio_tutor_disabled ?? '' == "si")echo "disabled"; ?>checked >Mismo domicilio del alumno
+                <input type="checkbox" name="tutor_mismodomicilio" id="tutor_mismodomicilio" value="desactivado" <?php $tutor_mismodomicilio ?? ''; if($tutor_mismodomicilio == "si")echo "checked";?> onChange="mismoDomicilioAlumno(this,'tutor');" <?php if($mismodomicilio_tutor_disabled ?? '' == "si")echo "disabled"; ?> >Mismo domicilio del alumno
             </div>
     </div>
 
