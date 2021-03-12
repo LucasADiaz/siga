@@ -27,7 +27,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "jspdf": "^1.5.3",
+        "jspdf": "^2.3.1",
         "vuetify": "^2.1.1"
     }
 }
